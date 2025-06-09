@@ -9,7 +9,12 @@ export const findUserById = async (id) => {
              user = await getUserWithoutCards(id);
         }
         catch(e){
-            await createUserByBot(id);
+            try{
+                await createUserByBot(id);
+            }
+            catch(e){
+                console.warn(e);
+            }
             user = await getUserWithoutCards(id); 
         }
         const userCards = await getCardByUserId(id);
