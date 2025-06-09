@@ -24,7 +24,7 @@ const useBlockInputs = () => {
             smallTextarea.removeEventListener("blur", menuController.showMenu
             );
           }
-        }
+        } 
       }, []);
 
         useEffect(() => {

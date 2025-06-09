@@ -27,11 +27,7 @@ const BaidgeCreating = () => {
 
   const professions = useSelector((state) => state.profession.professions);
 
-  console.log(professions);
-
   const me = useSelector( (state) => state.telegramUserInfo )
-
-  console.log(me)
 
   const [description, setDescription] = useState(me.profile.about ?? "");
 
@@ -41,8 +37,6 @@ const BaidgeCreating = () => {
     
   };
 
-  console.log(categorys[0]);
-  console.log(me);
   const [taggsText, setTaggsText] = useState("");
 
   const [taggs, setTaggs] = useState(me.taggs ?? []);
