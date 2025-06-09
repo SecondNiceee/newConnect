@@ -14,6 +14,7 @@ import Text from "../../../../components/Text/Text";
 import translation from "../../../../functions/translate";
 import en from "../../../../constants/language";
 import ChoiceSubCategory from "../components/ChoiceCategory/ChoiceSubCategory";
+import menuController from "../../../../functions/menuController";
 
 
 // eslint-disable-next-line
@@ -223,9 +224,9 @@ const AdCreatingOne = ({
     if (dateObject && datePickerObject) {
       if (state.isOpen) {
         appear();
-        menu.style.display = "none"
+        menuController.hideMenu();
       } else {
-        menu.style.display = "flex"
+        menuController.showMenu();
         disappear();
       }
     }

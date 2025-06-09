@@ -1,26 +1,29 @@
 import { useEffect } from "react";
-
+import menuController from "../functions/menuController";
 
 const useBlockInputs = () => {
   useEffect(() => {
-      const menu = document.documentElement.querySelector(".FirstMenu");
         const input = document.querySelectorAll('input'); 
         const textarea = document.querySelectorAll("textarea");
         for (let smallInput of input) {
-          smallInput.addEventListener("focus", () => {
-            menu.style.display = "none"; // скрываем меню
-          });
-          smallInput.addEventListener("blur", () => {
-            menu.style.display = "flex"; // скрываем меню
-          });
+          smallInput.addEventListener("focus", menuController.hideMenu);
+          smallInput.addEventListener("blur", menuController.showMenu);
         }
         for (let smallTextarea of textarea) {
-          smallTextarea.addEventListener("focus", () => {
-            menu.style.display = "none"; // скрываем меню
-          });
-          smallTextarea.addEventListener("blur", () => {
-            menu.style.display = "flex"; // скрываем меню
-          });
+          smallTextarea.addEventListener("focus", menuController.hideMenu);
+          smallTextarea.addEventListener("blur", menuController.showMenu
+          );
+        }
+        return () => {
+          for (let smallInput of input) {
+            smallInput.removeEventListener("focus", menuController.hideMenu);
+            smallInput.removeEventListener("blur", menuController.showMenu);
+          }
+          for (let smallTextarea of textarea) {
+            smallTextarea.removeEventListener("focus", menuController.hideMenu);
+            smallTextarea.removeEventListener("blur", menuController.showMenu
+            );
+          }
         }
       }, []);
 
