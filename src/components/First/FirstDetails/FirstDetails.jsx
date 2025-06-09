@@ -98,11 +98,13 @@ const FirstDetails = ({ end, className, changeButton = true, showButton=true, ..
   }, [] )
 
   useEffect( () => {
-    MainButton.onClick(goForward);
+    if (changeButton && showButton){
+      MainButton.onClick(goForward);
+    }
     return () => {
       MainButton.offClick(goForward)
     }
-  }, [goForward] )
+  }, [goForward, changeButton, showButton] )
 
 
   useNavigateBack({isSliderOpened, setSlideOpened});
