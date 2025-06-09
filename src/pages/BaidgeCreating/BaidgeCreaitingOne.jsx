@@ -32,7 +32,9 @@ const BaidgeCreaitingOne = ({setDescription, description, setCategoryOpen, isCat
     } , [categoryInformation.category, sortedProfessions, setCategoryInformation] )
 
     if (!categoryInformation.category || !professions || !categoryInformation.profession.id){
-      return <MyLoader />
+      return (<div className='h-screen w-screen min-h-screen'>
+        <MyLoader />
+      </div>) 
     }
     return (
         <>
