@@ -26,7 +26,7 @@ const CommonRating = ({commonRating, onClick = () => {}}) => {
         <h2 className={`font-sf-pro-display-600 text-[17px] ${color.title}  leading-[18px]`}>
           Топ {commonRating}
         </h2>
-        <p className={`font-sf-pro-display max-w-[80px] text-[13px] tracking-wide ${color.text} leading-[16px]`}>
+        <p className={`font-sf-pro-display max-w-[80px] text-[13px] tracking-wide ${color.text} leading-[14.667px]`}>
           в рейтинге Connect
         </p>
       </div>
