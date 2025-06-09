@@ -53,6 +53,7 @@ const NewProfileCup = ({
     }
     window.Telegram.WebApp.HapticFeedback.selectionChanged();
   }
+  console.warn("Привет");
   const {nitchIcon} = useGetNitcheIcon({nitchRating : positionOfNitcheRating, textClassName : 'rating-icon__text', className : 'rating-icon',});
   const {commonIcon} = useGetCommonIcon({commonRating, className : 'rating-icon', textClassName : 'rating-icon__text'})
     return (
