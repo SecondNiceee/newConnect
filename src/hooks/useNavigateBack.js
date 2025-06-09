@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import BackButton from '../constants/BackButton';
 
-const useNavigateBack = ({isSliderOpened, setSlideOpened}) => {
+const useNavigateBack = ({isSliderOpened, setSlideOpened, isWorks = true}) => {
   const navigate = useNavigate();
   const goBack = useCallback( () => {
     if (isSliderOpened){
@@ -14,12 +14,14 @@ const useNavigateBack = ({isSliderOpened, setSlideOpened}) => {
   }, [isSliderOpened, setSlideOpened, navigate] )
 
   useEffect( () => {
-    BackButton.show();
-    BackButton.onClick(goBack);
+    if (isWorks){
+      BackButton.show();
+      BackButton.onClick(goBack);
+    }
     return () => {
       BackButton.offClick(goBack);
     }
-  }, [goBack] )
+  }, [goBack, isWorks] )
 };
 
 export default useNavigateBack;

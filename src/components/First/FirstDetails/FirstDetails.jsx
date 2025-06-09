@@ -16,7 +16,7 @@ import { showAllert } from "../../../functions/showAlert";
 import { enableColorAndActiveButton } from "../../../functions/enableColorAndActiveButton";
 import { disableColorButton } from "../../../functions/disableColorButton";
 
-const FirstDetails = ({ end, className, changeButton = true, showButton=true, ...props }) => {
+const FirstDetails = ({ end, className, navigateBack = true, changeButton = true, showButton=true, ...props }) => {
 
   const disatch = useDispatch();
 
@@ -107,7 +107,7 @@ const FirstDetails = ({ end, className, changeButton = true, showButton=true, ..
   }, [goForward, changeButton, showButton] )
 
 
-  useNavigateBack({isSliderOpened, setSlideOpened});
+  useNavigateBack({isSliderOpened, setSlideOpened, isWorks : navigateBack});
 
   useEffect(() => {
     if (!end && orderInformation) {
