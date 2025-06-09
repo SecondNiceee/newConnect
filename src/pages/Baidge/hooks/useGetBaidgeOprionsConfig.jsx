@@ -17,7 +17,7 @@ const useGetBaidgeOprionsConfig = ({userInfo}) => {
                 isNeededActiveTitle : false,
                 clickFunc : () => {
                     dispatch(setUser(userInfo))
-                    navigate('/feedbacks')},
+                    navigate(`/feedbacks/${userInfo.id}`)},
                 node : <FeedBacksInfo feedbacks={userInfo.feedbacks} />
             },
             {

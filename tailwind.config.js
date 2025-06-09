@@ -39,6 +39,12 @@ module.exports = {
           left : '50%',
           top : '50%',
           position : "absolute"
+        },
+        ".connect-container" : {
+          padding : "16px 16px 100px 16px",
+          display : "flex",
+          flexDirection : "column",
+          backgroundColor : "#18222d"
         }
       })
     })

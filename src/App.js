@@ -36,6 +36,7 @@ import Responce from "./pages/First/Responce";
 import NewInnerCase from "./pages/NewInnerCase/NewInnerCase";
 import Baidge from "./pages/Baidge/Baidge";
 import AdCreatingThree from "./pages/AdCreatingThree/AdCreatingThree";
+import Feedbacks from "./pages/Feedbacks/ui/Feedbacks";
 
 const NewChangeCard = lazy( () => import('./pages/NewChangeCard/NewChangeCard') )
 const HappyPage = lazy(() => import("./pages/HappyHold/HappyPage"));
@@ -46,7 +47,6 @@ const Balance = lazy(() => import("./pages/Balance"));
 const MyAds = lazy(() => import("./pages/MyAds/MyAds"));
 const AllShablons = lazy(() => import("./pages/AllShablons/AllShablons"));
 const SavedPage = lazy(() => import("./pages/SavedPage/SavedPage"));
-const Feedbacks = lazy( () => import("./pages/Feedbacks/ui/Feedbacks") )
 
 
 const BaidgeCreating = lazy(() =>
@@ -169,15 +169,6 @@ const AnimatedSwitch = () => {
             />
 
             <Route
-              path="/feedbacks"
-              element={
-                <Suspense fallback={<MyLoader />}>
-                  <Feedbacks />
-                </Suspense>
-              }
-            />
-
-            <Route
               path="/cardCreation"
               element={
                 <Suspense fallback={<MyLoader />}>
@@ -192,6 +183,14 @@ const AnimatedSwitch = () => {
                   <ShowMyResponse />
               }
             />
+
+            <Route
+              path="/feedbacks/:userId"
+              element={
+                  <Feedbacks />
+              }
+            />
+
 
             <Route
               path="/response/:advertisementId/:responseId"

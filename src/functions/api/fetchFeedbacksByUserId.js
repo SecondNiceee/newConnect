@@ -9,5 +9,6 @@ export const fetchFeedBacksByUserId = async (userId) => {
             "X-API-KEY-AUTH" : process.env.REACT_APP_API_KEY
         }
     })
+    console.log(feedbacks.data);
     return feedbacks.data;
 }
