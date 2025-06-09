@@ -83,7 +83,7 @@ const NewProfile = () => {
       /> : <ProfileCup gotenUserInfo={userInfo} />}
 
 
-      <PayBlock className="pay-block" />
+      <PayBlock />
 
       <div className="flex flex-col rounded-[12px] bg-[#20303f]">
         {optionsConfig.map((option, i) => (

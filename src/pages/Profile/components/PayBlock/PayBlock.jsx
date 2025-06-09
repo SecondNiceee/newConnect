@@ -8,7 +8,7 @@ import useTonConnection from "../../../../hooks/useTonConnection";
 import WalletBackPack from "./WalletBackPack";
 import { putUserInfo } from "../../../../store/telegramUserInfo/thunks/putUserInfo";
 import formateMoney from "../../../../functions/formateMoney";
-const PayBlock = ({ className }) => {
+const PayBlock = ({ className = {} }) => {
   
   const address = useSelector((state) => state.telegramUserInfo.address);
 
