@@ -16,7 +16,7 @@ import { showAllert } from "../../../functions/showAlert";
 import { enableColorAndActiveButton } from "../../../functions/enableColorAndActiveButton";
 import { disableColorButton } from "../../../functions/disableColorButton";
 
-const FirstDetails = ({ end, className, showButton =true, ...props }) => {
+const FirstDetails = ({ end, className, changeButton = true, showButton=true, ...props }) => {
 
   const disatch = useDispatch();
 
@@ -55,17 +55,19 @@ const FirstDetails = ({ end, className, showButton =true, ...props }) => {
       MainButton.setText("Закрыть");
     }
     else{
-      if (showButton){
-        menuController.lowerMenu();
-        MainButton.show();
-        MainButton.setText("ОТКЛИКНУТЬСЯ");
-      }
-      else{
-        menuController.hideMenu();
-        MainButton.hide();
+      if (changeButton){
+        if (showButton){
+          menuController.lowerMenu();
+          MainButton.show();
+          MainButton.setText("ОТКЛИКНУТЬСЯ");
+        }
+        else{
+          menuController.hideMenu();
+          MainButton.hide();
+        }
       }
     }
-  }, [showButton, isSliderOpened]);
+  }, [showButton, isSliderOpened, changeButton]);
   
   const isMyResponse = useIsMyResponse({detailsAdertisement : orderInformation});
 

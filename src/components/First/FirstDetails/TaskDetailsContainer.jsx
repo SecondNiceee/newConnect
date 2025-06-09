@@ -51,7 +51,6 @@ const TaskDetailsContainer = ({
         setPhotos={setPhotos}
         setSliderOpened={setSliderOpened}
         sliderLeftPosition="0"
-        sliderPreviousText="ОТКЛИКНУТЬСЯ"
         sliderBlockId="First"
         sliderBlockerAll={true}
         sliderHideButton={false}
