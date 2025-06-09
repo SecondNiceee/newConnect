@@ -15,15 +15,17 @@ const useBlockInputs = () => {
           );
         }
         return () => {
-          for (let smallInput of input) {
-            smallInput.removeEventListener("focus", menuController.hideMenu);
-            smallInput.removeEventListener("blur", menuController.showMenu);
-          }
-          for (let smallTextarea of textarea) {
-            smallTextarea.removeEventListener("focus", menuController.hideMenu);
-            smallTextarea.removeEventListener("blur", menuController.showMenu
-            );
-          }
+          setTimeout( () => {
+            for (let smallInput of input) {
+              smallInput.removeEventListener("focus", menuController.hideMenu);
+              smallInput.removeEventListener("blur", menuController.showMenu);
+            }
+            for (let smallTextarea of textarea) {
+              smallTextarea.removeEventListener("focus", menuController.hideMenu);
+              smallTextarea.removeEventListener("blur", menuController.showMenu
+              );
+            }
+          }, 0 )
         } 
       }, []);
 
