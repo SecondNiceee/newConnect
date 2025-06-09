@@ -1,0 +1,48 @@
+.root {
+
+}
+.Cap{
+    display: flex;
+    justify-content: space-between;
+}
+.CapStepText{
+    /* Bold */
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display 600";
+    font-size: 17.62px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0%;
+    display: flex;
+    gap: 2px;
+    text-align: left;
+
+    
+}
+.CapStepText p{
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display 600";
+    font-size: 17.62px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.CapStepText span{
+    color: rgb(149, 151, 158);
+}
+
+.Cap p:nth-child(2){
+    /* Bold */
+    color: white;
+    font-family: "SF Pro Display 600";
+    font-size: 17.62px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 1px;
+    text-align: right;
+    span{
+        color: rgb(149, 151, 158)
+    };
+}

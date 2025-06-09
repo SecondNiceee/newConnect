@@ -1,0 +1,58 @@
+.track{
+    display: flex;
+    padding-top: 8.74px;
+    padding-bottom: 7.96px;
+    border-radius: 8.35px;
+    background: rgba(118, 118, 128, 0.24);
+    position: relative;
+    cursor: pointer;
+}
+.value{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+
+
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Text";
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16.7px;
+    
+    letter-spacing: -0.08px;
+    text-align: center;
+    z-index: 10;
+}
+.loup{
+    border-radius: 1px;
+    width: 1px;
+    height: 16px;
+    background: rgba(84, 84, 88, 0.65);
+}
+.bigValue{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Text 600";
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16.7px;
+    letter-spacing: -0.08px;
+    text-align: center;
+    z-index: 10;
+}
+.greyBlock{
+    position: absolute;
+    border: 0.52px solid rgba(0, 0, 0, 0.04);
+    border-radius: 7.31px;
+    background: rgb(99, 99, 102);
+    height: 29.23px;
+    bottom: 2px;
+    transition: .15s;
+}

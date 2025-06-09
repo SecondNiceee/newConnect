@@ -1,0 +1,26 @@
+.responce-wrapper{
+    // overflow-y: scroll;
+    min-width: 100vw;
+    width: 100vw;
+    padding-bottom: 16px;
+    padding-top: 18px;
+    padding-left: 16px;
+    padding-right: 16px;
+    top: 0;
+    overflow-y: auto;
+    // height: calc(100vh);
+    left: 0;
+    z-index: 100000;
+    transition: 0.4s;
+    background-color: #18222d;;
+    will-change: transform;
+}
+.responce-wrapper.secondStep{
+    transform: translateX(0%);
+}
+.responce-make-private{
+    margin-top: 18px;
+}
+.responce-descriprion{
+    margin-top: 18px;
+}   

@@ -1,0 +1,906 @@
+
+
+.block{
+    transition: 0.2s;
+}
+.MyAdsBlock{
+    transition: 0.2s;
+}
+.AdCreactingFunction{
+    transition: 0.2s;
+}
+.responses__up-block{
+    margin-right: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.responses__up-block p{
+    margin-left: 17px;
+    color: rgb(149, 151, 158);
+    font-family: "SF Pro Display";
+    font-size: 13.33px;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 17.67px;
+    letter-spacing: 0%;
+    text-align: left;
+    max-width: 237px;
+}
+/* .tie{
+    width: 25.67px;
+    height: 25.67px;
+    margin-left: auto;
+} */
+
+.blue-circle{
+    position: relative;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    border: 1.33px solid #2ea5ff;
+    margin-left: auto;
+}
+.blue-circle .commit-icon{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.right{
+    margin-left: auto;
+    gap: 14px;
+    display: flex;
+    align-items: center;
+}
+/* .reaction .reaction__middle .tie{
+    width: 25.67px;
+    height: 25.67px;
+    margin-left: auto;
+
+} */
+.reactions__block{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.reaction__block .reaction__top{
+    display: flex;
+    margin-right: 17.33px;
+    justify-content: space-between;
+    align-items: center;
+}
+.MyAdsContainer .open{
+    transform: translate3d(100% , 0% , 0px) rotate(360deg);
+}
+.sortBy{
+    color: rgb(132, 137, 143);
+    font-family: "SF Pro Display 400";
+    font-size: 13.33px;
+    font-weight: 400;
+    line-height: 15.64px;
+    letter-spacing: 2%;
+    text-align: left;
+    text-transform: uppercase;
+}
+.reaction{
+    border-radius: 10px;
+
+/* Cards */
+    background: rgb(32, 48, 63);
+}
+.reaction__choice{
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+.reaction__choice p{
+    color: rgb(46, 165, 255);
+    font-family: "SF Pro Display 400";
+    font-size: 13.33px;
+    font-weight: 400;
+    line-height: 15.64px;
+    letter-spacing: 2%;
+    text-align: right;
+    text-transform: uppercase;
+}
+.reaction__choice img{
+    width: 10.74px;
+    height: 12.32px;
+}
+.reaction{
+    display: flex;
+    flex-direction: column;
+}
+.reaction .reactions__images{
+    display: flex;
+    gap: 4.33px;
+    margin: 4px 4px 0px 4px;
+    max-width: 100%;
+    overflow-x: scroll;
+    border-radius: 6.67px;
+}
+.reaction .reactions__images img{
+    min-width: 183.33px;
+    object-fit: cover;
+    height: 133.67px;
+    border-radius: 6.67px;
+}
+.reaction .reaction__middle{
+    display: flex;
+    margin-top: 19.33px;
+    align-items: center;
+    padding-left: 17.33px;
+    padding-right: 19px;
+
+}
+.reaction .circle .shareImage{
+    width: 13.11px;
+    height: 11.65px;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%) translateY(50%);
+    margin-left: auto;
+}
+.reaction .reaction__middle img{
+    transform: translateY(-1px);
+    width: 9px;
+    height: 9px;
+}
+.rates__text{
+    display: flex;
+    gap: 3px;
+}
+.reaction .reaction__middle .icon{
+    width: 32px;
+    height: 32px;
+}
+.reaction .reaction__middle-midle{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.67px;
+}
+.reaction__middle-midle .reaction__userName {
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17.67px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.reaction__rates{
+    display: flex;
+    align-items: center;
+    gap: 3.34px;
+}
+.reaction__rates img{
+    width: 9px;
+    height: 8.67px;
+}
+.reaction__rates p {
+    color: rgb(149, 151, 158);
+    font-family: "SF Pro Display";
+    font-size: 11.67px;
+    font-weight: 500;
+    line-height: 12.54px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.reaction__rates p span{
+    color: rgb(255, 176, 58)
+}
+.circle{
+    /* TG-Semi */
+    background: rgb(34, 61, 82);
+    border-radius: 50%;
+    position: relative;
+    width: 28px;
+    height: 28px;
+    margin-left: auto
+}
+
+.reactions__top{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 17.33px;
+    padding-right: 17.33px;
+    align-items: center;
+
+}
+.reactions__bottom{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    margin-bottom: 17px;
+    padding-left: 17.33px;
+    padding-right: 23.5px;
+    margin-top: 16.87px;
+}
+.reactions__bottom .bottom__one{
+    width: 155.33px;
+    height: 27.67px;
+    padding: 6px 12.67px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(46, 165, 255);
+    border-radius: 14px;
+
+
+    color: rgb(46, 165, 255);
+    font-family: "SF Pro Display";
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 4%;
+    text-align: right;
+    text-transform: uppercase;
+    background-color: transparent;
+
+
+}
+.bottom__two{
+    width: 123px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgb(46, 165, 255);
+    padding: 6px 12.67px;
+    margin-right: 13px;
+
+
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display";
+    font-size: 15px;
+    font-weight: 500;
+
+    letter-spacing: 4%;
+    text-align: right;
+    text-transform: uppercase;
+    margin-left: 7.67px;
+    
+    
+}
+/* .tie{
+    width: 25.67px;
+    height: 25.67px;
+    margin-left: auto;
+} */
+.reactions__block{
+    transition:  0.3s;
+
+    width:  calc(100% );
+}
+
+.my-ad-one{
+    padding-bottom: 97px;
+    overflow-x: clip;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 17px;
+    margin-bottom: 18.33px;
+    min-width: 100vw;
+    height: calc(100vh);
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.FirstAdsBlock{
+    margin-bottom: 30px;
+}
+.top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.top .topIcon{
+    width: 28.33px;
+    border-radius: 50%;
+    height: 28.33px;
+}
+.MyAdsContainer{
+    transition: transform 0.4s ease;
+    display: flex;
+    will-change: transform , transition;
+}
+.aboutOne{
+    padding: 0px 16px;
+    padding-top: 20px;
+    min-width: 100vw;
+    position: relative;
+    z-index: 999;
+    padding-bottom: 97px;
+    background-color: rgb(24, 34, 45);
+    transition:  transform 0.3s;
+    width: 100%;
+}
+.aboutOne-enter{
+    transform: translateX(0%);
+}
+.aboutOne-enter-active{
+    transform: translateX(0%);
+
+}
+.aboutOne-enter-done{
+    transform: translateX(0%);
+
+}
+.aboutOne-exit-active{
+    transform: translateX(100%);
+    transition:  transform .3s;
+}
+.aboutOne-exit-done{
+    transform: translateX(100%);
+    transition:  transform .3s;
+}
+
+.myAdsWrapper{
+    transition: transform 0.4s;
+}
+
+.aboutReaction{
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    */
+    transform: translateX(100%);
+    background: rgb(24, 34, 45);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1001;
+    width: 100%;
+    height: calc(100vh);
+    overflow-y: scroll;
+    padding-bottom: 100px;
+
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 20px;
+    margin-bottom: 18.33px;
+    min-width: 100vw;
+    display: flex;
+    height: calc(100vh);
+    overflow-y: scroll;
+    flex-direction: column;
+    will-change:  visibility;
+
+}
+.about__top{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 40px;
+    align-items: center;
+    margin-top: 26px;
+}
+.top__one{
+    align-items: center;
+    max-width: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    text-align: center;
+
+}
+.top__three{
+    align-items: center;
+    max-width: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px; 
+    text-align: center;
+}
+.top__one p:nth-child(1) , .top__three p:nth-child(1){
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display 400";
+    font-size: 16.67px;
+    font-weight: 400;
+    line-height: 18.31px;
+    letter-spacing: 1%;
+    text-align: left;
+}
+.top__one p:nth-child(2) , .top__three p:nth-child(2){
+    color: rgb(149, 151, 158);
+    font-family: "SF Pro Display";
+    font-size: 11.67px;
+    font-weight: 500;
+    line-height: 12.54px;
+    letter-spacing: 0%;
+    text-align: center;
+}
+.topMiddle{
+    width: 94px;
+    height: 94px;
+}
+.aboutInfo{
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.aboutInfo .name{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.aboutDown{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 8px;
+}
+.aboutDown .block{
+    border: 1.67px solid #242c37;
+    border-radius: 12px;
+    width: 175px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    gap: 8px;
+}
+.aboutDown .block p:nth-child(1){
+    font-family: "SF Compact Rounded";
+    font-weight: 500;
+    font-size: 43px;
+    text-align: center;
+    color: #daf5fe;
+}
+.aboutDown .bloc p:nth-child(2){
+    font-family: "SF Pro Display";
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    color: #fff;
+    max-width: 77px;
+}
+
+
+.aboutInfo .name p{
+    color: #daf5fe;
+    font-family: "SF Pro Display";
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 18.31px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.aboutInfo .name img{
+    width: 17.33px;
+    height: 17.33px;
+}
+
+.aboutInfo .rates{
+    display: flex;
+}
+.rates__block{
+    gap: 2px;
+    display: flex;
+}
+.rates__block img{
+
+    width: 12px;
+    height: 12px;
+    transform: translateY(1px);
+}
+.rates{
+    gap: 6px;
+    margin-top: 4px;
+}
+.rates__block p {
+    color: rgb(255, 176, 58);
+    font-family: "SF Pro Display";
+    font-size: 14.67px;
+    font-weight: 500;
+    line-height: 17.67px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.rates p{
+    color: rgb(149, 151, 158);
+    font-family: "SF Pro Display";
+    font-size: 14.67px;
+    font-weight: 500;
+    line-height: 17.67px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.documentAccess{
+    display: flex;
+    padding: 5.5px 8.33px;
+    padding-top: 5.67px;
+    padding-bottom: 5px;
+    gap: 6.67px;
+    box-sizing: border-box;
+    border: 0.67px solid rgb(46, 165, 255);
+    border-radius: 21.67px;
+    margin-top: 8px;
+}
+.documentAccess p{
+    color: rgb(45, 158, 244);
+    font-family: "SF Pro Display";
+    font-size: 14.67px;
+    font-weight: 500;
+    line-height: 17.67px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.documentAccess img{
+    width: 17.33px;
+    height: 17.33px;
+    transform: translateY(-0.5px);
+}
+.aboutMain{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-right: auto;
+    width: 100%;
+}
+.aboutMeBlock{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.aboutMeBlock p{
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display 600";
+    font-size: 20.72px;
+    font-weight: 600;
+    line-height: 25px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.aboutMeText{
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display 400";
+    font-size: 16.67px;
+    font-weight: 400;
+    line-height: 18.31px;
+    letter-spacing: 1%;
+    text-align: left;
+}
+.aboutMeText .text{
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display 400";
+    font-size: 16.67px;
+    font-weight: 400;
+    line-height: 18.31px;
+    letter-spacing: 1%;
+    text-align: left;
+    min-height: 18.31px;
+}
+
+
+.aboutReaction__block{
+    position: absolute;
+    width: calc(100%);
+    padding: 0px 16px;
+    left: 0px;
+    background: rgb(24, 34, 45);
+    z-index: 50;
+    top: 0;
+    height: 100%;
+    z-index: 20;
+}
+.TextContainer{
+    display: flex;
+    position: relative;
+    margin-top: 18px;
+    flex-direction: column;
+
+
+}
+.TextContainer p{
+    max-height: 345px;
+    overflow: hidden;
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display 400";
+    font-size: 16.67px;
+    font-weight: 400;
+    line-height: 18.31px;
+    letter-spacing: 1%;
+    text-align: left;
+    margin-top: 18px;
+    letter-spacing: 0.01em;
+    background: linear-gradient(360deg, #18222d 100%, rgba(24, 34, 45, 0) 100%);
+}
+.ur__town .background{
+    bottom: 37px;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    /* opacity: 0.5; */
+    position: absolute;
+    background: linear-gradient(360deg, #18222d, rgba(24, 34, 45, 0));
+}
+.about-reaction-textarea{
+    max-height: 280px;
+    overflow: hidden;
+
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display 400";
+    font-size: 16.67px;
+    font-weight: 400;
+    line-height: 18.31px;
+    letter-spacing: 1%;
+    text-align: left;
+    height: 285px;
+
+    width: 100%;
+    outline: none;
+    background-color: transparent;
+}
+.also{
+    display: flex;
+    padding: 5px 12px;
+    border:  1px solid black;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    align-self: flex-start;
+    box-sizing: border-box;
+    border: 0.67px solid rgb(181, 206, 217);
+    border-radius: 21.67px;
+    margin-top: 6px;
+    z-index: 20;
+}
+.also p{
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display";
+    font-size: 14.67px;
+    font-weight: 500;
+    line-height: 17.67px;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-top: 0px;
+}
+.examplesWork{
+    margin-top: 23px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: calc(100% );
+    margin-right: auto;
+
+}
+.exampleWork-text {
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display 600";
+    font-size: 20.72px;
+    font-weight: 600;
+    line-height: 25px;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-left: 16px;
+}
+.examplesWork .imagesContainer{
+    display: flex;
+    gap: 5.67px;
+    min-width: calc(100% + 16px);
+    overflow-x: scroll;
+    border-top-left-radius:  6.67px;
+    border-bottom-left-radius: 6.67px;
+
+}
+.examplesWork img{
+    min-width: 246.67px;
+    height: 141.67px;
+    object-fit: cover;
+    border-radius: 6.67px;
+}
+.examplesWork .also p{
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display";
+    font-size: 14.67px;
+    font-weight: 500;
+    line-height: 17.67px;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-top: 0px;
+}
+.last-ads{
+    z-index: 1000;
+    height: calc(calc(100vh) - 68px);
+    padding-bottom: 74px;
+    width: 100vw;
+    transition: 0.4s;
+    /* top: 70px; */
+    padding: 0px 17px; 
+    background-color: #18222d;
+    transition: 0.4s;
+    padding-top: 20px;
+}
+.last-top{
+    margin-bottom: 20px;
+}
+
+.white-block{
+    border-radius: 19px;
+    width: 53px;
+    height: 4px;
+    background-color: white;
+    margin-top: 14px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.last-top-center{
+    margin-left: 11px;
+}
+.last-top{
+    display: flex;
+    align-items: center;
+
+}
+.last-top .icon{
+    width: 50px;
+    height: 50px;
+}
+.top-name-center{
+    display: flex;
+    flex-direction: column;
+    margin-left: 11px;
+    gap: 3px;
+    margin-left: 11px;
+}
+.top-name-bl{
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+.top-name-bl p{
+    font-family: 'SF Pro Display';
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 106%;
+    color: 'white';
+}
+.last-subtruct{
+    width: 17px;
+    height: 17px;
+}
+.top-characters{
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+.last-star{
+    width: 11px;
+    height: 11;
+}
+.characters-bl p{
+    font-family: "SF Pro Display";
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    color: rgb(132, 137, 143);
+}
+.last-left-arr{
+    margin-left: auto;
+}
+.last-images{
+    margin-top: 18px;
+    display: flex;
+    min-width: calc(100% + 16px);
+    overflow-x: scroll;
+    border-radius: 7px;
+    gap: 6px;
+}
+.topMiddle{
+    width: 94px;
+    height: 94px;
+    border-radius: 50%;
+}
+.last-images img{
+    border-radius: 7px;
+    width: 246px;
+    height: 141px;
+    min-width: 246px;
+    max-height: 141px;
+    object-fit: cover;
+}
+.last-sertificates{
+    margin-top: 18px;
+    display: flex;
+    min-width: calc(100% + 16px);
+    overflow-x: scroll;
+    gap: 8px;
+    align-items: center;
+    border-radius: 22px;
+}
+.documents-agree{
+    border-radius: 22px;
+    padding: 8px 15px;
+    
+    height: 34px;
+    background: #d4f2ff;
+    display: flex;
+    gap:7px;
+    min-width: 235px;
+}
+.documents-agree img{
+    width: 17px;
+    height: 17px;
+}
+.documents-agree p{
+    font-family: "SF Pro Display";
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    color: #2d9ef4;
+}
+.user-agree{
+    display: flex;
+    border-radius: 22px;
+    padding: 8px 15px;
+    min-width: 235px;
+    height: 34px;
+    background: #e2ffd4;
+    gap: 7px;
+}
+.user-agree img{
+    width: 17px;
+    height: 17px;
+}
+.user-agree p{
+    font-family: "SF Pro Display";
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    color: #4cab20;
+}
+.last-textarea{
+    overflow: hidden;
+
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display 400";
+    font-size: 16.67px;
+    font-weight: 400;
+    line-height: 18.31px;
+    letter-spacing: 1%;
+    text-align: left;
+    width: 100%;
+    outline: none;
+    background-color: transparent;
+    margin-top: 18px;
+}
+
+@media (max-width : 400px){
+    .reaction{
+        zoom: 1;
+    }
+}
+@media (max-width : 380px){
+    .reaction{
+        zoom: 0.95;
+    }
+}
+@media (max-width : 365px){
+    .reaction{
+        zoom: 0.9;
+    }
+}
+@media (max-width : 350px){
+    .reaction{
+        zoom: 0.85;
+    }
+}
+@media (max-width : 340px){
+    .reaction{
+        zoom: 0.82;
+    }
+}
+@media (max-width : 330px){
+    .reaction{
+        zoom: 0.75;
+    }
+}

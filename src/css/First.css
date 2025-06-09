@@ -1,0 +1,312 @@
+
+
+.First{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+.EmptyText{
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display";
+    font-size: calc(100px * 0.325);
+    font-weight: 500;
+    line-height: normal ;
+    letter-spacing: 0%;
+    text-align: center;
+    max-width: calc(730px * 0.32);
+    margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+.FirstTop{
+    margin-top: calc(55px * 0.4767);
+    display: flex;
+    gap: calc(30px * (430/1180));
+    flex-grow: 1;
+    align-items: center;
+}
+.FirstTop img{
+    width: calc(85px * 0.32);
+    height: calc(85px * 0.32);
+}
+.FirstMain{
+    margin-top: calc(55px * 0.4767);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    gap: calc(35px * 0.4767);
+    min-height: calc(calc(100vh) - 68px);
+    border-radius: 10px;
+}
+.First__block{
+    display: flex;
+    flex-direction: column;
+    padding: calc(57px* 0.32) ;
+    border-radius: 30px;
+    background: rgb(32, 48, 63);
+}
+.FirstMain__top{
+    display: flex;
+}
+.FirstMain__top img{
+    width: calc(96px * 0.32);
+    height: calc(96px * 0.32);
+    margin-right: calc(30px * 0.32);
+}
+.FirstMain__top p{
+    /* Default text */
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display";
+    font-size: calc(44px * 0.325);
+    font-weight: 500;
+    line-height: calc(53px * 0.32) ;
+    letter-spacing: 0%;
+    text-align: left;
+    max-width: calc(730px * 0.32);
+    margin-right: auto;
+}
+.circle{
+    min-width: calc(84px * 0.32);
+    max-height: calc(84px * 0.32);
+    border-radius: 50%;
+    background: rgb(34, 61, 82);
+    position: relative;
+}
+    .circle img{
+        width: calc(59px * 0.32);
+        height: calc(59px * 0.32);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+.FirstMain__middle{
+    margin-top: 20px;
+    display: flex;
+    gap:2px;
+}
+.FirstMain__middle p{
+    /* Small Text */
+    color: rgb(149, 151, 158);
+    font-family: "SF Pro Display";
+    font-size: calc(35px * 0.325);
+    font-weight: 500;
+    line-height: (37.61px*0.32);
+    letter-spacing: 0%;
+    text-align: left;
+    color: rgb(149, 151, 158);
+}
+.FirstMain__bottom{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.FirstMain__bottom-left{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.FirstMain__bottom-left p{
+    /* Default text */
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display";
+    font-size: calc(44px * 0.325) ;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.FirstMain__price-up{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.FirstMain__price-up h3{
+    color: rgb(255, 255, 255);
+    font-family: "SF Compact Rounded";
+    font-size: calc(70px * 0.325);
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.FirstMain__price-up img{
+    width: calc(65px * 0.32);
+    height: calc(65px * 0.32);
+}
+.FirstMain__bottom-right{
+    display: flex;
+    gap: calc(23px * 0.32);
+}
+.FirstMain__bottom-right img{
+    width: calc(84px * 0.32);
+    height: calc(84px * 0.32);
+
+}
+
+.FirstMenu{
+    background-color: rgba(24, 34, 45, 1.00);
+    z-index: 10;
+    position: absolute;
+    height: 100%;
+
+    left: 0;
+    bottom: 0;
+    width: calc(904px * 0.32);
+    padding: calc(81px * 0.4767) calc(48px * 0.32);
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s
+}
+
+.FirstMenu .FirstMenu__top{
+    display: flex;
+    align-items: center;
+    gap: calc(40px * 0.32);
+
+}
+.FirstMenu__top img{
+    width: calc(160px * 0.32);
+    height: calc(160px * 0.32);
+}
+.FirstMenu__top-right{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+.MenuName{
+    /* TON Price */
+    color: rgb(255, 255, 255);
+    font-family: "SF Compact Rounded";
+    font-size: calc(70px * 0.325);
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.MenuProfile{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.MenuProfile img{
+    width: calc(31px * 0.32);
+    height: calc(31px * 0.32);
+}
+.MenuProfile p {
+    /* Default text */
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display";
+    font-size: calc(44px * 0.325);
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.MenuPrice{
+    margin-top: calc(90px * 0.4767);
+    border-radius: 30px;
+    background: rgb(32, 48, 63);
+    padding-top: calc(25px *  0.4767);
+    padding-left: calc(49px * 0.32);
+    padding-right: calc(49px * 0.32);
+    padding-bottom: calc(25px *  0.4767);
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    align-self: flex-start;
+}
+.MenuPrice img{
+    width: calc(65px * 0.32);
+    height: calc(65px * 0.32);
+}
+.MenuTextPrice{
+    /* TON Price */
+    color: rgb(255, 255, 255);
+    font-family: "SF Compact Rounded";
+    font-size: calc(70px * 0.325);
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.MenuTextRublePrice{
+    /* Default text */
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display";
+    font-size: calc(44px * 0.325);
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-left: 0px;
+}
+.MenuList{
+    display: flex;
+    flex-direction: column;
+    gap: calc(60px * 0.4767);
+    margin-top: calc(90px * 0.4767);
+    /* Menu Text */
+}
+.MenuList a{
+    color: rgb(149, 151, 158);
+    font-family: "SF Pro Display";
+    font-size: calc(48px * 0.325);
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0%;
+    text-align: left;
+    transition: 0.32s;
+}
+.MenuList a:hover{
+    color: rgb(255, 255, 255)
+}
+.Menu__Helps{
+    margin-top: calc(241px * 0.4767);
+    display: flex;
+    gap: 5px;
+    
+}
+.Menu__Helps img{
+    width: calc(58px * 0.32);
+}
+.Menu__Helps a{
+    /* Menu Text */
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display";
+    font-size: calc(48px * 0.325);
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.close {
+    cursor: pointer;
+    position: absolute;
+    width: calc(48px * 0.32);
+    height: calc(48px * 0.32);
+    right: calc(48px * 0.32);
+    top: calc(79px * 0.4767);
+}
+.close span:nth-child(1){
+    position: absolute;
+    width: calc(62px * 0.32 );
+    height: calc(6px * 0.4767);
+    background-color: white;
+    transform: rotate(45.00deg);
+    border-radius: 3px;
+    background: rgb(255, 255, 255);
+}
+.close span:nth-child(2){
+    position: absolute;
+    width: calc(62px * 0.32 );
+    height: calc(6px * 0.4767);
+    background-color: white;
+    transform: rotate(-45.00deg);
+    border-radius: 3px;
+    background: rgb(255, 255, 255);
+}

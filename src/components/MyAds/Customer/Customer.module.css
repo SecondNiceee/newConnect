@@ -1,0 +1,38 @@
+.wrapper{
+    display: flex;
+    padding: 18px 19px 19px 17px;
+    background-color: #20303f;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 2px;
+}
+.userPhoto{
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+}
+
+.two{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-left: 10px;
+}
+.two p:nth-child(1){
+    font-family: "SF Pro Display";
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    color: #fff;
+}
+.two p:nth-child(2){
+    font-family: "SF Pro Display"   ;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 107%;
+    color: #95979e;
+
+}
+.MyButton{
+    margin-left: auto;
+}

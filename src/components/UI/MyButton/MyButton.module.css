@@ -1,0 +1,33 @@
+.MyButton{
+    /* Автолейаут */
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: calc(18px * 0.32)  calc(38px * 0.32);
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display";
+    font-size: calc(45px * 0.325);
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+    border-radius: 42px;
+    border: none;
+    background: rgb(46, 165, 255);
+    cursor: pointer;
+    letter-spacing: 4%; */
+    z-index: 30;
+    transition: 0.1s;
+    border-radius: 14px;
+    background: rgb(46, 165, 255);
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display";
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 15.64px;
+    letter-spacing: 4%;
+    text-align: right;
+    text-transform: uppercase;
+    padding: 6px 12.67px 6px 12.67px;
+    user-select:none;
+}

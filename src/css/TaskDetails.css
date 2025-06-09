@@ -1,0 +1,401 @@
+.TaskDetails {
+  position: absolute;
+  left: 0px;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background: rgb(24, 34, 45);
+  padding: 20.552px 17.4912px;
+  height: calc(100vh);
+}
+.TaskDetails.active {
+  transform: translateX(0%);
+}
+
+.Task__container-one {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8.808px;
+}
+.Task__container-one .FullDescription {
+  padding: 16.515px 18.9488px;
+  border-radius: 12px;
+  background: rgb(32, 48, 63);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3.2796px;
+}
+.Task__container-one .FullDescription-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5.8304px;
+}
+.Task__container-one .FullDescription-top p {
+  /* Default text */
+  color: rgb(149, 151, 158);
+  font-family: "SF Pro Display";
+  font-size: 16.0336px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.Task__container-one .FullDescription-top img {
+  width: 12.754px;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.Task__container-one .FullDescriptionBottom {
+  resize: none;
+  padding: 0px;
+  /* Default text */
+  background-color: transparent;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  font-family: "SF Pro Display";
+  font-size: 14.67px;
+  font-weight: 500;
+  line-height: 19.7px;
+  flex-grow: 1;
+  width: 100%;
+  margin-right: auto;
+  letter-spacing: 0%;
+  text-align: left;
+  overflow-y: hidden;
+}
+.Task__container-one .TaskDetails-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 24px;
+}
+.Task__container-one .customerContainer {
+  padding: 16.515px 22.5928px 16.515px 18.9488px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3.303px;
+}
+.Task__container-one .customer__information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 7.288px;
+}
+.Task__container-one .information-icon {
+  width: 43.728px;
+  height: 43.728px;
+}
+.Task__container-one .customer__information-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 4.0084px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.Task__container-one .customer__information-right-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5.466px;
+}
+.Task__container-one .customer__information-right-name p {
+  color: rgb(255, 255, 255);
+  font-family: "SF Pro Display";
+  font-size: 16.0336px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.Task__container-one .customer__information-right-name img {
+  width: 16.7624px;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.Task__container-one .customer__information-right-rate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 6.1948px;
+}
+.Task__container-one .customer__information-right-rate-images {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 3.644px;
+}
+.Task__container-one .rate {
+  /* Small Text */
+  color: rgb(149, 151, 158);
+  font-family: "SF Pro Display";
+  font-size: 12.754px 35px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.Task__container-one .StatusContainer {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 16.515px 19.3132px;
+  border-radius: 12px;
+  background: rgb(32, 48, 63);
+}
+.Task__container-one .StatusContainer p {
+  /* Default text */
+  color: rgb(149, 151, 158);
+  font-family: "SF Pro Display";
+  font-size: 16.0336px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+  margin-bottom: 3.303px;
+}
+.Task__container-one .StatusContainer .TrueActive {
+  /* Default text */
+  color: rgb(42, 207, 88);
+  font-family: SF Pro Display;
+  font-size: 16.0336px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+  margin-bottom: 10.643px;
+}
+.Task__container-one .StatusContainer a {
+  color: rgb(218, 245, 254);
+  font-family: "SF Pro Display";
+  font-size: 12.754px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+  text-decoration-line: underline;
+}
+.Task__container-one .DeadlineContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3.303px;
+  padding-top: 16.515px;
+  padding-left: 18.9488px;
+  padding-bottom: 14.313px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border-radius: 12px;
+  background: rgb(32, 48, 63);
+}
+.Task__container-one .DeadlineContainer p:nth-child(1) {
+  /* Default text */
+  color: rgb(149, 151, 158);
+  font-family: "SF Pro Display";
+  font-size: 16.0336px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.Task__container-one .DeadlineContainer p:nth-child(2) {
+  /* Default text */
+  color: rgb(255, 255, 255);
+  font-family: "SF Pro Display";
+  font-size: 16.0336px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.Task__container-one .TaskDetails-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8.7456px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.Task__container-one .customerContainer {
+  border-radius: 12px;
+  min-width: 60%;
+  /* Cards */
+  background: rgb(32, 48, 63);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3.303px;
+}
+.Task__container-one .customerContainer .customer__up {
+  /* Small Text */
+  color: rgb(149, 151, 158);
+  font-family: SF Pro Display;
+  font-size: 16.0336px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.Task__container-one .customerContainer .information-icon {
+  width: 43.728px;
+  height: 43.728px;
+}
+.Task__container-one .customerContainer .customer__information-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2.202px;
+}
+.Task__container-one .customerContainer .customer__information-right-name {
+  margin-top: 4.3728px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5.466px p;
+  /* Default text */
+  gap-color: rgb(255, 255, 255);
+  gap-font-family: "SF Pro Display";
+  gap-font-size: 16.0336px;
+  gap-font-weight: 500;
+  gap-line-height: 53px;
+  gap-letter-spacing: 0%;
+  gap-text-align: left;
+}
+.Task__container-one .customerContainer .customer__information-right-name img {
+  width: 16.7624px;
+}
+.Task__container-one .customerContainer .customer__information-right-rate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 6.1948px;
+}
+.Task__container-one .customerContainer .customer__information-right-rate-images {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 3.644px;
+}
+.Task__container-one .customerContainer .customer__information-right-rate-images img {
+  width: 9.8388px;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.Task__container-one .customerContainer .customer__information-right-rate-images p {
+  /* Small Text */
+  color: rgb(149, 151, 158);
+  font-family: SF Pro Display;
+  font-size: 12.754px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+.timeAndWatches {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2px;
+  margin-top: 11.01px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.timeAndWatches .time {
+  /* Small Text */
+  color: rgb(149, 151, 158);
+  font-family: SF Pro Display;
+  font-size: 12.754px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+  text-align: center;
+}
+.timeAndWatches .watches {
+  /* Small Text */
+  color: rgb(149, 151, 158);
+  font-family: SF Pro Display;
+  font-size: 12.754px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+  text-align: center;
+}
+
+.similarAds {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 33.03px;
+  gap: 13.946px;
+}
+.similarAds h2 {
+  /* TON Price */
+  color: rgb(255, 255, 255);
+  font-family: "SF Compact Rounded";
+  font-size: 25.508px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.similarAds .similarAds__contaier {
+  margin-top: 38px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 16.6845px;
+}

@@ -1,0 +1,405 @@
+ $width : 0.32;
+$height : 0.32;
+
+
+.profile__wrapper{
+    transition: 0.4s;
+}
+.pay-block{
+    margin-top: 28px;
+}
+
+input {
+    background: none;
+    padding: 0;
+    outline:none;}
+.profile__container{
+    
+    padding-bottom: 97px;
+    width: 100vw;
+    position: fixed;
+    height: calc(100vh);
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    padding-top: 27px;
+    padding-left: 14px;
+    padding-right: 14px;
+    
+    
+    .pofile__icon{
+        width: calc(94px);
+        height: calc(94px)
+    }
+    .urName{
+        color: rgb(255, 255, 255);
+        font-family: "SF Compact Rounded";
+        font-size: 23.33px;
+        font-weight: 500;
+        line-height: 28px;
+        letter-spacing: 0%;
+        text-align: left;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 18.33px;
+        text-align: center;
+
+    }
+    .change__block{
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 4px;
+        align-items: center;
+
+    }
+    .pencel{
+        transform: translateY(5px);
+        width: 18.8px;
+        height: auto;
+    }
+    }
+    .change{
+        color: rgb(218, 245, 254);
+        font-family: "SF Pro Display";
+        font-size: 14.67px;
+        font-weight: 500;
+        line-height: 17.67px;
+        letter-spacing: 0%;
+        text-align: right;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .profile__options{
+        display: flex;
+        flex-direction: column;
+        margin-top: calc(20px);
+        border-radius: calc(10px);
+        /* Cards */
+        background: rgb(32, 48, 63);
+
+
+    }
+    .option__balance{
+            display: flex;
+            padding-left: 2px;
+            padding-right: 16px;
+            padding-top: 6.5px;
+            padding-bottom: 6.5px;
+            /* Cards */
+            align-items: center;
+            border-bottom: 0.5px solid rgb(60, 61, 63);
+
+    }
+    .option__left{
+        display: flex;
+        gap: calc(20px);
+        align-items: center;
+        p{
+            color: rgb(255, 255, 255);
+            font-family: "SF Pro Display 400";
+            font-size: 16.67px;
+            font-weight: 400;
+            line-height: 18.31px;
+            letter-spacing: 1%;
+            text-align: left;
+        }
+    }
+    .option__balance-block{
+        display: flex;
+        margin-left: auto;
+        margin-right: 10px;
+        align-items: center;
+        gap: 3px;
+    }
+    .tonPrice{
+        font-family: "SF Compact Rounded";
+        color: rgb(218, 245, 254);
+        font-family: "SF Compact Rounded";
+        font-size: 16.67px;
+        font-weight: 500;
+        line-height: 18.31px;
+        letter-spacing: 1%;
+        text-align: right;
+    }
+    .Dymond{
+        width: calc(50px * $width);
+        height: calc(50px * $width);
+        margin-right: 3px;
+    }
+    .option__money{
+            display: flex;
+            gap: 3px;
+            align-items: self-start;
+            p{
+                font-family: "SF Compact Rounded";
+                color: rgb(218, 245, 254);
+                font-size: 16.67px;
+                font-weight: 500;
+                line-height: 18.31px;
+                letter-spacing: 1%;
+                text-align: right;
+            }
+    }
+    .arrowRight{
+        width: calc(20px * $width);
+        height: calc(35px * $width);
+    }
+    .option{
+        padding-left: 16px;
+        border-radius: 9.6px;
+        padding-top: calc(6.5px);
+        padding-bottom: calc(6.5px);
+        align-items: center;
+        display: flex;
+        transition: 0.1s;
+        justify-content: space-between;
+        background: rgb(32, 48, 63);
+        border-bottom: 0.5px solid rgb(60, 61, 63);;
+        // padding-left: 2px;
+        padding-right: 16px;
+        &:last-child{
+            border-bottom: none;
+            border-bottom-left-radius: calc(30px * $width) ;
+            border-bottom-right-radius: calc(30px * $width) ;
+        }
+    }
+    .compact-block{
+        margin-top: 23px;
+    }
+    .profile-case{
+        margin-top: 8px;
+    }
+    .profile__about-me{
+        display: flex;
+        flex-direction: column;
+        gap: 7.3px;
+        margin-top: 29px;
+        
+        p{
+            color: rgb(255, 255, 255);
+            font-family: "SF Pro Display 600";
+            font-size: 20.72px;
+            font-weight: 600;
+            line-height: 25px;
+            letter-spacing: 0%;
+            text-align: left;
+            margin-left: 16px;
+        }
+        .ur__town{
+            display: flex;
+            flex-direction: column;
+
+        }
+        .hiddenP{
+            color: rgb(218, 245, 254);
+            font-family: "SF Pro Display 400";
+            font-size: 16.67px;
+            font-weight: 400;
+            line-height: 18.31px;
+            letter-spacing: 1%;
+            text-align: left;
+            outline: none;
+            position: absolute;
+            left: 0%;
+            bottom: 41%;
+            visibility: hidden;
+        
+            
+        }
+        .ur__town {
+            color: rgb(218, 245, 254);
+            font-family: "SF Pro Display 400";
+            font-size: 16.67px;
+            font-weight: 400;
+            line-height: 18.31px;
+            letter-spacing: 1%;
+            text-align: left;
+            .about__u-text{
+                color: rgb(218, 245, 254);
+                font-family: "SF Pro Display 400";
+                font-size: 16.67px;
+                font-weight: 400;
+                line-height: 18.31px;
+                letter-spacing: 1%;
+                text-align: left;
+                outline: none;
+                background-color: transparent;
+                &:hover, &:focus{
+                    outline: none;
+                    border: none;
+                }
+            }
+        }
+    }
+    .profile__works{
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px;
+        margin-left: 16px;
+        p:nth-child(1){
+            color: rgb(255, 255, 255);
+            font-family: "SF Pro Display 600";
+            font-size: 20.72px;
+            font-weight: 600;
+            line-height: 25px;
+            letter-spacing: 0%;
+            text-align: left;
+            margin-bottom: 6px;
+        }
+
+        p:nth-child(2){
+            color: rgb(218, 245, 254);
+            font-family: "SF Pro Display 400";
+            font-size: 16.67px;
+            font-weight: 400;
+            line-height: 18.31px;
+            letter-spacing: 1%;
+            text-align: left;
+            margin-bottom: 1px;
+            // margin-bottom: calc(5px*$width);
+        }
+        p:nth-child(3){
+            color: rgb(149, 151, 158);
+            font-family: "SF Pro Display";
+            font-size: 14.67px;
+            font-weight: 500;
+            line-height: 17.67px;
+            letter-spacing: 0%;
+            text-align: left;
+        }
+        
+    }
+    .profile__veryfication{
+        display: flex;
+        margin-bottom: calc(67px * $width);
+        gap: 12px;
+        margin-top: 23px;
+        flex-direction: column;
+
+        .veryfication{
+            color: rgb(255, 255, 255);
+            font-family: "SF Pro Display 600";
+            font-size: 20.72px;
+            font-weight: 600;
+            line-height: 25px;
+            letter-spacing: 0%;
+            text-align: left;
+            margin-left: 16px;
+        }
+        .veryfication__block{
+            margin-left: 4px;
+            display: flex   ;
+            gap: calc(10px);
+            align-items: center;
+            box-sizing: border-box;
+            border: 0.5px solid rgb(99, 98, 103);
+            border-radius:  calc(35px * $width);
+            padding: calc(16px);
+        }
+        .veryfication__image{
+            border-radius: calc(60px * $width);
+            background: rgb(61, 168, 248);
+        }
+        .veryfication__block-text{
+            display: flex;
+            flex-direction: column;
+            gap: calc(3px);
+            p:nth-child(1){
+                color: rgb(255, 255, 255);
+                font-family: "SF Pro Display";
+                font-size: 17.67px;
+                font-weight: 500;
+                line-height: 21px;
+                letter-spacing: 0%;
+                text-align: left;
+            }
+            p:nth-child(2){
+                color: rgb(218, 245, 254);
+                font-family: "SF Pro Display";
+                font-size: 14.67px;
+                font-weight: 500;
+                line-height: 17.67px;
+                letter-spacing: 0%;
+                text-align: left;
+            }
+        }
+    }
+    .profile__icon{
+        width: 90.24px;
+        height: 90.24px;
+        max-width: 90.24px;
+        min-height: 90.24px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .orangeWallet{
+        width: 30px;
+        height: 30px;
+        
+    }
+    .Okey{
+        border-radius: 50%;
+        background: rgb(61, 168, 248);
+        min-width: 40px;
+        height: 40px;
+        position: relative;
+    }
+    .Subtract{
+        position: absolute;
+        left: 50%;
+        bottom: 50%;
+        transform: translateX(-50%) translateY(50%) ;
+        min-width: 22px;
+        max-height: 22px;
+        width: unset;
+        height: unset;
+    }
+    .greyArrow{
+        width: calc(20.32px * $width);
+        height: calc(35.31px * $width);
+        margin-left: auto;
+    }
+
+.aboutMe{
+    position: fixed;    
+    height: calc(100vh);
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgb(24, 34, 45);;
+}
+// .profile__container{
+//     overflow-y: hidden;
+// }
+.aboutMeTitle{
+    display: flex;  
+    gap: 5px;
+    margin-bottom: 8px;
+    margin-left: 16px;
+    
+
+}
+.also{
+    display: flex;
+    padding: 5px 12px;
+    border:  1px solid black;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    align-self: flex-start;
+    box-sizing: border-box;
+    border: 0.67px solid rgb(181, 206, 217);
+    border-radius: 21.67px;
+    margin-top: 6px;
+}
+.also p{
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display";
+    font-size: 14.67px;
+    font-weight: 500;
+    line-height: 17.67px;
+    letter-spacing: 0%;
+    text-align: left;
+}

@@ -1,0 +1,398 @@
+
+.TaskDetails{
+    min-height: calc(100vh);
+    height: 100vh;
+    min-width: 100vw;
+    top: 0;
+    overflow-y: scroll;
+    z-index: 1000;
+    width: 100%;
+    // height: 100%;
+    background: rgb(24, 34, 45);
+    padding: 18px 16px;
+    left: 0;
+    transform: translateX(0%);
+    position: fixed;
+    padding-bottom: 16px;
+    // transform: translateX(100%);
+    &.active{
+        transform: translateX(0%);
+    }
+}
+
+.createdAt-block{
+    justify-content: center;
+    display: flex;
+    gap: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    p{
+        font-family: "SF Pro Display";
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 107%;
+        text-align: center;
+        color: #95979e;
+    }
+}
+
+.Task__container-one{
+    display: flex;
+    flex-direction: column;
+    gap: calc(8px);
+    .FullDescription{
+        padding: calc(15px) calc(17px);
+        border-radius: 10px;
+
+        /* Cards */
+        background: rgb(32, 48, 63);
+        display: flex;
+        flex-direction: column;
+        gap: calc(2px);
+
+
+    }
+    .FullDescription-top{
+        display: flex;
+        gap: calc(4px);
+        align-items: center;
+        p{
+            /* Default text */
+            color: rgb(149, 151, 158);
+            font-family: "SF Pro Display";
+            font-size: 14.67px;
+            font-weight: 500;
+            line-height: 17.67px;
+            letter-spacing: 0%;
+            text-align: left;
+        }
+        img{
+/* Vector */
+            width: 10.67px;
+            height: 12.67px;
+            align-self: center;
+        }
+    }
+    .FullDescriptionBottom{
+        resize: none;
+        background-color: transparent;
+        /* Default text */
+        background-color: transparent;
+        color: rgb(255, 255, 255);
+        font-family: "SF Pro Display";
+        font-size: 14.67px;
+        font-weight: 500;                             
+        line-height: 19.7px;
+        letter-spacing: 0%;
+        text-align: left;
+        overflow-y: hidden;
+    }
+    @keyframes modal-animate{
+  0%{
+    transform: translateY(0px);
+  }
+  30%{
+    transform: translateY(125px);
+  }
+  70%{
+    opacity: 1;
+    transform: translateY(125px);
+  }
+  100%{
+    opacity: 0;
+    transform: translateY(125px);
+  }
+}
+
+.modal-copy-enter-active{
+  animation: modal-animate 1.5s both ;
+  animation-fill-mode: both;
+}
+.modal-copy-exit-active{
+  animation: modal-animate 1.5s both ;
+  animation-fill-mode: both;
+}
+
+    .TaskDetails-row{
+        display: flex;
+        gap: 24px;
+    }
+    .customerContainer{
+        padding: 15px 17px;
+        padding-right: 7.5px;
+        display: flex;
+        flex-direction: column;
+        gap: calc(2.67px);
+    }
+    .customer__information{
+        display: flex;
+        gap: calc(6.67px);
+    }
+    .information-icon{
+        width: 40px;
+        height: 40px;
+    }
+    .customer__information-right{
+        display: flex;
+        gap: calc(1.67px);
+        flex-direction: column;
+    }
+    .customer__information-right-name{
+        display: flex;
+        gap: calc(15px * $width);
+        p{
+            color: rgb(255, 255, 255);
+            font-family: "SF Pro Display";
+            font-size: 14.67px;
+            font-weight: 500;
+            line-height: 17.67px;
+            letter-spacing: 0%;
+            text-align: left;
+        }
+        img{
+/* Vector */
+            align-self: center;
+            width: 15.59px;
+            height: 15.59px;
+        }
+
+    }
+    .customer__information-right-rate{
+        display: flex;
+        gap: calc(5.67px);
+    }
+    .customer__information-right-rate-images{
+        display: flex;
+        gap: calc(3.33px);
+    }
+    .rate{
+        /* Small Text */
+        color: rgb(149, 151, 158);
+        font-family: "SF Pro Display" ;
+        font-size: 11.67px;
+        font-weight: 500;
+        line-height: 12.54px;
+        letter-spacing: 0%;
+        text-align: left;
+    }
+    .StatusContainer{
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 15px 17px;
+        border-radius: 10px;
+        justify-content: space-between;
+
+        /* Cards */
+        background: rgb(32, 48, 63);
+        p{
+            /* Default text */
+            color: rgb(149, 151, 158);
+            font-family: "SF Pro Display";
+            font-size: 14.67px;
+            font-weight: 500;
+            line-height: 17.67px;
+            letter-spacing: 0%;
+            text-align: left;
+        }
+        p:nth-child(3){
+            text-decoration: underline;
+            color: rgb(149, 151, 158);
+            text-underline-offset: 2px;
+        }
+        .TrueActive{
+            /* Default text */
+            color: rgb(42, 207, 88);
+            font-family: "SF Pro Display";
+            font-size: 14.67px;
+            font-weight: 500;
+            line-height: 17.67px;
+            letter-spacing: 0%;
+            text-align: left;
+        }
+        a{
+            margin-top: 9.33px;
+            color: rgb(218, 245, 254);
+            font-family: "SF Pro Display";
+            font-size: 11.67px;
+            font-weight: 500;
+            line-height: 12.54px;
+            letter-spacing: 0%;
+            text-align: left;
+            text-decoration-line: underline;
+        }
+    }
+    .DeadlineContainer{
+        display: flex;
+        flex-direction: column;
+        gap: calc(2px);
+        padding: 15px 17px 15px 17px;
+        flex-grow: 1;
+        border-radius: 12px;
+        background: rgb(32, 48, 63);
+        p:nth-child(1){
+            /* Default text */
+            color: rgb(149, 151, 158);
+            font-family: "SF Pro Display";
+            font-size: 14.67px;
+            font-weight: 500;
+            line-height: 17.67px;
+            letter-spacing: 0%;
+            text-align: left;
+        }
+        p:nth-child(2) , p:nth-child(3) {
+            /* Default text */
+            color: rgb(255, 255, 255);
+            font-family: "SF Pro Display";
+            font-size: 14.67px;
+            font-weight: 500;
+            line-height: 17.67px;
+            letter-spacing: 0%;
+            text-align: left;
+        }
+        .dedline__block{
+            display: flex;
+            gap: 4px;
+            p:nth-child(1) , p:nth-child(2){
+                color: rgb(255, 255, 255);
+                font-family: "SF Pro Display";
+                font-size: 14.67px;
+                font-weight: 500;
+                line-height: 17.67px;
+                letter-spacing: 0%;
+                text-align: left;
+            }
+        }
+    }
+    .TaskDetails-row{
+        display: flex;
+        gap: calc(8px);
+        flex-grow: 1;
+    }
+    .customerContainer{
+        border-radius: 10px;
+        min-width: 60%;
+        /* Cards */
+        background: rgb(32, 48, 63);
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        .customer__up{
+            color: rgb(149, 151, 158);
+            font-family: "SF Pro Display";
+            font-size: 14.67px;
+            font-weight: 500;
+            line-height: 17.67px;
+            letter-spacing: 0%;
+            text-align: left;
+        }   
+        .information-icon{
+            width: calc(40px);
+            height: calc(40px);
+        }
+        .customer__information-right{
+            display: flex;
+            flex-direction: column;
+            gap: calc(1.67px);
+        }
+        .customer__information-right-name{
+            margin-top: calc(4px);
+            display: flex;
+            gap : calc(5px)
+            p{
+                /* Default text */
+                color: rgb(255, 255, 255);
+                font-family: "SF Pro Display";
+                font-size: 14.67px;
+                font-weight: 500;
+                line-height: 17.67px;
+                letter-spacing: 0%;
+                text-align: left;
+            }
+            img{
+                width: 15.59px;
+                height: 15.59px;
+            }
+        }
+        .customer__information-right-rate{
+            display: flex;
+            gap: calc(5.67px);
+            p{
+                @include greyText(35px);
+            }
+        }
+        .customer__information-right-rate-images{
+            display: flex;
+            gap: calc(3.33px);
+            img{
+                width: calc(9px);
+                height: 8.67px;
+                align-self: center
+            }
+        }
+
+
+    }   
+
+}
+
+.timeAndWatches{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: calc(10px);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    .time{
+/* Создано сегодня, 01:16 51 просмотр */
+        color: rgb(149, 151, 158);
+        font-family: "SF Pro Display";
+        font-size: 11.67px;
+        font-weight: 500;
+        line-height: 12.54px;
+        letter-spacing: 0%;
+        text-align: center;
+    }
+    .watches{
+        font-family: "SF Pro Display";
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 107%;
+        text-align: center;
+        color: #daf5fe;
+        span{   
+            color: #2ea5ff;
+        }
+    }
+
+}
+
+.similarAds{
+    display: flex;
+    flex-direction: column;
+    margin-top: calc(27px);
+    gap: calc(10.63px);
+    h2{
+        /* TON Price */
+        color: rgb(255, 255, 255);
+        font-family: "SF Compact Rounded";
+        font-size: calc(70px * $width);
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 0%;
+        text-align: left;
+    }
+    .similarAds__contaier{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: calc(8px);
+    }
+}
+// .page {
+//     position: absolute;
+//     left: 15px;
+//     right: 15px;
+//   }
+  

@@ -1,0 +1,79 @@
+
+input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Remove default styling */
+
+
+
+
+input[type="datetime-local"]::-webkit-datetime-edit,
+input[type="datetime-local"]::-webkit-inner-spin-button,
+input[type="datetime-local"]::-webkit-clear-button {
+    display: none;
+}
+
+input[type="datetime-local"]::-webkit-inner-spin-button,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+/* Стилизация фона и текста для выбранной даты/времени */
+input[type="datetime-local"]::-webkit-datetime-edit {
+  padding: 10px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Стилизация фокусированного состояния */
+input[type="datetime-local"]:focus {
+  outline: none;
+  border-color: #007bff; /* Цвет выбранный вами */
+}
+
+
+.DateTimePicker{
+display: flex;
+padding-left: 16.33px;
+padding-right: 17.33px;
+padding-top: 12.33px;
+padding-bottom: 11.33px;
+align-items: center;
+border-radius: 10px;
+cursor: pointer;
+
+/* Cards */
+background: rgb(32, 48, 63);
+}
+.left{
+display: flex;
+gap: 9px;
+}
+.leftImage{
+width: 16.98px;
+height: 16.98px;
+}
+.text{
+color: rgb(218, 245, 254);
+font-family: "SF Pro Display 400";
+font-size: 16.67px;
+font-weight: 400;
+line-height: 18.31px;
+letter-spacing: 1%;
+text-align: left;
+}
+.arrowRight{
+margin-left: auto;
+width: 5.73px;
+height: 11.33px;
+}
+
+

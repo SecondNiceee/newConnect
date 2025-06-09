@@ -1,0 +1,7 @@
+.Human{
+    line-height: 0;
+}
+.Human img{
+    width: calc(58px * 0.32);
+    height: calc(58px * 0.32);
+}

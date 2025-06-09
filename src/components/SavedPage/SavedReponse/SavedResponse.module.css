@@ -1,0 +1,17 @@
+.wrapper{
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 20px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(24, 34, 45);
+    height: calc(100vh);
+    z-index: 2000;
+    gap: 8px;
+    transition: 0.4s;
+    transform: translateX(100%);
+}

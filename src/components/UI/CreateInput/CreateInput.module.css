@@ -1,0 +1,27 @@
+.CreateInput{
+    /* Camption Regular */
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display 400";
+    font-size: 16.62px;
+    font-weight: 400;
+    line-height: 18.26px;
+    letter-spacing: 1%;
+    text-align: left;
+    width: 100%;
+    padding: 12.33px 17.34px 11.33px 16.33px;
+    letter-spacing: 1%;
+    text-align: left;
+    border-radius: 9.97px;
+
+    /* Cards */
+    background: rgb(32, 48, 63);
+}
+::-webkit-input-placeholder {
+    color: rgba(218, 245, 254 , 0.5);
+    font-family: "SF Pro Display 400";
+    font-size: 16.62px;
+    font-weight: 400;
+    line-height: 18.26px;
+    letter-spacing: 1%;
+    text-align: left;
+}

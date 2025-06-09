@@ -1,0 +1,25 @@
+.cardsLink{
+    display: flex;
+    align-items: center;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 16px;
+    gap: 17px;
+    border-radius: 10px;
+    background-color:  #20303f;
+    cursor: pointer;
+}
+.cardsLink img{
+    width: 30px;
+    height: 30px;
+}
+
+.cardsLink p{
+    text-align: left;
+    font-family: "SF Pro Display 400";
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 110%;
+    letter-spacing: 0.01em;
+    color: #ffffff;
+}

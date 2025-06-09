@@ -1,0 +1,49 @@
+.main{
+    position: fixed;
+}
+.choicerWrapper{
+    width: 100vw;
+    height: calc(100vh);
+    position: fixed;
+    left: 100%;
+    top: 0%;
+    background-color: black;
+    z-index: 2000;
+    opacity: 0.7
+    
+}
+.ChoicerModal{
+    z-index: 2001;
+    border-radius: 20px;
+    background-color: #18222d;
+    display: flex;
+    gap: 8px;
+    max-width: 300px;
+    width: 80%;
+    flex-grow: 1;
+    max-height: 70vh;
+    overflow-y: scroll;
+    flex-direction: column;
+    position: fixed;
+    left: 150%;
+    top: 40%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 20px 10px;
+    min-height: 30%;
+    align-items: center;
+    justify-content: center;
+}
+.ChoicerModal .component{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.ChoicerModal .component p{
+    font-family: "SF Pro Display 400";
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 110%;
+    letter-spacing: 0.01em;
+    color: #daf5fe;
+}

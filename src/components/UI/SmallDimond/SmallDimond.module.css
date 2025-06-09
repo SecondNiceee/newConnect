@@ -1,0 +1,20 @@
+.SmallDimond{
+    width: 21.62px;
+    height: 21.62px;
+}
+
+.wrap{
+    background-color: #28C281;
+    position: relative;
+
+}
+.wrap p{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-family: "SF Compact Rounded";
+    font-weight: 500;
+    font-size: 16px;
+    color: "white";
+}

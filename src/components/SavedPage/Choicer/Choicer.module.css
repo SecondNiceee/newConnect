@@ -1,0 +1,48 @@
+.main{
+    min-width: 300vw;
+    display: flex;
+    padding-right: 16px;
+    gap: 32px;
+    transition: 0.4s;
+    padding-bottom: 20px;
+    
+}
+.choicerContainer{
+    min-width: calc(100vw - 32px);  
+    align-self: self-start;
+    justify-self: flex-start; 
+}
+.choicerBlock{
+    flex-direction: column;
+    display: flex;
+    height: calc(calc(100vh) - 100px);
+    justify-content: center;
+    align-items: center;
+    
+    width: calc(100vw - 32px);
+}
+.text{
+    font-family: "SF Compact Rounded";
+    font-weight: 500;
+    font-size: 23px;
+    text-align: center;
+    color: #daf5fe;
+    margin-top: 75px;
+    max-width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.firstBlock{
+    width: 100%;
+}
+.blocksWrapper{
+    align-self: flex-start;
+    width: calc(100vw - 32px);
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-direction: column;
+    min-width: calc(100vw - 32px);
+}

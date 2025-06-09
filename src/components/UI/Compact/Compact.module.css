@@ -1,0 +1,12 @@
+.compactWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 7.33px;
+}
+.compactTitle{
+    font-family: "SF Pro Display 600";
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+    margin-left: 16px;
+}

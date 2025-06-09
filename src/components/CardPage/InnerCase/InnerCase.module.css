@@ -1,0 +1,78 @@
+.case{
+    border-radius: 10px;
+    background-color:  #20303f;
+    display: flex;
+    flex-direction: column;
+}
+.caseTop{
+    z-index: 200;
+    display: flex;
+    margin: 4px 4px 0px 4px;
+    gap: 4px;
+    overflow-x: scroll;
+    max-width: 100%;
+}
+.caseTop img{
+    border-radius: 7px;
+    object-fit: cover;
+    min-width: 183px;
+    height: 133px;
+}
+.caseBottom{
+    display: flex;
+    margin-top: 17px;
+    margin-bottom: 19px;
+    margin-left: 17px;
+    margin-right: 19px;
+    justify-content: space-between;
+    align-items: center;
+}
+.caseLeft{
+    display: flex;
+    flex-direction: column;
+    align-self: self-start;
+}
+.caseLeft h4{
+    font-family: "SF Pro Display";
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    color: white;
+}
+.caseLeft p{
+    font-family: "SF Pro Display";
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 107%;
+    color: #95979e;
+}
+.caseRight{
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    flex-direction: column;
+}
+.circle{
+    width: 28px;
+    height: 28px;
+    background: rgb(34, 61, 82);
+    border-radius: 50%;
+    position: relative;
+}
+.circle svg{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.one{
+    margin-left: auto;
+    margin-right: 6px;
+}
+.two{
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    gap: 13px;
+    margin-right: 5px;
+}

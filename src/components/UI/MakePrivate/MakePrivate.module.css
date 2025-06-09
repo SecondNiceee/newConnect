@@ -1,0 +1,36 @@
+.MakePrivate{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 9.97px;
+
+    /* Cards */
+    background: rgb(32, 48, 63);
+    padding: 6.3px 16.29px;   
+
+    align-items: center;
+
+}
+.MakePrivate p {
+    /* Camption Regular */
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display 400";
+    font-size: 16.62px;
+    font-weight: 400;
+    line-height: 18.26px;
+    letter-spacing: 1%;
+    text-align: left;
+
+}
+
+.whoCanSee{
+    margin-top: 6px;
+    margin-left: 16.29px;
+    /* Description */
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display 400";
+    font-size: calc(40px * 0.325 * 1.075);
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2%;
+    text-align: left;
+}

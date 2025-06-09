@@ -1,0 +1,13 @@
+.Budget{
+    display: flex;
+    flex-direction: column;
+    gap: calc(7.33px);
+    
+}
+.GreyText{
+    margin-left: 16px;
+}
+.absolute{
+    position: absolute;
+    
+}

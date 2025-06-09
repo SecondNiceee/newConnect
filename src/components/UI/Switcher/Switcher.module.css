@@ -1,0 +1,35 @@
+.Switcher{
+    background: #18222D;
+    border-radius: 15.46px;
+    width: 50.87px;
+    height: 30.92px;
+    position: relative;
+    transition: .3s;
+}
+.Switcher.active{
+    background: rgb(45, 200, 83); 
+}
+.circle {
+    border-radius: 13.47px;
+
+/* White */
+    background: rgb(255, 255, 255);
+
+    background: #fff;
+
+    width: 26.93px;
+    height: 26.93px;
+
+
+    position: absolute;
+    transition: .3s;
+    bottom: 2px ;
+    left: 2px;
+
+}
+
+
+.circle.active{
+    left: unset;
+    left: calc(100% - 26.93px - 2px)
+}

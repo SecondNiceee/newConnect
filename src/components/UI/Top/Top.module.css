@@ -1,0 +1,21 @@
+.top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.top .topIcon{
+    width: 28.33px;
+    border-radius: 50%;
+    height: 28.33px;
+}
+.MyAds{
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display 600";
+    font-size: 17.67px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0%;
+    text-align: center;
+}

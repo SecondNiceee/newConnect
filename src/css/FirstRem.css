@@ -1,0 +1,401 @@
+.First {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  padding-left: 17.4915254237px;
+  padding-right: 17.4915254237px;
+}
+
+.EmptyText {
+  color: rgb(255, 255, 255);
+  font-family: "SF Pro Display";
+  font-size: 36.44px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: center;
+  max-width: 266.012px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.FirstTop {
+  margin-top: 20.185px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10.9322033898px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.FirstTop img {
+  width: 30.974px;
+  height: 30.974px;
+}
+
+.FirstMain {
+  margin-top: 20.185px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 12.845px;
+}
+
+.First__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20.919px 20.919px 14.313px 19.084px;
+  border-radius: 10.932px;
+  background: rgb(32, 48, 63);
+}
+.First__block .FirstMain__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.First__block .FirstMain__top img {
+  width: 34.9824px;
+  height: 34.9824px;
+  margin-right: 10.932px;
+}
+.First__block .FirstMain__top p {
+  transition: 0.5s;
+  /* Default text */
+  color: rgb(255, 255, 255);
+  font-family: "SF Pro Display";
+  font-size: 16.0336px;
+  font-weight: 500;
+  line-height: 19.3132px;
+  letter-spacing: 0%;
+  text-align: left;
+  max-width: 266.012px;
+  margin-right: auto;
+  transform: translateY(1.5px);
+}
+.First__block .circle {
+  min-width: 30.6096px;
+  max-height: 30.6096px;
+  border-radius: 50%;
+  background: rgb(34, 61, 82);
+  position: relative;
+}
+.First__block .circle img {
+  width: 21.4996px;
+  height: 21.4996px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+      -ms-transform: translateY(-50%) translateX(-50%);
+          transform: translateY(-50%) translateX(-50%);
+}
+.First__block .FirstMain__middle {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1px;
+}
+.First__block .FirstMain__middle p {
+  color: rgb(149, 151, 158);
+  font-family: "SF Pro Display";
+  font-size: 12.754px;
+  font-weight: 500;
+  line-height: 13.705084px;
+  letter-spacing: 0%;
+  text-align: left;
+  color: rgb(149, 151, 158);
+}
+.First__block .FirstMain__bottom {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.First__block .FirstMain__bottom-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5px;
+}
+.First__block .FirstMain__bottom-left p {
+  /* Default text */
+  color: rgb(218, 245, 254);
+  font-family: "SF Pro Display";
+  font-size: 16.0336px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.First__block .FirstMain__price-up {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.First__block .FirstMain__price-up h3 {
+  color: rgb(255, 255, 255);
+  font-family: "SF Compact Rounded";
+  font-size: 25.508px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.First__block .FirstMain__price-up img {
+  width: 23.686px;
+  height: 23.686px;
+}
+.First__block .FirstMain__bottom-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8.3812px;
+}
+.First__block .FirstMain__bottom-right img {
+  width: 30.6096px;
+  height: 30.6096px;
+}
+
+.FirstMenu {
+  background-color: rgb(24, 34, 45);
+  z-index: 10;
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  bottom: 0;
+  width: 329.4176px;
+  padding: 29.727px 17.4912px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.FirstMenu.hidden {
+  left: -100%;
+}
+.FirstMenu .FirstMenu__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 14.576px;
+}
+.FirstMenu .FirstMenu__top img {
+  width: 58.304px;
+  height: 58.304px;
+}
+.FirstMenu .FirstMenu__top-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1px;
+}
+.FirstMenu .MenuName {
+  /* TON Price */
+  color: rgb(255, 255, 255);
+  font-family: "SF Compact Rounded";
+  font-size: 25.508px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.FirstMenu .MenuProfile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.FirstMenu .MenuProfile img {
+  width: 11.2964px;
+  height: 11.2964px;
+}
+.FirstMenu .MenuProfile p {
+  color: rgb(218, 245, 254);
+  font-family: "SF Pro Display";
+  font-size: 16.0336px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.FirstMenu .MenuPrice {
+  margin-top: 33.03px;
+  border-radius: 10.932px;
+  background: rgb(32, 48, 63);
+  padding-top: 9.175px;
+  padding-left: 17.8556px;
+  padding-right: 17.8556px;
+  padding-bottom: 9.175px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 7px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  position: relative;
+}
+.FirstMenu .MenuPrice img {
+  width: 23.686px;
+  height: 23.686px;
+}
+.FirstMenu .MenuPrice .upArr {
+  position: absolute;
+  top: 6.606px;
+  right: 6.5592px;
+  width: 5.1016px;
+  height: 5.1016px;
+}
+.FirstMenu .MenuTextPrice {
+  /* TON Price */
+  color: rgb(255, 255, 255);
+  font-family: "SF Compact Rounded";
+  font-size: 25.508px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.FirstMenu .MenuTextRublePrice {
+  /* Default text */
+  color: rgb(218, 245, 254);
+  font-family: "SF Pro Display";
+  font-size: 16.0336px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+  margin-left: 0px;
+}
+.FirstMenu .MenuList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 22.02px;
+  margin-top: 33.03px;
+  /* Menu Text */
+}
+.FirstMenu .MenuList a {
+  color: rgb(149, 151, 158);
+  font-family: "SF Pro Display";
+  font-size: 17.4912px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+  -webkit-transition: 0.32s;
+  transition: 0.32s;
+}
+.FirstMenu .MenuList a:hover {
+  color: rgb(255, 255, 255);
+}
+.FirstMenu .Menu__Helps {
+  margin-top: 88.447px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+}
+.FirstMenu .Menu__Helps img {
+  width: 21.1352px;
+}
+.FirstMenu .Menu__Helps a {
+  color: rgb(255, 255, 255);
+  font-family: "SF Pro Display";
+  font-size: 17.4912px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.FirstMenu .close {
+  cursor: pointer;
+  position: absolute;
+  width: 17.4912px;
+  height: 17.4912px;
+  right: 17.4912px;
+  top: 28.993px;
+}
+.FirstMenu .close span:nth-child(1) {
+  position: absolute;
+  width: 22.5928px;
+  height: 2.202px;
+  background-color: white;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  border-radius: 3px;
+  background: rgb(255, 255, 255);
+}
+.FirstMenu .close span:nth-child(2) {
+  position: absolute;
+  width: 22.5928px;
+  height: 2.202px;
+  background-color: white;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  border-radius: 3px;
+  background: rgb(255, 255, 255);
+}

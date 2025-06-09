@@ -1,0 +1,123 @@
+.cards{
+    position: fixed;
+    width: 100vw;
+    padding-bottom: 74px;
+    height: calc(100vh);
+    left: 0;
+    z-index: 400;
+    top: 0;
+    background-color: rgb(24, 34, 45);
+    padding-top: 23px;
+    padding-left: 14px;
+    padding-right: 14px;
+    transform: translate(100%);
+    transition: 0.4s;
+    overflow-y: scroll;
+    will-change: transform;
+
+    .inputModal-enter{
+        opacity: 1;
+    }
+    .inputModal-enter-active{
+        opacity: 1;
+    }
+    .inputModal-enter-done{
+        opacity: 1;
+    }
+    .inputModal-exit{
+        opacity: 0;
+    }
+    .inputModal-exit-done{
+        opacity: 0;
+    }
+
+    
+    .cards-title{
+        margin-left: 16px;
+        font-family: "SF Pro Display 600";
+        font-weight: 600;
+        font-size: 17px;
+        color: white;
+    }
+    .cards-taskName{
+        margin-top: 18px;
+    }   
+    .cards-descriptionAndPhoto{
+        margin-top: 18px;
+    }
+    .cards-underText{
+        margin-top: 6px;
+        font-family: "SF Pro Display 400";
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 117%;
+        letter-spacing: 0.02em;
+        color: #daf5fe;
+        margin-left: 16px;
+    }
+    .cards-links{
+        margin-top: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        
+    }
+    .cards-link{
+        display: flex;
+        align-items: center;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-left: 16px;
+        gap: 17px;
+        border-radius: 10px;
+        background-color:  #20303f;
+        img{
+            width: 30px;
+            height: 30px;
+        }
+        p{
+            font-family: "SF Pro Display 400";
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 110%;
+            letter-spacing: 0.01em;
+            color: #daf5fe;
+        }
+    }
+    .cards-categorys{
+        margin-top: 18px;
+    }
+
+
+}
+
+.cardsModal-enter{
+    transform: translateX(0%);
+}
+.cardsModal-enter-active{
+    transform: translateX(0%);
+}
+.cardsModal-enter-done{
+    transform: translateX(0%);
+}
+
+.cardsModal-exit{
+    transform: translateX(100%);
+}
+.cardsModal-exit-active{
+    transform: translateX(100%);
+}
+
+.cardsModal-exit-done{
+    transform: translateX(100%);
+}
+
+
+
+
+
+
+
+// .cardsModal-active{
+//     display: fixed;
+// }

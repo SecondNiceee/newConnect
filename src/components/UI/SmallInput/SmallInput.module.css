@@ -1,0 +1,20 @@
+.smallInput{
+    border-radius: 10px;
+    width: 100%;
+    height: 42px;
+    background-color: #20303f;
+    padding: 12px 17px 11px 16px;
+
+
+    font-family: "SF Pro Display 400";
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 110%;
+    letter-spacing: 0.01em;
+    color: white;
+}
+.mistakeText{
+    font-family: "SF Pro Display 400";
+    font-weight: 400;
+    color: #FF6767;
+}   

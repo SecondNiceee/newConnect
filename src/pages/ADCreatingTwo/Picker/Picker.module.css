@@ -1,0 +1,58 @@
+.Picker{
+    border-radius: 8.35px;
+
+    /* Fill Color/Dark/Tertiary */
+    background: rgba(118, 118, 128, 0.24);
+    display: flex;
+    position: relative;
+
+}
+.left{
+    display: flex;
+    padding-top: calc(8.74px);
+    padding-bottom: calc(7.96px);
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+.right{
+    display: flex;
+    padding-top: calc(8.74px);
+    padding-bottom: calc(7.96px);
+    align-items: center;
+    justify-content: center;
+    width: 50%; 
+    cursor: pointer;
+    z-index: 10;
+}
+.PickText{
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Text 600";
+    font-size: 13.57px;
+    font-weight: 600;
+    line-height: 16.7px;
+    letter-spacing: -0.08px;
+    text-align: center;
+}
+.greyBlock{
+    will-change: transform;
+    height: 29.23px;
+    width: 50%;
+    border: 0.52px solid rgba(0, 0, 0, 0.04);
+    border-radius: 7.31px;
+    background: rgb(99, 99, 102);
+    position: absolute;
+    border: 1.57px solid rgba(0, 0, 0, 0.04);
+    background: rgb(99, 99, 102);
+    transition: 0.15s;
+    bottom: 2.08px;
+}
+.greyBlock.rightBlock{
+    right: 2.08px;
+}
+.greyBlock.leftBlock{
+    right: calc(50% - 2.08px);
+    
+}

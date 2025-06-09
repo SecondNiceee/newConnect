@@ -1,0 +1,80 @@
+.saved-wraper{
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh);
+    .new-textarea{
+        border: 1.33px solid #636267;
+        background-color: #18222d;
+        border-radius: 10px 10px 6px 6px;
+        padding: 12px 16px;
+    }
+}
+.saved-top-wrapper{
+    margin-bottom: 20px;
+}
+.response-block{
+    position : absolute;
+    left : 0;
+    transform: translateX(100%);
+    top : 0;
+    background-color : #18222d;
+    z-index : 2000;
+    height: calc(100vh);
+    width: 100vw;
+}
+.hamster{
+
+}
+
+.FullDescription{
+    padding: calc(15px) calc(17px);
+    border-radius: 10px;
+
+    /* Cards */
+    background: rgb(32, 48, 63);
+    display: flex;
+    flex-direction: column;
+    gap: calc(2px);
+
+
+}
+.FullDescription-top{
+    display: flex;
+    gap: calc(4px);
+    align-items: center;
+    p{
+        /* Default text */
+        color: rgb(149, 151, 158);
+        font-family: "SF Pro Display";
+        font-size: 14.67px;
+        font-weight: 500;
+        line-height: 17.67px;
+        letter-spacing: 0%;
+        text-align: left;
+    }
+    img{
+/* Vector */
+        width: 10.67px;
+        height: 12.67px;
+        align-self: center;
+    }
+}
+.FullDescriptionBottom{
+    resize: none;
+    background-color: transparent;
+    /* Default text */
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display";
+    font-size: 14.67px;
+    font-weight: 500;
+    line-height: 19.7px;
+    letter-spacing: 0%;
+    text-align: left;
+    overflow-y: hidden;
+}

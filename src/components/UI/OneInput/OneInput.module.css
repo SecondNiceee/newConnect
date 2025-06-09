@@ -1,0 +1,25 @@
+.OneInput{
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display";
+    font-size: 14.67px;
+    font-weight: 500;
+    line-height: 17.67px;
+    letter-spacing: 0%;
+    text-align: left;
+    padding: 7px 15px;
+
+    border-radius: 15.83px;
+
+/* Semi */
+    background: rgb(46, 55, 64);
+    flex-grow: 1;
+}
+.OneInput::placeholder{
+    color: rgb(149, 151, 158);
+    font-family: SF Pro Display;
+    font-size: 14.67px;
+    font-weight: 500;
+    line-height: 17.67px;
+    letter-spacing: 0%;
+    text-align: left;
+}

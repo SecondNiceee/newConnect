@@ -1,0 +1,29 @@
+.CategoryItem{
+    padding-top: calc(40px * 0.32);
+    padding-bottom: calc(40px * 0.32);
+    padding-left: calc(52px * 0.32);
+    display: flex;
+    gap: calc(30px * 0.32);
+    align-self: center;
+    border-radius: calc(30px*0.32);
+    width: 100%;
+    align-items: center;
+    cursor: pointer;
+
+/* Cards */
+    background: rgb(32, 48, 63);
+}
+.CategoryItem img{
+    width: calc(96px * 0.32);
+    height: calc(96px * 0.32);
+}
+p{
+    /* Default text */
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display";
+    font-size: calc(44px * 0.325);
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0%;
+    text-align: left;
+}

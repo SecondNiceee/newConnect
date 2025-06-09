@@ -1,0 +1,6 @@
+.Pallete{
+}
+.Pallete img{
+    width: calc(96px * 0.32);
+    height: calc(96px * 0.32) ;
+}

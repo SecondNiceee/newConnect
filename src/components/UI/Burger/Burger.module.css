@@ -1,0 +1,30 @@
+.Burger{
+    width: calc( 20px);
+    height: calc(15px); 
+    position: relative;
+    cursor: pointer;
+    z-index: 20;
+}
+.Burger span{
+    position: absolute;
+    width: 100%;
+    height: 0.125em;
+    background-color: white;
+    border-radius: 3px;
+}
+.Burger span:nth-child(1){
+    top: 0;
+    left: 0;
+}
+.Burger span:nth-child(2){
+    top: calc(50%);
+    transform: translateY(-50%);
+}
+.Burger span:nth-child(3){
+    bottom: 0;
+}
+.burgerMainWrapper{
+    position: absolute;
+    left: 16px;
+    top: 26px;
+}

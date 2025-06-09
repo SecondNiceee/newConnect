@@ -1,0 +1,143 @@
+.aboutMeContainer{
+    display: flex;
+    flex-direction: column;;
+    height: calc(100vh);
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: rgb(24, 34, 45);
+    padding-bottom: 16px;
+}
+.aboutMe{
+    transition: 0.4s;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+}
+.aboutMeContainer .top{
+    width: calc(100% + 32px);
+    padding-top: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
+    transform: translateX(-16px);
+    padding-bottom: 24px;
+    border-bottom: 0.5px solid rgb(60, 61, 63);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.close {
+    cursor: pointer;
+
+    width: calc(23px);
+    height: calc(23px);
+    right: calc(16px);
+    top: calc(26px);
+}
+.close span:nth-child(1){
+    position: absolute;
+    width: calc(20px );
+    height: calc(2px);
+    background-color: white;
+    transform: rotate(45.00deg);
+    border-radius: 3px;
+    background: rgb(255, 255, 255);
+}
+.close span:nth-child(2){
+    position: absolute;
+    width: calc(20px );
+    height: calc(2px);
+    background-color: white;
+    transform: rotate(-45.00deg);
+    border-radius: 3px;
+    background: rgb(255, 255, 255);
+}
+.close__wrapper{
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: -20px;
+    left: -14px;
+    z-index: 20;
+}
+.top p:nth-child(2){
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display 600";
+    font-size: 17.67px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0%;
+    text-align: center;
+}
+.top p:nth-child(2){
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display 600";
+    font-size: 17.67px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0%;
+    text-align: center;
+}
+.top p:nth-child(3){
+    width: 17px;
+    height: 17px;
+    font-family: "SF Pro Display 600";
+    font-size: 20.67px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #40fa40;
+}
+.about__reason{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+.about__reason p{
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display 400";
+    font-size: 13.3px;
+    font-weight: 400;
+    line-height: 15.6px;
+    letter-spacing: 2%;
+    text-align: left;
+}
+.inputBlock{
+    margin-top: 10px;
+    width: calc(100% + 16px);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.textArea{
+    transform: translateX(-8px);
+    background-color: transparent;
+    width: calc(100% );
+    border: 1px solid rgb(255, 255, 255);
+
+    
+    border-radius: 9.97px;
+    padding: 8px;
+    color: white;
+    font-family: "SF Pro Display";
+    flex-grow: 1;
+    box-shadow:#40fa40 ;
+}
+.save{
+    transform: translateY(-3px);
+}
+.whiteRec{
+    margin-top: 11px;
+    width: 35.33px;
+    height: 4.33px;
+    border-radius: 19.33px;
+    background: rgb(255, 255, 255);
+    margin-left: auto;
+    margin-right: auto;
+}

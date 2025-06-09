@@ -1,0 +1,388 @@
+@import './Values/reset';
+@import './Values/Values.scss';
+@import './First/_FirstRem.scss';
+@import './First/_TaskDetails.scss';
+@import './AdCreating/AdCreating';
+@import './Profile/Profile.scss';
+@import './Balance/_Balance';
+@import './MyAds/MyAds';
+@import './First/Responce.scss';
+@import './Shablon/shablon.scss';
+@import './Cards/cards';
+@import './Shablon/allShablons';
+@import './savedPage/savedPage';
+* {
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    // overflow: hidden;
+  }
+  // html { height: 100%; overflow:auto; }
+  // body { height: 100%; }
+  // body {
+  //   position: relative
+  // }
+
+*{
+  padding: 0px;
+  margin: 0px;
+}
+body { width: 100%; height: auto;  background: rgb(24, 34, 45); }
+#app { width: 100%; height: auto; }
+
+.UperContainer{
+  position: relative;
+  height: auto;
+  width: 100%;
+  overflow: auto;
+}
+
+.MuiSelect-select{
+  padding: 0px !important;
+}
+
+.MainContainer{
+    background: rgb(24, 34, 45);
+    transition: 0.5s;
+    height: auto;
+    overflow-x: hidden;
+    position: relative;
+
+}
+.low-opacity{
+  opacity: 0.5;
+}
+.intersaction-block{
+  position: relative;
+  bottom: 50px;
+  width: 30px;
+  height: 30px;
+}
+.aboutInfo__text{
+  font-family: "SF Pro Display";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  color: #fff;
+  max-width: 80px;
+}
+.left-right-enter{
+    transform: translate3d(0 , 0 , 0) !important;
+   transition: 0.4s;
+}
+.left-right-enter-active{
+  transform: translate3d(0 , 0 , 0) !important;
+  transition: 0.4s;
+}
+.left-right-enter-done{
+  transform: translate3d(0 , 0 , 0) !important;
+  transition: 0.4s;
+}
+.left-right-exit{
+  transform: translate3d(100vw , 0 , 0) !important;
+  transition: 0.4s;
+}
+.left-right-exit-active{
+  transform: translate3d(100vw , 0 , 0) !important;
+  transition: 0.4s;
+}
+
+
+.left-zero-enter{
+  transform: translate3d(-100vw , 0 , 0) !important;
+  transition: 0.4s;
+}
+.left-zero-enter-active{
+  transform: translate3d(-100vw , 0 , 0) !important;
+  transition: 0.4s;
+}
+.left-zero-enter-done{
+  transform: translate3d(-100vw , 0 , 0) !important;
+  transition: 0.4s;
+}
+
+
+.left-right-exit{
+  transform: translate3d(0 , 0 , 0) !important;
+  transition: 0.4s;
+}
+.left-right-exit-active{
+  transform: translate3d(100% , 0 , 0) !important;
+  transition: 0.4s;
+}
+.left-right-exit-done{
+  transform: translate3d(100% , 0 , 0) !important;
+  transition: 0.4s;
+}
+
+
+*::-webkit-scrollbar {display:none;}
+
+.page-enter {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.base-Popup-root{
+  z-index: 2000000 !important;
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+.aboutMe{
+  position: fixed;
+  background: rgb(24, 34, 45);
+  top: 0%;
+  width: calc(100% );
+  z-index: 20;
+}
+.icon{
+  border-radius: 50%;
+}
+
+.loaderBlock{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+@keyframes anime{
+  0%  {
+      transform : translateX(20px)
+  }
+  20%  {
+      transform : translateX(-20px)
+  }
+  40%  {
+      transform : translateX(10px)
+  }
+  40%  {
+      transform : translateX(-10px)
+  }
+  60%  {
+      transform : translateX(5px)
+  }
+  80%  {
+      transform : translateX(-5px)
+  }
+  100%  {
+      transform : translateX(0px)
+  }
+
+}
+.animut{
+  animation: anime 10s;
+}
+
+.cards__wraaper{
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.base--selected::after{
+  right: 18.7px;
+  position: absolute;
+  top: 48%;
+  transform: translateY(calc(-50% + 2px));
+
+  content:  url(../images/icons/check.svg);
+}
+
+
+
+.selector__item{
+  align-items : center;
+  display : flex;
+  gap : 4px;
+  padding : 0px;
+  text-transform : uppercase;
+  font-family: "SF Pro Display 400";
+  font-weight: 400;
+  font-size: 13.33px;
+  letter-spacing: 0.02em;
+  text-align: right;
+  color: #2ea5ff;
+  background-color : transparent;
+  border : none
+}
+
+
+.placement-bottom .base-Option-root{
+  border-radius: 0px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-left: 16px;
+
+  font-family: "SF Pro Text 400";;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: white;
+}
+.placement-bottom .base-Select-listbox{
+  border: none;
+}
+.placement-bottom .base-Select-listbox{
+  backdrop-filter: blur(80px);
+  box-shadow: 0 8px 64px 0 rgba(0, 0, 0, 0.1);
+}
+.base-Option-root{
+  position: relative;
+  border-bottom: 0.50px solid rgba(84, 84, 88, 0.65);
+}
+.base-Option-root:hover{
+  background-color: rgba(68, 68, 68);
+}
+
+.show-modal-enter{
+  scale: 1 !important;
+  opacity: 1 !important;
+}
+.show-modal-enter-active{
+  scale: 1 !important;
+  opacity: 1 !important;
+}
+.show-modal-enter-done{
+  scale: 1 !important;
+  opacity: 1 !important;
+}
+.show-modal-exit{
+  transition: 0.4s !important;
+  scale: 1 !important;
+  opacity: 1 !important;
+}
+.show-modal-exit-active{
+  transition: 0.4s !important;
+  scale: 1 !important;
+  opacity: 1 !important;
+}
+.show-modal-exit-done{
+  transition: 0.4s !important;
+  scale: 0 !important;
+  opacity: 0 !important;
+}
+ button, li, a, img {
+  cursor: pointer;
+}
+
+@keyframes animateError{
+  0%{
+    opacity: 0;
+    scale: 0;
+    transition: 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275) ;
+  }
+  6%{
+    scale: 1.10;
+    opacity: 1;
+  }
+  9%{
+    scale: 1;
+  }
+  70%{
+    scale: 1;
+    opacity: 1;
+    transition: 0.2s;
+  }
+  100%{
+    scale: 1;
+    opacity: 0;
+  }
+
+}
+
+
+@keyframes animateErrorTwo{
+  0%{
+    opacity: 0;
+    scale: 0;
+    transition: 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275) ;
+  }
+  3%{
+    scale: 1.08;
+    opacity: 1;
+  }
+  6%{
+    scale: 1;
+  }
+  70%{
+    scale: 1;
+    opacity: 1;
+    transition: 0.2s;
+  }
+  100%{
+    scale: 1;
+    opacity: 0;
+  }
+
+}
+
+
+.errorModal-enter-active{
+  animation: animateError 2s both;
+}
+.errorModal-exit-active{
+  animation: animateError 2s both;
+}
+
+.errorModalTwo-enter-active{
+  animation: animateErrorTwo 10s both;
+}
+.errorModalTwo-exit-active{
+  animation: animateErrorTwo 10s both;
+}
+
+// .slider-appear-enter{
+//   opacity: 0;
+//   transition: 0.3s;
+// }
+// .slider-appear-enter-active{
+//   opacity: 1;
+//   transition: 0.3s
+// }
+// .slider-appear-enter-done{
+//   opacity: 1;
+//   transition: 0.3s
+// }
+@keyframes modal-animate{
+  0%{
+    transform: translateY(0px);
+  }
+  30%{
+    transform: translateY(125px);
+  }
+  70%{
+    opacity: 1;
+    transform: translateY(125px);
+  }
+  100%{
+    opacity: 0;
+    transform: translateY(125px);
+  }
+}
+
+.modal-copy-enter-active{
+  animation: modal-animate 1.5s both ;
+  animation-fill-mode: both;
+}
+.modal-copy-exit-active{
+  animation: modal-animate 1.5s both ;
+  animation-fill-mode: both;
+}

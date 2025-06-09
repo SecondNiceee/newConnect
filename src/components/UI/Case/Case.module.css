@@ -1,0 +1,92 @@
+.case{
+    border-radius: 10px;
+    background-color:  #20303f;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s;
+    position: relative;
+    z-index: 300;
+}
+.area{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.caseTop{
+    display: flex;
+    margin: 4px 4px 0px 4px;
+    gap: 4px;
+    overflow-x: scroll;
+    max-width: 100%;    
+    z-index: 200;
+}
+.caseTop img{
+    min-width: calc(0.48* 100vw);
+    height: calc(0.35* 100vw);
+    border-radius: 6.67px;
+    object-fit: cover;
+    border-radius: 6.67px;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+.caseBottom{
+    display: flex;
+    margin-top: 17px;
+    margin-bottom: 19px;
+    margin-left: 17px;
+    margin-right: 19px;
+    justify-content: space-between;
+    align-items: center;
+}
+.caseLeft{
+    gap: 2px;
+    display: flex;
+    flex-direction: column;
+    align-self: self-start;
+}
+.caseLeft h4{
+    font-family: "SF Pro Display";
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    color: white;
+}
+.caseLeft p{
+    font-family: "SF Pro Display";
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 107%;
+    color: #95979e;
+}
+.caseRight{
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+.circle{
+    width: 28px;
+    height: 28px;
+    background: rgb(34, 61, 82);
+    border-radius: 50%;
+    position: relative;
+}
+.circle svg{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.one{
+    margin-left: auto;
+    margin-right: 6px;
+}
+.two{
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    gap: 13px;
+    margin-right: 5px;
+}

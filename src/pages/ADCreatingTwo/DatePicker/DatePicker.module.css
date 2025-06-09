@@ -1,0 +1,16 @@
+.DatePicker{
+    display: flex;
+    flex-direction: column;
+
+}
+.picker{
+    margin-top: 7.33px;
+}
+.CatchDate{
+    margin-top: 8px;   
+
+}
+.GreyText{
+    margin-left: 16px;
+    margin-bottom: 7.33px;
+}

@@ -1,0 +1,14 @@
+.Choicer{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.Choicer p{
+    font-family: "SF Pro Display 400";
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 106%;
+    letter-spacing: 0.01em;
+    text-align: right;
+    color: #2ea5ff;
+}

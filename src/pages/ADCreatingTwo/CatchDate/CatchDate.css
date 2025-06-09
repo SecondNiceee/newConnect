@@ -1,0 +1,79 @@
+.CatchDate{
+    position: relative;
+    display: flex;
+    gap: 32px;
+    transition: 0.15s;
+}
+/* input{
+    display: block;
+} */
+
+.PeriodInput{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.flexStart{
+    align-self: flex-start;
+}
+.DateTimePicker{
+display: flex;
+padding-left: 16.33px;
+padding-right: 17.33px;
+padding-top: 12.33px;
+padding-bottom: 11.33px;
+align-items: center;
+border-radius: 10px;
+
+/* Cards */
+background: rgb(32, 48, 63);
+}
+.left{
+display: flex;
+gap: 9px;
+}
+.leftImage{
+width: 16.98px;
+height: 16.98px;
+}
+.text{
+color: rgb(218, 245, 254);
+font-family: "SF Pro Display 400";
+font-size: 16.67px;
+font-weight: 400;
+line-height: 18.31px;
+letter-spacing: 1%;
+text-align: left;
+}
+.arrowRight{
+margin-left: auto;
+width: 5.73px;
+height: 11.33px;
+}
+.myAdsGreyText{
+    color: rgb(132, 137, 143);
+    font-family: "SF Pro Display 400";
+    font-size: 13.3px;
+    font-weight: 400;
+    line-height: 15.6px;
+    letter-spacing: 2%;
+    text-align: left;
+    text-transform: uppercase;
+    margin-left: 17px;
+     margin-bottom: 4px; 
+}
+.myAdsGreyTextTwo{
+    margin-left: 17px;
+    margin-bottom: 4px; 
+    margin-top: 25px;
+    color: rgb(132, 137, 143);
+    font-family: "SF Pro Display 400";
+    font-size: 13.3px;
+    font-weight: 400;
+    line-height: 15.6px;
+    letter-spacing: 2%;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+

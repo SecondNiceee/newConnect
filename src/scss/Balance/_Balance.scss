@@ -1,0 +1,369 @@
+$width : 0.32;
+$height : 0.32;
+.all__balance{
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    height: calc(100vh);
+    overflow-y: scroll;
+}
+.balance__container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 23.33px;
+    margin-left: 16px;
+    margin-right: 16px;
+    .ur__schet{
+        /* Bold */
+        display: flex;
+        gap: 2px;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 5px;
+        p{
+            color: rgb(255, 255, 255);
+            font-family: "SF Pro Display 600";
+            font-size: 17.67px;
+            font-weight: 600;
+            line-height: 21px;
+            letter-spacing: 0%;
+            text-align: right;
+        }
+        .info{
+            width: 14.78px;
+            height: 14.78px;
+        }
+    }
+    .real__balance-block{
+        display: flex;
+        margin-top: calc(30px);
+        flex-direction: column;
+        // gap: 5px;
+    }
+    .real__balance-block-up{
+        align-items: baseline;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 5px;
+        p{
+/* 117 */
+            color: rgb(255, 255, 255);
+            font-family: "SF Compact Rounded";
+            font-size: 59.59px;
+            font-weight: 500;
+            line-height: 71px;
+            letter-spacing: 4%;
+            text-align: left;
+        }
+        p:nth-child(2){
+            color: rgb(218, 245, 254);
+            font-family: "SF Compact Rounded";
+            font-size: 42px;
+            font-weight: 600;
+            line-height: 50px;
+            letter-spacing: 1%;
+            text-align: left;
+        }
+        .blue__dymond{   
+            background: rgb(0, 152, 234);
+            position: relative;
+            width: 42.67px;
+            height: 42.67px;
+            border-radius: 50%;
+            transform: translateY(5px);
+            margin-left: 4px;
+            img{
+                width: 21.57px;
+                height: 21.57px;
+                position: absolute;
+                position: absolute;
+                left: 50%;
+                bottom: 50%;
+                transform: translateX(-50%) translateY(50%);
+            }
+        }
+        
+    }
+    .real__balance-block-down{
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 5px;
+        p{
+            /* Description */
+            color: rgb(218, 245, 254);
+            font-family: "SF Pro Display 400";
+            font-size: 13.33px;
+            font-weight: 400;
+            line-height: 15.64px;
+            letter-spacing: 2%;
+            text-align: left;
+        }
+    }
+    .balance__interesting{
+        display: flex;
+        flex-direction: column;
+        gap:8px;
+        margin-top: 30px;
+    }
+    .balance__interesting-top{
+        display:flex;
+        gap: 8px;
+    }
+    .top-block{
+        flex-grow: 1;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border-radius: 11.67px;
+
+        /* Cards */
+        background: rgb(32, 48, 63);
+        align-items: center;
+        display: flex;
+        p{
+            color: rgb(46, 165, 255);
+            font-family: "SF Pro Display 600";
+            font-size: 17.67px;
+            font-weight: 600;
+            line-height: 21px;
+            letter-spacing: 0%;
+            text-align: left;
+        }
+        img{
+            width: 18.67px;
+            height: 18.67px;
+        }
+    }
+    
+    .choice-of-get-more-block{
+        display: flex;
+        align-items: center;
+        padding: 12px calc(16px);
+        align-items: center;
+        border-radius: 10px;
+        gap: 10px;
+        /* Cards */
+        background: rgb(32, 48, 63);
+
+        img{
+            width: 16px;
+            height: 13px;
+            transform: translateY(-1px);
+        }
+        .upDown{
+            transform: none;
+            transform: translateY(0px);
+        }
+        p{
+            /* Camption Regular */
+            color: rgb(218, 245, 254);
+            font-family: "SF Pro Display 400";
+            font-size: 16.67px;
+            font-weight: 400;
+            line-height: 18.31px;
+            letter-spacing: 1%;
+            text-align: left;
+        }
+        .block-of-choice{
+            display: flex;
+            margin-left: auto;
+            gap: 7px;
+            align-items: center;
+            p{
+                color: rgb(46, 165, 255);
+                font-family: "SF Pro Display 400";
+                font-size: 17.33px;
+                font-weight: 400;
+                line-height: 18.31px;
+                letter-spacing: 1%;
+                text-align: right;
+            }
+            img{
+                width: 12.33px;
+                height: 13.07px;
+            }
+        }
+    }
+    
+
+}
+.transaction{
+    margin-bottom: 6px;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+    padding-right: 16px;
+    flex-grow: 1    ;
+    border-radius: 10px;
+
+    /* Cards */
+    background: rgb(32, 48, 63);
+    padding-bottom: calc(6px);
+    p{
+        /* Default text CAPS */
+        color: rgb(132, 137, 143);
+        font-family: "SF Pro Display 400";
+        font-size: 13.33px;
+        font-weight: 400;
+        line-height: 15.64px;
+        letter-spacing: 2%;
+        text-align: left;
+        text-transform: uppercase;
+        margin-top: 17.33px;
+        margin-left: 2px;
+    }
+    .grey__block{
+        transition: 0.15s;
+    }
+    .transaction__main{
+        margin-top: 19px;
+        display: flex;
+        transition: 0.15s;
+        gap: 32px;
+        .common{
+            display: flex;
+            flex-direction: column;
+            transition: 0.15s;
+            .how__many{
+                display: flex;
+                gap: 2px;
+                align-items: center;
+                margin-left: auto;
+                .how__many-text:nth-child(1) , .how__many-text:nth-child(2) {
+                    color: rgb(48, 209, 88);
+                    font-family: "SF Pro Display";
+                    font-size: 17.67px;
+                    font-weight: 500;
+                    line-height: 21px;
+                    letter-spacing: 0%;
+                    text-align: right;
+                    margin-left: 0;
+                    text-decoration: none;
+                    text-transform: none;
+                }
+            }
+            p{
+                color: rgb(48, 209, 88);
+                font-family: "SF Pro Display";
+                font-size: 14.67px;
+                font-weight: 500;
+                line-height: 17.67px;
+                letter-spacing: 0%;
+                text-align: right;
+                margin-left: 0;
+                margin-top: 0;
+                text-decoration: none;
+                text-transform: none;
+            }
+
+        }
+        .common__block{
+            display: flex;
+            align-items: center;
+            .download{
+                position: relative;
+                border-radius: 50%;
+                min-width:40px;
+                height: 40px;
+                background: rgb(61, 168, 248);
+            }
+            .common-text{
+                display: flex;
+                flex-direction: column;
+                gap: 1px;
+                margin-left: calc(10.33px);
+                p:nth-child(1){
+                    color: rgb(255, 255, 255);
+                    font-family: "SF Pro Display";
+                    font-size: 17.67px;
+                    font-weight: 500;
+                    line-height: 21px;
+                    letter-spacing: 0%;
+                    text-align: left;
+                    margin-left: 0;
+                    text-transform: none;
+                }
+                .date-text{
+                    color: rgb(181, 206, 217);
+                    font-family: "SF Pro Display";
+                    font-size: 14.67px;
+                    font-weight: 500;
+                    line-height: 17.67px;
+                    letter-spacing: 0%;
+                    text-align: left;
+                    margin-left: 0;
+                    text-transform: none;
+                }
+            }
+            .common-color-text{
+                display: flex;
+                flex-direction: column;
+                margin-left: auto;
+                gap: 1px;
+            }
+        }
+    }
+    .download-image{
+/* Rectangle 45 */
+        position: absolute;
+        width: 25.33px;
+        height: 25.33px;
+        position: absolute;
+        left: 50%;
+        bottom: 50%;
+        transform: translateX(-50%) translateY(50%);
+    }
+    .transtion__main-wrapper{
+        height: 38.8px;
+    }
+    .stages{
+        display: flex;
+        border-radius: 7.31px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        line-height:  0;
+        border: 1.57px solid rgba(224, 76, 76, 0.04);
+        background: rgba(118, 118, 128, 0.24);
+        position: relative;
+        margin-top: 14px;
+        .stage{
+            padding-top: 8.74px;
+            padding-bottom: 7.96px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            p{
+                color: rgb(255, 255, 255);
+                font-family: "SF Pro Text 600";
+                font-size: 13.57px;
+                font-weight: 600;
+                line-height: 16.7px;
+                letter-spacing: -0.08px;
+                text-align: center;
+                margin-top: 0px;
+                margin-left: 0px;
+                text-decoration: none;
+                text-transform: none;
+            }
+        }
+    }
+    .grey__block{
+        position: absolute;
+        width: 33.3333333333%;
+        border-radius: 8px;
+        background: rgb(99, 99, 102);
+        left: 0;
+        height: 29.22px;
+        bottom: 50%;
+
+
+    }
+}

@@ -1,0 +1,16 @@
+
+$height : 0.32;
+$width : 0.32;
+// $width : clamp(0.015rem, 0.09vw, 0.063rem)
+// $height
+
+@mixin greyText($fs){
+    /* Small Text */
+    color: rgb(149, 151, 158);
+    font-family: SF Pro Display;
+    font-size: calc($fs * $width);
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0%;
+    text-align: left;
+}

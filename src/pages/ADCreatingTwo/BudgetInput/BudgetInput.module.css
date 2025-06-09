@@ -1,0 +1,108 @@
+.BudgetInput{
+    border-radius: calc(30px * 0.32);
+    border-radius: 10px;
+
+    /* Cards */
+    background: rgb(32, 48, 63);
+    position: relative;
+    padding-left: calc(16px);
+    padding-top: 11px;
+    padding-right: calc(16px);
+    padding-bottom: calc(40px);
+    display:flex;
+    align-items: center;
+}
+.BudgetInput[data-value]{
+    position: relative;
+}
+.BudgetInput[data-value]::after{
+   content: attr(data-value) "%";
+}
+.hidden{
+    position: absolute;
+    top: 250px;
+    visibility: hidden;
+
+}
+.costPrice{
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    font-family: "SF Compact Rounded";
+    font-size: 13.33px;
+    font-weight: 500;
+    line-height: 15.64px;
+    letter-spacing: 2%;
+    text-align: left;
+}
+.costPrice span{
+    color:  rgb(218, 245, 254);
+}
+.input{
+    min-width: 37px;
+    color: rgb(255, 255, 255);
+    font-family: "SF Compact Rounded";
+    color: rgb(255, 255, 255);
+
+    font-size: 59.59px;
+    font-weight: 550;
+    line-height: 44px;
+    letter-spacing: 2px;
+    text-align: left;
+    background-color: transparent;
+    caret-color: rgb(46, 165, 255);
+
+}
+.budgetText{
+    color: rgb(218, 245, 254);
+    font-family: "SF Compact Rounded";
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 50px;
+    letter-spacing: 1px;
+    text-align: left;
+    margin-left: calc(5px);
+    margin-top: 9px;
+    position: absolute;
+    transform: translateY(3px);
+}
+input:focus {outline: none;}
+.bottomTextContainer{
+    display: flex;
+    gap: calc(4px);
+    position: absolute;
+    bottom: calc(12px);
+    left: calc(16.33px);
+    align-items: center;
+}
+.bottomTextContainer p{
+    /* Description */
+    color: rgb(255, 255, 255);
+    font-family: "SF Compact Rounded";
+    font-size: 13.33px;
+    font-weight: 500;
+    line-height: 15.64px;
+    letter-spacing: 2%;
+    text-align: left;
+}
+.bottomTextContainer img{
+/* Vector */
+
+    width: 11.48px;
+    height: 11.48px;
+    transform: translateY(-0.2px);
+}
+.text{
+    word-spacing: 2px;
+
+}
+.text span{
+    color:  rgb(218, 245, 254);
+}
+.absolute{
+    position: absolute;
+    top: 24px;
+    left: 16px;
+    opacity: 0.5;
+}

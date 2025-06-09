@@ -1,0 +1,30 @@
+@keyframes add-animation{
+    0%{
+        scale: 1;
+    }
+    20%{
+        fill: #2ea5ff;
+    }
+    50%{
+        scale: 1.2;
+    }
+    100%{
+        scale: 1;
+        fill: #2ea5ff;
+    }
+}
+.FalseTie{
+    line-height: 0;
+}
+.falseTie{
+    strokeWidth: 1.67px;
+    stroke: #2ea5ff;
+}
+.animationClass{
+    animation: add-animation 0.2s ;
+    animation-fill-mode: forwards;
+}
+.FalseTie img{
+    width: calc(22px);
+    height: calc(22px);
+}

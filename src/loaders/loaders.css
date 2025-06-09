@@ -1,0 +1,31 @@
+.firstLoader{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(calc(100vh) - 205px);
+    flex-direction: column;
+}
+.loaderText-block{
+    display: flex;
+    margin-top: 30px;
+}
+.loaderText{
+    font-family: 'SF Pro Display';
+    color: white;
+    align-items: baseline;
+}
+.threeDots{
+    transform: translateY(4px);
+    margin-left: 5px;
+}
+
+.postLoader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh);
+}

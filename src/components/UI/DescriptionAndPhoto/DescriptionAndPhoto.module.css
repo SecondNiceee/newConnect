@@ -1,0 +1,68 @@
+.inputCounter{
+
+    /* Small Text */
+    color: rgb(149, 151, 158);
+    font-family: "SF Pro Display";
+    font-size: calc(35px * 0.325);
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-left: auto;
+    margin-right: calc(49px * 0.32);
+    margin-bottom: calc(46px * 0.32);
+    width: fit-content;
+    min-width: 38px;
+    margin-top:auto;
+}
+.DescriptionInput{
+    width: 100%;
+
+}
+.hiddenText{
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display 400";
+    font-size: 16.62px;
+    font-weight: 400;
+    line-height: 18.26px;
+    letter-spacing: 1%;
+    text-align: left;
+    opacity: 0;
+    z-index: -1;
+    width: 100%;
+
+
+    padding: 12.63px 16.29px;
+    letter-spacing: 1%;
+    text-align: left;
+    border-radius: 9.97px;
+    position: absolute;
+
+    /* Cards */
+    background: rgb(32, 48, 63);
+}
+.InputContainer{
+    min-height: 137px;
+    border-radius: 9.97px;
+    background: rgb(32, 48, 63);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.GreyText{
+    margin-left: 17px;
+    margin-bottom: 7.65px;
+}
+.FileInput {
+    padding-left: calc(50px* 0.325);
+}
+.anotherPrivate{
+    margin-top: 8px ;
+}
+.marginTop{
+    margin-top: 24.67px;
+}
+.SecondGreyText {
+    margin-top: 24.67px  ;
+    margin-left: 17px;
+}
