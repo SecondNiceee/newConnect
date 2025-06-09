@@ -1,6 +1,5 @@
 import { memo } from "react";
 import { useLottie } from "lottie-react";
-import Text from "../../../../components/Text/Text";
 import stonedAnimation from "../../../../animation/stonedHead.json";
 const StonedAnimation = ({
   text = "Вы не откликнулись ни на одно задание",

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import {useMemo} from 'react';
 import cl from './TaskName.module.css'
 import GreyText from '../GreyText/GreyText';
 import CreateInput from '../CreateInput/CreateInput';

@@ -17,6 +17,7 @@ import translation from "../functions/translate";
 import { CSSTransition } from "react-transition-group";
 import { USERID } from "../constants/tgStatic.config";
 import useBlockInputs from "../hooks/useBlockInputs";
+import menuController from "../functions/menuController";
 
 
 const textButton = translation("Вы уверены, что хотите создать новое задание?")
@@ -77,6 +78,9 @@ const AdCreating = () => {
 
   const subCategorys = useSelector((state) => state.categorys.subCategory);
 
+  useEffect( () => {
+    menuController.lowerMenu();
+  }, [] )
 
 
   useEffect( () => {

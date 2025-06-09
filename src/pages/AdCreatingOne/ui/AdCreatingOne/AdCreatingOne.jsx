@@ -100,7 +100,6 @@ else{
 }
 
 const min = new Date(new Date().addHours(1) + 1);
-const menu = document.documentElement.querySelector(".FirstMenu")
 
 const AdCreatingOne = ({
   taskInformation,

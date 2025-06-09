@@ -18,7 +18,7 @@ const Feedbacks = () => {
         const user = await getUserWithoutCards(userId);
         const feedbacks = await fetchFeedBacksByUserId(userId);
         setUserInfo({...user, feedbacks});
-    }, [] )
+    }, [userId] )
     console.log(userConfig);
     console.log(userInfo);
     useEffect( () => {
@@ -28,7 +28,7 @@ const Feedbacks = () => {
         else{
             setUserInfo(userConfig);
         }
-    }, [userConfig, setUserInfo] );
+    }, [userConfig, setUserInfo, fetchUserWithFeedbacks] );
 
     useEffect( () => {
         menuController.hideMenu();
