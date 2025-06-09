@@ -1,5 +1,4 @@
 export const USERID = window.Telegram.WebApp.initDataUnsafe.user.id ;
-
 export const USERLINK = window.Telegram.WebApp.initDataUnsafe.user.link ;
 
 

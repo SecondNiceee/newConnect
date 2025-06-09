@@ -15,6 +15,7 @@ const ChoiceSubCategory = ({
   subCategorysPar,
   ...props
 }) => {
+
   useEffect(() => {
     document.documentElement.style.overflowY = "hidden";
     return () => {
@@ -63,6 +64,7 @@ const ChoiceSubCategory = ({
     menuController.hideMenu();
     return () => {
       menuController.showMenu();
+      menuController.lowerMenu();
     }
   } )
 
