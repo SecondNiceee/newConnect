@@ -70,8 +70,8 @@ const NewProfileCup = ({
             {!isBaidge && <EditIcon onClick={editIconClickHandler} />} 
           </div>
         </div>
-        <div onClick={switchShownRating} className="flex justify-between">
-          <div className="flex flex-col gap-[1px]">
+        <div  className="flex justify-between">
+          <div onClick={switchShownRating} className="flex flex-col gap-[1px]">
             <ProfileUserName fl={fl} />
             <Profession professtion={profession} />
           </div>
