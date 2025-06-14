@@ -1,4 +1,3 @@
-
 import { memo, useEffect, useRef, useState } from "react"
 import "./TextAboutMe.css"
 import Text from "../../Text/Text"
@@ -12,86 +11,94 @@ const TextAboutMe = ({
   buttonClassNames = {},
   ...props
 }) => {
-  const [visibleLines, setVisibleLines] = useState(3)
+  const [isExpanded, setIsExpanded] = useState(false)
   const [showReadMore, setShowReadMore] = useState(false)
   const [isEmpty, setIsEmpty] = useState(false)
-  const [lineBreaks, setLineBreaks] = useState([])
-  const [totalLines, setTotalLines] = useState(0)
+  const [truncatedText, setTruncatedText] = useState("")
 
   const textRef = useRef(null)
   const measureRef = useRef(null)
 
-  // Функция для поиска позиций переносов строк
-  const findLineBreaks = (text) => {
-    if (!measureRef.current || !text) return []
+  // Функция для обрезания текста до 3 строк с учетом многоточия
+  const truncateTextToThreeLines = (text) => {
+    if (!measureRef.current || !text) return text
 
     const element = measureRef.current
-    const lineHeight = 21
-    const breaks = []
 
-    // Разбиваем текст на слова
-    const words = text.split(/(\s+)/)
-    let currentLine = ""
-    let currentPosition = 0
+    // Измеряем высоту одной строки
+    element.textContent = "A"
+    const singleLineHeight = element.scrollHeight
 
-    for (let i = 0; i < words.length; i++) {
-      const testLine = currentLine + words[i]
-      element.textContent = testLine
+    // Проверяем полный текст
+    element.textContent = text
+    const fullHeight = element.scrollHeight
 
-      // Если высота увеличилась, значит началась новая строка
-      if (element.scrollHeight > lineHeight * (breaks.length + 1)) {
-        // Сохраняем позицию конца предыдущей строки
-        breaks.push(currentPosition)
-        currentLine = words[i]
-      } else {
-        currentLine = testLine
+    // Если текст помещается в 3 строки, возвращаем как есть
+    if (fullHeight <= singleLineHeight * 3.2) {
+      return text
+    }
+
+    // Бинарный поиск с учетом многоточия
+    let left = 0
+    let right = text.length
+    let bestFit = ""
+
+    while (left <= right) {
+      const mid = Math.floor((left + right) / 2)
+
+      // Обрезаем текст и сразу добавляем многоточие
+      let testText = text.substring(0, mid).trim()
+
+      // Убираем последнее слово, если оно обрезано посередине
+      const words = testText.split(" ")
+      if (words.length > 1 && mid < text.length) {
+        // Проверяем, не обрезали ли мы слово посередине
+        const nextChar = text[mid]
+        const lastWord = words[words.length - 1]
+        const fullWordInOriginal = text.substring(mid - lastWord.length, mid + 10).split(" ")[0]
+
+        if (lastWord !== fullWordInOriginal) {
+          // Слово обрезано, убираем его
+          testText = words.slice(0, -1).join(" ")
+        }
       }
 
-      currentPosition += words[i].length
+      testText += "..."
+
+      element.textContent = testText
+      const testHeight = element.scrollHeight
+
+      if (testHeight <= singleLineHeight * 3.2) {
+        bestFit = testText
+        left = mid + 1
+      } else {
+        right = mid - 1
+      }
     }
 
-    // Добавляем конец текста
-    breaks.push(text.length)
-
-    return breaks
-  }
-
-  // Функция для получения текста до определенной строки
-  const getTextUpToLine = (text, lineNumber) => {
-    if (lineNumber >= lineBreaks.length) return text
-
-    const endPosition = lineBreaks[lineNumber - 1]
-    let result = text.substring(0, endPosition).trim()
-
-    // Добавляем многоточие, если текст обрезан
-    if (endPosition < text.length) {
-      result += "..."
-    }
-
-    return result
+    return bestFit
   }
 
   useEffect(() => {
     if (!aboutU || aboutU.trim() === "") {
       setIsEmpty(true)
       setShowReadMore(false)
-      setLineBreaks([])
-      setTotalLines(0)
+      setTruncatedText("")
       return
     }
 
     setIsEmpty(false)
 
-    // Ждем, пока элемент будет готов для измерений
     setTimeout(() => {
-      if (measureRef.current) {
-        const breaks = findLineBreaks(aboutU)
-        setLineBreaks(breaks)
-        setTotalLines(breaks.length)
-        setShowReadMore(breaks.length > 3)
-        setVisibleLines(3) // Сбрасываем к 3 строкам при изменении текста
+      if (measureRef.current && textRef.current) {
+        measureRef.current.style.width = `${textRef.current.offsetWidth - 16}px`
+
+        const truncated = truncateTextToThreeLines(aboutU)
+        setTruncatedText(truncated)
+        setShowReadMore(truncated !== aboutU)
+        setIsExpanded(false)
       }
-    }, 0)
+    }, 100)
   }, [aboutU])
 
   const displayText = isEmpty ? translation("Пользователь ничего не написал о себе") : aboutU
@@ -99,29 +106,20 @@ const TextAboutMe = ({
   let currentText
   if (isEmpty) {
     currentText = displayText
-  } else if (visibleLines >= totalLines) {
+  } else if (isExpanded) {
     currentText = aboutU
   } else {
-    currentText = getTextUpToLine(aboutU, visibleLines)
+    currentText = truncatedText
   }
 
   const handleToggle = () => {
-    if (visibleLines >= totalLines) {
-      // Если показан весь текст, сворачиваем к 3 строкам
-      setVisibleLines(3)
-    } else {
-      // Показываем еще одну строку
-      setVisibleLines((prev) => prev + 1)
-    }
+    setIsExpanded(!isExpanded)
   }
-
-  const isFullyExpanded = visibleLines >= totalLines
 
   return (
     <div {...props} className={`ur__town ${className || ""}`}>
       {darkSide && <div className="background" style={{ display: showReadMore ? "block" : "none" }} />}
 
-      {/* Скрытый элемент для измерения текста */}
       <div
         ref={measureRef}
         className={`about__u-text ${textareaClassName || ""}`}
@@ -129,16 +127,15 @@ const TextAboutMe = ({
           position: "absolute",
           visibility: "hidden",
           height: "auto",
-          width: textRef.current ? `${textRef.current.offsetWidth}px` : "100%",
           whiteSpace: "pre-wrap",
           wordWrap: "break-word",
           lineHeight: "21px",
           top: "-9999px",
           left: "-9999px",
+          padding: "8px",
         }}
       />
 
-      {/* Основной текстовый блок */}
       <div
         ref={textRef}
         className={`about__u-text ${textareaClassName || ""}`}
@@ -154,7 +151,6 @@ const TextAboutMe = ({
         {currentText}
       </div>
 
-      {/* Кнопка "Читать далее" / "Скрыть" */}
       {showReadMore && (
         <div
           className={`also ${buttonClassNames || ""}`}
@@ -165,11 +161,7 @@ const TextAboutMe = ({
             marginTop: "8px",
           }}
         >
-          <Text>
-            {isFullyExpanded
-              ? "Скрыть"
-              : `Читать далее`}
-          </Text>
+          <Text>{isExpanded ? "Скрыть" : "Читать далее"}</Text>
         </div>
       )}
     </div>
