@@ -12,8 +12,11 @@ export const findUserById = async (id) => {
                 {
                     headers : {
                       "X-API-KEY-AUTH" : process.env.REACT_APP_API_KEY,
-                      "initData" : window.Telegram.WebApp.initDataUnsafe
+
                     },
+                    params : {
+                        "initData" : window.Telegram.WebApp.initDataUnsafe
+                    }
                 }
             )
             console.warn(some.data);
