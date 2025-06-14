@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import TaskDetailsContainer from "./TaskDetailsContainer";
 import TimeAndWatches from "./TimeAndWatches";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,15 +16,24 @@ import { showAllert } from "../../../functions/showAlert";
 import { enableColorAndActiveButton } from "../../../functions/enableColorAndActiveButton";
 import { disableColorButton } from "../../../functions/disableColorButton";
 
-const FirstDetails = ({ end, className, navigateBack = true, changeButton = true, showButton=true, ...props }) => {
+const FirstDetails = ({ end, className, navigateBack = true, changeButton = true, orderInformationParam = null, showButton=true, ...props }) => {
 
   const disatch = useDispatch();
 
   const { id } = useParams();
 
-  const orderInformation = useSelector( (state) => state.information.detailsAdvertisement );
+  const externalOrderInformation = useSelector( (state) => state.information.detailsAdvertisement );
+  const [orderInformation, setOrderInformation] = useState(null);
 
-  console.log(orderInformation);
+  useEffect( () => {
+    if (orderInformationParam){
+      setOrderInformation(orderInformationParam);
+    }
+    else{
+      setOrderInformation(externalOrderInformation);
+    }
+  }, [orderInformationParam, setOrderInformation, externalOrderInformation] )
+
 
     const {
     isSliderOpened,
@@ -70,6 +79,8 @@ const FirstDetails = ({ end, className, navigateBack = true, changeButton = true
   }, [showButton, isSliderOpened, changeButton]);
   
   const isMyResponse = useIsMyResponse({detailsAdertisement : orderInformation});
+
+  console.log(orderInformation);
 
   useEffect( () => {
     if (isMyResponse && !isSliderOpened){

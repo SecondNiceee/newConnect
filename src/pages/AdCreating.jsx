@@ -507,6 +507,14 @@ const AdCreating = () => {
       ref={mainRef}
       className="AdCreating__container"
     >
+
+        <div onClick={goForward} className="fixed left-1/2 top-[20px] z-50 rounded p-2 border-black border-solid border-2 cursor-pointer">
+          MAIN BUTTON
+        </div>
+        <div onClick={goForward} className="fixed left-[120vw] top-[20px] z-50 rounded p-2 border-black border-solid border-2 cursor-pointer">
+          MAIN BUTTON
+        </div>
+
       {status === "pending" || categorysStatus !== "OK" || subCategorysStatus !== "OK" ? (
         <>
           <PostLoader />
@@ -541,7 +549,7 @@ const AdCreating = () => {
             <CSSTransition timeout={0}
             in = {spet !== 0}
             unmountOnExit mountOnEnter>
-              <FirstDetails navigateBack = {false} changeButton = {false}   style = {{position : "static" ,  minHeight : "unset" , "height" : "unset", overflowY : "unset" ,minWidth : "100vw", transform : "translateX(0%)"}} end = {true} orderInformation={{...firstPage , ...secondPage , category : firstPage.category.id , whichOne : whichOne } } />
+              <FirstDetails navigateBack = {false} changeButton = {false}   style = {{position : "static" ,  minHeight : "unset" , "height" : "unset", overflowY : "unset" ,minWidth : "100vw", transform : "translateX(0%)"}} end = {true} orderInformationParam={{...firstPage , ...secondPage , user : me, category : firstPage.category.id , whichOne : whichOne } } />
             </CSSTransition>
             {/* <AdCreatingThree taskInformation={secondPage} /> */}
           </div>

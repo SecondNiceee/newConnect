@@ -1783,13 +1783,14 @@
   -webkit-transform: translateY(100%);
       -ms-transform: translateY(100%);
           transform: translateY(100%);
-  z-index: 200;
+  z-index: 100000 !important;
 }
 
 .Modal-Portal .datepicker-modal {
   position: fixed;
   top: 0;
   height: 100vh;
+  z-index: 100000;
   z-index: -1;
   overflow-y: hidden;
   background-color: unset;

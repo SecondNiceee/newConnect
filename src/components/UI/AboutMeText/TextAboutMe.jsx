@@ -1,112 +1,108 @@
-import React, { memo, useEffect, useRef, useState } from 'react';
-import './TextAboutMe.css';
-import Text from '../../Text/Text';
-import translation from '../../../functions/translate';
+import { memo, useEffect, useRef, useState } from "react"
+import "./TextAboutMe.css"
+import Text from "../../Text/Text"
+import translation from "../../../functions/translate"
 
-const TextAboutMe = ( { aboutU , darkSide, className, textareaClassName, buttonClassNames, ...props } ) => {
-  const [hideAboutMe, setHideAboutMe] = useState({
-    isActive : false,
-    show : false
-  })
-  const [empty , setEmpy] = useState(false)
-  const areaRef = useRef(null)
-  const refTwo = useRef(null)
-  useEffect( () => {
-    refTwo.current.value = aboutU
-    if (refTwo.current.scrollHeight > 85){
-      if (!hideAboutMe.show){
-        setHideAboutMe((value) => ({...value, isActive : true}) )
-        areaRef.current.style.height = "85px"
-        let localAboutMe = aboutU;
-        while (refTwo.current.scrollHeight > 85){
-          let localAboutMeArr = localAboutMe.split(/  |[\r\n]/g);
-          localAboutMe = localAboutMeArr.slice(0 , localAboutMeArr.length - 1).join(' ')
-          refTwo.current.value = localAboutMe
-        
-        }
-        areaRef.current.value = localAboutMe + '...'
-      }
-      else{
-        refTwo.current.value = aboutU
-        if (aboutU === ''){
-          refTwo.current.value = translation("Пользователь ничего не написал о себе")
-          areaRef.current.value = translation("Пользователь ничего не написал о себе")
-          setEmpy(true)
-        }
-        else{
-          areaRef.current.value = aboutU
-        }
 
-      }
+
+const TextAboutMe = ({
+  aboutU,
+  darkSide = false,
+  className = {},
+  textareaClassName = {},
+  buttonClassNames = {},
+  ...props
+}) => {
+  const [isExpanded, setIsExpanded] = useState(false)
+  const [showReadMore, setShowReadMore] = useState(false)
+  const [isEmpty, setIsEmpty] = useState(false)
+
+  const textRef = useRef(null)
+  const hiddenTextRef = useRef(null)
+
+  useEffect(() => {
+    if (!aboutU || aboutU.trim() === "") {
+      setIsEmpty(true)
+      setShowReadMore(false)
+      return
     }
-    else{
-      areaRef.current.style.borderRadius = "10px"
-      if (aboutU === ''){
-        setEmpy(true)
-          refTwo.current.value = translation("Пользователь ничего не написал о себе")
-          areaRef.current.value = translation("Пользователь ничего не написал о себе")
-      }
-      else{
-        areaRef.current.value = aboutU
-      }
+
+    setIsEmpty(false)
+
+    // Проверяем, нужна ли кнопка "Читать далее"
+    if (textRef.current && hiddenTextRef.current) {
+      const lineHeight = Number.parseInt(getComputedStyle(textRef.current).lineHeight)
+      const maxHeight = lineHeight * 3 // 3 строки
+
+      // Временно показываем полный текст для измерения
+      hiddenTextRef.current.style.display = "block"
+      const fullHeight = hiddenTextRef.current.scrollHeight
+      hiddenTextRef.current.style.display = "none"
+
+      setShowReadMore(fullHeight > maxHeight)
     }
-    areaRef.current.style.height = (refTwo.current.scrollHeight).toString() + 'px'
-  } , [hideAboutMe.show, aboutU ] )
+  }, [aboutU])
 
-    return (
-        <div {...props} className="ur__town">
-          
-          {darkSide 
-          ? <div className="background" style={hideAboutMe 
-            ? {display : 'block'}
-            : {display : 'none'}
-          }></div> 
-          : "" }
+  const displayText = isEmpty ? translation("Пользователь ничего не написал о себе") : aboutU
 
+  const handleToggle = () => {
+    setIsExpanded(!isExpanded)
+  }
 
-          
-<textarea
-            ref={refTwo}
+  return (
+    <div {...props} className={`ur__town ${className || ""}`}>
+      {darkSide && <div className="background" style={{ display: showReadMore ? "block" : "none" }} />}
 
-            readOnly={true}
-            spellCheck={false}
-            style={{
-              height : "42.8px",
-              width : "100%",
-              overflowY : "scroll",
-              position : 'absolute',
-              opacity : '0',
-              left : 0,
-              top : 0
-            }}
-            className= {textareaClassName ? ["about__u-text" , textareaClassName].join(' ') : "about__u-text"}
-          />
+      {/* Скрытый элемент для измерения полной высоты */}
+      <div
+        ref={hiddenTextRef}
+        className={`about__u-text ${textareaClassName || ""}`}
+        style={{
+          position: "absolute",
+          visibility: "hidden",
+          height: "auto",
+          width: "100%",
+          whiteSpace: "pre-wrap",
+          wordWrap: "break-word",
+        }}
+      >
+        {displayText}
+      </div>
 
-          <textarea
-            
-            ref={areaRef}
-            style={empty ? {opacity : 0.5} : {}}
-            readOnly={true}
-            spellCheck={false}
-            className={textareaClassName ? ["about__u-text" , textareaClassName].join(' ') : "about__u-text"}
-          />
+      {/* Основной текстовый блок */}
+      <div
+        ref={textRef}
+        className={`about__u-text ${textareaClassName || ""}`}
+        style={{
+          opacity: isEmpty ? 0.5 : 1,
+          overflow: "hidden",
+          whiteSpace: "pre-wrap",
+          wordWrap: "break-word",
+          display: "-webkit-box",
+          WebkitLineClamp: isExpanded ? "none" : 3,
+          WebkitBoxOrient: "vertical",
+          lineHeight: "1.4em",
+        }}
+      >
+        {displayText}
+      </div>
 
-          
-
-          <div style={hideAboutMe.isActive 
-        ? {display : 'flex'}
-        : {display : 'none'}} 
-          className={`also ${buttonClassNames}`} 
-          onClick={() => {  
-
-                    setHideAboutMe({...hideAboutMe, show : !hideAboutMe.show})
-          }}>
-            <Text>
-              {hideAboutMe.show ? 'Скрыть' : 'Развернуть'}
-            </Text>
-          </div>
+      {/* Кнопка "Читать далее" / "Скрыть" */}
+      {showReadMore && (
+        <div
+          className={`also ${buttonClassNames || ""}`}
+          onClick={handleToggle}
+          style={{
+            display: "flex",
+            cursor: "pointer",
+            marginTop: "8px",
+          }}
+        >
+          <Text>{isExpanded ? "Скрыть" : "Читать далее"}</Text>
         </div>
-    );
-};
+      )}
+    </div>
+  )
+}
 
-export default memo(TextAboutMe);
+export default memo(TextAboutMe)
