@@ -70,12 +70,12 @@ const NewProfileCup = ({
             {!isBaidge && <EditIcon onClick={editIconClickHandler} />} 
           </div>
         </div>
-        <div  className="flex justify-between">
-          <div onClick={switchShownRating} className="flex flex-col gap-[1px]">
+        <div onClick={switchShownRating}  className="flex relative z-20 justify-between ">
+          <div  className="flex flex-col gap-[1px]">
             <ProfileUserName fl={fl} />
             <Profession professtion={profession} />
           </div>
-           <ProfileLikesCounter canLike = {canLike} clickDislikeUser = {clickDislikeUser} likeUser = {likeUser} isLikeActive={isLikeActive} isBaidge={isBaidge} likesCounter={counterOfLikes} />
+           <ProfileLikesCounter onClick={(e) => e.stopPropagation()}  canLike = {canLike} clickDislikeUser = {clickDislikeUser} likeUser = {likeUser} isLikeActive={isLikeActive} isBaidge={isBaidge} likesCounter={counterOfLikes} />
         </div>
       </div>
     );

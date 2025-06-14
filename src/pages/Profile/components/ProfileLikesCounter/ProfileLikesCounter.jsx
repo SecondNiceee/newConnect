@@ -4,7 +4,7 @@ import ClickedHeart from '../ClickedHeart/ClickedHeart';
 import "../ClickedHeart/ClickHeart.css";
 import { changeVibration } from '../../../../functions/changeVibration';
 
-const ProfileLikesCounter = ({likesCounter, canLike, isLikeActive, likeUser, clickDislikeUser}) => {
+const ProfileLikesCounter = ({likesCounter, onClick, canLike, isLikeActive, likeUser, clickDislikeUser}) => {
 
     const [localStateOfLikeActive, setLocalStateOfLikeActive] =  useState(isLikeActive)
 
@@ -37,7 +37,7 @@ const ProfileLikesCounter = ({likesCounter, canLike, isLikeActive, likeUser, cli
 
     if(canLike){
       return (
-        <div className='flex items-center gap-[6.67px] mt-auto mb-[2px]'>
+        <div onClick={onClick} className='flex items-center gap-[6.67px] relative z-50 mt-auto mb-[2px]'>
           <p className={`font-sf-pro-display font-medium text-[17px] ${!localStateOfLikeActive ? 'text-[white]' : 'text-[#ff4949]'}`}>
             {likesCounter}
           </p>
@@ -48,7 +48,7 @@ const ProfileLikesCounter = ({likesCounter, canLike, isLikeActive, likeUser, cli
       )
     }
     return (
-        <div className="flex items-center gap-[6.67px] mt-auto mb-[2px]">
+        <div onClick={onClick} className="flex items-center gap-[6.67px] mt-auto mb-[2px]">
         <p className="font-sf-pro-display font-medium text-[17px] text-[#b5ced9]">
           {likesCounter}
         </p>
