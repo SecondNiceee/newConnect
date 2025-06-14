@@ -11,16 +11,6 @@ const useGetBaidgeOprionsConfig = ({userInfo}) => {
     return (
         [
             {
-                imgPath : "/images/Baidge/feedback-icon.svg",
-                text : "Отзывы",
-                isNeededFill : false,
-                isNeededActiveTitle : false,
-                clickFunc : () => {
-                    dispatch(setUser(userInfo))
-                    navigate(`/feedbacks/${userInfo.id}`)},
-                node : <FeedBacksInfo feedbacks={userInfo.feedbacks} />
-            },
-            {
                 imgPath : "/images/Baidge/portfolioIcon.svg",
                 text : "Портфолио",
                 isNeededFill : false,

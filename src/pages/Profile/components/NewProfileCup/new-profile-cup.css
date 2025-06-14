@@ -1,5 +1,5 @@
 .rating-icon{
-    @apply min-w-[115px] absolute bottom-[-13px] left-[50%] -translate-x-1/2;
+    @apply min-w-[115px] absolute bottom-[-10px] left-[50%] -translate-x-1/2;
 }
 
 .rating-icon__text{

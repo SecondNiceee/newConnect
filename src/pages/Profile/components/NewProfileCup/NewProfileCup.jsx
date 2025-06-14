@@ -56,21 +56,21 @@ const NewProfileCup = ({
   const {nitchIcon} = useGetNitcheIcon({nitchRating : positionOfNitcheRating, textClassName : 'rating-icon__text', className : 'rating-icon',});
   const {commonIcon} = useGetCommonIcon({commonRating, className : 'rating-icon', textClassName : 'rating-icon__text'})
     return (
-        <div className="flex py-[17px] pb-[14px] px-[19px] flex-col gap-[13px] bg-[#20303f] rounded-[13px] ">
+        <div  className="flex py-[17px] pb-[14px] px-[19px] flex-col gap-[13px] bg-[#20303f] rounded-[13px] ">
         <div className="flex w-[100%]">
-            <div className='relative flex gap-2'>
+            <div onClick={switchShownRating} className='relative flex gap-2'>
               <ProfileUserIcon photoUrl={photoUrl}  />
               {shownRating === "nitche" ? nitchIcon : commonIcon}
             </div>
             
             {shownRating === "common" ? <CommonRating onClick={switchShownRating} commonRating={commonRating} /> : <NitcheRating onClick={switchShownRating}  nitcheRating={positionOfNitcheRating} />}
-            <ProfilesCounterOfWatches watchesCounter={profileWatches} />
+            <ProfilesCounterOfWatches onClick={switchShownRating} watchesCounter={profileWatches} />
           <div className="h-[100%] ml-auto flex flex-col gap-[8px]">  
             <NewProfileShareIcon />
             {!isBaidge && <EditIcon onClick={editIconClickHandler} />} 
           </div>
         </div>
-        <div className="flex justify-between">
+        <div onClick={switchShownRating} className="flex justify-between">
           <div className="flex flex-col gap-[1px]">
             <ProfileUserName fl={fl} />
             <Profession professtion={profession} />

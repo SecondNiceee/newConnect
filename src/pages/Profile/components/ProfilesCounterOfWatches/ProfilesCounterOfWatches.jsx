@@ -1,6 +1,6 @@
-const ProfilesCounterOfWatches = ({watchesCounter}) => {
+const ProfilesCounterOfWatches = ({watchesCounter, onClick = () => {}}) => {
     return (
-        <div className="flex mt-[23px] flex-col !ml-[5px] mr-[3px] gap-[5px] my-auto">
+        <div onClick={onClick} className="flex mt-[23px] flex-col !ml-[5px] mr-[3px] gap-[5px] my-auto">
         <h2 className="font-sf-pro-display-600 text-[17px] text-white leading-[18px]">
           {watchesCounter}
         </h2>
