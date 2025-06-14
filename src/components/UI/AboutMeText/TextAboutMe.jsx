@@ -168,7 +168,7 @@ const TextAboutMe = ({
           <Text>
             {isFullyExpanded
               ? "Скрыть"
-              : `Читать далее (${totalLines - visibleLines} строк${totalLines - visibleLines === 1 ? "а" : ""})`}
+              : `Читать далее`}
           </Text>
         </div>
       )}
