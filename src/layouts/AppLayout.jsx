@@ -9,7 +9,7 @@ const AppLayout = () => {
         <img className="w-[24px] h-[24px]" src={icon} alt="headerIcon"/>
         <h1 className="text-white text-[20px] font-sf-pro-display-600 leading-[24.726px] tracking-[0.411px]">Connect</h1>
       </div>
-      <div className="pt-[60px]">
+      <div className="pt-[100px]">
         <Outlet  /> {/* Здесь будут UserProfile или UserPosts */}
       </div>
     </div>
