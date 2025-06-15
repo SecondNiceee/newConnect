@@ -9,8 +9,8 @@ const NoCards = () => {
                     marginLeft : "auto",
                     marginRight : "auto"
                 }}/>
-                <h2 className="text-white mt-[15px] max-w-[300px] text-center font-sf-pro-display-600 text-[22.342px] leading-[27.705px] tracking-[0.078px]">Добавьте примеры работ
-в свой бейдж исполнителя</h2>
+                <h2 dangerouslySetInnerHTML={{__html : `Добавьте примеры работ <br>
+в свой бейдж исполнителя`}} className="text-white mt-[15px] max-w-[300px] text-center font-sf-pro-display-600 text-[22.342px] leading-[27.705px] tracking-[0.078px]"></h2>
                 <p className="mt-[10.33px] mx-auto max-w-[305px] text-center text-white font-sf-pro-display-400 leading-[22.3px] text-[17.667px] tracking-[0.177px]">
                         Ваши кейсы помогают заказчикам оценить уровень профессионализма
 и повышают шансы на получение новых заказов.
