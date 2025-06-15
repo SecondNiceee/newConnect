@@ -159,7 +159,7 @@ const TextAboutMe = ({
           style={{
             display: "flex",
             cursor: "pointer",
-            marginTop: "8px",
+            marginTop: "5px",
           }}
         >
           <Text>{isExpanded ? "Скрыть" : "Читать далее"}</Text>
