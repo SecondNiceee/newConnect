@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { useLottie } from "lottie-react";
-import stonedAnimation from "../../../../animation/stonedHead.json";
+import stonedAnimation from "../../../animation/stonedHead.json"
 const StonedAnimation = ({
   text = "Вы не откликнулись ни на одно задание",
   animationStyles = {},
@@ -17,9 +17,6 @@ const StonedAnimation = ({
   return (
     <div 
         {...props}
-      onClick={() => {
-        window.Telegram.WebApp.openTelegramLink("https://t.me/addstickers/DonutTheDog")
-      }}
     >
       {View}
     </div>

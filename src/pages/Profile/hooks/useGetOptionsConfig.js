@@ -1,10 +1,11 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import { setUser } from "../../../store/information";
 
 const useGetOptionsConfig = () => {
     const userInfo = useSelector((state) => state.telegramUserInfo); 
 
-
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     
     return (
@@ -29,7 +30,9 @@ const useGetOptionsConfig = () => {
                 text : "Примеры работ",
                 isNeededFill : userInfo.profile.cards.length === 0  ,
                 isNeededActiveTitle : false,
-                clickFunc : () => {navigate('/cardsPage')},
+                clickFunc : () => {
+                    dispatch(setUser(userInfo));
+                    navigate('/cardsPage')},
                 numberNearToArrow : null
             },
             {

@@ -1,4 +1,4 @@
-import StarAnimation from "./StarAnimation";
+import StarAnimation from "../../../../components/UI/StarAnimation/StarAnimation";
 
 const NoFeedbacksForMe = () => {
     return (

@@ -11,6 +11,7 @@ import { useNavigate } from "react-router";
 import MainButton from "../../constants/MainButton";
 import useNavigateBack from "../../hooks/useNavigateBack";
 import { enableColorAndActiveButton } from "../../functions/enableColorAndActiveButton";
+import NoCards from "./components/NoCards";
 
 const NewCardsPage = () => {
 
@@ -71,7 +72,7 @@ const NewCardsPage = () => {
     else{
 
       if (userInfo?.id === me?.id){
-        MainButton.setText("Создать")
+        MainButton.setText("Добавить кейс")
       }
       else{
         MainButton.setText("Hазад");
@@ -111,20 +112,19 @@ const NewCardsPage = () => {
     return []
   }, [filter, cards] )
 
+  console.log(postState, putState, userInfo)
+
   if (postState === "pending" || putState === "pending" || !userInfo) {
     return <MyLoader />;
     
   }
-
 
   return (
     <>
 
     <div className="pt-[16px] z-20 fixed left-0 top-0 w-screen h-screen overflow-y-auto px-[16px] bg-[#18222d] flex flex-col pb-[20px]">
       {!cards.length ? (
-        <div className="h-screen flex justify-center items-center">
-          <MyAnimation  height="100vh" text="Нет кейсов" />
-        </div>
+        <NoCards />
       ) : (
         <CardsPageBody
           userInfo = {userInfo}

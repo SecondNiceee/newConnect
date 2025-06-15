@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import StonedAnimation from "./StonedAnimation";
 import MainButton from "../../../../constants/MainButton";
+import StonedAnimation from "../../../../components/UI/StonedAnimation/StonedAnimation";
 
 
 const NoFeedbacks = () => {
