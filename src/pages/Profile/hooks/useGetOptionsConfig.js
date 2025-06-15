@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 const useGetOptionsConfig = () => {
     const userInfo = useSelector((state) => state.telegramUserInfo); 
 
+
     const navigate = useNavigate();
     
     return (
@@ -26,9 +27,9 @@ const useGetOptionsConfig = () => {
             {
                 imgPath : "/images/newProfile/example-of-works-icon.svg",
                 text : "Примеры работ",
-                isNeededFill : true,
+                isNeededFill : userInfo.profile.cards.length === 0  ,
                 isNeededActiveTitle : false,
-                clickFunc : () => {},
+                clickFunc : () => {navigate('/cardsPage')},
                 numberNearToArrow : null
             },
             {
