@@ -8,7 +8,7 @@
     color: white;
     text-align: left;
     outline: none;
-    background-color: #242c37;
+    background-color: #20303f;
     overflow-y: hidden;
     resize: none;
     border-radius: 10px 10px 6px 6px;
@@ -20,8 +20,9 @@
     justify-content: center;
     border-radius: 6px 6px 10px 10px;
     width: 100%;
+    margin-top: 5px;
     height: 44.33px;
-    background: #20303f;
+    background: #1A2F42;
     border: none;
     cursor: pointer;
 }

@@ -146,6 +146,7 @@ const TextAboutMe = ({
           lineHeight: "21px",
           minHeight: "21px",
           transition: "all 0.3s ease",
+          borderRadius : showReadMore ? "10px 10px 6px 6px" : "10px"
         }}
       >
         {currentText}
