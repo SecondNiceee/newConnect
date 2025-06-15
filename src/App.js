@@ -37,6 +37,7 @@ import NewInnerCase from "./pages/NewInnerCase/NewInnerCase";
 import Baidge from "./pages/Baidge/Baidge";
 import AdCreatingThree from "./pages/AdCreatingThree/AdCreatingThree";
 import Feedbacks from "./pages/Feedbacks/ui/Feedbacks";
+import AppLayout from "./layouts/AppLayout";
 
 const NewChangeCard = lazy( () => import('./pages/NewChangeCard/NewChangeCard') )
 const HappyPage = lazy(() => import("./pages/HappyHold/HappyPage"));
@@ -144,236 +145,238 @@ const AnimatedSwitch = () => {
 
         <AnimatePresence>
           <Routes location={location} key={location.pathname}>
+            <Route element = {<AppLayout />}>
+              <Route
+                path="/changeAdvertisement/:advId"
+                element={
+                    <ChangeAdvertisement />
+                }
+              />
 
-            <Route
-              path="/changeAdvertisement/:advId"
-              element={
-                  <ChangeAdvertisement />
-              }
-            />
+              <Route
+                path="/responsedAdvertisement/:id"
+                element={
+                    <FirstDetails showButton = {false} />
+                }
+              />
 
-            <Route
-              path="/responsedAdvertisement/:id"
-              element={
-                  <FirstDetails showButton = {false} />
-              }
-            />
+              <Route
+                path="/changeCard/:id"
+                element={
+                  <Suspense fallback={<MyLoader />}>
+                    <NewChangeCard isNewCard={false} />
+                  </Suspense>
+                }
+              />
 
-            <Route
-              path="/changeCard/:id"
-              element={
-                <Suspense fallback={<MyLoader />}>
-                  <NewChangeCard isNewCard={false} />
-                </Suspense>
-              }
-            />
+              <Route
+                path="/cardCreation"
+                element={
+                  <Suspense fallback={<MyLoader />}>
+                    <NewChangeCard isNewCard={true} />
+                  </Suspense>
+                }
+              />
 
-            <Route
-              path="/cardCreation"
-              element={
-                <Suspense fallback={<MyLoader />}>
-                  <NewChangeCard isNewCard={true} />
-                </Suspense>
-              }
-            />
+              <Route
+                path="/confirm/:advId/:resId"
+                element={
+                    <ShowMyResponse />
+                }
+              />
 
-            <Route
-              path="/confirm/:advId/:resId"
-              element={
-                  <ShowMyResponse />
-              }
-            />
-
-            <Route
-              path="/feedbacks/:userId"
-              element={
-                  <Feedbacks />
-              }
-            />
+              <Route
+                path="/feedbacks/:userId"
+                element={
+                    <Feedbacks />
+                }
+              />
 
 
-            <Route
-              path="/response/:advertisementId/:responseId"
-              element={
-                  <LastAds />
-              }
-            />
+              <Route
+                path="/response/:advertisementId/:responseId"
+                element={
+                    <LastAds />
+                }
+              />
 
-            <Route
-              path="/hold/:advertisementId/:responseId"
-              element={
-                  <AdCreatingThree />
-              }
-            />
+              <Route
+                path="/hold/:advertisementId/:responseId"
+                element={
+                    <AdCreatingThree />
+                }
+              />
+              
+              <Route
+                path="/"
+                element={
+                  <Suspense fallback={<MyLoader />}>
+                    <First />
+                  </Suspense>
+                }
+              />
+
+
+
+              <Route
+                path="/cardsPage"
+                element={
+                  <Suspense fallback={<MyLoader />}>
+                    <NewCardsPage />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="/cardsPage/:userId"
+                element={
+                  <Suspense fallback={<MyLoader />}>
+                    <NewCardsPage />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="/card/:cardId/:userId"
+                element={
+                  <Suspense fallback={<MyLoader />}>
+                    <NewInnerCase />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="/card"
+                element={
+                  <Suspense fallback={<MyLoader />}>
+                    <NewInnerCase />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="/statistik"
+                element={
+                  <Suspense fallback={<MyLoader />}>
+                    <StatisticPage />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="/advertisementResponses/:advId"
+                element={
+                    <AboutOne />
+                }
+              />
+
+              <Route
+                path="/BaidgeCreating"
+                element={
+                  <Suspense fallback={<MyLoader />}>
+                    <BaidgeCreating />
+                  </Suspense>
+                }
+              />
+
+
+              <Route
+                path="/FirstDetails/:id"
+                element={
+                    <FirstDetails isPage={true} />}
+              />
+
+              <Route
+                path="/Baidge"
+                element={
+                    <Baidge />
+                }
+              />
+
+              <Route
+                path="/Baidge/:id"
+                element={
+                    <Baidge />
+                }
+              />
+
+              <Route
+                path="/savedPage"
+                element={
+                  <Suspense fallback={<MyLoader />}>
+                    <SavedPage />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="/AdCreating"
+                element={
+                  <Suspense fallback={<MyLoader />}>
+                    <AdCreating />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="/Profile"
+                element={
+                  <Suspense fallback={<MyLoader />}>
+                    <NewProfile />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="/Balance"
+                element={
+                  <Suspense fallback={<MyLoader />}>
+                    <Balance />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="/HappyPage"
+                element={
+                  <Suspense fallback={<MyLoader />}>
+                    <HappyPage
+                      setShowCongradulate={setShowCongradulate}
+                      congradulate={congratulate}
+                      task={
+                        congratulate ? congratulate[congratulate.length - 1] : []
+                      }
+                    />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/MyAds"
+                element={
+                  <Suspense fallback={<MyLoader />}>
+                    <MyAds />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="/makeresponse/:id"
+                element={
+                    <Responce />
+                }
+              />
+
+
+              <Route
+                path="/AllShablons"
+                element={
+                  <Suspense fallback={<MyLoader />}>
+                    <AllShablons />
+                  </Suspense>
+                }
+              />
+            </Route>
             
-            <Route
-              path="/"
-              element={
-                <Suspense fallback={<MyLoader />}>
-                  <First />
-                </Suspense>
-              }
-            />
-
-
-
-            <Route
-              path="/cardsPage"
-              element={
-                <Suspense fallback={<MyLoader />}>
-                  <NewCardsPage />
-                </Suspense>
-              }
-            />
-
-            <Route
-              path="/cardsPage/:userId"
-              element={
-                <Suspense fallback={<MyLoader />}>
-                  <NewCardsPage />
-                </Suspense>
-              }
-            />
-
-            <Route
-              path="/card/:cardId/:userId"
-              element={
-                <Suspense fallback={<MyLoader />}>
-                  <NewInnerCase />
-                </Suspense>
-              }
-            />
-
-            <Route
-              path="/card"
-              element={
-                <Suspense fallback={<MyLoader />}>
-                  <NewInnerCase />
-                </Suspense>
-              }
-            />
-
-            <Route
-              path="/statistik"
-              element={
-                <Suspense fallback={<MyLoader />}>
-                  <StatisticPage />
-                </Suspense>
-              }
-            />
-
-            <Route
-              path="/advertisementResponses/:advId"
-              element={
-                  <AboutOne />
-              }
-            />
-
-            <Route
-              path="/BaidgeCreating"
-              element={
-                <Suspense fallback={<MyLoader />}>
-                  <BaidgeCreating />
-                </Suspense>
-              }
-            />
-
-
-            <Route
-              path="/FirstDetails/:id"
-              element={
-                  <FirstDetails isPage={true} />}
-            />
-
-            <Route
-              path="/Baidge"
-              element={
-                  <Baidge />
-              }
-            />
-
-            <Route
-              path="/Baidge/:id"
-              element={
-                  <Baidge />
-              }
-            />
-
-            <Route
-              path="/savedPage"
-              element={
-                <Suspense fallback={<MyLoader />}>
-                  <SavedPage />
-                </Suspense>
-              }
-            />
-
-            <Route
-              path="/AdCreating"
-              element={
-                <Suspense fallback={<MyLoader />}>
-                  <AdCreating />
-                </Suspense>
-              }
-            />
-
-            <Route
-              path="/Profile"
-              element={
-                <Suspense fallback={<MyLoader />}>
-                  <NewProfile />
-                </Suspense>
-              }
-            />
-
-            <Route
-              path="/Balance"
-              element={
-                <Suspense fallback={<MyLoader />}>
-                  <Balance />
-                </Suspense>
-              }
-            />
-
-            <Route
-              path="/HappyPage"
-              element={
-                <Suspense fallback={<MyLoader />}>
-                  <HappyPage
-                    setShowCongradulate={setShowCongradulate}
-                    congradulate={congratulate}
-                    task={
-                      congratulate ? congratulate[congratulate.length - 1] : []
-                    }
-                  />
-                </Suspense>
-              }
-            />
-            <Route
-              path="/MyAds"
-              element={
-                <Suspense fallback={<MyLoader />}>
-                  <MyAds />
-                </Suspense>
-              }
-            />
-
-            <Route
-              path="/makeresponse/:id"
-              element={
-                  <Responce />
-              }
-            />
-
-
-            <Route
-              path="/AllShablons"
-              element={
-                <Suspense fallback={<MyLoader />}>
-                  <AllShablons />
-                </Suspense>
-              }
-            />
           </Routes>
         </AnimatePresence>
       </div>
