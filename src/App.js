@@ -388,8 +388,8 @@ function App() {
   useEffect( () => {
     window.Telegram.WebApp.setHeaderColor("#18222d");
     window.Telegram.WebApp.setBackgroundColor("#18222d");
-    // window.Telegram.WebApp.requestFullscreen() 
-    // window.Telegram.WebApp.disableVerticalSwipes();
+    window.Telegram.WebApp.requestFullscreen() 
+    window.Telegram.WebApp.disableVerticalSwipes();
   }, [] )
 
 
