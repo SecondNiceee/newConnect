@@ -394,9 +394,12 @@ function App() {
     window.Telegram.WebApp.expand();
     window.Telegram.WebApp.ready(); 
     window.Telegram.WebApp.expand();
+    window.Telegram.WebApp.disableVerticalSwipes();
     if (isIphone()){
       window.Telegram.WebApp.requestFullscreen() 
-      window.Telegram.WebApp.disableVerticalSwipes();
+    }
+    else{
+      window.Telegram.WebApp.exitFullscreen()
     }
   }, [] )
 
