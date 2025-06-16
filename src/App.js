@@ -389,6 +389,8 @@ function App() {
     window.Telegram.WebApp.setHeaderColor("#18222d");
     window.Telegram.WebApp.setBackgroundColor("#18222d");
     window.Telegram.WebApp.expand();
+    window.Telegram.WebApp.ready(); 
+    window.Telegram.WebApp.expand();
     // window.Telegram.WebApp.requestFullscreen() 
     // window.Telegram.WebApp.disableVerticalSwipes();
   }, [] )
@@ -397,6 +399,8 @@ function App() {
   const dispatch = useDispatch();
 
   const address = useSelector((state) => state.telegramUserInfo.address);
+
+  window.Telegram.WebApp.ready();
 
   window.Telegram.WebApp.expand();
 
