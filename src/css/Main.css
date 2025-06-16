@@ -21,7 +21,6 @@
 }
 
 .first-container {
-  min-height: 100vh;
   -webkit-transition: 0.4s;
   transition: 0.4s;
   display: -webkit-box;
