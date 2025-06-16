@@ -16,7 +16,6 @@ body {
   box-sizing: border-box;
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
-  -webkit-overflow-scrolling: touch !important;
 }
 
 html::-webkit-scrollbar,
