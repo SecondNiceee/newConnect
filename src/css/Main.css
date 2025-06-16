@@ -16,15 +16,39 @@
   display: none;
 }
 
-html::-webkit-scrollbar {
+html ::-webkit-scrollbar {
     display: none;
 }
 
+html{
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
 
+*::-webkit-scrollbar-track {
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.1);
+  background-color: transparent;
+}
 
+*::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: transparent;
+}
+
+body{
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
 body::-webkit-scrollbar {
     display: none;
 }
+
+
 
 /* Также можно применить к любому блоку с overflow */
 .scrollable-div::-webkit-scrollbar {
