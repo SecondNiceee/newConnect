@@ -11,6 +11,17 @@
   width: 0;
 }
 
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+
+
 body::-webkit-scrollbar {
     display: none;
 }
