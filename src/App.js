@@ -417,12 +417,17 @@ function App() {
     window.Telegram.WebApp.ready(); 
     window.Telegram.WebApp.expand();
     window.Telegram.WebApp.disableVerticalSwipes();
-    // if (isIphone()){
-    //   window.Telegram.WebApp.requestFullscreen() 
-    // }
-    // else{
-    //   window.Telegram.WebApp.exitFullscreen()
-    // }
+    try{
+      if (isIphone()){
+        window.Telegram.WebApp.requestFullscreen() 
+      }
+      else{
+        window.Telegram.WebApp.exitFullscreen()
+      }
+    }
+    catch(e){
+      
+    }
   }, [] )
 
 
