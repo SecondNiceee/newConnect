@@ -38,6 +38,7 @@ import Baidge from "./pages/Baidge/Baidge";
 import AdCreatingThree from "./pages/AdCreatingThree/AdCreatingThree";
 import Feedbacks from "./pages/Feedbacks/ui/Feedbacks";
 import AppLayout from "./layouts/AppLayout";
+import { isIphone } from "./functions/isIphone";
 
 const NewChangeCard = lazy( () => import('./pages/NewChangeCard/NewChangeCard') )
 const HappyPage = lazy(() => import("./pages/HappyHold/HappyPage"));
@@ -393,8 +394,10 @@ function App() {
     window.Telegram.WebApp.expand();
     window.Telegram.WebApp.ready(); 
     window.Telegram.WebApp.expand();
-    window.Telegram.WebApp.requestFullscreen() 
-    window.Telegram.WebApp.disableVerticalSwipes();
+    if (isIphone()){
+      window.Telegram.WebApp.requestFullscreen() 
+      window.Telegram.WebApp.disableVerticalSwipes();
+    }
   }, [] )
 
 
