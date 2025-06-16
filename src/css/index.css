@@ -5,13 +5,19 @@
 /* Базовое скрытие скроллбаров для всех браузеров */
 * {
   scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
 
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
 
 /* Специально для iOS Safari */
 html,
 body {
-  box-sizing: border-box;
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
   -webkit-overflow-scrolling: touch !important;
@@ -26,36 +32,7 @@ body::-webkit-scrollbar {
 }
 
 /* Дополнительные правила для iOS */
-@supports (-webkit-touch-callout: none) {
-  /* Это правило применится только на iOS */
-  * {
-    -webkit-overflow-scrolling: touch !important;
-  }
-
-  html::-webkit-scrollbar {
-    display: none !important;
-    -webkit-appearance: none !important;
-    width: 0 !important;
-    height: 0 !important;
-  }
-
-  html::-webkit-scrollbar-track {
-    display: none !important;
-    -webkit-appearance: none !important;
-  }
-
-  html::-webkit-scrollbar-thumb {
-    display: none !important;
-    -webkit-appearance: none !important;
-  }
-}
-
 /* Альтернативный подход - скрытие через overflow */
-.hide-scrollbar {
-  -ms-overflow-style: none !important;
-  scrollbar-width: none !important;
-  -webkit-overflow-scrolling: touch !important;
-}
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none !important;
