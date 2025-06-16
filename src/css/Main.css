@@ -7,6 +7,10 @@
   border: none;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
 body::-webkit-scrollbar {
     display: none;
 }
@@ -14,6 +18,11 @@ body::-webkit-scrollbar {
 /* Также можно применить к любому блоку с overflow */
 .scrollable-div::-webkit-scrollbar {
     display: none;
+}
+
+html{
+  scrollbar-width: none;  
+  -ms-overflow-style: none;  /* IE и Edge */
 }
 
 body {

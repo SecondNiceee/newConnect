@@ -25,6 +25,10 @@ body::-webkit-scrollbar {
 }
 
 ::-webkit-scrollbar {
+  width: 0;
+}
+
+::-webkit-scrollbar {
   display: none;
 }
 
