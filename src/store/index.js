@@ -10,6 +10,7 @@ import responses from './responses';
 import balance from './balance';
 import profession from "./profession";
 import telegramUserInfo from "./telegramUserInfo/telegramUserInfo";
+import filters from "./filters";
 
 
 export default configureStore( {
@@ -24,7 +25,8 @@ export default configureStore( {
         saves : saves,
         responses : responses,
         balance : balance,
-        profession : profession
+        profession : profession,
+        filters : filters
     },
     middleware: getDefaultMiddleware =>
         getDefaultMiddleware({

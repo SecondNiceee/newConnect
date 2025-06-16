@@ -1,23 +1,20 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import cl from "./ChoiceCategory.module.css";
 import BackButton from "../../../../../constants/BackButton";
 import MainButton from "../../../../../constants/MainButton";
 import menuController from "../../../../../functions/menuController";
 import { softVibration } from "../../../../../functions/softVibration";
+import { setAdvertisementFilters } from "../../../../../store/filters";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate, useNavigate } from "react-router";
 
 
 const FirstChoiceCategory = ({
-  setTaskInformation,
-  taskInformation,
-  setCatagoryChoiceOpen,
-  categorys,
-  subCategorys,
-  categoryOnly ,
   ...props 
-
 }) => {
-  
 
+  const categorys = useSelector((state) => state.categorys.category);
+  
   useEffect( () => {
     const First = document.documentElement.querySelector(".First")
     First.style.overflowY = "hidden"
@@ -28,20 +25,27 @@ const FirstChoiceCategory = ({
 
   const [choisenCategory, setChoisenCategory] = useState();
 
+  const dispatch = useDispatch();
+
+
+  const advertisementFilters = useSelector(state => state.filters.advertisementsFilters);
+
+  const navigate = useNavigate();
+
   const buttonHandler = useCallback( () => {
     if (!choisenCategory){
-      setTaskInformation({...taskInformation, category : { id: -1, category: "Все" }, subCategory : null})
+      dispatch(setAdvertisementFilters({category : { id: -1, category: "Все" }, subCategory : null}))
     }
     else{
-      if (taskInformation.category.id !== choisenCategory.id){
-        setTaskInformation({...taskInformation, category : choisenCategory, subCategory : null})
+      if (advertisementFilters.category.id !== choisenCategory.id){
+        dispatch({category : choisenCategory, subCategory : null})
       }
       else{
-        setTaskInformation({...taskInformation, category : choisenCategory})
+        dispatch({category : choisenCategory})
       }
     }
-    setCatagoryChoiceOpen(false);
-  } , [taskInformation,choisenCategory, setTaskInformation, setCatagoryChoiceOpen ] )
+    navigate(-1);
+  } , [advertisementFilters, choisenCategory, dispatch ] )
 
   useEffect( () => {
     MainButton.show();
@@ -56,11 +60,11 @@ const FirstChoiceCategory = ({
     return () => {
       MainButton.offClick(buttonHandler)
     }
-  } , [taskInformation,choisenCategory, buttonHandler] )
+  } , [choisenCategory, buttonHandler] )
 
   useEffect( () => {
     function closeFunction(){
-      setCatagoryChoiceOpen(false)
+      navigate(-1)
     }
     BackButton.show()
     BackButton.onClick(closeFunction)
@@ -69,7 +73,7 @@ const FirstChoiceCategory = ({
       BackButton.hide()
     }
     // eslint-disable-next-line
-  } , [] )
+  } , [navigate] )
 
   const clickHandler = (category) => (e) => {
     e.preventDefault();
@@ -90,10 +94,10 @@ const FirstChoiceCategory = ({
   } )
 
   useEffect( () => {
-    if (taskInformation.category.id !== -1){
-      setChoisenCategory(taskInformation.category)
+    if (advertisementFilters.category.id !== -1){
+      setChoisenCategory(advertisementFilters.category)
     }
-  } , [taskInformation] )
+  } , [advertisementFilters] )
 
   return (
     <div className={cl.ChoiceCategory} {...props}>

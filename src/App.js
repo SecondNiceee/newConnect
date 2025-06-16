@@ -39,6 +39,7 @@ import AdCreatingThree from "./pages/AdCreatingThree/AdCreatingThree";
 import Feedbacks from "./pages/Feedbacks/ui/Feedbacks";
 import AppLayout from "./layouts/AppLayout";
 import { isIphone } from "./functions/isIphone";
+import FirstChoiceCategory from "./pages/AdCreatingOne/ui/components/ChoiceCategory/FirstChoiceCategory";
 
 const NewChangeCard = lazy( () => import('./pages/NewChangeCard/NewChangeCard') )
 const HappyPage = lazy(() => import("./pages/HappyHold/HappyPage"));
@@ -199,6 +200,13 @@ const AnimatedSwitch = () => {
                 path="/response/:advertisementId/:responseId"
                 element={
                     <LastAds />
+                }
+              />
+
+              <Route
+                path="/firstchoicecategory"
+                element={
+                    <FirstChoiceCategory />
                 }
               />
 

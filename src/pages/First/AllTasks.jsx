@@ -7,16 +7,15 @@ import { changeStatus, fetchTasksInformation } from "../../store/information";
 import CategoryBlock from "../../components/First/CategoryBlock/CategoryBlock";
 import InputBlock from "../../components/First/CategoryBlock/InputBlock";
 import translation from "../../functions/translate";
+import { setAdvertisementFilters } from "../../store/filters";
+import { useNavigate } from "react-router";
 // let count = 0
 const AllTasks = forwardRef(({
   setMenuActive,
   ordersInformation,
   filterBy,
   setFilterBy,
-  setCategoryOpen,
   filters,
-  setFilters,
-  setSubCategory,
   setPhotoIndex,
   setSlideActive,
   setPhotos
@@ -31,6 +30,8 @@ const AllTasks = forwardRef(({
 
   const dispatch = useDispatch()
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     dispatch(fetchTasksInformation(1));
     return () => {
@@ -39,26 +40,25 @@ const AllTasks = forwardRef(({
   }, [dispatch]);
 
   const openCategoryFunc = useCallback( () => {
-    setCategoryOpen(true)
-  } , [setCategoryOpen] )
+    navigate('/firstchoicecategory')
+  } , [] )
 
   const openSubCategoryFunc = useCallback( () => {
-    setSubCategory(true)
-  } , [setSubCategory] )
+  } , [] )
+
 
   const setValueFunc = useCallback( (value) => {
     let copy = value
-
 
       if (value[0] === "0"){
         copy = copy.slice(1)
       }
       copy = copy.replace(/\s+/g, '');
       if (!isNaN(copy) && copy.length < 7){
-        setFilters((value) => ({...value , price : Number(copy)}))
+        dispatch(setAdvertisementFilters({price : Number(copy)}))
       }
     
-  }, [setFilters] )
+  }, [dispatch] )
 
   function format(e){
     if (translation(e).length < 7){

@@ -49,11 +49,7 @@ const First = () => {
     (state) => state.information.orderInformations
   );
 
-  const [filters, setFilters] = useState({
-    category: { id: -1, category: "Все" },
-    subCategory: null,
-    price: 0,
-  });
+  const filters = useSelector(state => state.filters.advertisementsFilters);
 
   const [filterBy, setFilterBy] = useState("");
 
@@ -128,10 +124,7 @@ const First = () => {
               setPhotos = {setPhotos}
               setPhotoIndex = {setPhotoIndex}
               setSlideActive = {setSlideOpened}
-              setFilters={setFilters}
-              setSubCategory={setSubCategory}
               filters={filters}
-              setCategoryOpen={setCategoryOpen}
               filterBy={filterBy}
               setFilterBy={setFilterBy}
               ordersInformation={secFilteredArray}
@@ -155,7 +148,6 @@ const First = () => {
               categorys={categorys}
               setCatagoryChoiceOpen={setCategoryOpen}
               taskInformation={filters}
-              setTaskInformation={setFilters}
             />
           </CSSTransition>
 
@@ -176,7 +168,6 @@ const First = () => {
               subCategorysPar={subCategorys}
               filterCategory = {filters.category}
               taskInformation={filters}
-              setTaskInformation={setFilters}
             />
           </CSSTransition>
         </motion.div>
