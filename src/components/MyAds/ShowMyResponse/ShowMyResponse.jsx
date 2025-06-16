@@ -100,11 +100,11 @@ const ShowMyResponse = () => {
   }
 
   const openAboutReaction = () => {
-    console.log("openAboutReaciton");
+    
   }
 
   const setLastAds = () => {
-    console.log("SetLastAds");
+    
   }
 
   const deleteFunction = () => {
