@@ -61,11 +61,12 @@ const StatisticPage = lazy( () => import("./pages/StatisticPage/StatisticPage") 
 
 
 export const API_KEY = process.env.REACT_APP_API_KEY;
+
 const MyLoader = () => {
   return (
     <div
       style={{
-        width: "100vw",
+        width: "100%",
         height: "calc(100vh)",
         display: "flex",
         alignItems: "center",
@@ -360,6 +361,7 @@ const AnimatedSwitch = () => {
                 }
               />
 
+
               <Route
                 path="/makeresponse/:id"
                 element={
@@ -395,12 +397,12 @@ function App() {
     window.Telegram.WebApp.ready(); 
     window.Telegram.WebApp.expand();
     window.Telegram.WebApp.disableVerticalSwipes();
-    // if (isIphone()){
-    //   window.Telegram.WebApp.requestFullscreen() 
-    // }
-    // else{
-    //   window.Telegram.WebApp.exitFullscreen()
-    // }
+    if (isIphone()){
+      window.Telegram.WebApp.requestFullscreen() 
+    }
+    else{
+      window.Telegram.WebApp.exitFullscreen()
+    }
   }, [] )
 
 

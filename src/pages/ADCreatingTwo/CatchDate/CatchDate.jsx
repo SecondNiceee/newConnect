@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 import dateIcon from "../../../images/icons/date.svg";
 import rightArrow from "../../../images/icons/ArrowRight.svg";

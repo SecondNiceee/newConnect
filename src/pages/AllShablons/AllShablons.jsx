@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AdCreateFunc from "../../components/UI/AdCreateFunc/AdCreateFunc";
 import GreyText from "../../components/UI/GreyText/GreyText";

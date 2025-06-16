@@ -5,13 +5,11 @@ import Holding from "./Holding/Holding";
 import cl from "./AdCreatingThree.module.css";
 import Upper from "./Upper/Upper";
 import Block from "./Block/Block";
-import { useDispatch } from "react-redux";
 import translation from "../../functions/translate";
 import { useParams } from "react-router";
 import useGetAdvertisement from "../../hooks/api/useGetAdvertisement";
 import MyLoader from "../../components/UI/MyLoader/MyLoader";
 import menuController from "../../functions/menuController";
-import useTonConnection from "../../hooks/useTonConnection";
 
 const AdCreatingThree = () => {
 
@@ -22,7 +20,6 @@ const AdCreatingThree = () => {
   // const balance = useSelector(state => state.balance.value)
   // const address = useSelector( state => state.telegramUserInfo.address );
 
-  const {formatAdress, tonWalletAddress} = useTonConnection();
 
   useEffect( () => {
     menuController.hideMenu();

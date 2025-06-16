@@ -40,7 +40,7 @@ const useGetOptionsConfig = () => {
                 text : "Шаблоны откликов",
                 isNeededFill : false,
                 isNeededActiveTitle : false,
-                clickFunc : () => {},
+                clickFunc : () => {navigate('/AllShablons')},
                 numberNearToArrow : null
             }
         ]
