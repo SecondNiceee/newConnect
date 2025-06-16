@@ -6,20 +6,6 @@
   border: none;
 }
 
-.urName{  
-  color: rgb(255, 255, 255);
-  font-family: "SF Compact Rounded";
-  font-size: 23.33px;
-  font-weight: 500;
-  line-height: 28px;
-  letter-spacing: 0%;
-  text-align: left;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 18.33px;
-  text-align: center;
-}
-
 .normail {
   align-self: center;
   line-height: 0;
@@ -28,6 +14,8 @@
 
 .First {
   display: flex;
+  transition: transform 0.4s;
+  will-change: transform;
   overflow-x: hidden;
   width: 100%;
 }
@@ -49,7 +37,7 @@
 
 .first-wrapper {
   display: flex;
-  width: 100%;
+  width: 100;
   margin-bottom: 96px;
 }
 
@@ -83,7 +71,7 @@
   padding-top: 17px;
   width: 100%;
   transition: 0.5s;
-  min-width: 100vw;
+  min-width: 100%;
 }
 
 .EmptyText {
@@ -125,7 +113,7 @@
 }
 
 .FirstMain {
-  width: calc(100vw - 32px);
+  width: calc(100% - 32px);
   margin-top: 17px;
   display: flex;
   overflow: hidden;
@@ -233,7 +221,6 @@
   letter-spacing: 0%;
   text-align: left;
   max-width: 237px;
-  transform: translateY(1.5px);
 }
 .First__block .circle {
   margin-left: auto;
@@ -305,7 +292,7 @@
   text-align: left;
 }
 .First__block .FirstMain__price-up {
-  opacity: 0.3;
+  opacity: 1;
   display: flex;
   gap: 5px;
   align-items: center;
@@ -318,6 +305,10 @@
   line-height: 28px;
   letter-spacing: 0%;
   text-align: left;
+}
+.First__block .FirstMain__price-up img {
+  width: 21.67px;
+  height: 21.67px;
 }
 .First__block .FirstMain__bottom-right {
   min-width: 21px;
@@ -643,17 +634,15 @@
 .TaskDetails {
   min-height: 100vh;
   height: 100vh;
-  min-width: 100vw;
+  min-width: 100%;
   top: 0;
   overflow-y: scroll;
   z-index: 1000;
   width: 100%;
   background: rgb(24, 34, 45);
   padding: 18px 16px;
-  transition-duration: 0.4s;
-  transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
   left: 0;
-  transform: translateX(0);
+  transform: translateX(0%);
   position: fixed;
   padding-bottom: 16px;
 }
@@ -725,6 +714,30 @@
   letter-spacing: 0%;
   text-align: left;
   overflow-y: hidden;
+}
+@keyframes modal-animate {
+  0% {
+    transform: translateY(0px);
+  }
+  30% {
+    transform: translateY(125px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(125px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(125px);
+  }
+}
+.Task__container-one .modal-copy-enter-active {
+  animation: modal-animate 1.5s both;
+  animation-fill-mode: both;
+}
+.Task__container-one .modal-copy-exit-active {
+  animation: modal-animate 1.5s both;
+  animation-fill-mode: both;
 }
 .Task__container-one .TaskDetails-row {
   display: flex;
@@ -968,13 +981,15 @@
   text-align: center;
 }
 .timeAndWatches .watches {
-  color: rgb(149, 151, 158);
   font-family: "SF Pro Display";
-  font-size: 11.67px;
   font-weight: 500;
-  line-height: 12.54px;
-  letter-spacing: 0%;
+  font-size: 11px;
+  line-height: 107%;
   text-align: center;
+  color: #daf5fe;
+}
+.timeAndWatches .watches span {
+  color: #2ea5ff;
 }
 
 .similarAds {
@@ -1029,26 +1044,26 @@
     transform: translateX(0%);
   }
   50% {
-    transform: translateX(calc(-100vw - 10px));
+    transform: translateX(calc(-100% - 10px));
   }
   100% {
-    transform: translateX(-100vw);
+    transform: translateX(-100%);
   }
 }
 @keyframes stepTwo {
   0% {
-    transform: translateX(-100vw);
+    transform: translateX(-100%);
   }
   50% {
-    transform: translateX(calc(-200vw - 10px));
+    transform: translateX(calc(-200% - 10px));
   }
   100% {
-    transform: translateX(-200vw);
+    transform: translateX(-200%);
   }
 }
 @keyframes oneBack {
   0% {
-    transform: translateX(-100vw);
+    transform: translateX(-100%);
   }
   50% {
     transform: translateX(10px);
@@ -1059,13 +1074,13 @@
 }
 @keyframes twoBack {
   0% {
-    transform: translateX(-200vw);
+    transform: translateX(-200%);
   }
   50% {
-    transform: translateX(calc(-100vw + 10px));
+    transform: translateX(calc(-100% + 10px));
   }
   100% {
-    transform: translateX(-100vw);
+    transform: translateX(-100%);
   }
 }
 .twoBack {
@@ -1270,11 +1285,11 @@
 }
 
 .adCreatingThree-wrapper {
-  min-width: 100vw;
+  min-width: 100%;
 }
 
 .AdCreating__container {
-  padding-bottom: 72px;
+  padding-bottom: 76px;
   min-height: 100vh;
   display: flex;
   will-change: transform;
@@ -1286,9 +1301,10 @@
 }
 
 .Modal-Portal .datepicker-modal {
-  position: fixed !important;
+  position: fixed;
   top: 0;
   height: 100vh;
+  z-index: -1;
   overflow-y: hidden;
   background-color: unset;
 }
@@ -2282,6 +2298,7 @@ input {
 }
 
 .telegramLink {
+  cursor: pointer;
   font-family: "SF Pro Display";
   font-weight: 500;
   font-size: 14px;
@@ -2329,7 +2346,7 @@ input {
 .PickerContent {
   will-change: transform;
   position: static;
-  min-width: 200vw;
+  min-width: calc(200% + 64px);
   display: flex;
   transition: 0.4s;
   overflow-y: hidden;
@@ -2349,6 +2366,9 @@ input {
   flex-direction: column;
   height: calc(100vh - 252px);
   justify-content: center;
+  width: calc(100% - 32px);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .animation-text {
@@ -2387,6 +2407,7 @@ input {
   padding-right: 16px;
   top: 0;
   overflow-y: auto;
+  left: 0;
   z-index: 100000;
   transition: 0.4s;
   background-color: #18222d;
@@ -2411,8 +2432,8 @@ input {
   padding-top: 23px;
   padding-left: 16px;
   padding-right: 16px;
-  left: 0;
-  transform: translateX(100%);
+  left: 100vw;
+  transform: translateX(0);
   top: 0;
   position: fixed;
   z-index: 200;
@@ -2421,6 +2442,7 @@ input {
   min-height: 100vh;
   height: 100vh;
   overflow-y: scroll;
+  padding-bottom: 78px;
 }
 .shablon-wrapper .shablon-name {
   margin-top: 18px;
@@ -2637,6 +2659,7 @@ input {
 .FullDescription-top {
   display: flex;
   gap: 4px;
+  align-items: center;
 }
 .FullDescription-top p {
   /* Default text */
@@ -2745,11 +2768,41 @@ body {
 }
 
 .left-right-exit {
+  transform: translate3d(100vw, 0, 0) !important;
+  transition: 0.4s;
+}
+
+.left-right-exit-active {
+  transform: translate3d(100vw, 0, 0) !important;
+  transition: 0.4s;
+}
+
+.left-zero-enter {
+  transform: translate3d(-100vw, 0, 0) !important;
+  transition: 0.4s;
+}
+
+.left-zero-enter-active {
+  transform: translate3d(-100vw, 0, 0) !important;
+  transition: 0.4s;
+}
+
+.left-zero-enter-done {
+  transform: translate3d(-100vw, 0, 0) !important;
+  transition: 0.4s;
+}
+
+.left-right-exit {
   transform: translate3d(0, 0, 0) !important;
   transition: 0.4s;
 }
 
 .left-right-exit-active {
+  transform: translate3d(100%, 0, 0) !important;
+  transition: 0.4s;
+}
+
+.left-right-exit-done {
   transform: translate3d(100%, 0, 0) !important;
   transition: 0.4s;
 }
@@ -2907,15 +2960,111 @@ body {
 }
 
 .show-modal-exit {
-  scale: 0 !important;
-  opacity: 0 !important;
+  transition: 0.4s !important;
+  scale: 1 !important;
+  opacity: 1 !important;
 }
 
 .show-modal-exit-active {
+  transition: 0.4s !important;
+  scale: 1 !important;
+  opacity: 1 !important;
+}
+
+.show-modal-exit-done {
+  transition: 0.4s !important;
   scale: 0 !important;
   opacity: 0 !important;
 }
 
 button, li, a, img {
   cursor: pointer;
+}
+
+@keyframes animateError {
+  0% {
+    opacity: 0;
+    scale: 0;
+    transition: 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  6% {
+    scale: 1.1;
+    opacity: 1;
+  }
+  9% {
+    scale: 1;
+  }
+  70% {
+    scale: 1;
+    opacity: 1;
+    transition: 0.2s;
+  }
+  100% {
+    scale: 1;
+    opacity: 0;
+  }
+}
+@keyframes animateErrorTwo {
+  0% {
+    opacity: 0;
+    scale: 0;
+    transition: 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  3% {
+    scale: 1.08;
+    opacity: 1;
+  }
+  6% {
+    scale: 1;
+  }
+  70% {
+    scale: 1;
+    opacity: 1;
+    transition: 0.2s;
+  }
+  100% {
+    scale: 1;
+    opacity: 0;
+  }
+}
+.errorModal-enter-active {
+  animation: animateError 2s both;
+}
+
+.errorModal-exit-active {
+  animation: animateError 2s both;
+}
+
+.errorModalTwo-enter-active {
+  animation: animateErrorTwo 10s both;
+}
+
+.errorModalTwo-exit-active {
+  animation: animateErrorTwo 10s both;
+}
+
+@keyframes modal-animate {
+  0% {
+    transform: translateY(0px);
+  }
+  30% {
+    transform: translateY(125px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(125px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(125px);
+  }
+}
+.modal-copy-enter-active {
+  animation: modal-animate 1.5s both;
+  animation-fill-mode: both;
+}
+
+.modal-copy-exit-active {
+  animation: modal-animate 1.5s both;
+  animation-fill-mode: both;
 }/*# sourceMappingURL=main.css.map */

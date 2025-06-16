@@ -283,7 +283,7 @@
     padding-right: 16px;
     padding-top: 17px;
     margin-bottom: 18.33px;
-    min-width: 100vw;
+    min-width: 100%;
     height: calc(100vh);
     overflow-y: scroll;
     display: flex;

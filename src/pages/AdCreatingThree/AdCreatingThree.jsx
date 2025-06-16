@@ -42,7 +42,6 @@ const AdCreatingThree = () => {
   }
   return (
     <div className= {cl.AdCreatingThree}
-    style={{minWidth : document.documentElement.clientWidth.toString() + 'px'}}
     >
       <Upper />
       

@@ -195,8 +195,6 @@ const SecondAddCreating = ({taskInformation , setTaskInformation, tonConstant , 
 
     return (
       <div className = {cl.SecondAddCreating} 
-      
-      style={{minWidth : document.documentElement.clientWidth.toString() + 'px' }}
       >
 
     <DatePicker

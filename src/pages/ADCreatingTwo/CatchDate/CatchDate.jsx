@@ -11,20 +11,32 @@ let errorDate = new Date(0)
 const CatchDate = ({ className , whichOne , state, setState,errors, isMyInformation,  ...props }) => {
   const ref1 = useRef(null);
   const ref2 = useRef(null);
-  const [widthOfDocument, setWidthOfDocument] = useState(
-    document.documentElement.clientWidth
-  );
   useEffect(() => {
-    ref1.current.style.minWidth =
-      (document.documentElement.clientWidth - 32).toString() + "px";
-    ref2.current.style.minWidth =
-      (document.documentElement.clientWidth - 32).toString() + "px";
-    function addKey() {
+    if (document.documentElement.clientWidth > 500){
+      ref1.current.style.minWidth =
+        (500 - 32).toString() + "px";
+      ref2.current.style.minWidth =
+        (500- 32).toString() + "px";   
+    }
+    else{
       ref1.current.style.minWidth =
         (document.documentElement.clientWidth - 32).toString() + "px";
       ref2.current.style.minWidth =
         (document.documentElement.clientWidth - 32).toString() + "px";
-      setWidthOfDocument(document.documentElement.clientWidth);
+    }
+    function addKey() {
+      if (document.documentElement.clientWidth > 500){
+        ref1.current.style.minWidth =
+          (500 - 32).toString() + "px";
+        ref2.current.style.minWidth =
+          (500 - 32).toString() + "px";
+      }
+      else{
+        ref1.current.style.minWidth =
+          (document.documentElement.clientWidth - 32).toString() + "px";
+        ref2.current.style.minWidth =
+          (document.documentElement.clientWidth - 32).toString() + "px";
+      }
     }
     window.addEventListener("resize", addKey);
     return () => {
@@ -32,7 +44,10 @@ const CatchDate = ({ className , whichOne , state, setState,errors, isMyInformat
     };
   }, []);
   function getTranslate(){
-    return 'translateX(' + (-1)*widthOfDocument.toString() + 'px)'  
+    if (document.documentElement.clientWidth > 500){
+      return 'translateX(' + (-1)*(500).toString() + 'px)'  
+    }
+    return 'translateX(' + (-1)*document.documentElement.clientWidth.toString() + 'px)'  
   }
 
 return (

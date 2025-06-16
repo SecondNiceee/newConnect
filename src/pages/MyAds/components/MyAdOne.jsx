@@ -26,6 +26,9 @@ const MyAdOne = ({
   }, [putStatus]); // проверка на то, что все работает
 
   const GreyIntWidth = useMemo(() => {
+    if (document.documentElement.clientWidth - 36 > 464){
+      return 232
+    }
     return (document.documentElement.clientWidth - 36) / 2;
   }, []);
   const GreyWidth = useMemo(() => {

@@ -64,7 +64,7 @@
     // height: calc(100vh);
     // overflow-y: scroll;
     transition: 0.5s;
-    min-width: 100vw;
+    min-width: 100%;
 }
 
 
@@ -107,7 +107,7 @@
 
 
 .FirstMain { 
-  width: calc(100vw - 32px);
+  width: calc(100% - 32px);
   margin-top: calc(17px);
   display: flex;
   overflow: hidden;

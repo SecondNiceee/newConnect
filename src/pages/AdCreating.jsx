@@ -445,6 +445,9 @@ const AdCreating = () => {
   } , [isCategoryChoiceOpen , isSubcategoryChoiceOpen,setCatagoryChoiceOpen,setSubcategoryChoiceOpen, navigate ])
 
   const GreyIntWidth = useMemo(() => {
+    if (document.documentElement.clientWidth - 36 > 464){
+      return 232
+    }
     return (document.documentElement.clientWidth - 36) / 2;
   }, []);
   const GreyWidth = useMemo(() => {
@@ -549,7 +552,7 @@ const AdCreating = () => {
             <CSSTransition timeout={0}
             in = {spet !== 0}
             unmountOnExit mountOnEnter>
-              <FirstDetails navigateBack = {false} changeButton = {false}   style = {{position : "static" ,  minHeight : "unset" , "height" : "unset", overflowY : "unset" ,minWidth : "100vw", transform : "translateX(0%)"}} end = {true} orderInformationParam={{...firstPage , ...secondPage , user : me, category : firstPage.category.id , whichOne : whichOne } } />
+              <FirstDetails navigateBack = {false} changeButton = {false}   style = {{position : "static" ,  minHeight : "unset" , "height" : "unset", overflowY : "unset" , transform : "translateX(0%)"}} end = {true} orderInformationParam={{...firstPage , ...secondPage , user : me, category : firstPage.category.id , whichOne : whichOne } } />
             </CSSTransition>
             {/* <AdCreatingThree taskInformation={secondPage} /> */}
           </div>
