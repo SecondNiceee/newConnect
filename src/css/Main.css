@@ -555,7 +555,7 @@ body::-webkit-scrollbar {
   padding-bottom: 27px;
   will-change: transform;
   background-color: #20303F;
-  z-index: 11000;
+  z-index: 99999999;
   position: fixed;
   bottom: 0px;
   width: 100vw;
