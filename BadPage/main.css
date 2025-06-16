@@ -3,6 +3,16 @@ body{
     padding: 0;
 }
 
+body {
+  -ms-overflow-style: none;  /* IE и Edge */
+  scrollbar-width: none;     /* Firefox */
+  overflow-y: scroll;        /* Оставляем прокрутку доступной */
+}
+
+body::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari и Opera */
+}
+
 .lottieAnimation{
     width: 200px;
     height: 200px;
