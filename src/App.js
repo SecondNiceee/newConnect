@@ -138,9 +138,6 @@ const AnimatedSwitch = () => {
       <FirstMenu ref={menuRef} />
       <div
         className="container"
-        style={{
-          minHeight: "calc(100vh)",
-        }}
       >
         <div
           style={isMenuActive ? { opacity: "0.6" } : { maxWidth: "0px" }}

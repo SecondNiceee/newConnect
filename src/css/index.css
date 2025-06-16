@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+}
+
+
+::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+
+
+html::-webkit-scrollbar {
+    display: none !important;
+}
+
+html{
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+
+body{
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+body::-webkit-scrollbar {
+    display: none !important;
+}
+

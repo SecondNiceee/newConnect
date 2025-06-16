@@ -7,17 +7,28 @@
   border: none;
 }
 
-::-webkit-scrollbar {
-  width: 0;
+*::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
 }
 
 
 ::-webkit-scrollbar {
-  display: none;
+  width: 0 !important;
 }
+
+
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+
 
 html::-webkit-scrollbar {
-    display: none;
+    display: none !important;
 }
 
 html{
