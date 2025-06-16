@@ -13,7 +13,7 @@ const filters = createSlice({
   },
   reducers : {
     setAdvertisementFilters(state, action){
-        state.advertisementsFilters = action.payload;
+        state.advertisementsFilters = {...state.advertisementsFilters, ...action.payload}
     }
     
   }

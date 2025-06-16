@@ -41,10 +41,11 @@ const AllTasks = forwardRef(({
 
   const openCategoryFunc = useCallback( () => {
     navigate('/firstchoicecategory')
-  } , [] )
+  } , [navigate] )
 
   const openSubCategoryFunc = useCallback( () => {
-  } , [] )
+    navigate('/firstchoicesubcategory')
+  } , [navigate] )
 
 
   const setValueFunc = useCallback( (value) => {

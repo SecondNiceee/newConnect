@@ -39,7 +39,6 @@ import AdCreatingThree from "./pages/AdCreatingThree/AdCreatingThree";
 import Feedbacks from "./pages/Feedbacks/ui/Feedbacks";
 import AppLayout from "./layouts/AppLayout";
 import { isIphone } from "./functions/isIphone";
-import FirstChoiceCategory from "./pages/AdCreatingOne/ui/components/ChoiceCategory/FirstChoiceCategory";
 
 const NewChangeCard = lazy( () => import('./pages/NewChangeCard/NewChangeCard') )
 const HappyPage = lazy(() => import("./pages/HappyHold/HappyPage"));
@@ -50,6 +49,8 @@ const Balance = lazy(() => import("./pages/Balance"));
 const MyAds = lazy(() => import("./pages/MyAds/MyAds"));
 const AllShablons = lazy(() => import("./pages/AllShablons/AllShablons"));
 const SavedPage = lazy(() => import("./pages/SavedPage/SavedPage"));
+const FirstChoiceCategory = lazy( () => import("./pages/AdCreatingOne/ui/components/ChoiceCategory/FirstChoiceCategory") )
+const FirstChoiseSubCategory = lazy( () => import("./pages/AdCreatingOne/ui/components/ChoiceCategory/FirstChoiceSubCategory") )
 
 
 const BaidgeCreating = lazy(() =>
@@ -205,8 +206,19 @@ const AnimatedSwitch = () => {
 
               <Route
                 path="/firstchoicecategory"
-                element={
+                element = {
+                  <Suspense fallback={<MyLoader />}>
                     <FirstChoiceCategory />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="/firstchoicesubcategory"
+                element = {
+                  <Suspense fallback={<MyLoader />}>
+                    <FirstChoiseSubCategory />
+                  </Suspense>
                 }
               />
 
@@ -405,12 +417,12 @@ function App() {
     window.Telegram.WebApp.ready(); 
     window.Telegram.WebApp.expand();
     window.Telegram.WebApp.disableVerticalSwipes();
-    // if (isIphone()){
-    //   window.Telegram.WebApp.requestFullscreen() 
-    // }
-    // else{
-    //   window.Telegram.WebApp.exitFullscreen()
-    // }
+    if (isIphone()){
+      window.Telegram.WebApp.requestFullscreen() 
+    }
+    else{
+      window.Telegram.WebApp.exitFullscreen()
+    }
   }, [] )
 
 

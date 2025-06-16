@@ -6,7 +6,7 @@ import menuController from "../../../../../functions/menuController";
 import { softVibration } from "../../../../../functions/softVibration";
 import { setAdvertisementFilters } from "../../../../../store/filters";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 
 
 const FirstChoiceCategory = ({
@@ -15,14 +15,6 @@ const FirstChoiceCategory = ({
 
   const categorys = useSelector((state) => state.categorys.category);
   
-  useEffect( () => {
-    const First = document.documentElement.querySelector(".First")
-    First.style.overflowY = "hidden"
-    return () => {
-       First.style.overflowY = "scroll"
-    }
-  } , [] )
-
   const [choisenCategory, setChoisenCategory] = useState();
 
   const dispatch = useDispatch();
@@ -38,14 +30,14 @@ const FirstChoiceCategory = ({
     }
     else{
       if (advertisementFilters.category.id !== choisenCategory.id){
-        dispatch({category : choisenCategory, subCategory : null})
+        dispatch(setAdvertisementFilters({category : choisenCategory, subCategory : null}))
       }
       else{
-        dispatch({category : choisenCategory})
+        dispatch(setAdvertisementFilters({category : choisenCategory}))
       }
     }
     navigate(-1);
-  } , [advertisementFilters, choisenCategory, dispatch ] )
+  } , [advertisementFilters, choisenCategory, dispatch, navigate ] )
 
   useEffect( () => {
     MainButton.show();
@@ -101,7 +93,9 @@ const FirstChoiceCategory = ({
 
   return (
     <div className={cl.ChoiceCategory} {...props}>
-
+        <div onClick={buttonHandler} className="fixed left-1/2 top-1/2 rounded p-2 border-black border-solid border-2 cursor-pointer">
+          MAIN BUTTON
+        </div>
       <p className="mt-[13px] ml-[17px] font-sf-pro-display-400 font-extralight text-[13px] tracking-[0.02em] text-[#84898f] uppercase mb-[9px]">КАТЕГОРИИ</p>
         <div className="flex rounded-[10px] bg-[#21303f] flex-col pl-[16px] pr-[16px]">
             {categorys.map((category, id) => {

@@ -4,23 +4,18 @@ import cl from "./ChoiceCategory.module.css";
 import MainButton from '../../../../../constants/MainButton';
 import menuController from '../../../../../functions/menuController';
 import { softVibration } from '../../../../../functions/softVibration';
-const FirstChoiceSubCategory = ({taskInformation , setSubcategoryChoiceOpen , filterCategory, setTaskInformation, subCategorysPar , ...props}) => {
+import { useNavigate } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAdvertisementFilters } from '../../../../../store/filters';
+const FirstChoiceSubCategory = ({ ...props}) => {
 
 
-  useEffect( () => {
-    const First = document.documentElement.querySelector(".First")
-    First.style.overflowY = "hidden"
-    return () => {
-       First.style.overflowY = "scroll"
-    }
-  } , [] )
-
-  
+  const navigate = useNavigate();
 
 
   useEffect( () => {
       function closeFunction(){
-        setSubcategoryChoiceOpen(false)
+        navigate(-1);
       }
       BackButton.show()
       BackButton.onClick(closeFunction)
@@ -34,23 +29,26 @@ const FirstChoiceSubCategory = ({taskInformation , setSubcategoryChoiceOpen , fi
 
     const [choisenSubCategorys, setChoisenSubCategorys] = useState([]);
 
+    const subCategorysFilters = useSelector( (state) => state.filters.advertisementsFilters )
+
+    const dispatch = useDispatch();
+
     useEffect( () => {
-      if (taskInformation.subCategory !== null){
-        setChoisenSubCategorys(taskInformation.subCategory)
+      if (subCategorysFilters.subCategory !== null){
+        setChoisenSubCategorys(subCategorysFilters.subCategory)
       }
-    }, [taskInformation.subCategory] )
+    }, [subCategorysFilters.subCategory] )
 
 
     const  buttonHandler = useCallback(() => {
       if (choisenSubCategorys.length){
-        setTaskInformation({...taskInformation, subCategory : choisenSubCategorys})
-        setSubcategoryChoiceOpen(false);
+        dispatch(setAdvertisementFilters({subCategory : choisenSubCategorys}))
       }
       else{
-        setTaskInformation({...taskInformation, subCategory : null})
-        setSubcategoryChoiceOpen(false);
+        dispatch(setAdvertisementFilters({subCategory : null}))
       }
-    }, [setTaskInformation, taskInformation, setSubcategoryChoiceOpen, choisenSubCategorys])
+      navigate(-1);
+    }, [dispatch, navigate , choisenSubCategorys])
 
 
     useEffect( () => {
@@ -66,26 +64,31 @@ const FirstChoiceSubCategory = ({taskInformation , setSubcategoryChoiceOpen , fi
       return () => {
         MainButton.offClick(buttonHandler)
       }
-    } , [taskInformation, choisenSubCategorys, filterCategory, setSubcategoryChoiceOpen, setTaskInformation, buttonHandler] )
+    } , [subCategorysFilters, choisenSubCategorys, buttonHandler] )
 
+    const subCategorysPar = useSelector((state) => state.categorys.subCategory);
 
+    console.log(subCategorysPar);
+    console.log(subCategorysFilters)
 
     const subCategorys = useMemo(() => {
-      let copy = subCategorysPar.filter(e => e.category.id === taskInformation.category.id && e.subCategory !== "Другое")
-        return copy
-        // eslint-disable-next-line
-    }, [])
+      if (subCategorysPar){
+        let copy = subCategorysPar.filter(e => e.category.id === subCategorysFilters.category.id && e.subCategory !== "Другое")
+          return copy
+      }
+      return []
+    }, [subCategorysPar, subCategorysFilters])
     
-    function closeSebCategory(){
-        setSubcategoryChoiceOpen(false)
-    }
-
+    
     useEffect( () => {
-        BackButton.onClick(closeSebCategory)
+      function closeSebCategory(){
+          navigate(-1)
+      }
+      BackButton.onClick(closeSebCategory)
         return () => {
             BackButton.offClick(closeSebCategory)
         }
-    } )
+    }, [navigate] )
 
     const clickAll = () => {
       softVibration();
@@ -119,8 +122,9 @@ const FirstChoiceSubCategory = ({taskInformation , setSubcategoryChoiceOpen , fi
 
     return (
       <div className={cl.ChoiceCategory} {...props}>
-        {filterCategory.id !== -1 ? 
-        <>
+        <div onClick={buttonHandler} className="fixed left-1/2 top-1/2 rounded p-2 border-black border-solid border-2 cursor-pointer">
+          MAIN BUTTON
+        </div>
         <p className="mt-[13px] ml-[17px] font-sf-pro-display-400 font-extralight text-[13px] tracking-[0.02em] text-[#84898f] uppercase mb-[9px]">ПОДКАТЕГОРИИ</p>
         <div className="flex rounded-[10px] bg-[#21303f] flex-col pt-[13px] pl-[16px] pr-[16px]">
             <p onClick={() => {clickAll()}} className="font-sf-pro-text-400 cursor-pointer tracking-[-0.04em] leading-[17.33px] text-[17px] text-[#2ea6ff]">Выбрать всё</p>
@@ -145,12 +149,6 @@ const FirstChoiceSubCategory = ({taskInformation , setSubcategoryChoiceOpen , fi
               
             })}
         </div>
-        </>
-:
-            <p className='font-sf-pro-display-400 font-extralight my-auto text-center mx-auto top-[40%] text-[17px] tracking-[0.02em] text-[#84898f]'>
-                Выберите сначала категорию, чтобы выбрать подкатегорию.
-            </p>
-}
 </div>
 
     );
