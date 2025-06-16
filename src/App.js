@@ -385,6 +385,8 @@ const AnimatedSwitch = () => {
 };
 function App() {
 
+  console.log("фыв");
+
   useEffect( () => {
     window.Telegram.WebApp.setHeaderColor("#18222d");
     window.Telegram.WebApp.setBackgroundColor("#18222d");
