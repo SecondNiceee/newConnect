@@ -393,8 +393,8 @@ function App() {
     window.Telegram.WebApp.expand();
     window.Telegram.WebApp.ready(); 
     window.Telegram.WebApp.expand();
-    window.Telegram.WebApp.requestFullscreen() 
-    window.Telegram.WebApp.disableVerticalSwipes();
+    // window.Telegram.WebApp.requestFullscreen() 
+    // window.Telegram.WebApp.disableVerticalSwipes();
   }, [] )
 
 
