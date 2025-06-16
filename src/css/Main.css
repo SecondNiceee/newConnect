@@ -7,6 +7,16 @@
   border: none;
 }
 
+body {
+  -ms-overflow-style: none;  /* IE и Edge */
+  scrollbar-width: none;     /* Firefox */
+  overflow-y: scroll;        /* Оставляем прокрутку доступной */
+}
+
+body::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari и Opera */
+}
+
 .normail {
   -ms-flex-item-align: center;
       align-self: center;
