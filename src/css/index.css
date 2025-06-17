@@ -8,7 +8,8 @@
   -ms-overflow-style: none !important;
 }
 
-*::-webkit-scrollbar {
+body::-webkit-scrollbar, html::-webkit-scrollbar, html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-track, html::-webkit-scrollbar-track, body::-webkit-scrollbar-track-piece, html::-webkit-scrollbar-track-piece   {
   display: none !important;
   width: 0 !important;
   height: 0 !important;
@@ -19,7 +20,6 @@
 html,
 body {
   scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
   -webkit-overflow-scrolling: touch !important;
 }
 
@@ -28,15 +28,7 @@ body::-webkit-scrollbar {
   display: none !important;
   width: 0 !important;
   height: 0 !important;
-  background: transparent !important;
 }
 
 /* Дополнительные правила для iOS */
 /* Альтернативный подход - скрытие через overflow */
-
-.hide-scrollbar::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-  -webkit-appearance: none !important;
-}
