@@ -2,11 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Базовое скрытие скроллбаров для всех браузеров */
-* {
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
-}
+
+
 
 body::-webkit-scrollbar, html::-webkit-scrollbar, html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-track, html::-webkit-scrollbar-track, body::-webkit-scrollbar-track-piece, html::-webkit-scrollbar-track-piece   {
@@ -20,7 +17,6 @@ body::-webkit-scrollbar-track, html::-webkit-scrollbar-track, body::-webkit-scro
 html,
 body {
   scrollbar-width: none !important;
-  -webkit-overflow-scrolling: touch !important;
 }
 
 html::-webkit-scrollbar,
