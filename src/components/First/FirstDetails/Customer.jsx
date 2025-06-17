@@ -1,4 +1,4 @@
-import galks from '../../../images/icons/Subtract.svg'
+
 import Text from '../../Text/Text';
 import { useNavigate } from 'react-router';
 import useGetUserPhotoLink from '../../../hooks/useGetUserPhotoLink';
@@ -22,7 +22,7 @@ const Customer = ({customerName, rate, userPhoto, id, userId}) => {
                         : 
                         customerName
                     }</Text>
-                        <img src= {galks} alt="" />
+                        <img src= {"/images/icons/Subtract.svg"} alt="" />
                     </div>
                     <div className="customer__information-right-rate">
                         {/* <div className="customer__information-right-rate-images">

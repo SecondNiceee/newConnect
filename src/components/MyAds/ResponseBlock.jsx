@@ -6,7 +6,6 @@ import MyButton from "../UI/MyButton/MyButton";
 import formatDate from "../../functions/makeDate";
 import Text from "../Text/Text";
 import en from "../../constants/language";
-import RealTon from "../../images/icons/RealTon.svg";
 import { shareFunction } from "../../functions/shareFunction";
 import ShareIcon from "../UI/ShareIcon/ShareIcon";
 
@@ -139,7 +138,7 @@ const ResponseBlock = ({
             <div className="FirstMain__bottom-left">
               <div className="FirstMain__price-up">
                 <p>{tonValue} TON</p>
-                <img src={RealTon} alt="" />
+                <img src={"/images/icons/RealTon.svg"} alt="" />
               </div>
               <div className="FirstMain__price-bottom">
                 <p>
