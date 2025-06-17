@@ -24,17 +24,13 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-html::-webkit-scrollbar {
-  display: none;
-}
-::-webkit-scrollbar {
-  display: none;
-}
-
 ::-webkit-scrollbar {
   width: 0;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
 
 /* Также можно применить к любому блоку с overflow */
 .scrollable-div::-webkit-scrollbar {
@@ -653,18 +649,14 @@ html::-webkit-scrollbar {
   }
 }
 .TaskDetails {
-  min-height: 100vh;
-  height: 100vh;
   min-width: 100%;
   top: 0;
-  overflow-y: scroll;
   z-index: 1000;
   width: 100%;
   background: rgb(24, 34, 45);
   padding: 18px 16px;
   left: 0;
   transform: translateX(0%);
-  position: fixed;
   padding-bottom: 16px;
 }
 .TaskDetails.active {
@@ -2817,9 +2809,7 @@ body {
   transform: translate3d(0, 0, 0) !important;
   transition: 0.4s;
 }
-::-webkit-scrollbar {
-    display: none;
-}
+
 .left-right-exit-active {
   transform: translate3d(100%, 0, 0) !important;
   transition: 0.4s;
