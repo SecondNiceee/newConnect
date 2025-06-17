@@ -147,6 +147,7 @@ const AnimatedSwitch = () => {
         <AnimatePresence>
           <Routes location={location} key={location.pathname}>
             <Route element = {<AppLayout />}>
+            
               <Route
                 path="/changeAdvertisement/:advId"
                 element={
