@@ -7,13 +7,7 @@
   border: none;
 }
 
-*::-webkit-scrollbar {
-  width: 0 !important;
-}
 
-*::-webkit-scrollbar {
-  display: none !important;
-}
 
 
 ::-webkit-scrollbar {
@@ -33,13 +27,11 @@ html::-webkit-scrollbar {
 
 html{
   scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
 }
 
 
 body{
   scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
 }
 body::-webkit-scrollbar {
     display: none !important;
@@ -47,20 +39,8 @@ body::-webkit-scrollbar {
 
 
 
-/* Также можно применить к любому блоку сы overflow */
-.scrollable-div::-webkit-scrollbar {
-    display: none;
-}
-
 html{
   scrollbar-width: none;  
-  -ms-overflow-style: none;  /* IE и Edge */
-}
-
-body {
-  -ms-overflow-style: none;  /* IE и Edge */
-  scrollbar-width: none;     /* Firefox */
-  overflow-y: scroll;        /* Оставляем прокрутку доступной */
 }
 
 body::-webkit-scrollbar {
@@ -872,11 +852,8 @@ body::-webkit-scrollbar {
   }
 }
 .TaskDetails {
-  min-height: 100vh;
-  height: 100vh;
   min-width: 100%;
   top: 0;
-  overflow-y: scroll;
   z-index: 1000;
   width: 100%;
   background: rgb(24, 34, 45);
