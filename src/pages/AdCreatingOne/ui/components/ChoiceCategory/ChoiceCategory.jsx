@@ -14,19 +14,28 @@ import { useNavigate } from "react-router";
 const ChoiceCategory = ({ ...props }) => {
   useBlockInputs();
 
+  
   useEffect(() => {
     MainButton.show();
   }, []);
-
+  
   const categorys = useSelector((state) => state.categorys.category);
-
+  
   const subCategorys = useSelector((state) => state.categorys.subCategory);
 
+  
   const navigate = useNavigate();
-
+  
   const [choisenCategory, setChoisenCategory] = useState(null);
-
+  
   const dispatch = useDispatch();
+
+  const taskInformation = useSelector( (state) => state.taskCreating.firstPage );
+
+  useEffect( () => {
+    setChoisenCategory(taskInformation.category);
+    //eslint-disable-next-line
+  }, [] )
 
   const setTaskInformation = useCallback(
     (par) => {

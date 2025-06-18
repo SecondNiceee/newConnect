@@ -27,6 +27,11 @@ const ChoiceSubCategory = ({
 
   const taskInformation = useSelector( (state) => state.taskCreating.firstPage )
 
+  useEffect( () => {
+    setChoisenSubCategory(taskInformation.subCategory);
+    //eslint-disable-next-line
+  }, [] )
+
   const subCategorysPar = useSelector((state) => state.categorys.subCategory);
 
   const dispatch = useDispatch();
