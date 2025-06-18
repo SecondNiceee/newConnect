@@ -177,6 +177,7 @@ const AdCreating = () => {
     spet = 0;
   }
   async function post(el) {
+    console.warn(el);
     let myFormData = new FormData();
       myFormData.append("userId", USERID );
       myFormData.append("title", String(el.taskName.trim()));
