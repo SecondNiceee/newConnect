@@ -14,7 +14,7 @@ const DescriptionAndPhoto = ({
   textTitle,
   filesTitle,
   textPlaceholder,
-  fileError,
+  fileError,  
   clearPhoto,
   textError = false,
   isFileInput = true,
