@@ -20,6 +20,7 @@ import FirstChoiceSubCategory from "../AdCreatingOne/ui/components/ChoiceCategor
 import BackButton from "../../constants/BackButton";
 import menuController from "../../functions/menuController";
 import MainButton from "../../constants/MainButton";
+import { hideMainButtonGarant } from "../../functions/hideButtonGarant";
 
 const First = () => {
 
@@ -34,9 +35,7 @@ const First = () => {
   const [subCategory, setSubCategory] = useState(false);
 
   useEffect( () => {
-    setTimeout( () => {
-      MainButton.hide();
-    }, 0 )
+    hideMainButtonGarant();
   }, [])
 
   useAddHistory();
