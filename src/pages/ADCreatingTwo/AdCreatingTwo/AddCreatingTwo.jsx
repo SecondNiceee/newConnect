@@ -103,9 +103,8 @@ else{
 }
 const SecondAddCreating = ({GreyWidth , GreyIntWidth , errors , whichOne, setWhichOne}) => {
 
-       const tonConstant = useSelector((state) => state.ton.value);
-
-      const taskInformation = useSelector( (state) => state.taskCreating );
+    
+      // const taskInformation = useSelector( (state) => state.taskCreating );
 
       const dispatch = useDispatch();
 
@@ -197,7 +196,7 @@ const SecondAddCreating = ({GreyWidth , GreyIntWidth , errors , whichOne, setWhi
 
 
             <Cap className={cl.Cap}  step={2} > <Text className = {cl.CapText}> Создайте объявление </Text> </Cap>
-            <Budget errorTon = {errors.ton} taskInformation={taskInformation} setTaskInformation={setTaskInformation}  className={cl.Budget} tonConstant = {tonConstant} />
+            <Budget errorTon = {errors.ton}  className={cl.Budget} />
             <MyDatePicker 
             whichOne={whichOne}
             setWhichOne={setWhichOne}

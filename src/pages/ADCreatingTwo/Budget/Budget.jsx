@@ -1,14 +1,19 @@
 import cl from "./Budget.module.css";
 import GreyText from "../../../components/UI/GreyText/GreyText";
 import BudgetInput from "../BudgetInput/BudgetInput";
+import { useDispatch, useSelector } from "react-redux";
+import { setSecondPage } from "../../../store/taskCreating";
 
 const Budget = ({
   className,
-  taskInformation,
-  setTaskInformation,
-  tonConstant,
   errorTon
 }) => {
+  
+  const tonConstant = useSelector((state) => state.ton.value);
+
+  const {tonValue, budget} = useSelector((state) => state.taskCreating.secondPage);
+
+  const dispatch = useDispatch();
 
   return (
     <div className={className ? [className, cl.Budget].join(" ") : cl.Budget}>
@@ -22,12 +27,12 @@ const Budget = ({
         errorTon = {errorTon}
         tonConstant={tonConstant}
         setTonValue={(e) =>
-          setTaskInformation({ tonValue: e })
+          dispatch(setSecondPage({ budget: e , tonValue :   (Number(e.replace(/\s/g, '').replace(',','.')) / tonConstant ).toFixed(3)  }))
         }
-        tonValue={taskInformation.tonValue}
-        budget={taskInformation.budget}
+        tonValue={tonValue}
+        budget={budget}
         setBudget={(e) => {
-          setTaskInformation({ budget: e , tonValue :   (Number(e.replace(/\s/g, '').replace(',','.')) / tonConstant ).toFixed(3)  });
+         dispatch(setSecondPage({ budget: e , tonValue :   (Number(e.replace(/\s/g, '').replace(',','.')) / tonConstant ).toFixed(3)  }));
 
         }}
       />
