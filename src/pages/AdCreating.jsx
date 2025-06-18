@@ -18,6 +18,7 @@ import { CSSTransition } from "react-transition-group";
 import { USERID } from "../constants/tgStatic.config";
 import useBlockInputs from "../hooks/useBlockInputs";
 import menuController from "../functions/menuController";
+import { setFirstPage } from "../store/taskCreating";
 
 
 const textButton = translation("Вы уверены, что хотите создать новое задание?")
@@ -34,37 +35,20 @@ const AdCreating = () => {
 
   const me = useSelector(state => state.telegramUserInfo)
 
-  const [firstPage , setFirstPage] = useState({
-    category: { name: "", value: "" },
-    subCategory: "Выбрать",
-    taskName: "",
-    taskDescription: "",
-    photos: [],
-    customerName : me.firstName,
-    creationTime : new Date(),
-    userPhoto : me.photo ? me.photo : "",
-    time : {start : new Date() , end : new Date(),
+  const firstPage = useSelector((state) => state.taskCreating.firstPage);
+  const secondPage = useSelector(state => state.taskCreating.secondPage);
+  const dispatch = useDispatch();
 
-    }
-  })
-
-  const [secondPage , setSecondPage] = useState({
-    budget: 0,
-    tonValue: 0,
-    startTime : new Date(0),
-    endTime : new Date(0),
-    singleTime : new Date(0),
-    isPrivate : false,
-    time : {start : new Date() , end : new Date()}
-  })
+  useEffect( () => {
+    dispatch(setFirstPage({userPhoto: me.photo ? me.photo : "", 
+      customerName :  me.firstName
+    }))
+  }, [me, dispatch ] )
 
 
   const tonConstant = useSelector((state) => state.ton.value);
 
-
   const navigate = useNavigate();
-
-  const dispatch = useDispatch();
 
   const blurRef = useRef(null);
 
@@ -80,6 +64,7 @@ const AdCreating = () => {
 
   useEffect( () => {
     menuController.lowerMenu();
+  
   }, [] )
 
 
@@ -92,14 +77,12 @@ const AdCreating = () => {
 
   useEffect(() => {
     if (categorys && subCategorys) {
-      setFirstPage(
-        (value) => ({...value,
+      dispatch(setFirstPage({
         category: categorys.find((e) => e.category === "Другое"), 
         subCategory: subCategorys.find((e) => e.subCategory === "Другое"),
-      })
-      );
+      }))
     }
-  }, [categorys, subCategorys]);
+  }, [categorys, subCategorys, dispatch]);
 
   const [error, setError] = useState({
     name: false,
@@ -325,10 +308,8 @@ const AdCreating = () => {
   } , [firstPage.taskDescription, navigate] )
 
 
-
   useEffect( () => {
     var inputs = document.getElementsByTagName('input');
-
     // Проходим по каждому инпуту и удаляем фокус
     for (var i = 0; i < inputs.length; i++) {
       inputs[i].blur();
@@ -337,13 +318,10 @@ const AdCreating = () => {
 
   // eslint-disable-next-line
   const goForward = () => {
-
     if (blurRef.current) {
       blurRef.current.focus();
     }
-
     if (!isCategoryChoiceOpen && !isSubcategoryChoiceOpen){
-
       if (checking()) {
         mainRef.current.classList.remove('oneBack')
         mainRef.current.classList.remove('twoBack')
@@ -353,7 +331,6 @@ const AdCreating = () => {
         if (spet === 1){
           mainRef.current.classList.add('stepTwo')
         }
-  
         spet += 1;
         
           if (spet === 2 || spet === 3) {
@@ -367,7 +344,6 @@ const AdCreating = () => {
             }
           }
           if (spet === 3){
-  
             window.Telegram.WebApp.showPopup({
               title: create,
               message: textButton,
@@ -420,22 +396,16 @@ const AdCreating = () => {
         // }
         navigate(-1)
       } else {
-        
         if (spet === 1){
-
             mainRef.current.classList.remove('stepOne')
             mainRef.current.classList.remove('stepTwo')
             mainRef.current.classList.add('oneBack')
-          
         }
         if (spet === 2){
-
             mainRef.current.classList.remove('stepTwo')
             mainRef.current.classList.remove('stepOne')
-            mainRef.current.classList.add('twoBack')
-          
+            mainRef.current.classList.add('twoBack') 
         }
-
         spet -= 1;
         MainButton.setText(continueText)
         // backAnimte();
@@ -527,16 +497,8 @@ const AdCreating = () => {
           <AdCreatingOne
             className={"adCreatingOne"}
             errorName={error.name}
-            setTaskInformation={setFirstPage}
-            taskInformation={firstPage}
             MyInformation={false}
             mistakes={{ timeError: false, taskName: false }}
-            categorys={categorys}
-            subCategorys={subCategorys}
-            isCategoryChoiceOpen={isCategoryChoiceOpen}
-            setCatagoryChoiceOpen={setCatagoryChoiceOpen}
-            isSubcategoryChoiceOpen={isSubcategoryChoiceOpen}
-            setSubcategoryChoiceOpen={setSubcategoryChoiceOpen}
           />
           <AdCreatingTwo
             whichOne={whichOne}
@@ -544,7 +506,6 @@ const AdCreating = () => {
             errors={twoPages}
             GreyIntWidth={GreyIntWidth}
             GreyWidth={GreyWidth}
-            setTaskInformation={setSecondPage}
             taskInformation={secondPage}
             tonConstant={tonConstant}
           />

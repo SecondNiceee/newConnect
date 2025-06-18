@@ -1,11 +1,9 @@
-import React, { memo, useCallback, useEffect, useState } from "react";
-import { CSSTransition } from "react-transition-group";
+import { memo, useCallback, useEffect, useState } from "react";
 import cl from "./AdCreatingOne.module.scss";
 import Cap from "../../../../components/UI/Cap/Cap";
 import Categories from "../components/Categories/Categories";
 import TaskName from "../../../../components/UI/TaskName/TaskName";
 import DescriptionAndPhoto from "../../../../components/UI/DescriptionAndPhoto/DescriptionAndPhoto";
-import ChoiceCategory from "../components/ChoiceCategory/ChoiceCategory";
 
 import CatchDate from "../../../ADCreatingTwo/CatchDate/CatchDate";
 import "../../../ADCreatingTwo/AdCreatingTwo/SecondAddCreating.module.css";
@@ -13,8 +11,10 @@ import MyDatePicker from "../../../../components/AdCreating/MyDatePicker/MyDateP
 import Text from "../../../../components/Text/Text";
 import translation from "../../../../functions/translate";
 import en from "../../../../constants/language";
-import ChoiceSubCategory from "../components/ChoiceCategory/ChoiceSubCategory";
 import menuController from "../../../../functions/menuController";
+import { useDispatch, useSelector } from "react-redux";
+import { setFirstPage } from "../../../../store/taskCreating";
+import { useNavigate } from "react-router";
 
 
 // eslint-disable-next-line
@@ -102,21 +102,15 @@ else{
 const min = new Date(new Date().addHours(1) + 1);
 
 const AdCreatingOne = ({
-  taskInformation,
-  setTaskInformation,
   MyInformation,
   className,
   errorName,
   mistakes,
-  isDetailsActive,
-  categorys,
-  subCategorys,
-  isCategoryChoiceOpen,
-  setCatagoryChoiceOpen,
-  isSubcategoryChoiceOpen,
-  setSubcategoryChoiceOpen,
   ...props
 }) => {
+
+  const taskInformation = useSelector(state => state.taskCreating.firstPage);
+
   const [state, setState] = useState({
     time: new Date().addHours(1),
     isOpen: false,
@@ -129,9 +123,12 @@ const AdCreatingOne = ({
     isEndOpen: false,
   });
 
-  
-  console.log(taskInformation)
 
+  const dispatch = useDispatch();
+
+  const setTaskInformation = useCallback((par) => {
+    dispatch(setFirstPage(par))
+  }, [dispatch])
 
   useEffect(() => {
     setState((value) => ({
@@ -139,7 +136,17 @@ const AdCreatingOne = ({
       startTime: taskInformation.time.start,
       endTime: taskInformation.time.end,
     }));
-  }, [isDetailsActive, taskInformation.time.start, taskInformation.time.end]);
+  }, [taskInformation.time.start, taskInformation.time.end]);
+
+  const navigate = useNavigate();
+
+  const setCatagoryChoiceOpen = useCallback( () => {
+    navigate('/')
+  }, [navigate] )
+
+  const setSubcategoryChoiceOpen = useCallback( () => {
+    navigate('/')
+  },[navigate] )
   
   const handleSelect = useCallback(
     (time) => {
@@ -152,9 +159,9 @@ const AdCreatingOne = ({
           startTime: time,
         }));
         if (taskInformation.myAds) {
-          setTaskInformation( (value) => ({...value, time : {...value.time , start : time}} ))
+          setTaskInformation( { time : {...taskInformation.time , start : time}} )
         } else {
-          setTaskInformation((value) => ({ ...value, startTime: time }));
+          setTaskInformation({ startTime: time });
         }
       }
       if (state.isSingleOpen) {
@@ -165,7 +172,7 @@ const AdCreatingOne = ({
           isSingleOpen: false,
           singleTime: time,
         });
-        setTaskInformation((value) => ({ ...value, singleTime: time }));
+        setTaskInformation({ singleTime: time });
       }
       if (state.isEndOpen) {
         setState({
@@ -176,13 +183,13 @@ const AdCreatingOne = ({
           endTime: time,
         });
         if (taskInformation.myAds) {
-          setTaskInformation( (value) => ({...value , time : {...value.time , end : time}} ))
+          setTaskInformation( {time : {...taskInformation.time , end : time}} )
         } else {
-          setTaskInformation((value) => ({ ...value, endTime: time }));
+          setTaskInformation({ endTime: time });
         }
       }
     },
-    [setTaskInformation, state, taskInformation.myAds]
+    [setTaskInformation, state, taskInformation.myAds, taskInformation.time]
   );
 
   const handleCancel = useCallback(() => {
@@ -233,17 +240,16 @@ const AdCreatingOne = ({
 
 
   const setTextDescription = useCallback( (e) => {    
-      setTaskInformation( (value) => ({...value, taskDescription : e}) )
+      setTaskInformation( {taskDescription : e} )
 
   } , [ setTaskInformation] )
 
   const setTextTitle = useCallback( (e) => {
-      setTaskInformation((value) =>  ({...value , taskName : e}) )
+      setTaskInformation({ taskName : e} )
   } , [setTaskInformation] )
 
   const setFile = useCallback( (e) => {
-    setTaskInformation( (value) => ({...value , photos : e}) )
-    
+    setTaskInformation( {photos : e} )
   } , [setTaskInformation] )
 
 
@@ -288,7 +294,6 @@ const AdCreatingOne = ({
       
         MyInformation={MyInformation}
         taskInformation={taskInformation}
-        setTaskInformation={setTaskInformation}
         className={cl.DescriptionAndPhoto}
         textTitle={translation("Описание")}
         filesTitle={translation("ИЗОБРАЖЕНИЯ")}
@@ -328,36 +333,6 @@ const AdCreatingOne = ({
         min={min}
       />
 
-      <CSSTransition
-        in={isCategoryChoiceOpen}
-        timeout={0}
-        mountOnEnter
-        unmountOnExit
-      >
-        <ChoiceCategory
-          style = {{top:document.documentElement.scrollTop + "px"}}
-          taskInformation={taskInformation}
-          setTaskInformation={setTaskInformation}
-          setCatagoryChoiceOpen={setCatagoryChoiceOpen}
-          categorys={categorys}
-          subCategorys={subCategorys}
-        />
-      </CSSTransition>
-
-      <CSSTransition
-        in={isSubcategoryChoiceOpen}
-        timeout={0}
-        unmountOnExit
-        mountOnEnter
-      >
-        <ChoiceSubCategory
-         style = {{top:document.documentElement.scrollTop + "px"}}
-          subCategorysPar={subCategorys}
-          setTaskInformation={setTaskInformation}
-          setSubcategoryChoiceOpen={setSubcategoryChoiceOpen}
-          taskInformation={taskInformation}
-        ></ChoiceSubCategory>
-      </CSSTransition>
     </div>
   );
 };

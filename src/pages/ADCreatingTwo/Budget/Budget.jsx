@@ -1,4 +1,3 @@
-import React from "react";
 import cl from "./Budget.module.css";
 import GreyText from "../../../components/UI/GreyText/GreyText";
 import BudgetInput from "../BudgetInput/BudgetInput";
@@ -11,8 +10,6 @@ const Budget = ({
   errorTon
 }) => {
 
-   
-    
   return (
     <div className={className ? [className, cl.Budget].join(" ") : cl.Budget}>
       <GreyText className={cl.GreyText}> Ваш бюджет </GreyText>
@@ -25,12 +22,12 @@ const Budget = ({
         errorTon = {errorTon}
         tonConstant={tonConstant}
         setTonValue={(e) =>
-          setTaskInformation({ ...taskInformation, tonValue: e })
+          setTaskInformation({ tonValue: e })
         }
         tonValue={taskInformation.tonValue}
         budget={taskInformation.budget}
         setBudget={(e) => {
-          setTaskInformation({ ...taskInformation, budget: e , tonValue :   (Number(e.replace(/\s/g, '').replace(',','.')) / tonConstant ).toFixed(3)  });
+          setTaskInformation({ budget: e , tonValue :   (Number(e.replace(/\s/g, '').replace(',','.')) / tonConstant ).toFixed(3)  });
 
         }}
       />

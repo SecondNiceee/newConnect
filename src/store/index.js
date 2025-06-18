@@ -11,7 +11,7 @@ import balance from './balance';
 import profession from "./profession";
 import telegramUserInfo from "./telegramUserInfo/telegramUserInfo";
 import filters from "./filters";
-
+import taskCreating from "./taskCreating";
 
 export default configureStore( {
     reducer : {
@@ -26,7 +26,8 @@ export default configureStore( {
         responses : responses,
         balance : balance,
         profession : profession,
-        filters : filters
+        filters : filters,
+        taskCreating : taskCreating
     },
     middleware: getDefaultMiddleware =>
         getDefaultMiddleware({

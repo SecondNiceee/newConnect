@@ -10,10 +10,16 @@ class MenuController{
         }, 0 )
     }
     lowerMenu(){
+        if (document.documentElement.querySelector(".FirstMenu")){
+            setTimeout( () => {
+                document.documentElement.querySelector(".FirstMenu").classList.add("disappearAnimation")
+                document.documentElement.querySelector(".FirstMenu").classList.remove("appearAnimation")
+            }, 0 )
+        }
         setTimeout( () => {
-            document.documentElement.querySelector(".FirstMenu").classList.add("disappearAnimation")
-            document.documentElement.querySelector(".FirstMenu").classList.remove("appearAnimation")
-        }, 0 )
+                document.documentElement.querySelector(".FirstMenu").classList.add("disappearAnimation")
+                document.documentElement.querySelector(".FirstMenu").classList.remove("appearAnimation")
+            }, 100 )
     }
     raiseMenu(){
         setTimeout( () => {
