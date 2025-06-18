@@ -186,8 +186,8 @@ const AdCreating = () => {
       myFormData.append("views", "0");
       myFormData.append("category", String(el.category.id));
       myFormData.append("subCategory", String(el.subCategory.id));
-      myFormData.append("price", String(el.tonValue));
-      myFormData.append("tonPrice", String(el.budget.replace(/\s+/g, '')));
+      myFormData.append("price", String(el.budget.replace(/\s+/g, '')));
+      myFormData.append("tonPrice", String(el.tonValue));
     if (document.getElementById("dateSwapper").style.transform) {
       myFormData.append("startTime", el.startTime);
       myFormData.append("endTime", el.endTime);
