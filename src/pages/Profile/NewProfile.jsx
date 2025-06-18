@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import  { useCallback, useEffect, useRef } from "react";
 import PayBlock from "./components/PayBlock/PayBlock";
 import useGetOptionsConfig from "./hooks/useGetOptionsConfig";
 import NewOption from "./components/NewOption/NewOption";
@@ -12,6 +12,7 @@ import { fetchRatingByProfession } from "../../store/telegramUserInfo/thunks/fet
 import { fetchCommonRating } from "../../store/telegramUserInfo/thunks/fetchCommonRating";
 import { useNavigate } from "react-router";
 import BackButton from "../../constants/BackButton";
+import MainButton from "../../constants/MainButton";
 
 const NewProfile = () => {
   const optionsConfig = useGetOptionsConfig();
@@ -21,6 +22,10 @@ const NewProfile = () => {
   const userInfo = useSelector((state) => state.telegramUserInfo);
 
   const navigate = useNavigate();
+
+  useEffect( () => {
+    MainButton.hide();
+  }, [] )
 
   const goBack = useCallback( () => {
     if (pagesHistory[pagesHistory.length-1] === "/BaidgeCreating"){

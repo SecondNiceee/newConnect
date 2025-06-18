@@ -11,6 +11,7 @@ import menuController from "../../../../../functions/menuController";
 import { useDispatch, useSelector } from "react-redux";
 import { setFirstPage } from "../../../../../store/taskCreating";
 import { useNavigate } from "react-router";
+import MyLoader from "../../../../../components/UI/MyLoader/MyLoader";
 const ChoiceSubCategory = ({
   ...props
 }) => {
@@ -28,7 +29,9 @@ const ChoiceSubCategory = ({
   const taskInformation = useSelector( (state) => state.taskCreating.firstPage )
 
   useEffect( () => {
-    setChoisenSubCategory(taskInformation.subCategory);
+    if (taskInformation?.subCategory?.subCategory !== "Другое"){
+      setChoisenSubCategory(taskInformation.subCategory);
+    }
     //eslint-disable-next-line
   }, [] )
 
@@ -83,7 +86,7 @@ const ChoiceSubCategory = ({
 
   const subCategorys = useMemo(() => {
     let subCategorysCopy = [];
-    if (taskInformation.category.category !== "Другое") {
+    if (taskInformation?.category?.category !== "Другое" && taskInformation?.category) {
       subCategorysCopy = [...subCategorysPar].filter(
         (e) =>
           e.category.id === taskInformation.category.id &&
@@ -123,6 +126,10 @@ const ChoiceSubCategory = ({
     setChoisenSubCategory(subCategory);
     softVibration();
   };
+
+  if (!subCategorys || !subCategorys[0]){
+    return <MyLoader />
+  }
 
   return (
 

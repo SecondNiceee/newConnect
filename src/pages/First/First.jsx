@@ -38,6 +38,10 @@ const First = () => {
   }, [])
   useAddHistory();
 
+  useEffect( () => {
+    MainButton.hide();
+  }, [] )
+
   
 
   useEffect( () => {

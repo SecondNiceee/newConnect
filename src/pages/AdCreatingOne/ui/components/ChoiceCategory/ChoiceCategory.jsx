@@ -33,7 +33,9 @@ const ChoiceCategory = ({ ...props }) => {
   const taskInformation = useSelector( (state) => state.taskCreating.firstPage );
 
   useEffect( () => {
+    if (taskInformation?.category?.category !== "Другое"){
     setChoisenCategory(taskInformation.category);
+    }
     //eslint-disable-next-line
   }, [] )
 

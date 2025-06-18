@@ -9,6 +9,7 @@ import pagesHistory from "../../constants/pagesHistory";
 import { USERID } from "../../constants/tgStatic.config";
 import useBlockInputs from "../../hooks/useBlockInputs";
 import useNavigateBack from "../../hooks/useNavigateBack";
+import MainButton from "../../constants/MainButton";
 
 
 const MyAds = () => {
@@ -113,27 +114,11 @@ const MyAds = () => {
 
   useNavigateBack({isSliderOpened : false, setSlideOpened : false});
 
-  // const postStatus = useSelector( state => state.information.postTaskStatus )
-
-
-  // const writeFucntion  = useWriteFucntion(
-  //   {
-  //     buyPage : buyPage,
-  //     happyHold : happyHold,
-  //     isOpen : isOpen,
-  //     myAdOneAdvertisement : myAdOneAdvertisement ? myAdOneAdvertisement : secondPage.task,
-  //     myAdOneResponse : myAdOneResponse,
-  //     secondPage : secondPage,
-  //     setBuyPage : setBuyPage,
-  //     setHappyHold : setHappyHold,
-  //     setOpen : setOpen,
-  //     setWalletH : setWalletH,
-  //     walletH : walletH,
-
-  //   }
-  // )
-
   useBlockInputs();
+  
+  useEffect( () => {
+    MainButton.hide();
+  }, [] )
 
   return (
     <>
@@ -152,25 +137,6 @@ const MyAds = () => {
             myAdsArray={filteredArray}
             
           />
-
-        {/* <CSSTransition             
-            in={happyHold}
-            timeout={400}
-            classNames="left-right"
-            mountOnEnter
-            unmountOnExit
-        >
-          <HappyHold task={myAdOneAdvertisement} response={myAdOneResponse} />
-        </CSSTransition> */}
-
-        {/* <CSSTransition in = {walletH}
-        timeout={400}
-        classNames={""}
-        mountOnEnter
-        unmountOnExit
-        >
-          <Wallet left = {true} isFixed = {true} onClose = {setWalletH} />
-        </CSSTransition> */}
 
 
         </div>
