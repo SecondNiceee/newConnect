@@ -23,6 +23,8 @@ const ChoiceSubCategory = ({
 
   const [choisenSubCategory, setChoisenSubCategory] = useState();
 
+  const navigate = useNavigate();
+
   const taskInformation = useSelector( (state) => state.taskCreating.firstPage )
 
   const subCategorysPar = useSelector((state) => state.categorys.subCategory);
@@ -35,7 +37,9 @@ const ChoiceSubCategory = ({
 
   useEffect(() => {
     function buttonHander() {
+
       setTaskInformation({ subCategory: choisenSubCategory });
+      navigate(-1)
     }
     if (choisenSubCategory){
       enableColorAndActiveButton();
@@ -53,7 +57,6 @@ const ChoiceSubCategory = ({
     };
   }, [choisenSubCategory, setTaskInformation]);
 
-  const navigate = useNavigate();
 
   useEffect(() => {
     function closeFunction() {
