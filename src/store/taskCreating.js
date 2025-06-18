@@ -4,8 +4,8 @@ const taskCreating = createSlice({
   name: "taskCreating",
   initialState: {
     firstPage: {
-      category: { name: "", value: "" },
-      subCategory: "Выбрать",
+      category: null,
+      subCategory: null,
       taskName: "",
       taskDescription: "",
       photos: [],
@@ -26,6 +26,8 @@ const taskCreating = createSlice({
   },
   reducers : {
     setFirstPage(state, action){
+        
+        console.warn('Вызов этого сэттера')
         state.firstPage = {...state.firstPage, ...action.payload}
     },
     setSecondPage(state, action){

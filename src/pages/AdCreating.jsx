@@ -75,14 +75,23 @@ const AdCreating = () => {
     }
   } , [] )
 
+  const isCategorysUpdated = useRef(false);
+
+  console.warn("Рендер AdCreating")
+
   useEffect(() => {
-    if (categorys && subCategorys) {
-      dispatch(setFirstPage({
-        category: categorys.find((e) => e.category === "Другое"), 
-        subCategory: subCategorys.find((e) => e.subCategory === "Другое"),
-      }))
+    if (!isCategorysUpdated.current){
+      if (categorys && subCategorys) {
+        if (!firstPage.category || !firstPage.subCategory ){
+          dispatch(setFirstPage({
+            category: categorys.find((e) => e.category === "Другое"), 
+            subCategory: subCategorys.find((e) => e.subCategory === "Другое"),
+          }))
+          isCategorysUpdated.current = true;
+        }
+      }
     }
-  }, [categorys, subCategorys, dispatch]);
+  }, [categorys, subCategorys, dispatch, firstPage]);
 
   const [error, setError] = useState({
     name: false,
@@ -480,7 +489,7 @@ const AdCreating = () => {
             <CSSTransition timeout={0}
             in = {spet !== 0}
             unmountOnExit mountOnEnter>
-              <FirstDetails navigateBack = {false} changeButton = {false}   style = {{position : "static" ,  minHeight : "unset" , "height" : "unset", overflowY : "unset" , transform : "translateX(0%)"}} end = {true} orderInformationParam={{...firstPage , ...secondPage , user : me, category : firstPage.category.id , whichOne : whichOne } } />
+              <FirstDetails navigateBack = {false} changeButton = {false}   style = {{position : "static" ,  minHeight : "unset" , "height" : "unset", overflowY : "unset" , transform : "translateX(0%)"}} end = {true} orderInformationParam={{...firstPage , ...secondPage , user : me, category : firstPage?.category?.id , whichOne : whichOne } } />
             </CSSTransition>
             {/* <AdCreatingThree taskInformation={secondPage} /> */}
           </div>

@@ -37,7 +37,6 @@ const ChoiceSubCategory = ({
 
   useEffect(() => {
     function buttonHander() {
-
       setTaskInformation({ subCategory: choisenSubCategory });
       navigate(-1)
     }
@@ -53,9 +52,8 @@ const ChoiceSubCategory = ({
     return () => {
       MainButton.offClick(buttonHander);
       enableColorAndActiveButton();
-      MainButton.setText("Продолжить");
     };
-  }, [choisenSubCategory, setTaskInformation]);
+  }, [choisenSubCategory, navigate, setTaskInformation]);
 
 
   useEffect(() => {

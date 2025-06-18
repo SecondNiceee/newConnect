@@ -1303,7 +1303,6 @@ body::-webkit-scrollbar {
 
 .AdCreating__container {
   padding-bottom: 76px;
-  min-height: 100vh;
   display: flex;
   will-change: transform;
 }

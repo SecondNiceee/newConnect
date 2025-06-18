@@ -169,8 +169,8 @@ const Categories = ({
       >
         <Text ref={topWhiteText} >{upper}</Text>
         <Text ref={topText} className={[cl.Category__link, cl.quest].join(" ")} href="">
-          {taskInformation.category.category
-            ? taskInformation.category.category
+          {taskInformation?.category?.category
+            ? taskInformation?.category?.category
             : ""}
         </Text>
       </div>
@@ -194,7 +194,7 @@ const Categories = ({
           >
             <Text ref={bottomWhiteText}>{down}</Text>
             <Text ref={bottomText} className={[cl.Category__link, cl.quest].join(" ")} href="">
-              {taskInformation.subCategory.subCategory
+              {taskInformation?.subCategory?.subCategory
                 ? format( translation(taskInformation.subCategory.subCategory))
                 : ""}
               {/* {taskInformation.subCategory=== 'Выбрать' ? '' : '.'} */}

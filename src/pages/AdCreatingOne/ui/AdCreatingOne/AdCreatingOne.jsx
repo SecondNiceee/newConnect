@@ -123,6 +123,8 @@ const AdCreatingOne = ({
     isEndOpen: false,
   });
 
+  console.log(taskInformation);
+
 
   const dispatch = useDispatch();
 
