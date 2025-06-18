@@ -42,6 +42,7 @@ const First = () => {
 
   useEffect( () => {
     menuController.showMenu();
+    menuController.raiseMenu();
     BackButton.hide();
   }, [] )
 
