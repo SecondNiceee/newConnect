@@ -178,14 +178,15 @@ const AdCreating = () => {
   }
   async function post(el) {
     let myFormData = new FormData();
-     myFormData.append("userId", USERID );
-    myFormData.append("title", String(el.taskName.trim()));
-    myFormData.append("description", String(el.taskDescription.trim()));
-    myFormData.append("deadline", "1");
-    myFormData.append("views", "0");
-    myFormData.append("category", String(el.category.id));
-    myFormData.append("subCategory", String(el.subCategory.id));
-    myFormData.append("price", String(el.tonValue));
+      myFormData.append("userId", USERID );
+      myFormData.append("title", String(el.taskName.trim()));
+      myFormData.append("description", String(el.taskDescription.trim()));
+      myFormData.append("deadline", "1");
+      myFormData.append("views", "0");
+      myFormData.append("category", String(el.category.id));
+      myFormData.append("subCategory", String(el.subCategory.id));
+      myFormData.append("price", String(el.tonValue));
+      myFormData.append("tonPrice", String(el.budget.replace(/\s+/g, '')));
     if (document.getElementById("dateSwapper").style.transform) {
       myFormData.append("startTime", el.startTime);
       myFormData.append("endTime", el.endTime);
@@ -426,9 +427,6 @@ const AdCreating = () => {
     MainButton.setText(continueText);
   }, []);
 
-
-
-  
   const twoPages = useMemo( () => {
     return (
       {

@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import FirstMainBottomLeft from './FirstMainBottomLeft';
 import MainBottomRight from './MainBottomRight';
 
@@ -7,7 +7,7 @@ const MainBottom = ({tonConstant, tonValue, isMyAds, myAdsFunc, isButton, end, i
         <div className="FirstMain__bottom">
             <FirstMainBottomLeft tonConstant={tonConstant} tonValue={tonValue} />
             <MainBottomRight 
-            
+              tonPrice = {task.rublePrice}
               isMyAds = {isMyAds}
               myAdsFunc = {myAdsFunc}
               isButton = {isButton}

@@ -8,15 +8,12 @@ import { motion } from "framer-motion";
 import "../MyAds/MyAds.css";
 import AllTasks from "./AllTasks";
 import {useSelector } from "react-redux";
-import { CSSTransition } from "react-transition-group";
 import { useFilteredArr } from "../../hooks/useFilteredArr";
-import FirstChoiceCategory from "../AdCreatingOne/ui/components/ChoiceCategory/FirstChoiceCategory";
 import CssTransitionSlider from "../../components/UI/PhotosSlider/CssTransitionSlider";
 import useBlockInputs from "../../hooks/useBlockInputs";
 import useAddHistory from "../../hooks/MyAds/useAddHistory";
 import useSlider from "../../hooks/useSlider";
 import useFilteredArray from "./hooks/useFilteredArray";
-import FirstChoiceSubCategory from "../AdCreatingOne/ui/components/ChoiceCategory/FirstChoiceSubCategory";
 import BackButton from "../../constants/BackButton";
 import menuController from "../../functions/menuController";
 import MainButton from "../../constants/MainButton";
@@ -25,14 +22,6 @@ import { hideMainButtonGarant } from "../../functions/hideButtonGarant";
 const First = () => {
 
   const firstRef = useRef(null);
-
-  const categorys = useSelector((state) => state.categorys.category);
-
-  const subCategorys = useSelector((state) => state.categorys.subCategory);
-
-  const [categoryOpen, setCategoryOpen] = useState(false);
-
-  const [subCategory, setSubCategory] = useState(false);
 
   useEffect( () => {
     hideMainButtonGarant();
@@ -132,45 +121,6 @@ const First = () => {
             />
           </div>
 
-          <CSSTransition
-            in={categoryOpen}
-            timeout={0}
-            mountOnEnter
-            unmountOnExit
-          >
-            <FirstChoiceCategory
-              style={{
-                paddingBottom: "20px",
-                top: firstRef.current
-                  ? firstRef.current.scrollTop + "px"
-                  : "0px",
-              }}
-              subCategorys={subCategorys}
-              categorys={categorys}
-              setCatagoryChoiceOpen={setCategoryOpen}
-              taskInformation={filters}
-            />
-          </CSSTransition>
-
-          <CSSTransition
-            in={subCategory}
-            timeout={0}
-            mountOnEnter
-            unmountOnExit
-          >
-            <FirstChoiceSubCategory
-              style={{
-                paddingBottom: "20px",
-                top: firstRef.current
-                  ? firstRef.current.scrollTop + "px"
-                  : "0px",
-              }}
-              setSubcategoryChoiceOpen={setSubCategory}
-              subCategorysPar={subCategorys}
-              filterCategory = {filters.category}
-              taskInformation={filters}
-            />
-          </CSSTransition>
         </motion.div>
       </div>
 

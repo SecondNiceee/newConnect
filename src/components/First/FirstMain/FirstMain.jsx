@@ -16,6 +16,8 @@ const FirstMain = (
     }
   ) => {
 
+    console.log(ordersInformation);
+
     const dispatch = useDispatch()
 
     const watchedArr = useSelector((state) => state.watchedAds.watchedAds);

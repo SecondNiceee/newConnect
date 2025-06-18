@@ -236,7 +236,6 @@ export const fetchTasksInformation = createAsyncThunk(
       alert("Сейчас идет обновление, пожалуйста перезайдите через минуту")
       console.log(e);
     }
-
     if (task.data.length === 0) {
       return [];
     } else {   
@@ -286,6 +285,8 @@ export const fetchTasksInformation = createAsyncThunk(
             newUser.photo = ""
           }
           }
+
+          console.log(order);
 
           tasks.push({
             id: order.id,
