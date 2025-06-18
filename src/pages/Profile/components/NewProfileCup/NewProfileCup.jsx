@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import NitcheRating from '../NitcheRating/NitcheRating';
 import Profession from '../Profession/Profession';
 import ProfileUserIcon from '../ProfileUserIcon/ProfileUserIcon';
@@ -10,9 +10,9 @@ import ProfilesCounterOfWatches from '../ProfilesCounterOfWatches/ProfilesCounte
 import { useNavigate } from 'react-router';
 import { softVibration } from '../../../../functions/softVibration';
 import CommonRating from '../CommonRating/CommonRating';
-import useGetNitcheIcon from '../../hooks/useGetNitcheIcon';
 import "./new-profile-cup.css";
-import useGetCommonIcon from '../../hooks/useGetCommonIcon';
+import NitcheIcon from '../NitcheIcon/NitcheIcon';
+import CommonIcon from '../CommonIcon/CommonIcon';
 
 const NewProfileCup = ({
   profession,
@@ -53,14 +53,12 @@ const NewProfileCup = ({
     }
     window.Telegram.WebApp.HapticFeedback.selectionChanged();
   }
-  const {nitchIcon} = useGetNitcheIcon({nitchRating : positionOfNitcheRating, textClassName : 'rating-icon__text', className : 'rating-icon',});
-  const {commonIcon} = useGetCommonIcon({commonRating, className : 'rating-icon', textClassName : 'rating-icon__text'})
     return (
         <div  className="flex py-[17px] pb-[14px] px-[19px] flex-col gap-[13px] bg-[#20303f] rounded-[13px] ">
         <div className="flex w-[100%]">
             <div onClick={switchShownRating} className='relative flex gap-2'>
               <ProfileUserIcon photoUrl={photoUrl}  />
-              {shownRating === "nitche" ? nitchIcon : commonIcon}
+              {shownRating === "nitche" ? <NitcheIcon nitchRating={positionOfNitcheRating} /> : <CommonIcon commonRating={commonRating} />}
             </div>
             
             {shownRating === "common" ? <CommonRating onClick={switchShownRating} commonRating={commonRating} /> : <NitcheRating onClick={switchShownRating}  nitcheRating={positionOfNitcheRating} />}

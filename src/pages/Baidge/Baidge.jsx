@@ -8,7 +8,6 @@ import { findUserById } from "../../functions/api/findUserById";
 import menuController from "../../functions/menuController";
 import MainButton from "../../constants/MainButton";
 import { putUserInfo } from "../../store/telegramUserInfo/thunks/putUserInfo";
-import useBackHandler from "./hooks/useBackHandler";
 
 const Baidge = () => {
 
@@ -20,6 +19,7 @@ const Baidge = () => {
 
   useEffect( () => {
     menuController.showMenu();
+    menuController.raiseMenu();
   }, [] );
 
   console.log(me);
@@ -38,7 +38,6 @@ const Baidge = () => {
 
   const dispatch = useDispatch();
 
-  useBackHandler();
 
   const addWatch = useCallback( async () => {
     if (userInfo){

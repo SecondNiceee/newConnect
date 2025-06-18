@@ -78,7 +78,9 @@ const FirstDetails = ({ end, className, navigateBack = true, changeButton = true
     }
   }, [showButton, isSliderOpened, changeButton]);
   
-  const isMyResponse = useIsMyResponse({detailsAdertisement : orderInformation});
+  const {isMyResponse, isMyTask} = useIsMyResponse({detailsAdertisement : orderInformation});
+
+  console.log(isMyResponse);
 
   console.log(orderInformation);
 
@@ -100,9 +102,14 @@ const FirstDetails = ({ end, className, navigateBack = true, changeButton = true
       showAllert("Вы уже откликнулись на это задание.")
     }
     else{
-      navigate(`/makeresponse/${id}`)
+      if (isMyTask){
+        showAllert("Вы не можете откликаться на свои задания")
+      }
+      else{
+        navigate(`/makeresponse/${id}`)
+      }
     }
-  }, [id, navigate, isMyResponse, isSliderOpened, setSlideOpened] )
+  }, [id, navigate, isMyResponse, isMyTask, isSliderOpened, setSlideOpened] )
 
   useEffect( () => {
     menuController.hideMenu();

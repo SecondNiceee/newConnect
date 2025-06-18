@@ -4,14 +4,14 @@ import { useSelector } from "react-redux";
 
 const useIsMyResponse = ({detailsAdertisement}) => {
   const myLocalResponses = useSelector((state) => state.information.myLocalResponses);
-      const gotIt = useMemo( () => {
+      const isMyResponse = useMemo( () => {
         if (detailsAdertisement){
           if ( myLocalResponses.map((response) => response.advertisement.id).includes(detailsAdertisement.id) ) {
             return true
           }
           if (detailsAdertisement.responces){
             if (detailsAdertisement.responces.find((e) =>
-              String(e.user.id) === USERID) || String(detailsAdertisement.user.id) === USERID)
+              String(e.user.id) === USERID))
             {
               return true
             }
@@ -20,10 +20,23 @@ const useIsMyResponse = ({detailsAdertisement}) => {
             }
           }
         }
+
         return false
         // eslint-disable-next-line
       },[detailsAdertisement ] )
-      return gotIt
+
+      const isMyTask = useMemo( () => {
+        if (detailsAdertisement){
+            if (String(detailsAdertisement.user.id) === USERID){
+              return true
+            }
+            return false;
+        }
+
+        return false
+        // eslint-disable-next-line
+      },[detailsAdertisement ] )
+      return {isMyResponse, isMyTask}
 };
 
 export default useIsMyResponse;

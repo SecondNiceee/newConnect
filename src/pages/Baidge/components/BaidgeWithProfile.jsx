@@ -107,7 +107,6 @@ const BaidgeWithProfile = ({ userInfo, className, setUserInfo, urlParametr}) => 
       }
 
   } , [userInfo, setUserInfo, me.id, dispatch])
-  console.log(userInfo);
 
   return (
     <>
