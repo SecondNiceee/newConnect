@@ -17,6 +17,10 @@ const ChoiceCategory = ({
 
   useBlockInputs();
 
+  useEffect( () => {
+    MainButton.show();
+  }, [] )
+
   const categorys = useSelector((state) => state.categorys.category);
 
   const subCategorys = useSelector((state) => state.categorys.subCategory);

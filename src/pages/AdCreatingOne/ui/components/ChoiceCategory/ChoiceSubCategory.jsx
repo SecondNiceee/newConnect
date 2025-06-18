@@ -17,6 +17,10 @@ const ChoiceSubCategory = ({
 
   useBlockInputs();
 
+  useEffect( () => {
+     MainButton.show();
+  }, [] )
+
   const [choisenSubCategory, setChoisenSubCategory] = useState();
 
   const taskInformation = useSelector( (state) => state.taskCreating.firstPage )
