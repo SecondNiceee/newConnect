@@ -237,6 +237,7 @@ body::-webkit-scrollbar {
   font-weight: 500;
   letter-spacing: 0%;
   text-align: left;
+  line-height: 17.667px ;
   max-width: 237px;
 }
 .First__block .circle {

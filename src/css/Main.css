@@ -317,6 +317,7 @@ body::-webkit-scrollbar {
   font-family: "SF Pro Display";
   font-size: 14.67px;
   font-weight: 500;
+  line-height: 17.667px ;
   letter-spacing: 0%;
   text-align: left;
   max-width: 237px;

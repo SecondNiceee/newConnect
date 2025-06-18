@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import BackButton from "../../../../../constants/BackButton";
 import MainButton from "../../../../../constants/MainButton";

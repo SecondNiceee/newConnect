@@ -34,15 +34,12 @@ const First = () => {
   const [subCategory, setSubCategory] = useState(false);
 
   useEffect( () => {
-    MainButton.hide();
+    setTimeout( () => {
+      MainButton.hide();
+    }, 0 )
   }, [])
+
   useAddHistory();
-
-  useEffect( () => {
-    MainButton.hide();
-  }, [] )
-
-  
 
   useEffect( () => {
     menuController.showMenu();

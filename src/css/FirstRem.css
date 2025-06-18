@@ -81,6 +81,7 @@
 }
 .First__block .FirstMain__top p {
   transition: 0.5s;
+  line-height: 17.667px;
   /* Default text */
   color: rgb(255, 255, 255);
   font-family: "SF Pro Display";
