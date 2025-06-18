@@ -16,7 +16,7 @@ import { showAllert } from "../../../functions/showAlert";
 import { enableColorAndActiveButton } from "../../../functions/enableColorAndActiveButton";
 import { disableColorButton } from "../../../functions/disableColorButton";
 
-const FirstDetails = ({ end, className, navigateBack = true, changeButton = true, orderInformationParam = null, showButton=true, ...props }) => {
+const FirstDetails = ({ end, className,navigateBack = true, showButton=true, orderInformationParam = null, ...props }) => {
 
   const disatch = useDispatch();
 
@@ -64,19 +64,13 @@ const FirstDetails = ({ end, className, navigateBack = true, changeButton = true
       MainButton.setText("Закрыть");
     }
     else{
-      if (changeButton){
-        if (showButton){
-          menuController.lowerMenu();
-          MainButton.show();
-          MainButton.setText("ОТКЛИКНУТЬСЯ");
-        }
-        else{
-          menuController.hideMenu();
-          MainButton.hide();
-        }
+      if (showButton){
+        menuController.lowerMenu();
+        MainButton.show();
+        MainButton.setText("ОТКЛИКНУТЬСЯ");
       }
     }
-  }, [showButton, isSliderOpened, changeButton]);
+  }, [showButton, isSliderOpened]);
   
   const {isMyResponse, isMyTask} = useIsMyResponse({detailsAdertisement : orderInformation});
 
@@ -116,13 +110,13 @@ const FirstDetails = ({ end, className, navigateBack = true, changeButton = true
   }, [] )
 
   useEffect( () => {
-    if (changeButton && showButton){
+    if (showButton){
       MainButton.onClick(goForward);
     }
     return () => {
       MainButton.offClick(goForward)
     }
-  }, [goForward, changeButton, showButton] )
+  }, [goForward, showButton] )
 
 
   useNavigateBack({isSliderOpened, setSlideOpened, isWorks : navigateBack});

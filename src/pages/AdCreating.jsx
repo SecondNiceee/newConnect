@@ -487,7 +487,7 @@ const AdCreating = () => {
             <CSSTransition timeout={0}
             in = {spet !== 0}
             unmountOnExit mountOnEnter>
-              <FirstDetails navigateBack = {false} changeButton = {false}   style = {{position : "static" ,  minHeight : "unset" , "height" : "unset", overflowY : "unset" , transform : "translateX(0%)"}} end = {true} orderInformationParam={{...firstPage , ...secondPage , user : me, category : firstPage?.category?.id , whichOne : whichOne } } />
+              <FirstDetails showButton = {false} navigateBack = {false}   style = {{position : "static" ,  minHeight : "unset" , "height" : "unset", overflowY : "unset" , transform : "translateX(0%)"}} end = {true} orderInformationParam={{...firstPage , ...secondPage , user : me, category : firstPage?.category?.id , whichOne : whichOne } } />
             </CSSTransition>
             {/* <AdCreatingThree taskInformation={secondPage} /> */}
           </div>
