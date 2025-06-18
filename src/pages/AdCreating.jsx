@@ -152,12 +152,6 @@ const AdCreating = () => {
   ]);
 
 
-  
-  const [isCategoryChoiceOpen, setCatagoryChoiceOpen] = useState(false);
-
-  const [isSubcategoryChoiceOpen, setSubcategoryChoiceOpen] = useState(false);
-
-
   function finish() {
     let secondPageCopy = {...secondPage}
     if (document.getElementById("dateSwapper").style.transform) {
@@ -321,7 +315,6 @@ const AdCreating = () => {
     if (blurRef.current) {
       blurRef.current.focus();
     }
-    if (!isCategoryChoiceOpen && !isSubcategoryChoiceOpen){
       if (checking()) {
         mainRef.current.classList.remove('oneBack')
         mainRef.current.classList.remove('twoBack')
@@ -336,12 +329,7 @@ const AdCreating = () => {
           if (spet === 2 || spet === 3) {
             MainButton.setText(endText);
           } else {
-            if (isCategoryChoiceOpen || isSubcategoryChoiceOpen){
-              MainButton.setText("Готово")
-            }
-            else{
               MainButton.setText(continueText);
-            }
           }
           if (spet === 3){
             window.Telegram.WebApp.showPopup({
@@ -367,7 +355,6 @@ const AdCreating = () => {
         window.Telegram.WebApp.HapticFeedback.notificationOccurred("error")
       }
 
-    }
   } 
 
   window.Telegram.WebApp.disableVerticalSwipes();
@@ -380,20 +367,7 @@ const AdCreating = () => {
       singleError: false,
       startError: false,
       endError: false})
-    if (isCategoryChoiceOpen || isSubcategoryChoiceOpen){
-      if (isCategoryChoiceOpen){
-        setCatagoryChoiceOpen(false)
-      }
-      else{
-        setSubcategoryChoiceOpen(false)
-      }
-    }
-    else{
       if (spet === 0) {
-        // clearInput()
-        // if (!isCategoryChoiceOpen && !isSubcategoryChoiceOpen){
-        //   navigate(pagesHistory[pagesHistory.length-1]);
-        // }
         navigate(-1)
       } else {
         if (spet === 1){
@@ -408,11 +382,8 @@ const AdCreating = () => {
         }
         spet -= 1;
         MainButton.setText(continueText)
-        // backAnimte();
-  
       }
-    }
-  } , [isCategoryChoiceOpen , isSubcategoryChoiceOpen,setCatagoryChoiceOpen,setSubcategoryChoiceOpen, navigate ])
+  } , [ navigate ])
 
   const GreyIntWidth = useMemo(() => {
     if (document.documentElement.clientWidth - 36 > 464){

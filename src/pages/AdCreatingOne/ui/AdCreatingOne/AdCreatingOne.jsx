@@ -141,11 +141,11 @@ const AdCreatingOne = ({
   const navigate = useNavigate();
 
   const setCatagoryChoiceOpen = useCallback( () => {
-    navigate('/')
+    navigate('/taskCreationCategory')
   }, [navigate] )
 
   const setSubcategoryChoiceOpen = useCallback( () => {
-    navigate('/')
+    navigate('/taskCreationSubCategory')
   },[navigate] )
   
   const handleSelect = useCallback(

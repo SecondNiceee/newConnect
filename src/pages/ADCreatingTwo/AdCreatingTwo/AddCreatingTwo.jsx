@@ -11,7 +11,7 @@ import cl from './SecondAddCreating.module.css'
 import MainButton from '../../../constants/MainButton';
 import Text from '../../../components/Text/Text';
 import en from '../../../constants/language';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setSecondPage } from '../../../store/taskCreating';
 
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import cl from "./ChoiceCategory.module.css";
 import BackButton from "../../../../../constants/BackButton";
 import MainButton from "../../../../../constants/MainButton";
@@ -7,42 +7,39 @@ import { softVibration } from "../../../../../functions/softVibration";
 import { disableColorAndActiveButton } from "../../../../../functions/disableColorAndActiveButton";
 import { enableColorAndActiveButton } from "../../../../../functions/enableColorAndActiveButton";
 import menuController from "../../../../../functions/menuController";
+import { useDispatch, useSelector } from "react-redux";
+import { setFirstPage } from "../../../../../store/taskCreating";
+import { useNavigate } from "react-router";
 
 const ChoiceCategory = ({
-  setTaskInformation,
-  taskInformation,
-  setCatagoryChoiceOpen,
-  categorys,
-  subCategorys,
-  categoryOnly ,
-  isBackHide = false,
-  designOnly = false,
-  text = "Прочие категории скоро появятся..",
   ...props
 }) => {
 
-  useEffect( () => {
-    document.documentElement.style.overflowY = "hidden"
-    return () => {
-      document.documentElement.style.overflowY = "auto"
-    }
-  } , [] )
-
   useBlockInputs();
 
-  
+  const categorys = useSelector((state) => state.categorys.category);
+
+  const subCategorys = useSelector((state) => state.categorys.subCategory);
+
+  const navigate = useNavigate();
+
   const [choisenCategory, setChoisenCategory] = useState(null);
+
+  const dispatch = useDispatch();
+  
+  const setTaskInformation = useCallback( (par) => {
+    dispatch(setFirstPage(par));
+  }, [dispatch])
 
   useEffect( () => {
     function buttonHandler(){
       if(choisenCategory.category === 'Другое'){
-        setTaskInformation({ ...taskInformation, category: choisenCategory , subCategory : subCategorys.find(e => e.subCategory === 'Другое')});
+        setTaskInformation({ category: choisenCategory , subCategory : subCategorys.find(e => e.subCategory === 'Другое')});
     }
     else{
       let sortedCategorys = subCategorys.filter(el => el.category.id === choisenCategory.id)
-      setTaskInformation({ ...taskInformation, category: choisenCategory , subCategory : sortedCategorys.find(e => e.subCategory === 'Другое')});
+      setTaskInformation({ category: choisenCategory , subCategory : sortedCategorys.find(e => e.subCategory === 'Другое')});
     }
-    setCatagoryChoiceOpen(false);
     }
     MainButton.setText("Готово")
     MainButton.onClick(buttonHandler)
@@ -57,29 +54,22 @@ const ChoiceCategory = ({
       MainButton.setText("ДАЛЕЕ")
       MainButton.offClick(buttonHandler)
     }
-  } , [choisenCategory, setTaskInformation, setCatagoryChoiceOpen, subCategorys, taskInformation]  )
+  } , [choisenCategory, setTaskInformation, subCategorys]  )
 
 
   const realCategorys = useMemo( () => {
-    if (!designOnly){
-      return categorys
-    }
-    else{
-      return [categorys.find(e => e.id === 2)]
-    }
-  } , [designOnly , categorys] )
+    return categorys
+    
+  } , [categorys] )
   
   useEffect( () => {
     function closeFunction(){
-      setCatagoryChoiceOpen(false)
+      navigate(-1);
     }
     BackButton.show()
     BackButton.onClick(closeFunction)
     return () => {
       BackButton.offClick(closeFunction)
-      if (isBackHide){
-        BackButton.hide()
-      }
     }
     // eslint-disable-next-line
   } , [] )

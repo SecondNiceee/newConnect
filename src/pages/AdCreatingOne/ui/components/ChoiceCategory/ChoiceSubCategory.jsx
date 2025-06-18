@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 import BackButton from "../../../../../constants/BackButton";
 import MainButton from "../../../../../constants/MainButton";
@@ -8,29 +8,30 @@ import cl from "../ChoiceCategory/ChoiceCategory.module.css";
 import { enableColorAndActiveButton } from "../../../../../functions/enableColorAndActiveButton";
 import { disableColorAndActiveButton } from "../../../../../functions/disableColorAndActiveButton";
 import menuController from "../../../../../functions/menuController";
+import { useDispatch, useSelector } from "react-redux";
+import { setFirstPage } from "../../../../../store/taskCreating";
+import { useNavigate } from "react-router";
 const ChoiceSubCategory = ({
-  taskInformation,
-  setSubcategoryChoiceOpen,
-  setTaskInformation,
-  subCategorysPar,
   ...props
 }) => {
-
-  useEffect(() => {
-    document.documentElement.style.overflowY = "hidden";
-    return () => {
-      document.documentElement.style.overflowY = "auto";
-    };
-  }, []);
 
   useBlockInputs();
 
   const [choisenSubCategory, setChoisenSubCategory] = useState();
 
+  const taskInformation = useSelector( (state) => state.taskCreating.firstPage )
+
+  const subCategorysPar = useSelector((state) => state.categorys.subCategory);
+
+  const dispatch = useDispatch();
+
+  const setTaskInformation = useCallback( (par) => {
+      dispatch(setFirstPage(par));
+    }, [dispatch])
+
   useEffect(() => {
     function buttonHander() {
-      setTaskInformation({ ...taskInformation, subCategory: choisenSubCategory });
-      setSubcategoryChoiceOpen(false);
+      setTaskInformation({ subCategory: choisenSubCategory });
     }
     if (choisenSubCategory){
       enableColorAndActiveButton();
@@ -46,11 +47,13 @@ const ChoiceSubCategory = ({
       enableColorAndActiveButton();
       MainButton.setText("Продолжить");
     };
-  }, [choisenSubCategory, setSubcategoryChoiceOpen, setTaskInformation, taskInformation]);
+  }, [choisenSubCategory, setTaskInformation]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     function closeFunction() {
-      setSubcategoryChoiceOpen(false);
+      navigate(-1);
     }
     BackButton.show();
     BackButton.onClick(closeFunction);
@@ -58,7 +61,7 @@ const ChoiceSubCategory = ({
       BackButton.offClick(closeFunction);
     };
     // eslint-disable-next-line
-  }, [setSubcategoryChoiceOpen, setTaskInformation, taskInformation]);
+  }, [setTaskInformation, taskInformation]);
 
   useEffect( () => {
     menuController.hideMenu();
@@ -95,16 +98,16 @@ const ChoiceSubCategory = ({
     return subCategorysCopy;
   }, [subCategorysPar, taskInformation]);
 
-  function closeSebCategory() {
-    setSubcategoryChoiceOpen(false);
-  }
+  const closeSebCategory = useCallback( () => {
+    navigate(-1);
+  }, [navigate] )
 
   useEffect(() => {
     BackButton.onClick(closeSebCategory);
     return () => {
       BackButton.offClick(closeSebCategory);
     };
-  });
+  }, [closeSebCategory]);
 
   const subSubcategoryClickHandler = (subCategory) => () => {
     setChoisenSubCategory(subCategory);

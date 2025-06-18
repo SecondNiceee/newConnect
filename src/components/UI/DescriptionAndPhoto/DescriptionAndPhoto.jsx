@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useMemo, useRef } from "react";
+import { memo, useEffect, useMemo, useRef } from "react";
 import cl from "./DescriptionAndPhoto.module.css";
 import GreyText from "../../../components/UI/GreyText/GreyText";
 import FileInput from "../../../components/UI/FileInput/FileInput";
@@ -37,7 +37,6 @@ const DescriptionAndPhoto = ({
   const place = useMemo(() => {
     return translation(textPlaceholder);
   }, [textPlaceholder]);
-
 
   return (
     <div
