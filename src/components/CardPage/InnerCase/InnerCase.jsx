@@ -1,7 +1,8 @@
-import React, { memo } from 'react';
-import cl from './InnerCase.module.css'
-import Text from '../../Text/Text';
+import  { memo } from 'react';
+import cl from './InnerCase.module.css';
+
 import { useSliderClicker } from '../../UI/PhotosSlider/hooks/useSliderClicker';
+import Text from '../../Text/Text';
 
 const InnerCase = ({ className, task,  title , description , photos, agree = false, setPhotoIndex, setPhotos, setSliderOpened,  ...props }) => {
 

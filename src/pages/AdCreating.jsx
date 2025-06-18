@@ -415,10 +415,6 @@ const AdCreating = () => {
     MainButton.show();
     BackButton.show();
     MainButton.setText(continueText);
-    return () => {
-        MainButton.hide();
-      
-    };
   }, []);
 
 
