@@ -1,7 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-
-import makeNewFile from "../functions/newMakeFile";
 import { USERID } from "../constants/tgStatic.config";
 
 export const addWatch = createAsyncThunk(
@@ -167,7 +165,7 @@ export const fetchMyOrders = createAsyncThunk(
         return [];
       } else {
         for (let order of task.data) {
-          let files = await makeNewFile(order.folder, order.photos);
+          let files = order.photos;
           let responseCounter = await axios.get(`${process.env.REACT_APP_HOST}/response/countByAdvertisement` , {
             params : {
               "advertisementId" : order.id,

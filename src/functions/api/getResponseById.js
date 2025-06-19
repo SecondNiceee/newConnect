@@ -1,5 +1,4 @@
 import axios from "axios";
-import makeNewFile from "../newMakeFile";
 
    export default async function getResponseById(id){
         let im = await axios.get(
@@ -17,7 +16,7 @@ import makeNewFile from "../newMakeFile";
             let photos = [];
 
             if (response.photos) {
-                photos = await makeNewFile(response.folder, response.photos);
+                photos = response.photos;
             }
             response.photos = photos;
             return response;

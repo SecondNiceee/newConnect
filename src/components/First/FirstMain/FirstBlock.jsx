@@ -1,5 +1,9 @@
 import { memo } from "react";
 import Block from "../Block";
+import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { setDetailsAdvertisement } from "../../../store/information";
+import { addWatch } from "../../../store/watchedAds";
 
 const FirstBlock = ({
   className,
@@ -45,10 +49,16 @@ const FirstBlock = ({
     category : category,
     isFirst : isFirst
   };
-;
-
+; 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const setDetailsActive = () => {
+    navigate(`/FirstDetails/${id}`)
+    dispatch(setDetailsAdvertisement(task));
+    dispatch(addWatch(task.id));
+  }
   return (
-        <Block setSliderOpened={setSlideActive} setPhotos={setPhotos} setPhotoIndex={setPhotoIndex} {...props} photos={ photos} />
+        <Block setDetailsActive={setDetailsActive} setSliderOpened={setSlideActive} setPhotos={setPhotos} setPhotoIndex={setPhotoIndex} {...props} photos={ photos} />
   );
 };
 

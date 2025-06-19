@@ -6,9 +6,6 @@ import MyAdsTop from "./FirstMain/MyAdsTop";
 import FirstMainTop from "./FirstMain/FirstMainTop";
 import FirstMainMiddle from "./FirstMain/FirstMainMiddle";
 import MainBottom from "./FirstMain/MainBottom";
-import { setDetailsAdvertisement } from "../../store/information";
-import { addWatch } from "../../store/watchedAds";
-import { useNavigate } from "react-router";
 import AdvertisementFeatures from "./AdvertisementFeatures/AdvertisementFeatures";
 
 const Block = ({
@@ -39,18 +36,12 @@ const Block = ({
   setPhotoIndex,
   setPhotos,
   setSliderOpened,
-  isFirst
+  isFirst,
+  setDetailsActive
 }) => {
 
   const dispatch = useDispatch();
 
-  const navigate = useNavigate();
-
-  const setDetailsActive = () => {
-    navigate(`/FirstDetails/${id}`)
-    dispatch(setDetailsAdvertisement(task));
-    dispatch(addWatch(task.id));
-  }
 
   const timing = useMemo(() => {
     if (!end) {
@@ -64,7 +55,6 @@ const Block = ({
     }
   }, [end, endTime, singleTime, time, whichOne]);
 
-  
   const isFirstDetailsPhotos = (!isMyAds && !isResponce && !isButton) || isFirst // Фотки принадлежат подробнее в первом  первой страничке
 
   return (

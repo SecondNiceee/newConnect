@@ -23,7 +23,7 @@ const QFour = ({isResponce, deleteFunction, isButton, setDetailsActive}) => {
           </svg>
           <MyButton
             style={isButton ? {} : { display: "none" }}
-            onClick={(e) => setDetailsActive(true)}
+            onClick={() => setDetailsActive(true)}
           >
             Изменить
           </MyButton>

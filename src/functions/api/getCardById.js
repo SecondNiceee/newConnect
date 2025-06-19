@@ -1,5 +1,4 @@
 import axios from "axios";
-import makeNewFile from "../newMakeFile";
 
 export const getCardById = async (id) => {
   let response = await axios.get(
@@ -14,7 +13,7 @@ export const getCardById = async (id) => {
     }
   );
   const card = response.data;
-    let files = await makeNewFile(card.folder, card.photos);
+    let files = card.photos
     const formattedCard =  {
       id: card.id,
       title: card.title,

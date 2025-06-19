@@ -2820,7 +2820,6 @@ input {
           transform: translateX(-50%) translateY(-50%);
 }
 .MyAdsContainer .AdCreatingMy {
-  position: fixed;
   width: 100%;
   background: rgb(24, 34, 45);
   display: -webkit-box;
@@ -2838,7 +2837,6 @@ input {
   -webkit-transform: translateX(100%);
       -ms-transform: translateX(100%);
           transform: translateX(100%);
-  min-height: 100vh;
   padding-bottom: 20px;
 }
 .MyAdsContainer .new-textarea {

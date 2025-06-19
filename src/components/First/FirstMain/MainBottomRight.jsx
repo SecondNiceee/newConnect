@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import  { memo } from "react";
 import QOne from "./QOne";
 import QTwo from "./QTwo";
 import QThree from "./QThree";

@@ -5,15 +5,19 @@ import pagesHistory from '../constants/pagesHistory';
 
 const useNavigateBack = ({isSliderOpened, setSlideOpened, isWorks = true}) => {
   const navigate = useNavigate();
+
+  
   const goBack = useCallback( () => {
     if (isSliderOpened){
       setSlideOpened(false)
     }
     else{
+      console.warn(pagesHistory);
       if (pagesHistory.length === 1){
         navigate('/', {replace : true});
       }
       else{
+        pagesHistory.pop();
         navigate(-1)
       }
     }

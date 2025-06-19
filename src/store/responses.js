@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-import makeNewFile from "../functions/newMakeFile";
 import translation from "../functions/translate";
 import en from "../constants/language";
 import makeNewUser from "../functions/makeNewUser";
@@ -30,7 +29,7 @@ export const fetchResponseByAdvertisement = createAsyncThunk(
             let photos = [];
     
             if (responces[i].photos) {
-              photos = await makeNewFile(responces[i].folder, responces[i].photos);
+              photos = responces[i].photos;
             }
 
             let b = await axios.get(`${process.env.REACT_APP_HOST}/card/countByUser` , {
@@ -238,7 +237,7 @@ export const fetchResponses = createAsyncThunk(
                two = ""
             }
 
-            let files = await makeNewFile(advertisement.folder, advertisement.photos);
+            let files = advertisement.photos;
 
             try {
                 let imTwo = await axios.get(
@@ -307,7 +306,7 @@ export const fetchResponses = createAsyncThunk(
             let photos = [];
     
             if (localResponses[i].photos) {
-              photos = await makeNewFile(localResponses[i].folder, localResponses[i].photos);
+              photos = localResponses[i].photos;
             }
     
             localResponses[i].photos = photos;

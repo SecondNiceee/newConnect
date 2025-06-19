@@ -1,5 +1,4 @@
 import axios from "axios";
-import makeNewFile from "../newMakeFile";
 
 export const getCardByUserId = async (id) => {
   const localCards = [];
@@ -15,7 +14,7 @@ export const getCardByUserId = async (id) => {
     }
   );
   for (let e of allCards.data) {
-    let files = await makeNewFile(e.folder, e.photos);
+    let files = e.photos
     localCards.push({
       id: e.id,
       title: e.title,

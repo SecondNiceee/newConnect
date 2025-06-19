@@ -1,5 +1,5 @@
 import axios from "axios";
-import makeNewFile from "../newMakeFile";
+
 
 export const getAdvertisementsByUserId = async (user, page, limit = 1) => {
     try{
@@ -27,7 +27,7 @@ export const getAdvertisementsByUserId = async (user, page, limit = 1) => {
             two = "";
           }
 
-          let files = await makeNewFile(order.folder, order.photos);
+          let files = order.photos;
 
           let imTwo = await axios.get(
             `${process.env.REACT_APP_HOST}/advertisement/findCount`,

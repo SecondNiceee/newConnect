@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import cl from './SavedProfile.module.css'
 import AboutInfo from '../../../pages/MyAds/components/AboutInfo';
 import AboutMain from '../../../pages/MyAds/components/AboutMain';
@@ -6,7 +6,6 @@ import Compact from '../../UI/Compact/Compact';
 import Stage from '../../UI/Stage/Stage';
 import MyLoader from '../../UI/MyLoader/MyLoader';
 import ExampleWorks from '../../../pages/MyAds/components/ExampleWorks';
-import makeNewFile from '../../../functions/newMakeFile';
 import AboutTop from '../../../pages/MyAds/components/AboutTop';
 import axios from 'axios';
 const SavedProfile = ({responce, openFunc}) => {

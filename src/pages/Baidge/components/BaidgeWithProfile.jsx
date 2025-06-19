@@ -18,12 +18,15 @@ import { fetchCounterOfResponses } from "../../../store/telegramUserInfo/thunks/
 import { fetchRatingByProfession } from "../../../store/telegramUserInfo/thunks/fetchRatingByProfession";
 import { fetchFeedBacks } from "../../../store/telegramUserInfo/thunks/fetchFeedbacks";
 import { fetchFeedBacksByUserId } from "../../../functions/api/fetchFeedbacksByUserId";
+import useScrollTop from "../../../hooks/useScrollTop";
 
 const BaidgeWithProfile = ({ userInfo, className, setUserInfo, urlParametr}) => {
 
   const me = useSelector((state) => state.telegramUserInfo);
 
   const dispatch = useDispatch();
+
+  useScrollTop();
 
   useNavigateBack({isSliderOpened : false, setSlideOpened : false})
 

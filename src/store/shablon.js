@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import makeNameFiles from "../functions/makeNameFiles";
-import makeNewFile from "../functions/newMakeFile";
 import { USERID } from "../constants/tgStatic.config";
 export const deleteShablon = createAsyncThunk(
   "shablon/deleteShablon",
@@ -106,7 +105,7 @@ export const fetchAllShablons = createAsyncThunk(
           
           let files = []
           if (e.photos){
-             files = await makeNewFile(e.folder, e.photos)
+             files = e.photos;
           }
               localShablons.push({
                   id : e.id,

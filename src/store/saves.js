@@ -196,7 +196,7 @@ export const fetchSavedCards = createAsyncThunk(
          for (let e of cards)
             {
 
-                let files =  await makeNewFile(e.folder, e.photos)
+                let files =  e.photos;
                 localCards.push({
                     id : e.id,
                     title : e.title,
@@ -242,7 +242,7 @@ export const fetchSavedResponses = createAsyncThunk(
             let photos = [];
     
             if (responces[i].photos) {
-              photos = await makeNewFile(responces[i].folder, responces[i].photos);
+              photos = responces[i].photos;
             }
 
 
@@ -278,7 +278,7 @@ export const fetchSavedResponses = createAsyncThunk(
                two = ""
             }
 
-            let files = await makeNewFile(responces[i].advertisement.folder, responces[i].advertisement.photos);
+            let files = responces[i].advertisement.photos;
 
             responces[i].advertisement = {
                 id : responces[i].advertisement.id,
@@ -357,7 +357,7 @@ export const fetchSavedAdvertisements = createAsyncThunk(
                two = ""
             }
 
-            let files = await makeNewFile(order.folder, order.photos);
+            let files = order.photos;
             const advertisementUser = await axios.get(`${process.env.REACT_APP_HOST}/user/findOne` , {
                 params : {
                     "id" : order.user.id
@@ -483,7 +483,7 @@ export const fetchAllValues = createAsyncThunk(
                two = ""
             }
 
-            let files = await makeNewFile(order.folder, order.photos);
+            let files = order.photos;
             const advertisementUser = await axios.get(`${process.env.REACT_APP_HOST}/user/findOne` , {
                 params : {
                     "id" : order.user.id
@@ -558,7 +558,7 @@ export const fetchAllValues = createAsyncThunk(
             let photos = [];
     
             if (responces[i].photos) {
-              photos = await makeNewFile(responces[i].folder, responces[i].photos);
+              photos = responces[i].photos;
             }
 
 
@@ -594,7 +594,7 @@ export const fetchAllValues = createAsyncThunk(
                two = ""
             }
 
-            let files = await makeNewFile(responces[i].advertisement.folder, responces[i].advertisement.photos);
+            let files = responces[i].advertisement.photos;
 
             responces[i].advertisement = {
                 id : responces[i].advertisement.id,

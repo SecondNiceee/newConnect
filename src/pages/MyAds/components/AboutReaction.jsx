@@ -9,7 +9,6 @@ import axios from "axios";
 import MyLoader from "../../../components/UI/MyLoader/MyLoader";
 import Stage from "../../../components/UI/Stage/Stage";
 import Compact from "../../../components/UI/Compact/Compact";
-import makeNewFile from "../../../functions/newMakeFile";
 import MainButton from "../../../constants/MainButton";
 
 const AboutReaction = ({
@@ -42,7 +41,7 @@ const AboutReaction = ({
         );
 
         for (let e of allCards.data) {
-          let files = await makeNewFile(e.folder, e.photos);
+          let files = e.photos
           localCards.push({
             id: e.id,
             title: e.title,

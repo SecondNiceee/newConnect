@@ -9,7 +9,6 @@ import {
 } from "../../../store/responses";
 import MyLoader from "../../../components/UI/MyLoader/MyLoader";
 import useSlider from "../../../hooks/useSlider";
-import useGetAdvertisement from "../../../hooks/api/useGetAdvertisement";
 import { useNavigate, useParams } from "react-router";
 import CssTransitionSlider from "../../../components/UI/PhotosSlider/CssTransitionSlider";
 import translation from "../../../functions/translate";
@@ -25,8 +24,8 @@ const AboutOne = () => {
 
   const [task, setOrderInformation] = useState(null);
   const {advId} = useParams()
-
   const advertisementFormStore = useSelector(state => state.information.advertisement);
+  console.warn(task);
   useEffect( () => {
     if (advertisementFormStore){
       setOrderInformation(advertisementFormStore);
@@ -128,6 +127,7 @@ const AboutOne = () => {
       <div className="aboutOne p-4">
         {task && putStatus !== "pending" ? (
           <Block
+            task={task}
             setPhotos={setPhotos}
             setSliderOpened={setSlideOpened}
             setPhotoIndex={setPhotoIndex}

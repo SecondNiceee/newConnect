@@ -51,10 +51,6 @@ const TaskDetailsContainer = ({
         setPhotoIndex={setPhotoIndex}
         setPhotos={setPhotos}
         setSliderOpened={setSliderOpened}
-        sliderLeftPosition="0"
-        sliderBlockId="First"
-        sliderBlockerAll={true}
-        sliderHideButton={false}
         end={end}
         task={orderInformation}
         {...orderInformation}
