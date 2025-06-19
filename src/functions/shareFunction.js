@@ -12,8 +12,6 @@ export const shareFunction = (id) => async () => {
         }
     })
     const messageId = repsonse.data
-    window.Telegram.WebApp.shareMessage(messageId).then((result) => {
-      }).catch((error) => {
-      });
+    window.Telegram.WebApp.shareMessage(messageId)
 
 }
