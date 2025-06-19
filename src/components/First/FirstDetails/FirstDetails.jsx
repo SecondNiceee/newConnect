@@ -15,6 +15,7 @@ import useIsMyResponse from "../../../pages/First/hooks/useIsMyResponse";
 import { showAllert } from "../../../functions/showAlert";
 import { enableColorAndActiveButton } from "../../../functions/enableColorAndActiveButton";
 import { disableColorButton } from "../../../functions/disableColorButton";
+import { useAddPageHistory } from "../../../hooks/useAddPageHistory";
 
 const advertisementId =  window.Telegram.WebApp.initDataUnsafe.start_param?.split('m')[0] || null
 const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton=true, orderInformationParam = null, ...props }) => {
@@ -22,6 +23,8 @@ const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton
   const disatch = useDispatch();
 
   const { id } = useParams();
+
+  useAddPageHistory();
 
   const externalOrderInformation = useSelector( (state) => state.information.detailsAdvertisement );
   const [orderInformation, setOrderInformation] = useState(null);
@@ -47,9 +50,7 @@ const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton
 
 
   useEffect( () => {
-    alert('1')
     if (!orderInformation && showButton && !orderInformationParam){
-      alert('2')
       if (advertisementId){
         getAdvertisementById(Number(advertisementId))
           .then((advertisement) => {

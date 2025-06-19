@@ -63,11 +63,13 @@ export const getAdvertisementById = async (id) => {
   }
 
   const formattedTask = {
+    
     id: order.id,
     taskName: order.title,
     executionPlace: "Можно выполнить удаленно",
     time: { start: one, end: two },
-    tonValue: order.price,
+    tonValue: order.tonPrice,
+    rubleValue : order.price,
     taskDescription: order.description,
     photos: files,
     photosNames: order.photos,
@@ -76,6 +78,7 @@ export const getAdvertisementById = async (id) => {
     rate: "5",
     isActive: true,
     creationTime: order.createdAt,
+    
     viewsNumber: order.views,
     responces: order.responses,
     status: order.status,

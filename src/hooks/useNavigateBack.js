@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import BackButton from '../constants/BackButton';
+import pagesHistory from '../constants/pagesHistory';
 
 const useNavigateBack = ({isSliderOpened, setSlideOpened, isWorks = true}) => {
   const navigate = useNavigate();
@@ -9,7 +10,12 @@ const useNavigateBack = ({isSliderOpened, setSlideOpened, isWorks = true}) => {
       setSlideOpened(false)
     }
     else{
-      navigate(-1)
+      if (pagesHistory.length === 1){
+        navigate('/', {replace : true});
+      }
+      else{
+        navigate(-1)
+      }
     }
   }, [isSliderOpened, setSlideOpened, navigate] )
 

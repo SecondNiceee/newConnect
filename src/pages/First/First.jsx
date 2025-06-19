@@ -18,6 +18,7 @@ import BackButton from "../../constants/BackButton";
 import menuController from "../../functions/menuController";
 import MainButton from "../../constants/MainButton";
 import { hideMainButtonGarant } from "../../functions/hideButtonGarant";
+import { useAddPageHistory } from "../../hooks/useAddPageHistory";
 
 const First = () => {
 
@@ -58,6 +59,8 @@ useEffect(() => {
     setPhotos,
     setSlideOpened,
   } = useSlider();
+
+  useAddPageHistory();
 
   const forwardFunction = useCallback( () => {
     if (isSliderOpened){
