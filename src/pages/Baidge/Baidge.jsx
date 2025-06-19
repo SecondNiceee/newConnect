@@ -9,7 +9,8 @@ import menuController from "../../functions/menuController";
 import MainButton from "../../constants/MainButton";
 import { putUserInfo } from "../../store/telegramUserInfo/thunks/putUserInfo";
 
-const Baidge = () => {
+const baidgeId =  window.Telegram.WebApp.initDataUnsafe?.start_param || null
+const Baidge = ({isExternal = false}) => {
 
   const me = useSelector((state) => state.telegramUserInfo);
 
@@ -25,12 +26,19 @@ const Baidge = () => {
   console.log(me);
 
   useEffect(() => {
-    if (id && String(id) !== me.id) {
-      findUserById(id).then( (user) => {setUserInfo(user)} )
-    } else {
-      setUserInfo(me);
+    if (isExternal){
+      findUserById(baidgeId).then( (user) => {setUserInfo(user)} ).catch( () => {
+        alert("Не удалось найти пользователя с id = " + baidgeId)
+      } )
     }
-  }, [ me, id]);
+    else{
+      if (id && String(id) !== me.id) {
+        findUserById(id).then( (user) => {setUserInfo(user)} )
+      } else {
+        setUserInfo(me);
+      }
+    }
+  }, [ me, id, isExternal]);
 
   useEffect( () => { 
     MainButton.hide();

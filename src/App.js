@@ -350,6 +350,13 @@ const AnimatedSwitch = () => {
               />
 
               <Route
+                path="/ExternalBaidge"
+                element={
+                    <Baidge isExternal = {true} />
+                }
+              />
+
+              <Route
                 path="/savedPage"
                 element={
                   <Suspense fallback={<MyLoader />}>
