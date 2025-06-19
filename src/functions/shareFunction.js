@@ -5,7 +5,7 @@ import { USERID } from "../constants/tgStatic.config";
 export const shareFunction = (id) => async () => {
     const repsonse = await axios.post(`${process.env.REACT_APP_HOST}/bot/getMailingMessage` , {
       "advertisementId" : id,
-      "userId" : String(USERID)
+      "userId" : Number(USERID)
     }, {
         headers : {
             "X-API-KEY-AUTH" : process.env.REACT_APP_API_KEY
