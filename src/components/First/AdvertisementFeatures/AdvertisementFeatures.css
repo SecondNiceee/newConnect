@@ -6,17 +6,18 @@
     border-radius: 6.625px;
 }
 .urgent{
-    background: rgba(53, 202, 91, 0.10);
+    
+    background: rgba(255, 214, 10, 0.10);
 }
 .urgent-text{
-    color: #35CA5B;
+    color: #FFD60A;
 }
 
 .warrent{
-    background: rgba(255, 214, 10, 0.10);
+    background: rgba(53, 202, 91, 0.10);
 }
 .warrent-text{
-    color: #FFD60A;
+    color: #35CA5B;
 }
 
 .outside{
