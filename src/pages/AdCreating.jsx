@@ -181,6 +181,7 @@ const AdCreating = () => {
     }
     let localTaskInformation = { ...secondPageCopy, ...firstPage };
     window.Telegram.WebApp.HapticFeedback.notificationOccurred("success");
+    console.warn("Дошел до сюда!!!")
     post(localTaskInformation);
 
     spet = 0;
@@ -212,7 +213,7 @@ const AdCreating = () => {
     }
     window.Telegram.WebApp.HapticFeedback.notificationOccurred("success");
     await dispatch(postMyTask([myFormData, el.photos]));
-    navigate("/MyAds");
+    // navigate("/MyAds");
   }
 
   useEffect(() => {
@@ -343,26 +344,29 @@ const AdCreating = () => {
       } else {
         MainButton.setText(continueText);
       }
-      if (spet === 3) {
-        window.Telegram.WebApp.showPopup(
-          {
-            title: create,
-            message: textButton,
-            buttons: [
-              { id: "save", type: "default", text: Yes },
-              { id: "delete", type: "destructive", text: No },
-            ],
-          },
-          (buttonId) => {
-            if (buttonId === "delete" || buttonId === null) {
-              spet -= 1;
-            }
-            if (buttonId === "save") {
-              finish();
-            }
-          }
-        );
+      if (spet === 3){
+         finish();
       }
+      // if (spet === 3) {
+      //   window.Telegram.WebApp.showPopup(
+      //     {
+      //       title: create,
+      //       message: textButton,
+      //       buttons: [
+      //         { id: "save", type: "default", text: Yes },
+      //         { id: "delete", type: "destructive", text: No },
+      //       ],
+      //     },
+      //     (buttonId) => {
+      //       if (buttonId === "delete" || buttonId === null) {
+      //         
+      //       }
+      //       if (buttonId === "save") {
+      //         finish();
+      //       }
+      //     }
+      //   );
+      // }
     } else {
       window.Telegram.WebApp.HapticFeedback.notificationOccurred("error");
     }
@@ -459,6 +463,12 @@ const AdCreating = () => {
       <div
         onClick={goForward}
         className="fixed left-[120vw] top-[20px] z-50 rounded p-2 border-black border-solid border-2 cursor-pointer"
+      >
+        MAIN BUTTON
+      </div>
+      <div
+        onClick={goForward}
+        className="fixed left-[220vw] top-[20px] z-50 rounded p-2 border-black border-solid border-2 cursor-pointer"
       >
         MAIN BUTTON
       </div>
