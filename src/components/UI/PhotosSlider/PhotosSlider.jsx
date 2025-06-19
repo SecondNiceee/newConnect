@@ -24,7 +24,7 @@ const PhotosSlider = forwardRef(({ swiperId, renderMap, className, sliderIndex, 
             
                 <SwiperSlide className='!h-[100%] max-h-[90vh] w-[100%] object-cover my-auto' key={index}>
                     <div className='h-[100%] flex items-center'>
-                        <img className='w-[100%] h-[auto] object-cover' src={URL.createObjectURL(src)} alt={`Slide ${index}`} />
+                        <img className='w-[100%] h-[auto] object-cover' src={src} alt={`Slide ${index}`} />
                     </div>
                 </SwiperSlide>
            

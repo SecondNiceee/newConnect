@@ -31,7 +31,7 @@ const SavedProfile = ({responce, openFunc}) => {
           
           for (let e of allCards.data){
   
-            let files = await makeNewFile(e.folder , e.photos)
+            let files = e.photos
             localCards.push({
                 id : e.id,
                 title : e.title,

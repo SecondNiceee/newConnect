@@ -15,7 +15,7 @@ const InnerCase = ({ className, task,  title , description , photos, agree = fal
         {photos.length > 0 ?
               <div className={cl.caseTop}>
               {photos.map((e , i) => {
-                let url = URL.createObjectURL(e)
+                let url = e
                 return (
                   <img onClick={photosClickHandler(i)} key={i} style={photos.length === 1 ? 
                     {minWidth : '100%'} 

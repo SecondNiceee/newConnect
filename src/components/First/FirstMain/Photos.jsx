@@ -32,7 +32,7 @@ setSliderOpened, }) => {
               <img
                 onClick={clickHandler(i)}
                 key={i}
-                src={URL.createObjectURL(e)}
+                src={e}
                 style={style}
                 className="first__photo"
                 alt=""

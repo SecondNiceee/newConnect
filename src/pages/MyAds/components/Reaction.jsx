@@ -118,7 +118,7 @@ const Reaction = ({
               <img
                 onClick={imageOnClick(i)}
                 style={responce.photos.length === 1 ? { width: "100%" } : {}}
-                src={URL.createObjectURL(e)}
+                src={e}
                 alt=""
                 key={i}
               />

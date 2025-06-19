@@ -69,7 +69,7 @@ const MyFirstBlock = ({
                 return (
                   <img
                     key={i}
-                    src={URL.createObjectURL(e)}
+                    src={e}
                     style={
                       photos.length === 1
                         ? {

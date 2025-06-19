@@ -94,7 +94,7 @@ const ResponseBlock = ({
                 return (
                   <img
                     key={i}
-                    src={URL.createObjectURL(e)}
+                    src={e}
                     onClick={onClickImage(i)}
                     style={
                       photos.length === 1

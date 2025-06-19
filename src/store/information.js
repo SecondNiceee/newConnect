@@ -253,7 +253,7 @@ export const fetchTasksInformation = createAsyncThunk(
             two = "";
           }
 
-          let files = await makeNewFile(order.folder, order.photos);
+          let files = order.photos;
 
           let imTwo = await axios.get(
             `${process.env.REACT_APP_HOST}/advertisement/findCount`,

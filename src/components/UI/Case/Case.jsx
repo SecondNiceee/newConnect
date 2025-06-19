@@ -85,7 +85,7 @@ const Case = ({
       {photos.length > 0 ? (
         <div className={cl.caseTop}>
           {photos.map((e, i) => {
-            let url = URL.createObjectURL(e);
+            let url = e;
             return (
               <img
                 onClick={photosClickEvent(i)}
