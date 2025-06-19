@@ -1,9 +1,8 @@
-import React, { forwardRef, memo, useCallback, useEffect} from "react";
+import { forwardRef, memo, useCallback} from "react";
 import FirstMain from "../../components/First/FirstMain/FirstMain";
 import FirstTop from "../../components/First/FirstMain/FirstTop";
 import FirstLoader from "../../loaders/FirstLoader";
 import { useDispatch, useSelector } from "react-redux";
-import { changeStatus, fetchTasksInformation } from "../../store/information";
 import CategoryBlock from "../../components/First/CategoryBlock/CategoryBlock";
 import InputBlock from "../../components/First/CategoryBlock/InputBlock";
 import translation from "../../functions/translate";
