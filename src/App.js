@@ -112,6 +112,10 @@ const AnimatedSwitch = () => {
   }, [congratulate, navigate, showCongradulate]);
 
   useEffect(() => {
+  window.history.scrollRestoration = 'manual';
+  }, []);
+
+  useEffect(() => {
     async function makeUserVisit(params) {
       try {
         await axios.put(
