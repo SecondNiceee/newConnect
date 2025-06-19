@@ -1,12 +1,16 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import AdCreatingOne from "./AdCreatingOne/ui/AdCreatingOne/AdCreatingOne";
 import AdCreatingTwo from "./ADCreatingTwo/AdCreatingTwo/AddCreatingTwo";
 
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  postMyTask,
-} from "../store/information";
+import { postMyTask } from "../store/information";
 import BackButton from "../constants/BackButton";
 import MainButton from "../constants/MainButton";
 import { useNavigate } from "react-router-dom";
@@ -20,31 +24,31 @@ import useBlockInputs from "../hooks/useBlockInputs";
 import menuController from "../functions/menuController";
 import { setFirstPage } from "../store/taskCreating";
 
-
-const textButton = translation("Вы уверены, что хотите создать новое задание?")
-let create = translation("Создать?")
+const textButton = translation("Вы уверены, что хотите создать новое задание?");
+let create = translation("Создать?");
 let spet = 0;
-const Yes = translation("Да")
-const No = translation("Нет")
-const endText = translation("СОЗДАТЬ ЗАДАНИЕ")
-const continueText = translation("ДАЛЕЕ")
+const Yes = translation("Да");
+const No = translation("Нет");
+const endText = translation("СОЗДАТЬ ЗАДАНИЕ");
+const continueText = translation("ДАЛЕЕ");
 
 const AdCreating = () => {
-
   useBlockInputs();
 
-  const me = useSelector(state => state.telegramUserInfo)
+  const me = useSelector((state) => state.telegramUserInfo);
 
   const firstPage = useSelector((state) => state.taskCreating.firstPage);
-  const secondPage = useSelector(state => state.taskCreating.secondPage);
+  const secondPage = useSelector((state) => state.taskCreating.secondPage);
   const dispatch = useDispatch();
 
-  useEffect( () => {
-    dispatch(setFirstPage({userPhoto: me.photo ? me.photo : "", 
-      customerName :  me.firstName
-    }))
-  }, [me, dispatch ] )
-
+  useEffect(() => {
+    dispatch(
+      setFirstPage({
+        userPhoto: me.photo ? me.photo : "",
+        customerName: me.firstName,
+      })
+    );
+  }, [me, dispatch]);
 
   const tonConstant = useSelector((state) => state.ton.value);
 
@@ -54,39 +58,43 @@ const AdCreating = () => {
 
   const status = useSelector((state) => state.information.postTaskStatus);
 
-  const subCategorysStatus = useSelector(state => state.categorys.subCategoryStatus)
+  const subCategorysStatus = useSelector(
+    (state) => state.categorys.subCategoryStatus
+  );
 
-  const categorysStatus = useSelector(state => state.categorys.categoryStatus)
+  const categorysStatus = useSelector(
+    (state) => state.categorys.categoryStatus
+  );
 
   const categorys = useSelector((state) => state.categorys.category);
 
   const subCategorys = useSelector((state) => state.categorys.subCategory);
 
-  useEffect( () => {
+  useEffect(() => {
     menuController.lowerMenu();
-  
-  }, [] )
+  }, []);
 
-
-  useEffect( () => {
-    pagesHistory.push("/AdCreating")
+  useEffect(() => {
+    pagesHistory.push("/AdCreating");
     return () => {
-      window.scrollTo(0 ,0)
-    }
-  } , [] )
+      window.scrollTo(0, 0);
+    };
+  }, []);
 
   const isCategorysUpdated = useRef(false);
 
-  console.warn("Рендер AdCreating")
+  console.warn("Рендер AdCreating");
 
   useEffect(() => {
-    if (!isCategorysUpdated.current){
+    if (!isCategorysUpdated.current) {
       if (categorys && subCategorys) {
-        if (!firstPage.category || !firstPage.subCategory ){
-          dispatch(setFirstPage({
-            category: categorys.find((e) => e.category === "Другое"), 
-            subCategory: subCategorys.find((e) => e.subCategory === "Другое"),
-          }))
+        if (!firstPage.category || !firstPage.subCategory) {
+          dispatch(
+            setFirstPage({
+              category: categorys.find((e) => e.category === "Другое"),
+              subCategory: subCategorys.find((e) => e.subCategory === "Другое"),
+            })
+          );
           isCategorysUpdated.current = true;
         }
       }
@@ -115,7 +123,7 @@ const AdCreating = () => {
         setError({ ...error, ton: false });
       }
       if (document.getElementById("dateSwapper").style.transform) {
-        if (secondPage.startTime.getTime() ===  new Date(0).getTime() ) {
+        if (secondPage.startTime.getTime() === new Date(0).getTime()) {
           startError = true;
         }
         if (secondPage.endTime.getTime() === new Date(0).getTime()) {
@@ -133,7 +141,7 @@ const AdCreating = () => {
       if (
         (error.singleError === true &&
           !document.getElementById("dateSwapper").style.transform) ||
-        ((error.startError === true || error.endError === true) &&                       
+        ((error.startError === true || error.endError === true) &&
           document.getElementById("dateSwapper").style.transform)
       ) {
         if (
@@ -157,21 +165,22 @@ const AdCreating = () => {
     secondPage.startTime,
     secondPage.endTime,
     secondPage.singleTime,
-    secondPage.tonValue
+    secondPage.tonValue,
   ]);
 
-
   function finish() {
-    let secondPageCopy = {...secondPage}
+    let secondPageCopy = { ...secondPage };
     if (document.getElementById("dateSwapper").style.transform) {
-      secondPageCopy.time = {start : secondPageCopy.startTime , end : secondPageCopy.endTime}
+      secondPageCopy.time = {
+        start: secondPageCopy.startTime,
+        end: secondPageCopy.endTime,
+      };
       // setTaskInformation({...taskInformation , time : {start : taskInformation.startTime , end : taskInformation.endTime} })
-
     } else {
-      secondPageCopy.time = {start : secondPageCopy.singleTime , end : ''}
+      secondPageCopy.time = { start: secondPageCopy.singleTime, end: "" };
     }
-    let localTaskInformation = {...secondPageCopy , ...firstPage}
-    window.Telegram.WebApp.HapticFeedback.notificationOccurred("success")
+    let localTaskInformation = { ...secondPageCopy, ...firstPage };
+    window.Telegram.WebApp.HapticFeedback.notificationOccurred("success");
     post(localTaskInformation);
 
     spet = 0;
@@ -179,15 +188,14 @@ const AdCreating = () => {
   async function post(el) {
     console.warn(el);
     let myFormData = new FormData();
-      myFormData.append("userId", USERID );
-      myFormData.append("title", String(el.taskName.trim()));
-      myFormData.append("description", String(el.taskDescription.trim()));
-      myFormData.append("deadline", "1");
-      myFormData.append("views", "0");
-      myFormData.append("category", String(el.category.id));
-      myFormData.append("subCategory", String(el.subCategory.id));
-      myFormData.append("price", String(el.budget.replace(/\s+/g, '')));
-      myFormData.append("tonPrice", String(el.tonValue));
+    myFormData.append("userId", USERID);
+    myFormData.append("title", String(el.taskName.trim()));
+    myFormData.append("description", String(el.taskDescription.trim()));
+    myFormData.append("views", "0");
+    myFormData.append("category", String(el.category.id));
+    myFormData.append("subCategory", String(el.subCategory.id));
+    myFormData.append("price", String(el.budget.replace(/\s+/g, "")));
+    myFormData.append("tonPrice", String(el.tonValue));
     if (document.getElementById("dateSwapper").style.transform) {
       myFormData.append("startTime", el.startTime);
       myFormData.append("endTime", el.endTime);
@@ -196,42 +204,37 @@ const AdCreating = () => {
       myFormData.append("startTime", "");
     }
     // myFormData.append("photos", el.photos);
-    
 
     if (el.photos.length !== 0) {
       for (let file of el.photos) {
         myFormData.append("photos", file);
       }
     }
-    window.Telegram.WebApp.HapticFeedback.notificationOccurred("success")
-    await dispatch(postMyTask([myFormData, el.photos]))
-    navigate("/MyAds")
-    
+    window.Telegram.WebApp.HapticFeedback.notificationOccurred("success");
+    await dispatch(postMyTask([myFormData, el.photos]));
+    navigate("/MyAds");
   }
 
-
-  useEffect( () => {
-      if (spet === 2){
-        if (mainRef.current){
-          mainRef.current.style.height = "100vh"
-          mainRef.current.style.paddingBottom = "76px"
+  useEffect(() => {
+    if (spet === 2) {
+      if (mainRef.current) {
+        mainRef.current.style.height = "100vh";
+        mainRef.current.style.paddingBottom = "76px";
+      }
+    } else {
+      if (mainRef.current) {
+        if (spet === 1) {
+          mainRef.current.style.height = "100vh";
+          mainRef.current.style.paddingBottom = "0px";
+        } else {
+          mainRef.current.style.paddingBottom = "76px";
+          mainRef.current.style.height = "100%";
         }
       }
-      else{
-        if (mainRef.current){
-          if (spet === 1){
-            mainRef.current.style.height = "100vh"
-            mainRef.current.style.paddingBottom = "0px"
-          }
-          else{
-            mainRef.current.style.paddingBottom = "76px"
-            mainRef.current.style.height = "100%"
-          }
-        }
-      }
-  } , []  )
+    }
+  }, []);
 
-  const mainRef = useRef(null)
+  const mainRef = useRef(null);
 
   function checking() {
     let taskName = false;
@@ -289,123 +292,121 @@ const AdCreating = () => {
         return true;
       }
       default: {
-        window.Telegram.WebApp.showAlert('Error (что - то не так пошло..')
-        return false
+        window.Telegram.WebApp.showAlert("Error (что - то не так пошло..");
+        return false;
       }
     }
   }
 
-  useEffect( () => {
-      if (firstPage.taskDescription.length > 500){
-        MainButton.setParams({
-          is_active : false, //неизвесетно
-          color : '#2f2f2f',
-          text_color : '#606060',
-        })
-      }
-      else{
-        MainButton.setParams({
-          color : '#2ea5ff',
-          text_color : '#ffffff',
-          is_active : true
-        })
-      }
-  } , [firstPage.taskDescription, navigate] )
+  useEffect(() => {
+    if (firstPage.taskDescription.length > 500) {
+      MainButton.setParams({
+        is_active: false, //неизвесетно
+        color: "#2f2f2f",
+        text_color: "#606060",
+      });
+    } else {
+      MainButton.setParams({
+        color: "#2ea5ff",
+        text_color: "#ffffff",
+        is_active: true,
+      });
+    }
+  }, [firstPage.taskDescription, navigate]);
 
-
-  useEffect( () => {
-    var inputs = document.getElementsByTagName('input');
+  useEffect(() => {
+    var inputs = document.getElementsByTagName("input");
     // Проходим по каждому инпуту и удаляем фокус
     for (var i = 0; i < inputs.length; i++) {
       inputs[i].blur();
     }
-  } , [] )
+  }, []);
 
   // eslint-disable-next-line
   const goForward = () => {
     if (blurRef.current) {
       blurRef.current.focus();
     }
-      if (checking()) {
-        mainRef.current.classList.remove('oneBack')
-        mainRef.current.classList.remove('twoBack')
-        if (spet === 0){
-            mainRef.current.classList.add('stepOne')
-        }
-        if (spet === 1){
-          mainRef.current.classList.add('stepTwo')
-        }
-        spet += 1;
-        
-          if (spet === 2 || spet === 3) {
-            MainButton.setText(endText);
-          } else {
-              MainButton.setText(continueText);
-          }
-          if (spet === 3){
-            window.Telegram.WebApp.showPopup({
-              title: create,
-              message: textButton,
-              buttons: [
-                { id: "save", type: "default", text: Yes },
-                { id: "delete", type: "destructive", text: No },
-              ],
-            } , (buttonId) => {
-        
-              if (buttonId === "delete" || buttonId === null) {
-                spet -= 1
-              }
-              if (buttonId === "save") {
-                finish();
-              }
-              
-            } )
-          } 
+    if (checking()) {
+      mainRef.current.classList.remove("oneBack");
+      mainRef.current.classList.remove("twoBack");
+      if (spet === 0) {
+        mainRef.current.classList.add("stepOne");
       }
-      else{
-        window.Telegram.WebApp.HapticFeedback.notificationOccurred("error")
+      if (spet === 1) {
+        mainRef.current.classList.add("stepTwo");
       }
+      spet += 1;
 
-  } 
+      if (spet === 2 || spet === 3) {
+        MainButton.setText(endText);
+      } else {
+        MainButton.setText(continueText);
+      }
+      if (spet === 3) {
+        window.Telegram.WebApp.showPopup(
+          {
+            title: create,
+            message: textButton,
+            buttons: [
+              { id: "save", type: "default", text: Yes },
+              { id: "delete", type: "destructive", text: No },
+            ],
+          },
+          (buttonId) => {
+            if (buttonId === "delete" || buttonId === null) {
+              spet -= 1;
+            }
+            if (buttonId === "save") {
+              finish();
+            }
+          }
+        );
+      }
+    } else {
+      window.Telegram.WebApp.HapticFeedback.notificationOccurred("error");
+    }
+  };
 
   window.Telegram.WebApp.disableVerticalSwipes();
 
   window.Telegram.WebApp.disableVerticalSwipes();
 
   const goBack = useCallback(() => {
-    setError({    name: false,
+    setError({
+      name: false,
       ton: false,
       singleError: false,
       startError: false,
-      endError: false})
-      if (spet === 0) {
-        navigate(-1)
-      } else {
-        if (spet === 1){
-            mainRef.current.classList.remove('stepOne')
-            mainRef.current.classList.remove('stepTwo')
-            mainRef.current.classList.add('oneBack')
-        }
-        if (spet === 2){
-            mainRef.current.classList.remove('stepTwo')
-            mainRef.current.classList.remove('stepOne')
-            mainRef.current.classList.add('twoBack') 
-        }
-        spet -= 1;
-        MainButton.setText(continueText)
+      endError: false,
+    });
+    if (spet === 0) {
+      navigate(-1);
+    } else {
+      if (spet === 1) {
+        mainRef.current.classList.remove("stepOne");
+        mainRef.current.classList.remove("stepTwo");
+        mainRef.current.classList.add("oneBack");
       }
-  } , [ navigate ])
+      if (spet === 2) {
+        mainRef.current.classList.remove("stepTwo");
+        mainRef.current.classList.remove("stepOne");
+        mainRef.current.classList.add("twoBack");
+      }
+      spet -= 1;
+      MainButton.setText(continueText);
+    }
+  }, [navigate]);
 
   const GreyIntWidth = useMemo(() => {
-    if (document.documentElement.clientWidth - 36 > 464){
-      return 232
+    if (document.documentElement.clientWidth - 36 > 464) {
+      return 232;
     }
     return (document.documentElement.clientWidth - 36) / 2;
   }, []);
   const GreyWidth = useMemo(() => {
     return GreyIntWidth.toString() + "px";
   }, [GreyIntWidth]);
-
 
   const [whichOne, setWhichOne] = useState("startOnly");
 
@@ -414,13 +415,13 @@ const AdCreating = () => {
   useEffect(() => {
     MainButton.onClick(goForward);
     BackButton.onClick(goBack);
-  
+
     return () => {
       BackButton.offClick(goBack);
       MainButton.offClick(goForward);
     };
     // eslint-disable-next-line
-  } , [goBack,goForward ]);
+  }, [goBack, goForward]);
 
   useEffect(() => {
     MainButton.show();
@@ -428,42 +429,43 @@ const AdCreating = () => {
     MainButton.setText(continueText);
   }, []);
 
-  const twoPages = useMemo( () => {
-    return (
-      {
-        ton: error.ton,
-        singleError: error.singleError,
-        startError: error.startError,
-        endError: error.endError,
-      }
-    )
-  } , [error] )
+  const twoPages = useMemo(() => {
+    return {
+      ton: error.ton,
+      singleError: error.singleError,
+      startError: error.startError,
+      endError: error.endError,
+    };
+  }, [error]);
 
-
-  useEffect( () => {
+  useEffect(() => {
     return () => {
       MainButton.setParams({
-        color : '#2ea5ff',
-        text_color : '#ffffff',
-        is_active : true
-      })
-    }
-  } , [] )
+        color: "#2ea5ff",
+        text_color: "#ffffff",
+        is_active: true,
+      });
+    };
+  }, []);
 
   return (
-    <motion.div
-      ref={mainRef}
-      className="AdCreating__container"
-    >
+    <motion.div ref={mainRef} className="AdCreating__container">
+      <div
+        onClick={goForward}
+        className="fixed left-1/2 top-[20px] z-50 rounded p-2 border-black border-solid border-2 cursor-pointer"
+      >
+        MAIN BUTTON
+      </div>
+      <div
+        onClick={goForward}
+        className="fixed left-[120vw] top-[20px] z-50 rounded p-2 border-black border-solid border-2 cursor-pointer"
+      >
+        MAIN BUTTON
+      </div>
 
-        <div onClick={goForward} className="fixed left-1/2 top-[20px] z-50 rounded p-2 border-black border-solid border-2 cursor-pointer">
-          MAIN BUTTON
-        </div>
-        <div onClick={goForward} className="fixed left-[120vw] top-[20px] z-50 rounded p-2 border-black border-solid border-2 cursor-pointer">
-          MAIN BUTTON
-        </div>
-
-      {status === "pending" || categorysStatus !== "OK" || subCategorysStatus !== "OK" ? (
+      {status === "pending" ||
+      categorysStatus !== "OK" ||
+      subCategorysStatus !== "OK" ? (
         <>
           <PostLoader />
         </>
@@ -485,17 +487,37 @@ const AdCreating = () => {
             tonConstant={tonConstant}
           />
           <div className="adCreatingThree-wrapper">
-            <CSSTransition timeout={0}
-            in = {spet !== 0}
-            unmountOnExit mountOnEnter>
-              <FirstDetails showButton = {false} navigateBack = {false}   style = {{position : "static" ,  minHeight : "unset" , "height" : "unset", overflowY : "unset" , transform : "translateX(0%)"}} end = {true} orderInformationParam={{...firstPage , ...secondPage , user : me, category : firstPage?.category?.id , whichOne : whichOne } } />
+            <CSSTransition
+              timeout={0}
+              in={spet !== 0}
+              unmountOnExit
+              mountOnEnter
+            >
+              <FirstDetails
+                showButton={false}
+                navigateBack={false}
+                style={{
+                  position: "static",
+                  minHeight: "unset",
+                  height: "unset",
+                  overflowY: "unset",
+                  transform: "translateX(0%)",
+                }}
+                end={true}
+                orderInformationParam={{
+                  ...firstPage,
+                  ...secondPage,
+                  rubleValue: Number(secondPage.budget.replace(/\s+/g, "")),
+                  user: me,
+                  category: firstPage?.category?.id,
+                  whichOne: whichOne,
+                }}
+              />
             </CSSTransition>
             {/* <AdCreatingThree taskInformation={secondPage} /> */}
           </div>
         </>
       )}
-
-
     </motion.div>
   );
 };

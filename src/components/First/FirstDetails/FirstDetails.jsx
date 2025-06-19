@@ -16,6 +16,7 @@ import { showAllert } from "../../../functions/showAlert";
 import { enableColorAndActiveButton } from "../../../functions/enableColorAndActiveButton";
 import { disableColorButton } from "../../../functions/disableColorButton";
 
+// shohButton - это индикатор того является ли это это страничкой при создании или нет
 const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton=true, orderInformationParam = null, ...props }) => {
 
   const disatch = useDispatch();
@@ -46,7 +47,7 @@ const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton
 
 
   useEffect( () => {
-    if (!orderInformation){
+    if (!orderInformation && showButton){
         getAdvertisementById(id)
           .then((advertisement) => {
             disatch(setDetailsAdvertisement(advertisement));
@@ -55,7 +56,7 @@ const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton
             console.warn(err);
           });
     }
-  }, [ id, orderInformation, disatch ] )
+  }, [ id, orderInformation, disatch, showButton ] )
 
   const navigate = useNavigate();
 

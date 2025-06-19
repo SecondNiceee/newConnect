@@ -15,7 +15,7 @@ const taskCreating = createSlice({
       time: { start: new Date(), end: new Date() },
     },
     secondPage: {
-      budget: 0,
+      budget: "0",
       tonValue: 0,
       startTime: new Date(0),
       endTime: new Date(0),
