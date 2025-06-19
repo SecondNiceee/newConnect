@@ -26,8 +26,9 @@ const useIsMyResponse = ({detailsAdertisement}) => {
       },[detailsAdertisement ] )
 
       const isMyTask = useMemo( () => {
+        console.log(detailsAdertisement);
         if (detailsAdertisement){
-            if (String(detailsAdertisement.user.id) === USERID){
+            if (String(detailsAdertisement.user.id) === String(USERID)){
               return true
             }
             return false;
