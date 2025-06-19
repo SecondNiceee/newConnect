@@ -3197,15 +3197,12 @@ input {
 }
 
 .responce-wrapper {
-  min-width: 100vw;
-  width: 100vw;
-  padding-bottom: 16px;
+  padding-bottom: 76px;
   padding-top: 18px;
   padding-left: 16px;
   padding-right: 16px;
   top: 0;
   overflow-y: auto;
-  z-index: 100000;
   -webkit-transition: 0.4s;
   transition: 0.4s;
   background-color: #18222d;

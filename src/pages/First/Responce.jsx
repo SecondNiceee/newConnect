@@ -33,6 +33,8 @@ const Responce = ( ) => {
   const dispatch = useDispatch();
   
   const orderInformation = useSelector( (state) => state.information.detailsAdvertisement );
+
+  console.log(orderInformation);
   const {id} = useParams();
 
   useEffect( () => {
@@ -86,8 +88,6 @@ const Responce = ( ) => {
 
   const navigate = useNavigate();
 
-  const me = useSelector( (state) => state.telegramUserInfo )
-
   const goForward = useCallback( async () => {
     if (responce.text.length < 3){
       showAllert("Ваш отклик пуст")
@@ -98,7 +98,7 @@ const Responce = ( ) => {
       dispatch(addMyLocalResponses({advertisement : {id : orderInformation.id}}))
       navigate(-2);
     }
-  }  , [responce, postResponce, dispatch, me.id, navigate, orderInformation] )
+  }  , [responce, postResponce, dispatch, navigate, orderInformation] )
 
   useEffect( () => {
     MainButton.onClick(goForward)
@@ -116,12 +116,11 @@ const Responce = ( ) => {
   <>
 
     <div className="responce-wrapper">
-
         <div  onClick={goForward} className="fixed left-1/2 top-1/2 rounded p-2 border-black border-solid border-2 cursor-pointer">
           MAIN BUTTON
         </div>
 
-      <Block setSliderOpened={setSlideOpened} setPhotoIndex={setPhotoIndex} setPhotos={setPhotos}  {...orderInformation} />
+      <Block  setSliderOpened={setSlideOpened} task={orderInformation} setPhotoIndex={setPhotoIndex} setPhotos={setPhotos}  {...orderInformation} />
 
       <MakePrivate
         isPrivate={responce.isShablon}

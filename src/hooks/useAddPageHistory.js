@@ -6,5 +6,6 @@ export const useAddPageHistory = () => {
     const location = useLocation();
     useEffect( () => {
         pagesHistory.push(location.pathname);
+        // eslint-disable-next-line
     } , [])
 }

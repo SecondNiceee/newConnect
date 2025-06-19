@@ -24,11 +24,7 @@ import useBlockInputs from "../hooks/useBlockInputs";
 import menuController from "../functions/menuController";
 import { setFirstPage } from "../store/taskCreating";
 
-const textButton = translation("Вы уверены, что хотите создать новое задание?");
-let create = translation("Создать?");
 let spet = 0;
-const Yes = translation("Да");
-const No = translation("Нет");
 const endText = translation("СОЗДАТЬ ЗАДАНИЕ");
 const continueText = translation("ДАЛЕЕ");
 
@@ -214,7 +210,7 @@ const AdCreating = () => {
     }
     window.Telegram.WebApp.HapticFeedback.notificationOccurred("success");
     await dispatch(postMyTask([myFormData, el.photos]));
-    // navigate("/MyAds");
+    navigate("/MyAds");
   }
 
   useEffect(() => {
