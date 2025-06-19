@@ -113,6 +113,7 @@ const BaidgeWithProfile = ({ userInfo, className, setUserInfo, urlParametr}) => 
       <div className={`pt-[16px] w-full  z-50 px-[16px] bg-[#18222d] gap-[16px] flex flex-col  pb-[100px] ${className}`}>
 
         <NewProfileCup
+        userId={userInfo.id}
           canLike={true}
           fl={userInfo.fl}
           isLikeActive={isLikeActive}
