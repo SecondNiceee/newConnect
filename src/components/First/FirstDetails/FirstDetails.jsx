@@ -16,7 +16,7 @@ import { showAllert } from "../../../functions/showAlert";
 import { enableColorAndActiveButton } from "../../../functions/enableColorAndActiveButton";
 import { disableColorButton } from "../../../functions/disableColorButton";
 
-const FirstDetails = ({ end, className,navigateBack = true, showButton=true, orderInformationParam = null, ...props }) => {
+const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton=true, orderInformationParam = null, ...props }) => {
 
   const disatch = useDispatch();
 
@@ -74,9 +74,6 @@ const FirstDetails = ({ end, className,navigateBack = true, showButton=true, ord
   
   const {isMyResponse, isMyTask} = useIsMyResponse({detailsAdertisement : orderInformation});
 
-  console.log(isMyResponse);
-
-  console.log(orderInformation);
 
   useEffect( () => {
     if (isMyResponse && !isSliderOpened){
@@ -106,8 +103,10 @@ const FirstDetails = ({ end, className,navigateBack = true, showButton=true, ord
   }, [id, navigate, isMyResponse, isMyTask, isSliderOpened, setSlideOpened] )
 
   useEffect( () => {
-    menuController.hideMenu();
-  }, [] )
+    if (showButton){
+      menuController.hideMenu();
+    }
+  }, [showButton] )
 
   useEffect( () => {
     if (showButton){

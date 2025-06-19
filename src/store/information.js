@@ -182,7 +182,8 @@ export const fetchMyOrders = createAsyncThunk(
               start: new Date(order.startTime),
               end: new Date(order.endTime),
             },
-            tonValue: order.price,
+            tonValue: order.tonPrice,
+            rubleValue : order.price,
             taskDescription: order.description,
             photos: files,
             photosNames: order.photos,
@@ -293,7 +294,8 @@ export const fetchTasksInformation = createAsyncThunk(
             taskName: order.title,
             executionPlace: "Можно выполнить удаленно",
             time: { start: one, end: two },
-            tonValue: order.price,
+            tonValue: order.tonPrice,
+            rubleValue : order.price,
             taskDescription: order.description,
             photos: files,
             photosName: order.photos,
@@ -343,6 +345,7 @@ const information = createSlice({
       photos: [],
       budget: 0,
       tonValue: 0,
+      rubleValue : 0,
       startTime: "",
       endTime: "",
       singleTime: "",
@@ -424,6 +427,7 @@ const information = createSlice({
           myAd.taskName = changedAd.taskName;
           myAd.taskDescription = changedAd.taskDescription;
           myAd.tonValue = changedAd.tonValue;
+          myAd.rubleValue = changedAd.rubleValue;
           myAd.time = { start: changedAd.time.start, end: changedAd.time.end };
         }
         return myAd;

@@ -1,5 +1,5 @@
 import { memo, useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import Photos from "./FirstMain/Photos";
 import MyAdsTop from "./FirstMain/MyAdsTop";
@@ -9,6 +9,7 @@ import MainBottom from "./FirstMain/MainBottom";
 import { setDetailsAdvertisement } from "../../store/information";
 import { addWatch } from "../../store/watchedAds";
 import { useNavigate } from "react-router";
+import AdvertisementFeatures from "./AdvertisementFeatures/AdvertisementFeatures";
 
 const Block = ({
   className,
@@ -43,8 +44,6 @@ const Block = ({
 
   const dispatch = useDispatch();
 
-  const tonConstant = useSelector((state) => state.ton.value);
-
   const navigate = useNavigate();
 
   const setDetailsActive = () => {
@@ -66,8 +65,6 @@ const Block = ({
   }, [end, endTime, singleTime, time, whichOne]);
 
   
-  
-
   const isFirstDetailsPhotos = (!isMyAds && !isResponce && !isButton) || isFirst // Фотки принадлежат подробнее в первом  первой страничке
 
   return (
@@ -87,6 +84,8 @@ const Block = ({
             photos={photos}
           />
 
+          <AdvertisementFeatures />
+
           <MyAdsTop
             showStatus={showStatus}
             status={status}
@@ -97,6 +96,7 @@ const Block = ({
           />
 
           <FirstMainTop
+            className={"FirstMain__top"}
             isMyAds={isMyAds}
             category={category}
             isWatched={isWatched}
@@ -109,7 +109,6 @@ const Block = ({
 
           <MainBottom
             {...{
-              tonConstant,
               tonValue,
               isMyAds,
               myAdsFunc,

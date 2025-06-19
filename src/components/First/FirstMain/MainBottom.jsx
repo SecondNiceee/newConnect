@@ -5,7 +5,7 @@ import MainBottomRight from './MainBottomRight';
 const MainBottom = ({tonConstant, tonValue, isMyAds, myAdsFunc, isButton, end, id, agree, task, isResponce, setDetailsActive,index, dispatch,deleteFunction}) => {
     return (
         <div className="FirstMain__bottom">
-            <FirstMainBottomLeft tonConstant={tonConstant} tonValue={tonValue} />
+            <FirstMainBottomLeft tonConstant={tonConstant} rublePrice={task.rubleValue} />
             <MainBottomRight 
               tonPrice = {task.rublePrice}
               isMyAds = {isMyAds}
