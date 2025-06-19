@@ -47,7 +47,9 @@ const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton
 
 
   useEffect( () => {
+    alert('1')
     if (!orderInformation && showButton && !orderInformationParam){
+      alert('2')
       if (advertisementId){
         getAdvertisementById(Number(advertisementId))
           .then((advertisement) => {
