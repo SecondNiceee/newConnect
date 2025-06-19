@@ -219,17 +219,14 @@ const AdCreating = () => {
   useEffect(() => {
     if (spet === 2) {
       if (mainRef.current) {
-        mainRef.current.style.height = "100vh";
         mainRef.current.style.paddingBottom = "76px";
       }
     } else {
       if (mainRef.current) {
         if (spet === 1) {
-          mainRef.current.style.height = "100vh";
           mainRef.current.style.paddingBottom = "0px";
         } else {
           mainRef.current.style.paddingBottom = "76px";
-          mainRef.current.style.height = "100%";
         }
       }
     }

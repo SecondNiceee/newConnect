@@ -284,7 +284,7 @@ body::-webkit-scrollbar {
 .First__block .FirstMain__bottom-left {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 2.33px;
 }
 .First__block .FirstMain__bottom-left p {
   /* Default text */

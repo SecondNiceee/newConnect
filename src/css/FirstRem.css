@@ -147,7 +147,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 5px;
+  gap: 2.33px;
 }
 .First__block .FirstMain__bottom-left p {
   /* Default text */
@@ -156,6 +156,7 @@
   font-size: 16.0336px;
   font-weight: 500;
   line-height: normal;
+  gap: 2.33px;
   letter-spacing: 0%;
   text-align: left;
 }
