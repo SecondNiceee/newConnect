@@ -22,7 +22,7 @@ export const getAdvertisementById = async (id) => {
     two = "";
   }
 
-  let files = await makeNewFile(order.folder, order.photos);
+  let files = await makeNewFile( order.photos);
 
   let imTwo = await axios.get(
     `${process.env.REACT_APP_HOST}/advertisement/findCount`,
