@@ -26,7 +26,7 @@ const First = () => {
 useEffect(() => {
   const timer = setTimeout(async () => {
     await hideMainButtonGarant();
-  }, 0);
+  }, 200);
   return () => clearTimeout(timer);
 }, []);
 
