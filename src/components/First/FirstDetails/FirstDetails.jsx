@@ -112,7 +112,18 @@ const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton
         showAllert("Вы не можете откликаться на свои задания")
       }
       else{
-        navigate(`/makeresponse/${id}`)
+        if (advertisementId){
+          navigate(`/makeresponse/${advertisementId}`)
+        }
+        else{
+          if (id){
+            navigate(`/makeresponse/${id}`)
+          }
+          else{
+            alert("Не удалось откликнуться, возможно задание не активно или удалено")
+          }
+        }
+  
       }
     }
   }, [id, navigate, isMyResponse, isMyTask, isSliderOpened, setSlideOpened] )
