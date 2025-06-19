@@ -4,7 +4,7 @@ import { showAllert } from "./showAlert";
 export const shareProfession = (userId, professionName) => async () => {
     const repsonse = await axios.post(`${process.env.REACT_APP_HOST}/bot/sendProfessionMessage` , {
       "language_code" : "ru",
-      "authorId" : userId,
+      "authorId" : Number(userId),
       "professionName" : professionName
     }, {
         headers : {
