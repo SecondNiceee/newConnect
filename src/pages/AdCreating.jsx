@@ -85,6 +85,8 @@ const AdCreating = () => {
 
   console.warn("Рендер AdCreating");
 
+  console.log(subCategorys);
+
   useEffect(() => {
     if (!isCategorysUpdated.current) {
       if (categorys && subCategorys) {
@@ -92,7 +94,7 @@ const AdCreating = () => {
           dispatch(
             setFirstPage({
               category: categorys.find((e) => e.category === "Другое"),
-              subCategory: subCategorys.find((e) => e.subCategory === "Другое"),
+              subCategory: subCategorys.find((e) => e.subCategory === "Другое" && e.category.category === "Другое"),
             })
           );
           isCategorysUpdated.current = true;
