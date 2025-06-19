@@ -32,12 +32,7 @@ const AllTasks = forwardRef(({
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    dispatch(fetchTasksInformation(1));
-    return () => {
-      dispatch(changeStatus(null));
-    };
-  }, [dispatch]);
+
 
   const openCategoryFunc = useCallback( () => {
     navigate('/firstchoicecategory')
@@ -82,7 +77,7 @@ const AllTasks = forwardRef(({
           <InputBlock setValue={setValueFunc} value={String(filters.price)} />
         </div>
 
-      { (orderStatus === 'complete' || orderStatus === 'all') && tonConstant !== 0 ? (
+      {  tonConstant !== 0 ? (
         <>
           <FirstMain
             setPhotos = {setPhotos}

@@ -339,7 +339,7 @@ const information = createSlice({
     baidgeUser : null,
     baidgeCard : null,
     myLocalResponses : [],
-    tasksPage : 2,
+    tasksPage : 1,
     taskInformation: {
       category: { name: "", value: "" },
       subCategory: "Выбрать",

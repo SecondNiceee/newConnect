@@ -16,7 +16,7 @@ import { showAllert } from "../../../functions/showAlert";
 import { enableColorAndActiveButton } from "../../../functions/enableColorAndActiveButton";
 import { disableColorButton } from "../../../functions/disableColorButton";
 
-// shohButton - это индикатор того является ли это это страничкой при создании или нет
+const advertisementId =  window.Telegram.WebApp.initDataUnsafe.start_param?.split('m')[0] || null
 const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton=true, orderInformationParam = null, ...props }) => {
 
   const disatch = useDispatch();
@@ -47,16 +47,27 @@ const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton
 
 
   useEffect( () => {
-    if (!orderInformation && showButton){
-        getAdvertisementById(id)
+    if (!orderInformation && showButton && !orderInformationParam){
+      if (advertisementId){
+        getAdvertisementById(Number(advertisementId))
           .then((advertisement) => {
             disatch(setDetailsAdvertisement(advertisement));
           })
           .catch((err) => {
             console.warn(err);
           });
+      }
+      else{
+          getAdvertisementById(id)
+          .then((advertisement) => {
+            disatch(setDetailsAdvertisement(advertisement));
+          })
+          .catch((err) => {
+            console.warn(err);
+          });
+      }
     }
-  }, [ id, orderInformation, disatch, showButton ] )
+  }, [ id, orderInformation, disatch, showButton, orderInformationParam ] )
 
   const navigate = useNavigate();
 
