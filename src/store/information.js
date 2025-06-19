@@ -233,6 +233,7 @@ export const fetchTasksInformation = createAsyncThunk(
           }
         }
       );
+      console.warn(task.data);
     } catch (e) {
       alert("Сейчас идет обновление, пожалуйста перезайдите через минуту")
       console.log(e);
