@@ -72,7 +72,6 @@ const NewProfile = () => {
     <div className="pt-[16px] px-[16px] w-full bg-[#18222d] gap-[16px] flex flex-col pb-[100px]">
 
       {userInfo.profession ?  <NewProfileCup
-        userId={userInfo.id}
         canLike={false}
         counterOfLikes={userInfo.userLikes.length}
         isLikeActive={false}
@@ -87,7 +86,6 @@ const NewProfile = () => {
         fl={userInfo.fl}
 
       /> : <ProfileCup gotenUserInfo={userInfo} />}
-
 
       <PayBlock />
 
