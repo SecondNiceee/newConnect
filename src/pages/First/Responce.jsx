@@ -16,6 +16,7 @@ import usePostResponse from "./hooks/usePostResponse";
 import menuController from "../../functions/menuController";
 import { getAdvertisementById } from "../../functions/api/getAdvertisemetById";
 import { addMyLocalResponses, setDetailsAdvertisement } from "../../store/information";
+import useAddHistory from "../../hooks/useAddHistory";
 
 
 let myResponse = {
@@ -82,6 +83,8 @@ const Responce = ( ) => {
   useEffect( () => {
     menuController.lowerMenu();
   }, [] )
+
+  useAddHistory();
 
 
   const postResponce = usePostResponse();
