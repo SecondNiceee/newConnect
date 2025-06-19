@@ -328,6 +328,13 @@ const AnimatedSwitch = () => {
                     <FirstDetails isPage={true} />}
               />
 
+
+              <Route
+                path="/FirstDetails"
+                element={
+                    <FirstDetails isPage={true} />}
+              />
+
               <Route
                 path="/Baidge"
                 element={
