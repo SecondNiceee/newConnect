@@ -3,6 +3,7 @@ import { USERID } from "../../../constants/tgStatic.config";
 import { useSelector } from "react-redux";
 
 const useIsMyResponse = ({detailsAdertisement}) => {
+  console.log(detailsAdertisement);
   const myLocalResponses = useSelector((state) => state.information.myLocalResponses);
       const isMyResponse = useMemo( () => {
         if (detailsAdertisement){
@@ -11,7 +12,7 @@ const useIsMyResponse = ({detailsAdertisement}) => {
           }
           if (detailsAdertisement.responces){
             if (detailsAdertisement.responces.find((e) =>
-              String(e.user.id) === USERID))
+              String(e.user.id) === String(USERID)))
             {
               return true
             }
@@ -20,7 +21,6 @@ const useIsMyResponse = ({detailsAdertisement}) => {
             }
           }
         }
-
         return false
         // eslint-disable-next-line
       },[detailsAdertisement ] )

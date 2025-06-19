@@ -78,7 +78,6 @@ export const getAdvertisementById = async (id) => {
     rate: "5",
     isActive: true,
     creationTime: order.createdAt,
-    
     viewsNumber: order.views,
     responces: order.responses,
     status: order.status,

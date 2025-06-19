@@ -27,6 +27,7 @@ const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton
   useAddPageHistory();
 
   const externalOrderInformation = useSelector( (state) => state.information.detailsAdvertisement );
+
   const [orderInformation, setOrderInformation] = useState(null);
 
   useEffect( () => {
@@ -88,9 +89,6 @@ const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton
   }, [showButton, isSliderOpened]);
   
   const {isMyResponse, isMyTask} = useIsMyResponse({detailsAdertisement : orderInformation});
-
-  console.log(isMyResponse, isMyTask)
-
 
   useEffect( () => {
     if ((isMyResponse || isMyTask) && !isSliderOpened){
