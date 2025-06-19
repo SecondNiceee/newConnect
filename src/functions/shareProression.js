@@ -5,8 +5,9 @@ import { USERID } from "../constants/tgStatic.config";
 export const shareProfession = (userId, professionName) => async () => {
     const repsonse = await axios.post(`${process.env.REACT_APP_HOST}/bot/sendProfessionMessage` , {
       "language_code" : "ru",
-      "authorId" : Number(USERID),
-      "professionName" : professionName
+      "authorId" : Number(userId),
+      "professionName" : professionName,
+      "ownerId" : Number(USERID)
     }, {
         headers : {
             "X-API-KEY-AUTH" : process.env.REACT_APP_API_KEY
