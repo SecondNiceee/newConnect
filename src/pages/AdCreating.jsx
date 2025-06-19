@@ -183,7 +183,6 @@ const AdCreating = () => {
     window.Telegram.WebApp.HapticFeedback.notificationOccurred("success");
     console.warn("Дошел до сюда!!!")
     post(localTaskInformation);
-
     spet = 0;
   }
   async function post(el) {

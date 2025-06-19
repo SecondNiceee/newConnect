@@ -97,12 +97,14 @@ export const postMyTask = createAsyncThunk(
 
       for (let i = 0 ; i < 1; i++){
         try{
-          await axios.post(`${process.env.REACT_APP_HOST}/advertisement`, arr[0], {
+          console.warn(arr)
+          const resp = await axios.post(`${process.env.REACT_APP_HOST}/advertisement`, arr[0], {
             headers: {
               "Content-Type" :'multipart/form-data',
               "X-API-KEY-AUTH" : process.env.REACT_APP_API_KEY
             },
           });
+          console.warn(resp);
         }
         catch(e){
           window.Telegram.WebApp.showAlert("Задание не было создано. Попробуйте позже")
