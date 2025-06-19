@@ -1,5 +1,6 @@
 import axios from "axios";
 import { USERID } from "../constants/tgStatic.config";
+import { showAllert } from "./showAlert";
 
 
 export const shareFunction = (id) => async () => {
@@ -12,6 +13,9 @@ export const shareFunction = (id) => async () => {
         }
     })
     const messageId = repsonse.data
-    window.Telegram.WebApp.shareMessage(messageId)
+    window.Telegram.WebApp.shareMessage(messageId).then((result) => {
+      }).catch((error) => {
+        showAllert("Не удалось поделиться.")
+      });
 
 }
