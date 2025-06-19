@@ -23,9 +23,12 @@ const First = () => {
 
   const firstRef = useRef(null);
 
-  useEffect( () => {
-    hideMainButtonGarant();
-  }, [])
+useEffect(() => {
+  const timer = setTimeout(async () => {
+    await hideMainButtonGarant();
+  }, 0);
+  return () => clearTimeout(timer);
+}, []);
 
   useAddHistory();
 
