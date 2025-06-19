@@ -1,4 +1,4 @@
-import  {  memo, useCallback, useEffect, useRef } from "react";
+import  {  memo, useCallback, useEffect, useLayoutEffect, useRef } from "react";
 import FirstBlock from "./FirstBlock";
 import { useDispatch, useSelector } from "react-redux";
 import MyLoader from "../../UI/MyLoader/MyLoader";
@@ -15,6 +15,18 @@ const FirstMain = (
       setPhotos
     }
   ) => {
+
+  useLayoutEffect(() => {
+    const savedScroll = localStorage.getItem('firstScroll');
+    if (savedScroll !== null) {
+      setTimeout(() => {
+        window.scrollTo(0, parseInt(savedScroll, 10));
+      }, 0);
+    }
+    return () => {
+      localStorage.setItem('firstScroll', String(window.scrollY));
+    };
+  }, []);
 
     const dispatch = useDispatch()
 
