@@ -51,7 +51,7 @@ const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton
 
   useEffect( () => {
     if (!orderInformation && showButton && !orderInformationParam){
-      if (advertisementId){
+      if (advertisementId && !id){
         getAdvertisementById(Number(advertisementId))
           .then((advertisement) => {
             disatch(setDetailsAdvertisement(advertisement));
