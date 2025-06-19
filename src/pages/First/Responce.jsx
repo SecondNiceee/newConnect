@@ -13,7 +13,6 @@ import MyLoader from "../../components/UI/MyLoader/MyLoader";
 import CssTransitionSlider from "../../components/UI/PhotosSlider/CssTransitionSlider";
 import { showAllert } from "../../functions/showAlert";
 import usePostResponse from "./hooks/usePostResponse";
-import menuController from "../../functions/menuController";
 import { getAdvertisementById } from "../../functions/api/getAdvertisemetById";
 import { addMyLocalResponses, setDetailsAdvertisement } from "../../store/information";
 import useAddHistory from "../../hooks/useAddHistory";
@@ -80,9 +79,6 @@ const Responce = ( ) => {
     setSlideOpened,
   } = useSlider();
 
-  useEffect( () => {
-    menuController.lowerMenu();
-  }, [] )
 
   useAddHistory();
 
