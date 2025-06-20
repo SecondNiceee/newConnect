@@ -46,7 +46,7 @@ const Block = ({
         return { end: task.endTime };
       }
     }
-  }, [end, task.endTime, task.singleTime, task.time, task.whichOne]);
+  }, [end, task.endTime, task.singleTime, task.time]);
 
   const isFirstDetailsPhotos = (!isMyAds && !isResponce && !isButton) || isFirst // Фотки принадлежат подробнее в первом  первой страничке
 

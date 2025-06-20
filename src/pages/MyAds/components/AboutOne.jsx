@@ -34,7 +34,7 @@ const AboutOne = () => {
         dispatch(setAdvertisement(adv))
       })
     }
-  },[advertisementFormStore, setOrderInformation, dispatch] )
+  },[advertisementFormStore, setOrderInformation, dispatch, advId] )
 
   useEffect(() => {
     if (task && startStatus === "completed") {
@@ -48,7 +48,7 @@ const AboutOne = () => {
 
 
   const deleteFunction = useCallback(
-    (e) => {
+    (id) => {
       window.Telegram.WebApp.showPopup(
         {
           title: translation("Удалить?"),
@@ -62,7 +62,7 @@ const AboutOne = () => {
           if (buttonId === "delete" || buttonId === null) {
           }
           if (buttonId === "save") {
-            dispatch(deleteAd(e.id));
+            dispatch(deleteAd(id));
             navigate(-1);
           }
         }
@@ -111,7 +111,7 @@ const AboutOne = () => {
 
   const openDetails = useCallback(() => {
       navigate(`/changeAdvertisement/${task.id}`)
-  }, [navigate])
+  }, [navigate, task?.id])
 
   if (!task){
     return <MyLoader />
