@@ -185,8 +185,18 @@ const AdCreating = () => {
   }
   async function post(el) {
     console.warn(el);
+    console.log({
+      userId : USERID,
+      title : String(el.taskName.trim()),
+      description : String(el.taskDescription.trim()),
+      views : "0",
+      category : String(el.category.id),
+      subCategory : String(el.subCategory.id),
+      price : String(el.budget.replace(/\s+/g, "")),
+      tonPrice : String(el.tonValue)
+    })
     let myFormData = new FormData();
-    myFormData.append("userId", USERID);
+    myFormData.append("userId", String(USERID));
     myFormData.append("title", String(el.taskName.trim()));
     myFormData.append("description", String(el.taskDescription.trim()));
     myFormData.append("views", "0");
