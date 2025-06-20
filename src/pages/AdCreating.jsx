@@ -212,7 +212,7 @@ const AdCreating = () => {
       myFormData.append("endTime", el.endTime);
     } else {
       myFormData.append("endTime", el.singleTime);
-      // myFormData.append("startTime", "");
+      myFormData.append("startTime", "");
     }
     // myFormData.append("photos", el.photos);
 
