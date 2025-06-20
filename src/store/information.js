@@ -513,6 +513,7 @@ const information = createSlice({
       state.myAdsArray = state.myAdsArray.filter(
         (e) => e.id !== action.payload
       );
+      state.orderInformations = state.orderInformations.filter((e) => e.id !== action.payload);
     });
   },
 });
