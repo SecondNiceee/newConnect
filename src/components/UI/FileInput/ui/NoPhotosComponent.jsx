@@ -42,6 +42,9 @@ const NoPhotosComponent = forwardRef(({ files, imageStyle, addFiles }, ref) => {
       htmlFor="file"
     >
       <input
+        style={{
+          display : "none"
+        }}
         ref={ref}
         onChange={handleFileChange}
         type="file"

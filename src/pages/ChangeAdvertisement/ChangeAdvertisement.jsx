@@ -11,9 +11,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAdvertisement } from "../../store/information";
 import EditAdvertisement from "../AdCreatingOne/ui/AdCreatingOne/EditAdvertisement";
 
-
-
-
 const ChangeAdvertisement = () => {
 
   const { advId } = useParams();

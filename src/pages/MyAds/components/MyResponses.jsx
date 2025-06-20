@@ -1,5 +1,4 @@
-import React, {
-  forwardRef,
+import {
   useCallback,
   useEffect,
   useRef,
@@ -13,10 +12,9 @@ import {  fetchResponses } from "../../../store/responses";
 import MyAnimation from "./MyAnimation";
 import { useNavigate } from "react-router";
 import { setAdvertisement, setResponse } from "../../../store/information";
-const MyResponses = forwardRef(
+const MyResponses = 
   ( 
-    { responsesArr, viewsNumber, setViewsNumber, nowValue , text},
-    ref
+    { responsesArr,text},
   ) => {
     const [page, setPage] = useState(2);
     const orderStatus = useSelector((state) => state.responses.status);
@@ -44,12 +42,6 @@ const MyResponses = forwardRef(
 
     const navigate = useNavigate();
 
-
-
-    // useEffect( () => {
-    //   if (nowValue === "cus")
-    // } , [nowValue] )
-
     useEffect(() => {
       const observer = new IntersectionObserver(onIntersaction);
       if (observer && elementRef.current) {
@@ -75,9 +67,6 @@ const MyResponses = forwardRef(
               }
               return (
                 <ResponseSuspense
-                  
-                  viewsNumber={viewsNumber}
-                  setViewsNumber={setViewsNumber}
                   func={buttonFunction}
                   index={i}
                   buttonText={"МОЙ ОТКЛИК"}
@@ -99,7 +88,6 @@ const MyResponses = forwardRef(
         )}
       </div>
     );
-  }
-);
+  };
 
 export default MyResponses;

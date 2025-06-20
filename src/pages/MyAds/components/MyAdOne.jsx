@@ -1,4 +1,4 @@
-import React, {  memo, useEffect, useMemo, useRef} from "react";
+import {  memo, useEffect, useMemo, useRef} from "react";
 
 import MyAdsBlock from "./MyAdsBlock";
 import PickerContent from "./PickerContent";
@@ -13,9 +13,7 @@ const MyAdOne = ({
   setTwoValue,
   valueTwo ,
   valueOne,
-  setMyResponse,
   responsesArr,
-  
 }) => {
 
   let putStatus = useSelector((state) => state.information.putTaskStatus);
@@ -44,7 +42,6 @@ const MyAdOne = ({
       <MyAdsBlock valueOne = {valueOne} valueTwo = {valueTwo} setOneValue = {setOneValue}  setTwoValue = {setTwoValue} setNowKey={setNowKey} nowValue = {nowValue} greyIntWidth={GreyIntWidth} greyWidth={GreyWidth} deals={1} finishedDeals={"0%"} />
           <PickerContent
           responsesArr = {responsesArr}
-          setMyResponse={setMyResponse}
           nowValue={nowValue}
           valueOne = {valueOne}
           valueTwo = {valueTwo}

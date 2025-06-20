@@ -3,7 +3,7 @@ import cl from "./DescriptionAndPhoto.module.css";
 import GreyText from "../../../components/UI/GreyText/GreyText";
 import TextArea from "../../../components/UI/TextArea/TextArea";
 import translation from "../../../functions/translate";
-import Mm from "../FileInput/Mm";
+import FileInput from "../FileInput/FileInput";
 const DescriptionAndPhoto = ({
   className,
   text,
@@ -83,7 +83,7 @@ const DescriptionAndPhoto = ({
       )}
 
       {isFileInput && (
-        <Mm
+        <FileInput
           clear={clearPhoto}
           fileError={fileError}
           setFiles={setPhotos}

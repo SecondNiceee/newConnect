@@ -92,15 +92,17 @@ const MyAds = () => {
           }
         }
       );
+      console.log(imOne.data);
       const advertisemetCount = imTwo.data
       const responseCount = imOne.data
       if (pagesHistory[pagesHistory.length - 1] === "/AdCreating"){
         setNowKey("customer")
       }
       else{
-
+        console.log(advertisemetCount, responseCount);
         if (advertisemetCount < responseCount){
           setNowKey("freelancer")
+        
         }
         else{
           setNowKey("customer")
@@ -125,7 +127,6 @@ const MyAds = () => {
         <div
           className="MyAdsContainer"
         >
-
           <MyAdOne
           responsesArr = {filteredResponses}
             setOneValue = {setValueOne}
@@ -135,12 +136,8 @@ const MyAds = () => {
             valueOne = {valueOne}
             setNowKey={setNowKey}
             myAdsArray={filteredArray}
-            
           />
-
-
         </div>
-
     </>
   );
 };
