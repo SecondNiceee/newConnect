@@ -186,14 +186,17 @@ const AdCreating = () => {
   async function post(el) {
     console.warn(el);
     console.log({
-      userId : USERID,
+      userId : String(USERID),
       title : String(el.taskName.trim()),
       description : String(el.taskDescription.trim()),
       views : "0",
       category : String(el.category.id),
       subCategory : String(el.subCategory.id),
       price : String(el.budget.replace(/\s+/g, "")),
-      tonPrice : String(el.tonValue)
+      tonPrice : String(el.tonValue),
+      startTime : el.startTime,
+      endTime : el.endTime,
+
     })
     let myFormData = new FormData();
     myFormData.append("userId", String(USERID));
@@ -209,7 +212,7 @@ const AdCreating = () => {
       myFormData.append("endTime", el.endTime);
     } else {
       myFormData.append("endTime", el.singleTime);
-      myFormData.append("startTime", "");
+      // myFormData.append("startTime", "");
     }
     // myFormData.append("photos", el.photos);
 
