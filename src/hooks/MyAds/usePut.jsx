@@ -7,12 +7,10 @@ const usePut = ({details}) => {
   const dispatch = useDispatch();
     const putTask = useCallback( async () => {
 
-        console.log(details);
         let myFormData = new FormData();
         myFormData.append('title' , String(details?.taskName))
         myFormData.append('description' , String(details?.taskDescription))
         myFormData.append("deadline" , String(1))
-        myFormData.append("price" , String(details?.tonValue) )
         myFormData.append("startTime" , details?.time.start)
         myFormData.append("endTime" , details?.time.end)
   

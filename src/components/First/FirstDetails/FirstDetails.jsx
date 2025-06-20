@@ -91,7 +91,7 @@ const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton
   const {isMyResponse, isMyTask} = useIsMyResponse({detailsAdertisement : orderInformation});
 
   useEffect( () => {
-    if ((isMyResponse || isMyTask) && !isSliderOpened){
+    if ((isMyResponse || isMyTask) && !isSliderOpened && showButton){
       disableColorButton();
     }
     return () => {

@@ -60,26 +60,14 @@ export const putMyTask = createAsyncThunk(
             "Content-Type": "multipart/form-data",
             "Access-Control-Allow-Origin": "*",
             "X-API-KEY-AUTH" : process.env.REACT_APP_API_KEY
-            
           },
         }
       );
       let localTask = data[2];
-      let changedFiles = [];
+      localTask.photos = answ.data.photos;
 
-      console.warn(answ);
-
-      for (let i = 0; i < localTask.photos.length; i++) {
-        let file = localTask.photos[i];
-        let blob = file.slice(0, file.size, "image/png");
-        let newFile = new File([blob], answ.data.photos[i], {
-          type: "image/png",
-        });
-        changedFiles.push(newFile);
-      }
-      localTask.photos = changedFiles;
-      localTask.photosNames = answ.data.photos;
-      alert("Закончил")
+      console.log(localTask);
+      
 
       return {...localTask , myAds : true};
     } catch (e) {
@@ -497,6 +485,13 @@ const information = createSlice({
     });
     builder.addCase(putMyTask.fulfilled, (state, action) => {
       state.putTaskStatus = "complete";
+      state.advertisement = action.payload;
+      state.orderInformations = [...state.orderInformations.map((order) => {
+        if (order.id === action.payload.id){
+          return action.payload
+        }
+        return order;
+      } )]
 
       state.myAdsArray = state.myAdsArray.map((e) => {
         if (e.id === action.payload.id) {
