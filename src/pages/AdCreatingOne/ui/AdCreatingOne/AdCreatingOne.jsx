@@ -12,7 +12,6 @@ const AdCreatingOne = ({
     
   const dispatch = useDispatch();
   const setTaskInformation = useCallback((par) => {
-    console.warn(par);
     dispatch(setFirstPage(par))
     }, [dispatch])
 

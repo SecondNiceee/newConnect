@@ -44,6 +44,7 @@ const Mm = ({ className, files, setFiles, fileError, maxFiles = 10, clear = true
         }
       })
     }
+    // eslint-disable-next-line
   }, [files, clear, generatePreviews])
 
   // Resize image function

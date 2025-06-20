@@ -26,8 +26,6 @@ const taskCreating = createSlice({
   },
   reducers : {
     setFirstPage(state, action){
-        
-        console.warn(action.payload);
         state.firstPage = {...state.firstPage, ...action.payload}
     },
     setSecondPage(state, action){

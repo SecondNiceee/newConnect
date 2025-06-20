@@ -99,6 +99,8 @@ else{
 
 const min = new Date(new Date().addHours(1) + 1);
 
+
+// Тут приходит значение которуе нужно склеить, а не нормальный state
 const EditAdvertisement = ({
   MyInformation,
   className,
@@ -108,8 +110,6 @@ const EditAdvertisement = ({
   setTaskInformation,
   ...props
 }) => {
-
-  // const taskInformation = useSelector(state => state.taskCreating.firstPage);
 
   const [state, setState] = useState({
     time: new Date().addHours(1),
@@ -200,13 +200,6 @@ const EditAdvertisement = ({
     dateObject.style.transition = "0.3s";
     datePickerObject.style.transition = "0.3s";
   }
-
-  // useEffect( () => {
-  //   document.documentElement.style.overflowY = "auto"
-  //   return () => {
-  //     document.documentElement.style.overflowY = "hidden"
-  //   }
-  // } , [] )
 
   useEffect(() => {
     function appear() {
