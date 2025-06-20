@@ -27,7 +27,7 @@ const taskCreating = createSlice({
   reducers : {
     setFirstPage(state, action){
         
-        console.warn('Вызов этого сэттера')
+        console.warn(action.payload);
         state.firstPage = {...state.firstPage, ...action.payload}
     },
     setSecondPage(state, action){

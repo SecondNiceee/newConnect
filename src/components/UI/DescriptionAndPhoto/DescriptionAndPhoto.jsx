@@ -1,9 +1,9 @@
 import { memo, useEffect, useMemo, useRef } from "react";
 import cl from "./DescriptionAndPhoto.module.css";
 import GreyText from "../../../components/UI/GreyText/GreyText";
-import FileInput from "../../../components/UI/FileInput/FileInput";
 import TextArea from "../../../components/UI/TextArea/TextArea";
 import translation from "../../../functions/translate";
+import Mm from "../FileInput/Mm";
 const DescriptionAndPhoto = ({
   className,
   text,
@@ -25,7 +25,7 @@ const DescriptionAndPhoto = ({
 }) => {
   const hiddenRef = useRef(null);
   const myRef = useRef(null);
-
+  
   useEffect(() => {
     if (myRef.current)
     myRef.current.style.height =
@@ -83,11 +83,12 @@ const DescriptionAndPhoto = ({
       )}
 
       {isFileInput && (
-        <FileInput
+        <Mm
           clear={clearPhoto}
           fileError={fileError}
           setFiles={setPhotos}
           files={photos}
+  
           className={
             MyInformation
               ? [cl.FileInput, cl.marginTop].join(" ")

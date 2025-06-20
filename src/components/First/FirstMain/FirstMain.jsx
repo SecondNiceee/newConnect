@@ -68,6 +68,7 @@ const FirstMain = (
           ordersInformation.map((e, i) => {
             return (
               <FirstBlock
+                
                 isFirst={true}
                 setPhotos={setPhotos}
                 setPhotoIndex={setPhotoIndex}

@@ -1,39 +1,54 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import useGetAdvertisement from "../../hooks/api/useGetAdvertisement";
-import AdCreatingOne from "../AdCreatingOne/ui/AdCreatingOne/AdCreatingOne";
+import AdCreatingOne from "../AdCreatingOne/ui/AdCreatingOne/EditAdvertisement";
 import MyLoader from "../../components/UI/MyLoader/MyLoader";
 import MainButton from "../../constants/MainButton";
 import usePut from "../../hooks/MyAds/usePut";
 import checkMistakes from "./utils/checkMistakes";
 import menuController from "../../functions/menuController";
 import useNavigateBack from "../../hooks/useNavigateBack";
+import { getAdvertisementById } from "../../functions/api/getAdvertisemetById";
+import { useDispatch, useSelector } from "react-redux";
+import { setAdvertisement } from "../../store/information";
+import EditAdvertisement from "../AdCreatingOne/ui/AdCreatingOne/EditAdvertisement";
+
 
 const ChangeAdvertisement = () => {
+
   const { advId } = useParams();
 
-  const { advertisementStatus, orderInformation } = useGetAdvertisement({
-    id: advId,
-  });
+  const advertisementFormStore = useSelector(state => state.information.advertisement);
 
-  const [changeedAdvertisement, setChangedAdvertisement] = useState();
+  const dispatch = useDispatch();
+  
+  const [orderInformation, setOrderInformation] = useState();
 
-  const putTask = usePut({ details: changeedAdvertisement });
+
+  const putTask = usePut({ details: orderInformation });
 
   const navigate = useNavigate();
 
   const goForward = useCallback(async () => {
-    if (checkMistakes(changeedAdvertisement)) {
+    if (checkMistakes(orderInformation)) {
       await putTask();
       navigate(-1);
     }
-  }, [putTask, changeedAdvertisement, navigate]);
+  }, [putTask, orderInformation, navigate]);
 
   useEffect(() => {
-    if (advertisementStatus === "fullfiled") {
-      setChangedAdvertisement(orderInformation);
+    async function setAdvertisementAsync() {
+        if (advertisementFormStore){
+            setOrderInformation(advertisementFormStore)
+            dispatch(setAdvertisement(advertisementFormStore))
+        }
+        else{
+            const advertisement = await getAdvertisementById(advId);
+            dispatch(setAdvertisement(advertisement))
+            setOrderInformation(advertisement)
+        }
     }
-  }, [advertisementStatus, orderInformation]);
+    setAdvertisementAsync();
+  }, [advId, advertisementFormStore, dispatch]);
 
   useNavigateBack({});
 
@@ -49,14 +64,18 @@ const ChangeAdvertisement = () => {
     };
   }, [goForward]);
 
+
   useEffect(() => {
     menuController.lowerMenu();
   }, []);
 
+  const changeAdvertisement = useCallback( (par) => {
+    console.warn(par);
+    setOrderInformation(( value ) => ({...value ,...par}))
+  }, [] )
+
   if (
-    advertisementStatus === "pending" ||
-    advertisementStatus === "rejected" ||
-    !changeedAdvertisement
+    !orderInformation
   ) {
     return <MyLoader />;
   }
@@ -68,18 +87,20 @@ const ChangeAdvertisement = () => {
       >
         MAIN BUTTON
       </div>
-      <AdCreatingOne
-        style={{
+      <EditAdvertisement 
+      style={{
           paddingBottom: "74px",
         }}
         mistakes={{
           taskName: false,
         }}
-        className="AdCreatingMy"
-        taskInformation={changeedAdvertisement}
-        setTaskInformation={setChangedAdvertisement}
+
+        taskInformation={orderInformation}
+        setTaskInformation={changeAdvertisement}
         MyInformation={true}
-      />
+
+        />
+      
     </>
   );
 };
