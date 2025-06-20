@@ -8,30 +8,20 @@ import FirstMainMiddle from "./FirstMain/FirstMainMiddle";
 import MainBottom from "./FirstMain/MainBottom";
 import AdvertisementFeatures from "./AdvertisementFeatures/AdvertisementFeatures";
 
+let counter = 0;
 const Block = ({
   className,
-  taskName,
-  time,
   end = false,
   isButton,
-  photos,
   isMyAds,
   deleteFunction,
   myAdsFunc,
   isResponce,
   isWatched,
   index,
-  id,
-  tonValue,
   task,
   agree = false,
-  responseCounter,
-  viewsNumber,
-  category,
-  endTime,
-  singleTime,
   whichOne,
-  status,
   showStatus = false,
   setPhotoIndex,
   setPhotos,
@@ -40,26 +30,29 @@ const Block = ({
   setDetailsActive
 }) => {
 
+  console.warn("Рендер блока" + counter);
+  counter += 1
+
   const dispatch = useDispatch();
 
 
   const timing = useMemo(() => {
     if (!end) {
-      return time;
+      return task.time;
     } else {
       if (whichOne === "startOnly") {
-        return { end: singleTime };
+        return { end: task.singleTime };
       } else {
-        return { end: endTime };
+        return { end: task.endTime };
       }
     }
-  }, [end, endTime, singleTime, time, whichOne]);
+  }, [end, task.endTime, task.singleTime, task.time, task.whichOne]);
 
   const isFirstDetailsPhotos = (!isMyAds && !isResponce && !isButton) || isFirst // Фотки принадлежат подробнее в первом  первой страничке
 
   return (
     <>
-      {photos && (
+      {task.photos && (
         <div
           className={
             className ? ["First__block", className].join(" ") : "First__block"
@@ -71,27 +64,27 @@ const Block = ({
             setPhotoIndex={setPhotoIndex}
             setPhotos={setPhotos}
             setSliderOpened={setSliderOpened}
-            photos={photos}
+            photos={task.photos}
           />
 
           <AdvertisementFeatures />
 
           <MyAdsTop
             showStatus={showStatus}
-            status={status}
+            status={task.status}
             isMyAds={isMyAds}
             isResponce={isResponce}
-            viewsNumber={viewsNumber}
-            responseCounter={responseCounter}
+            viewsNumber={task.viewsNumber}
+            responseCounter={task.responseCounter}
           />
 
           <FirstMainTop
             className={"FirstMain__top"}
             isMyAds={isMyAds}
-            category={category}
+            category={task.category}
             isWatched={isWatched}
-            taskName={taskName}
-            id={id}
+            taskName={task.taskName}
+            id={task.id}
             end={end}
           />
 
@@ -99,12 +92,12 @@ const Block = ({
 
           <MainBottom
             {...{
-              tonValue,
+              tonValue  : task.tonValue,
               isMyAds,
               myAdsFunc,
               isButton,
               end,
-              id,
+              id : task.id,
               agree,
               task,
               isResponce,

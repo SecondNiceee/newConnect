@@ -68,7 +68,6 @@ const FirstMain = (
           ordersInformation.map((e, i) => {
             return (
               <FirstBlock
-                
                 isFirst={true}
                 setPhotos={setPhotos}
                 setPhotoIndex={setPhotoIndex}
@@ -77,7 +76,6 @@ const FirstMain = (
                 isWatched={watchedArr.includes(e.id) ? true : false}
                 key={i}
                 task={e}
-                {...e}
                 isButton={true}
               />
             );

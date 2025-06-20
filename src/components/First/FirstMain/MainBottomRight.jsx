@@ -43,7 +43,7 @@ const MainBottomRight = ({
         id={id}
       />
 
-      <QFour isResponce={isResponce} deleteFunction={deleteFunction} isButton={isButton} setDetailsActive={setDetailsActive} />
+      <QFour id = {id} isResponce={isResponce} deleteFunction={deleteFunction} isButton={isButton} setDetailsActive={setDetailsActive} />
     </div>
   );
 };

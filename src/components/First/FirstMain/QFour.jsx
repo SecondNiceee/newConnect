@@ -1,14 +1,14 @@
 import React, { memo } from "react";
 import MyButton from "../../UI/MyButton/MyButton";
 
-const QFour = ({isResponce, deleteFunction, isButton, setDetailsActive}) => {
+const QFour = ({isResponce, deleteFunction, id, isButton, setDetailsActive}) => {
   return (
     <>
       {isResponce ? (
         <>
           <svg
             id="myTrash"
-            onClick={deleteFunction}
+            onClick={() => deleteFunction(id)}
             className="my-trash"
             width="16"
             height="19"

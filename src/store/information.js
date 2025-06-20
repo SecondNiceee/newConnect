@@ -32,7 +32,7 @@ export const deleteAd = createAsyncThunk(
     try {
       await axios.delete(`${process.env.REACT_APP_HOST}/advertisement`, {
         params: {
-          id: id,
+          id: String(id),
         },
         headers : {
           "X-API-KEY-AUTH" : process.env.REACT_APP_API_KEY

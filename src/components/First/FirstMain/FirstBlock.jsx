@@ -7,8 +7,6 @@ import { addWatch } from "../../../store/watchedAds";
 
 const FirstBlock = ({
   className,
-  taskName,
-  time,
   end = false,
   category,
   isButton,
@@ -26,39 +24,39 @@ const FirstBlock = ({
   agree = false,
   setPhotoIndex,
   setPhotos,
-  isFirst
- }) => {
+  isFirst,
+}) => {
   const props = {
     className: className,
-    taskName: taskName,
-    time: time,
     end: end,
     isButton: isButton,
-    photos: photos,
     isMyAds: isMyAds,
     deleteFunction: deleteFunction,
     myAdsFunc: myAdsFunc,
     isResponce: isResponce,
     isWatched: isWatched,
     index: index,
-    id: id,
     setSlideActive: setSlideActive,
-    tonValue: tonValue,
     task: task,
     agree: agree,
-    category : category,
-    isFirst : isFirst
+    isFirst: isFirst,
   };
-; 
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const setDetailsActive = () => {
-    navigate(`/FirstDetails/${id}`)
+    navigate(`/FirstDetails/${id}`);
     dispatch(setDetailsAdvertisement(task));
     dispatch(addWatch(task.id));
-  }
+  };
   return (
-        <Block setDetailsActive={setDetailsActive} setSliderOpened={setSlideActive} setPhotos={setPhotos} setPhotoIndex={setPhotoIndex} {...props} photos={ photos} />
+    <Block
+      setDetailsActive={setDetailsActive}
+      setSliderOpened={setSlideActive}
+      setPhotos={setPhotos}
+      setPhotoIndex={setPhotoIndex}
+      {...props}
+      photos={photos}
+    />
   );
 };
 

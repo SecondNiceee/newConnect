@@ -16,7 +16,6 @@ import { deleteAd, setAdvertisement } from "../../../store/information";
 import useNavigateBack from "../../../hooks/useNavigateBack";
 import { getAdvertisementById } from "../../../functions/api/getAdvertisemetById";
 
-const showStatus = true;
 const AboutOne = () => {
   const responces = useSelector((state) => state.responses.responsesByA);
   const startStatus = useSelector((state) => state.responses.startStatus);
@@ -110,9 +109,9 @@ const AboutOne = () => {
   useNavigateBack({isSliderOpened, setSlideOpened})
 
 
-  const openDetails = () => {
+  const openDetails = useCallback(() => {
       navigate(`/changeAdvertisement/${task.id}`)
-  }
+  }, [navigate])
 
   if (!task){
     return <MyLoader />
@@ -131,7 +130,7 @@ const AboutOne = () => {
             setPhotos={setPhotos}
             setSliderOpened={setSlideOpened}
             setPhotoIndex={setPhotoIndex}
-            showStatus={showStatus}
+            showStatus={true}
             deleteFunction={deleteFunction}
             setDetailsActive={openDetails}
             isResponce={
@@ -141,7 +140,6 @@ const AboutOne = () => {
               task.status !== "inProcess" && task.status !== "completed"
             }
             className={"FirstAdsBlock"}
-            {...task}
           />
         ) : (
           <MyLoader
