@@ -21,28 +21,31 @@ const ChangeAdvertisement = () => {
   
   const [orderInformation, setOrderInformation] = useState();
 
-
   const putTask = usePut({ details: orderInformation });
+
+  console.log(orderInformation);
 
   const navigate = useNavigate();
 
   const goForward = useCallback(async () => {
     if (checkMistakes(orderInformation)) {
       await putTask();
+      dispatch(setAdvertisement(orderInformation));
+      
       navigate(-1);
     }
-  }, [putTask, orderInformation, navigate]);
+  }, [putTask, orderInformation, navigate, dispatch]);
 
   useEffect(() => {
     async function setAdvertisementAsync() {
         if (advertisementFormStore){
-            setOrderInformation(advertisementFormStore)
+            setOrderInformation({...advertisementFormStore, myAds : true})
             dispatch(setAdvertisement(advertisementFormStore))
         }
         else{
             const advertisement = await getAdvertisementById(advId);
             dispatch(setAdvertisement(advertisement))
-            setOrderInformation(advertisement)
+            setOrderInformation({...advertisement, myAds : true  })
         }
     }
     setAdvertisementAsync();

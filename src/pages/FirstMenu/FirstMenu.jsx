@@ -8,9 +8,6 @@ import { setChanger } from "../../store/menuSlice";
 const FirstMenu = forwardRef(({...props} , ref) => {
   const dispatch = useDispatch();
 
-  const isMenuActive = useSelector((state) => state.menuSlice.value);
-
-
   const location = useLocation();
 
   const me = useSelector((state) => state.telegramUserInfo);

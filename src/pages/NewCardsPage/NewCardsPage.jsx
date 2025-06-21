@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { CardsFilterEnum } from "./enums/CardsFilterEnum";
 import { useSelector } from "react-redux";
 import MyLoader from "../../components/UI/MyLoader/MyLoader";
-import MyAnimation from "../MyAds/components/MyAnimation";
 import CardsPageBody from "./CardsPageBody";
 import useSlider from "../../hooks/useSlider";
 import CssTransitionSlider from "../../components/UI/PhotosSlider/CssTransitionSlider";

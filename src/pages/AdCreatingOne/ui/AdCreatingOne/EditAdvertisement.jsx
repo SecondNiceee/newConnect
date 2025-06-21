@@ -227,7 +227,6 @@ const EditAdvertisement = ({
 
   console.warn(taskInformation);
 
-
   const setTextDescription = useCallback( (e) => {    
       setTaskInformation( {taskDescription : e} )
 

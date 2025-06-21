@@ -486,6 +486,12 @@ const information = createSlice({
     builder.addCase(putMyTask.fulfilled, (state, action) => {
       state.putTaskStatus = "complete";
       state.advertisement = action.payload;
+      state.myAdsArray = [...state.myAdsArray.map( (order) => {
+        if (order.id === action.payload.id){
+          return action.payload
+        }
+        return order;
+      } )]
       state.orderInformations = [...state.orderInformations.map((order) => {
         if (order.id === action.payload.id){
           return action.payload

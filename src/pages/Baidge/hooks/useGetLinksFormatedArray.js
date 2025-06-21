@@ -1,260 +1,207 @@
+const useGetLinksFormatedArray = ({ links, isFirstMyLink }) => {
+  const notRecognisedLinks = [];
 
-const useGetLinksFormatedArray = ({links, isFirstMyLink}) => {
+  // Список платформ с паттернами и метаданными
+  const platformMatchers = [
+    {
+      pattern: "https://t.me/", 
+      title: "Мой Telegram",
+      profession: (link) => "@" + link.split("/").pop(),
+      formatLink: (link) => link,
+    },
+    {
+      pattern: "https://www.behance.net/", 
+      title: "Behance",
+      profession: "Портфолио",
+    },
+    {
+      pattern: "https://dribbble.com", 
+      title: "Dribbble",
+      profession: "Портфолио",
+    },
+    {
+      pattern: "https://www.artstation.com", 
+      title: "ArtStation",
+      profession: "Портфолио",
+    },
+    {
+      pattern: "https://www.deviantart.com", 
+      title: "DeviantArt",
+      profession: "Портфолио",
+    },
+    {
+      pattern: "https://ru.pinterest.com", 
+      title: "Pinterest",
+      profession: "Портфолио",
+    },
+    {
+      pattern: "https://github.com/", 
+      title: "GitHub",
+      profession: "Код и разработка",
+    },
+    {
+      pattern: "https://gitlab.com", 
+      title: "GitLab",
+      profession: "Код и разработка",
+    },
+    {
+      pattern: "https://codepen.io", 
+      title: "CodePen",
+      profession: "Код и разработка",
+    },
+    {
+      pattern: "https://replit.com", 
+      title: "Replit",
+      profession: "Код и разработка",
+    },
+    {
+      pattern: "https://www.youtube.com", 
+      title: "YouTube",
+      profession: "Видео и ролики",
+    },
+    {
+      pattern: "https://vimeo.com", 
+      title: "Vimeo",
+      profession: "Видео и ролики",
+    },
+    {
+      pattern: "https://www.tiktok.com", 
+      title: "TikTok",
+      profession: "Видео и ролики",
+    },
+    {
+      pattern: "https://www.instagram.com", 
+      title: "Instagram",
+      profession: "Соц.сети",
+    },
+    {
+      pattern: "https://www.linkedin.com", 
+      title: "LinkedIn",
+      profession: "Опыт и резюме",
+    },
+    {
+      pattern: "https://hh.ru", 
+      title: "HH",
+      profession: "Опыт и резюме",
+    },
+    {
+      pattern: "https://www.notion.com", 
+      title: "Notion",
+      profession: "Портфолио",
+    },
+    {
+      pattern: "https://tilda.cc", 
+      title: "Tilda",
+      profession: "Веб-сайт",
+    },
+    {
+      pattern: "https://readymag.com", 
+      title: "Readymag",
+      profession: "Веб-сайт",
+    },
+    {
+      pattern: "https://webflow.com", 
+      title: "Webflow",
+      profession: "Веб-сайт",
+    },
+    {
+      pattern: "https://www.framer.com", 
+      title: "Framer",
+      profession: "Веб-сайт",
+    },
+    {
+      pattern: "https://www.figma.com/", 
+      title: "Figma",
+      profession: "Веб-дизайн",
+    },
+  ];
 
-    const notRecognisedLinks = []
+  // Инициализируем массив для найденных платформ
+  const matchedLinks = {};
 
-    const tgName = isFirstMyLink ? "@" + links[0]  : ""
+  // Обрабатываем каждую ссылку
+  for (let i = (isFirstMyLink ? 1 : 0); i < (links?.length || 0); i++) {
+    const link = links[i];
+    let isRecognized = false;
 
-    let dribbleLink = null;
-    let behanceLink = null;
-    let artstationLink = null;
-    let deviantartLink = null;
-    let pinterestLink = null;
-    let githubLink = null;
-    let gitlabLink = null;
-    let bitbucketLink = null;
-    let codepenLink = null;
-    let replitLink = null;
-    let youtubeLink = null;
-    let vimeoLink = null;
-    let tiktokLink = null;
-    let instagramLink = null;
-    let telegramChannelLink = null;
-    let linkedinLink = null;
-    let hhRuLink = null;
-    let notionLink = null;
-    let tildaLink = null;
-    let readymagLink = null;
-    let webflowLink = null;
-    let framerLink = null;
-    let figmaLink = null;
-    
-    for (let i = isFirstMyLink ? 1 : 0; i < links?.length; i++){
-        let isRecognisedLink = false;
-
-        if (links[i].includes("https://t.me/")){
-            telegramChannelLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes("https://www.behance.net/")){
-            behanceLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes("https://dribbble.com")){
-            dribbleLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes("https://www.artstation.com")){
-            artstationLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes("https://www.deviantart.com")){
-            deviantartLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes("https://ru.pinterest.com")){
-            pinterestLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes("https://github.com/")){
-            githubLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes("https://gitlab.com")){
-            gitlabLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes("https://codepen.io")){
-            codepenLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes("https://replit.com")){
-            replitLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes("https://www.youtube.com")){
-            youtubeLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes("https://vimeo.com")){
-            vimeoLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes("https://www.tiktok.com")){
-            tiktokLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes('https://www.instagram.com')){
-            instagramLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes('https://www.linkedin.com')){
-            linkedinLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes('https://hh.ru')){
-            hhRuLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes('https://www.notion.com')){
-            notionLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes('https://tilda.cc')){
-            tildaLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes('https://readymag.com')){
-            readymagLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes('https://webflow.com')){
-            webflowLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes('https://www.framer.com')){
-            framerLink = links[i]
-            isRecognisedLink = true;
-        }
-        if (links[i].includes('https://www.figma.com/')){
-            figmaLink = links[i]
-            isRecognisedLink = true;
-        }
-
-        if (!isRecognisedLink){
-            notRecognisedLinks.push({
-                title : "Сайт",
-                profession : links[i],
-                link : links[i]
-            })
-        }
+    for (const platform of platformMatchers) {
+      if (link.includes(platform.pattern)) {
+        matchedLinks[platform.title] = {
+          title: platform.title,
+          profession: platform.profession instanceof Function ? platform.profession(link) : platform.profession,
+          link: platform.formatLink ? platform.formatLink(link) : link,
+        };
+        isRecognized = true;
+        break;
+      }
     }
-    
-    const linksArray = [
-        {
-            title : "Мой Telegram",
-            profession : tgName,
-            link : `https://t.me/${tgName.slice(1)}`,
-        },
-        {
-            title : "HH",
-            profession : "Опыт и резюме",
-            link : hhRuLink
-        },
-        {
-            title : "Telegram-канал",
-            profession : telegramChannelLink ? "@" + telegramChannelLink.split("/").pop() : '',
-            link : telegramChannelLink,
-        },
-        {
-            title : "Behance",
-            profession : "Портфолио",
-            link : behanceLink,
-        },
-        {
-            title : "ArtStation",
-            profession : "Портфолио",
-            link : artstationLink
-        },
-        {
-            title : "Dribbble",
-            profession  : "Портфолио",
-            link : dribbleLink
-        },
-        {
-            title : "DeviantArt",
-            profession : "Портфолио",
-            link : deviantartLink
-        },
-        {
-            title : "Pinterest",
-            profession : "Портфолио",
-            link : pinterestLink
-        },
-        {
-            title : "Notion",
-            profession : "Портфолио",
-            link : notionLink
-        },
-        {
-            title : "GitLab",
-            profession : "Код и разработка",
-            link : gitlabLink
-        },
-        {
-            title : "GitHub",
-            profession : "Код и разработка",
-            link : githubLink
-        },
-        {
-            title : "Bitbucket",
-            profession : "Код и разработка",
-            link : bitbucketLink
-        },
-        {
-            title : "CodePen",
-            profession : "Код и разработка",
-            link : codepenLink
-        },
-        {
-            title : "Replit",
-            profession : "Код и разработка",
-            link : replitLink
-        },
-        {
-            title : "YouTube",
-            profession : "Видео и ролики",
-            link : youtubeLink,
-        },
-        {
-            title : "Vimeo",
-            profession : "Видео и ролики",
-            link : vimeoLink
-        },
-        {
-            title : "TikTok",
-            profession : "Видео и ролики",
-            link : tiktokLink
-        },
-        {
-            title : "Instagram",
-            profession : "Соц.ceти",
-            link : instagramLink
-        },
-        {
-            title : "LinkedIn",
-            profession : "Опыт и резюме",
-            link : linkedinLink
-        },
-        {
-            title : "Tilda",
-            profession : "Веб-сайт",
-            link : tildaLink
-        },
-        {
-            title : "Readymag",
-            profession : "Веб-сайт",
-            link : readymagLink
-        },
-        {
-            title : "Webflow",
-            profession : "Веб-сайт",
-            link : webflowLink 
-        },
-        {
-            title : "Framer",
-            profession : "Веб-сайт",
-            link : framerLink
-        },
-        {
-            title : "Figma",
-            profession : "Веб-дизайн",
-            link : figmaLink
-        },
-        ...notRecognisedLinks
-    ]
 
-    return linksArray;
+    if (!isRecognized) {
+      notRecognisedLinks.push({
+        title: "Сайт",
+        profession: link,
+        link: link,
+      });
+    }
+  }
+
+  // Формируем итоговый массив в нужном порядке
+  const orderedPlatforms = [
+    "Мой Telegram",
+    "HH",
+    "Telegram-канал",
+    "Behance",
+    "ArtStation",
+    "Dribbble",
+    "DeviantArt",
+    "Pinterest",
+    "Notion",
+    "GitLab",
+    "GitHub",
+    "Bitbucket",
+    "CodePen",
+    "Replit",
+    "YouTube",
+    "Vimeo",
+    "TikTok",
+    "Instagram",
+    "LinkedIn",
+    "Tilda",
+    "Readymag",
+    "Webflow",
+    "Framer",
+    "Figma",
+  ];
+
+  const specialCases = [];
+
+  if (isFirstMyLink && links[0]) {
+    specialCases.push({
+      title: "Мой Telegram",
+      profession: "@" + links[0],
+      link: "https://t.me/"  + links[0],
+    });
+  }
+
+  if (matchedLinks["Telegram-канал"] || links.some((l) => l.includes("https://t.me/")))  {
+    const channelLink = matchedLinks["Telegram-канал"]?.link || links.find((l) => l.includes("https://t.me/")); 
+    specialCases.push({
+      title: "Telegram-канал",
+      profession: "@" + (channelLink?.split("/").pop() || ""),
+      link: channelLink,
+    });
+  }
+
+  // Формируем итоговый массив
+  const result = [
+    ...specialCases,
+    ...orderedPlatforms
+      .filter(title => matchedLinks[title])
+      .map(title => matchedLinks[title]),
+    ...notRecognisedLinks,
+  ];
+
+  return result;
 };
 
 export default useGetLinksFormatedArray;

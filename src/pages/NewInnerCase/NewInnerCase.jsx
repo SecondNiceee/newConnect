@@ -81,7 +81,7 @@ const NewInnerCase = () => {
         if (String(me?.id) !== String(userInfo?.id)){
             addWatches();
         }
-    }, [me, userInfo] )
+    }, [me, userInfo, addWatches] )
 
     useEffect( () => {
 

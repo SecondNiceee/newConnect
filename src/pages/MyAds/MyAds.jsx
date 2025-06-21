@@ -64,7 +64,6 @@ const MyAds = () => {
     }
   } , [myAdsArray , valueTwo] )
 
-
   const [nowValue , setNowKey] = useState("customer")
 
   useEffect( () => {

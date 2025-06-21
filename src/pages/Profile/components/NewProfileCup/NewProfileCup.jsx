@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import NitcheRating from '../NitcheRating/NitcheRating';
 import Profession from '../Profession/Profession';
 import ProfileUserIcon from '../ProfileUserIcon/ProfileUserIcon';
@@ -13,6 +13,7 @@ import CommonRating from '../CommonRating/CommonRating';
 import "./new-profile-cup.css";
 import NitcheIcon from '../NitcheIcon/NitcheIcon';
 import CommonIcon from '../CommonIcon/CommonIcon';
+import { useScreenshot } from 'use-react-screenshot'
 
 const NewProfileCup = ({
   profession,
@@ -29,12 +30,16 @@ const NewProfileCup = ({
   userId,
   fl
 }) => {
+
+  const ref = useRef(null);
   const navigate = useNavigate();
   const editIconClickHandler = ( ) => {
     softVibration();
     navigate("/BaidgeCreating")
   }
   const [shownRating, setShownRating] = useState('common');
+
+
   useEffect( () => {
     if (commonRating <= 3){
 
@@ -54,13 +59,22 @@ const NewProfileCup = ({
     }
     window.Telegram.WebApp.HapticFeedback.selectionChanged();
   }
+
+  const [image, takeScreenshot] = useScreenshot()
+
+  console.log(image);
+  const getImage = () => takeScreenshot(ref.current)
     return (
-        <div  className="flex py-[17px] pb-[14px] px-[19px] flex-col gap-[13px] bg-[#20303f] rounded-[13px] ">
+        <div ref={ref}  className="flex py-[17px] pb-[14px] px-[19px] flex-col gap-[13px] bg-[#20303f] rounded-[13px] ">
+        <button onClick={getImage} className="text-white underline">
+          Сделать скриншот
+        </button>
         <div className="flex w-[100%]">
             <div onClick={switchShownRating} className='relative flex gap-2'>
               <ProfileUserIcon photoUrl={photoUrl}  />
               {shownRating === "nitche" ? <NitcheIcon nitchRating={positionOfNitcheRating} /> : <CommonIcon commonRating={commonRating} />}
             </div>
+
             
             {shownRating === "common" ? <CommonRating onClick={switchShownRating} commonRating={commonRating} /> : <NitcheRating onClick={switchShownRating}  nitcheRating={positionOfNitcheRating} />}
             <ProfilesCounterOfWatches onClick={switchShownRating} watchesCounter={profileWatches} />
