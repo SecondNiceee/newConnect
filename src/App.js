@@ -327,6 +327,16 @@ const AnimatedSwitch = () => {
 
 
               <Route
+                path="/BaidgeChanging"
+                element={
+                  <Suspense fallback={<MyLoader />}>
+                    <BaidgeCreating isChanging = {true} />
+                  </Suspense>
+                }
+              />
+
+
+              <Route
                 path="/FirstDetails/:id"
                 element={
                     <FirstDetails isPage={true} />}

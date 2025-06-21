@@ -15,7 +15,7 @@ import useAddHistory from "../../hooks/useAddHistory";
 import { fetchCommonRating } from "../../store/telegramUserInfo/thunks/fetchCommonRating";
 import { fetchRatingByProfession } from "../../store/telegramUserInfo/thunks/fetchRatingByProfession";
 
-const BaidgeCreating = () => {
+const BaidgeCreating = ({isChanging = false}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -84,8 +84,8 @@ const BaidgeCreating = () => {
     taggsError: false});
 
   useEffect(() => {
-    baidgeButtonController.controlText({ step, me });
-  }, [step, me]);
+    baidgeButtonController.controlText({ step, me, isChanging });
+  }, [step, me, isChanging]);
 
   useAddHistory();
 

@@ -35,8 +35,9 @@ const NewProfileCup = ({
   const navigate = useNavigate();
   const editIconClickHandler = ( ) => {
     softVibration();
-    navigate("/BaidgeCreating")
+    navigate("/BaidgeChanging")
   }
+  
   const [shownRating, setShownRating] = useState('common');
 
   const me = useSelector( (state) => state.telegramUserInfo );
