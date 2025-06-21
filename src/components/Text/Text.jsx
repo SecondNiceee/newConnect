@@ -18,7 +18,7 @@ i18n
   });
 
 const Text = forwardRef(({ children, className = {},  ...props} , ref) => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     return (
         <p className={className} ref={ref} {...props}>{t(String(children))}</p>
     );

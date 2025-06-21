@@ -20,8 +20,7 @@ import {
   fetchSavedResponses,
 } from "../../../store/saves";
 import Text from "../../Text/Text";
-import CssTransitionSlider from "../../UI/PhotosSlider/CssTransitionSlider";
-import useSlider from "../../../hooks/useSlider";
+
 
 const ChoicerInfo = forwardRef(
   (
@@ -126,7 +125,7 @@ const ChoicerInfo = forwardRef(
             />
           );
         });
-    }, [arr, navigate, openFunc, setDetails, setResponce]);
+    }, [arr, navigate, openFunc, setDetails, setPhotos, setPhotoIndex, setSlideOpened, setViewsNumber,setResponce]);
 
     const elementRef = useRef(null);
     const dispatch = useDispatch();
@@ -167,7 +166,7 @@ const ChoicerInfo = forwardRef(
           getMore();
         }
       },
-      [allStatus, getMore, orderStatus]
+      [getMore, orderStatus]
     );
 
     useEffect(() => {
