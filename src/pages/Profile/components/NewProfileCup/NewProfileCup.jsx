@@ -14,6 +14,7 @@ import "./new-profile-cup.css";
 import NitcheIcon from '../NitcheIcon/NitcheIcon';
 import CommonIcon from '../CommonIcon/CommonIcon';
 import { useSelector } from 'react-redux';
+import MyLoader from '../../../../components/UI/MyLoader/MyLoader';
 
 const NewProfileCup = ({
   profession,
@@ -37,19 +38,19 @@ const NewProfileCup = ({
     softVibration();
     navigate("/BaidgeChanging")
   }
-  
+
   const [shownRating, setShownRating] = useState('common');
 
   const me = useSelector( (state) => state.telegramUserInfo );
 
-
   useEffect( () => {
-    if (commonRating <= 3){
-
-    }
-    else if (commonRating && positionOfNitcheRating){
-      if (commonRating > positionOfNitcheRating ){
-        setShownRating('nitche');
+    if (commonRating && positionOfNitcheRating){
+      if (commonRating <= 3){
+      }
+      else if (commonRating && positionOfNitcheRating){
+        if (commonRating > positionOfNitcheRating ){
+          setShownRating('nitche');
+        }
       }
     }
   }, [commonRating, positionOfNitcheRating] );
@@ -62,7 +63,9 @@ const NewProfileCup = ({
     }
     window.Telegram.WebApp.HapticFeedback.selectionChanged();
   }
-
+    if (!positionOfNitcheRating || !commonRating){
+      return <MyLoader />
+    }
     return (
         <div ref={ref}  className="flex py-[17px] pb-[14px] px-[19px] flex-col gap-[13px] bg-[#20303f] rounded-[13px] ">
         <div className="flex w-[100%]">
@@ -71,7 +74,7 @@ const NewProfileCup = ({
               {shownRating === "nitche" ? <NitcheIcon nitchRating={positionOfNitcheRating} /> : <CommonIcon commonRating={commonRating} />}
             </div>
 
-            
+
             {shownRating === "common" ? <CommonRating onClick={switchShownRating} commonRating={commonRating} /> : <NitcheRating onClick={switchShownRating}  nitcheRating={positionOfNitcheRating} />}
             <ProfilesCounterOfWatches onClick={switchShownRating} watchesCounter={profileWatches} />
           <div className="h-[100%] ml-auto flex flex-col gap-[8px]">  
