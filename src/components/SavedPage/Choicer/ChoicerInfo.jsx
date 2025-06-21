@@ -125,7 +125,7 @@ const ChoicerInfo = forwardRef(
             />
           );
         });
-    }, [arr, navigate, openFunc, setDetails, setPhotos, setPhotoIndex, setSlideOpened, setViewsNumber,setResponce]);
+    }, [arr, navigate, openFunc, viewsNumber, setDetails, setPhotos, setPhotoIndex, setSlideOpened, setViewsNumber,setResponce]);
 
     const elementRef = useRef(null);
     const dispatch = useDispatch();

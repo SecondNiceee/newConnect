@@ -11,7 +11,7 @@ const SuspenseBlock = ({i , e}) => {
     const setDetailsActive = useCallback( () => {
         dispatch(setAdvertisement(e));
         navigate(`/advertisementResponses/${e.id}`);
-    }, [dispatch, navigate] )
+    }, [dispatch, navigate, e] )
     return (
         <Block task={e} isButton={true} setDetailsActive={setDetailsActive} />
         // <Block e={e} i={i}/>

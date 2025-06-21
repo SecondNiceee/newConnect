@@ -97,7 +97,7 @@ const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton
     return () => {
       enableColorAndActiveButton();
     }
-  }, [isMyResponse, isSliderOpened, isMyTask] )
+  }, [isMyResponse, isSliderOpened, isMyTask, showButton] )
 
   const goForward = useCallback( () => {
     if (isSliderOpened){

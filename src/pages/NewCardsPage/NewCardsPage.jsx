@@ -115,7 +115,6 @@ const NewCardsPage = () => {
 
   if (postState === "pending" || putState === "pending" || !userInfo) {
     return <MyLoader />;
-    
   }
 
   return (
