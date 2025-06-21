@@ -67,4 +67,4 @@ class BaidgeButtonController{
     }
 }
 
-export default new BaidgeButtonController();
+export const baidgeButtonController =  new BaidgeButtonController();

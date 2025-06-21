@@ -5,7 +5,7 @@ import MyLoader from "../../components/UI/MyLoader/MyLoader";
 import BaidgeCreaitingOne from "./BaidgeCreaitingOne";
 import BaidgeCreatingTwo from "./BaidgeCreatingTwo";
 import { useNavigate } from "react-router";
-import BaidgeButtonConroller from "./hooks/BaidgeButton.conroller";
+import { baidgeButtonController } from "./hooks/BaidgeButton.conroller";
 import MainButton from "../../constants/MainButton";
 import BackButton from "../../constants/BackButton";
 import menuController from "../../functions/menuController";
@@ -84,7 +84,7 @@ const BaidgeCreating = () => {
     taggsError: false});
 
   useEffect(() => {
-    BaidgeButtonConroller.controlText({ step, me });
+    baidgeButtonController.controlText({ step, me });
   }, [step, me]);
 
   useAddHistory();
@@ -106,7 +106,7 @@ const BaidgeCreating = () => {
   }, [description, links, taggs]);
 
   useEffect(() => {
-    BaidgeButtonConroller.controlVisability({ errors, isCategoryOpen, isProfessionOpened, step });
+    baidgeButtonController.controlVisability({ errors, isCategoryOpen, isProfessionOpened, step });
   }, [errors, isCategoryOpen, isProfessionOpened, step]);
 
   
@@ -126,7 +126,7 @@ const BaidgeCreating = () => {
         navigate("/Baidge")
   }
 
-  const goFoward = BaidgeButtonConroller.forwardFunction({
+  const goFoward = baidgeButtonController.forwardFunction({
     setStep,
     step,
     isCategoryOpen,
@@ -139,7 +139,7 @@ const BaidgeCreating = () => {
     postBaidge
   });
   useEffect(() => {
-    const goBack = BaidgeButtonConroller.backFunction({
+    const goBack = baidgeButtonController.backFunction({
       navigate,
       step,
       setStep,

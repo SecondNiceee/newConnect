@@ -2,8 +2,6 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { setUser } from "../../../store/information";
 import { useMemo } from "react";
-import FeedBacksInfo from "../components/FeedBacksInfo";
-
 const useGetBaidgeOprionsConfig = ({userInfo}) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();

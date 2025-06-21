@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTonConnectUI } from "@tonconnect/ui-react";
 import { useCallback, useEffect, useState } from "react";
 import {Address} from "@ton/core";
