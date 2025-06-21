@@ -48,7 +48,7 @@ const useTonConnection = () => {
         unsubscribe()
        }
   
-    }, [tonConnectUI, handleWalletConnection, handleWalletConnection] );
+    }, [tonConnectUI, handleWalletConnection, handleWalletDisconnection] );
   
   
     const handleWalletAction = async () => {

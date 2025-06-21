@@ -53,7 +53,6 @@ const TextAboutMe = ({
       const words = testText.split(" ")
       if (words.length > 1 && mid < text.length) {
         // Проверяем, не обрезали ли мы слово посередине
-        const nextChar = text[mid]
         const lastWord = words[words.length - 1]
         const fullWordInOriginal = text.substring(mid - lastWord.length, mid + 10).split(" ")[0]
 

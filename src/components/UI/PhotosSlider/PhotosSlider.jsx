@@ -6,7 +6,6 @@ import BackButton from '../../../constants/BackButton';
 import { enableColorAndActiveButton } from '../../../functions/enableColorAndActiveButton';
 
 let overflowYValue;
-let previousText = "";
 const PhotosSlider = forwardRef(({ swiperId, renderMap, className, sliderIndex,  blockerId, blockerAll, setSliderOpened, left = 0, top = 0 }, ref) => {
     useEffect( () => {
         const closeSlider = () => {
