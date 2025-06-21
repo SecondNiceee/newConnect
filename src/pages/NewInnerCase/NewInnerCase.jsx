@@ -147,19 +147,22 @@ const NewInnerCase = () => {
             MainButton.setText("Закрыть")
         }
         else{
-            if (userInfo?.id === me?.id){
-                MainButton.setText("Изменить")
-                SecondatyButton.show()
-                SecondatyButton.setText("Удалить")
-                SecondatyButton.setParams({
-                    position : "left",
-                    color : "#462424",
-                    text_color : "#FF4646"
-                })
-            }
-            else{
-                MainButton.setText("Назад")
-                SecondatyButton.hide();
+            if (userInfo?.id && me?.id){
+
+                if (userInfo?.id === me?.id){
+                    MainButton.setText("Изменить")
+                    SecondatyButton.show()
+                    SecondatyButton.setText("Удалить")
+                    SecondatyButton.setParams({
+                        position : "left",
+                        color : "#462424",
+                        text_color : "#FF4646"
+                    })
+                }
+                else{
+                    MainButton.setText("Назад")
+                    SecondatyButton.hide();
+                }
             }
         }
 
