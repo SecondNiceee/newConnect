@@ -57,6 +57,7 @@ const Block = ({
           }
         >
           <Photos
+            end = {end}
             isResponse = {isResponce}
             isFirstDetailsPhotos = {isFirstDetailsPhotos}
             setPhotoIndex={setPhotoIndex}

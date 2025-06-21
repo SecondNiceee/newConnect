@@ -1,6 +1,6 @@
 import React, { memo, useMemo, } from "react";
 
-const Photos = ({ photos, onClick = () => {}, isResponse, isFirstDetailsPhotos, setPhotoIndex,
+const Photos = ({ photos, onClick = () => {}, isResponse, end = false,  isFirstDetailsPhotos, setPhotoIndex,
 setPhotos,
 setSliderOpened, }) => {
     const style = useMemo( () => {
@@ -32,7 +32,7 @@ setSliderOpened, }) => {
               <img
                 onClick={clickHandler(i)}
                 key={i}
-                src={e}
+                src={end ? URL.createObjectURL(e) : e}
                 style={style}
                 className="first__photo"
                 alt=""
