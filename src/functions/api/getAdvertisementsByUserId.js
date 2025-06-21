@@ -86,7 +86,6 @@ export const getAdvertisementsByUserId = async (user, page, limit = 1) => {
             subCategory : order.subCategory.id
           });
         }
-        console.warn(tasks);
         return tasks;
     }
     catch(e){

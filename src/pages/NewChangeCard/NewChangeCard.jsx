@@ -16,18 +16,6 @@ import { postCard } from '../../store/telegramUserInfo/thunks/postCard';
 import { putCard } from '../../store/telegramUserInfo/thunks/putCard';
 
 
-
-// id : e.id,
-// title : e.title,
-// description : e.description,
-// // behanceLink : e.behance,
-// // dribbbleLink : e.dribble,
-// // dropfileLink : e.dropFile,
-// photosNames : e.photos,
-// photos : files,
-// createdAt : e.createdAt,
-// views : e.views,
-// links : e.links
 const NewChangeCard = ({isNewCard}) => {
 
     const dispatch = useDispatch();

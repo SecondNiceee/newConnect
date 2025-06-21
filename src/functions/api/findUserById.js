@@ -6,7 +6,6 @@ export const findUserById = async (id) => {
     
     try {
         let user;
-        console.warn("Обновлено")
         try{
             const some = await axios.get(`${process.env.REACT_APP_HOST}/bot/sendProfessionMessage`, 
                 {

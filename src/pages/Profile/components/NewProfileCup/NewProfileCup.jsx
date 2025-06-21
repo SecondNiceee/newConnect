@@ -13,7 +13,7 @@ import CommonRating from '../CommonRating/CommonRating';
 import "./new-profile-cup.css";
 import NitcheIcon from '../NitcheIcon/NitcheIcon';
 import CommonIcon from '../CommonIcon/CommonIcon';
-import { useScreenshot } from 'use-react-screenshot'
+import { useSelector } from 'react-redux';
 
 const NewProfileCup = ({
   profession,
@@ -39,6 +39,8 @@ const NewProfileCup = ({
   }
   const [shownRating, setShownRating] = useState('common');
 
+  const me = useSelector( (state) => state.telegramUserInfo.me );
+
 
   useEffect( () => {
     if (commonRating <= 3){
@@ -60,15 +62,8 @@ const NewProfileCup = ({
     window.Telegram.WebApp.HapticFeedback.selectionChanged();
   }
 
-  const [image, takeScreenshot] = useScreenshot()
-
-  console.log(image);
-  const getImage = () => takeScreenshot(ref.current)
     return (
         <div ref={ref}  className="flex py-[17px] pb-[14px] px-[19px] flex-col gap-[13px] bg-[#20303f] rounded-[13px] ">
-        <button onClick={getImage} className="text-white underline">
-          Сделать скриншот
-        </button>
         <div className="flex w-[100%]">
             <div onClick={switchShownRating} className='relative flex gap-2'>
               <ProfileUserIcon photoUrl={photoUrl}  />
@@ -80,7 +75,7 @@ const NewProfileCup = ({
             <ProfilesCounterOfWatches onClick={switchShownRating} watchesCounter={profileWatches} />
           <div className="h-[100%] ml-auto flex flex-col gap-[8px]">  
             <NewProfileShareIcon userId={userId}  professionName={profession.profession}  />
-            {!isBaidge && <EditIcon onClick={editIconClickHandler} />} 
+            {!isBaidge && me.id === userId && <EditIcon onClick={editIconClickHandler} />} 
           </div>
         </div>
         <div onClick={switchShownRating}  className="flex relative z-20 justify-between ">

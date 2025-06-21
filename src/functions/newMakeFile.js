@@ -1,5 +1,4 @@
 const urlToObject= async(url , nam)=> {
-    console.log(url);
     const response = await fetch(url);
     // here image is url/location of image
     const blob = await response.blob();

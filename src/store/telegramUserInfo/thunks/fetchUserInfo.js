@@ -4,6 +4,8 @@ import { USERID } from "../../../constants/tgStatic.config";
 export const fetchUserInfo = createAsyncThunk(
   "telegramUserInfo/fetchUserInfo",
   async function () {
-    return await findUserById(USERID);
+    const user =  await findUserById(USERID);
+    console.warn(user);
+    return user;
   }
 );

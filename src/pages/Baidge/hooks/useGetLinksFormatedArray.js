@@ -3,7 +3,6 @@ const useGetLinksFormatedArray = ({links, isFirstMyLink}) => {
 
     const notRecognisedLinks = []
 
-    const readyLinks = [];
 
     const tgName = isFirstMyLink ? "@" + links[0]  : ""
     let dribbleLink = null;

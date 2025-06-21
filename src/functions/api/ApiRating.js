@@ -12,7 +12,6 @@ class ApiRating{
                     "X-API-KEY-AUTH" : process.env.REACT_APP_API_KEY,
                     },
             })
-            console.log(response.data);
             return response.data;
         }
         catch(e){

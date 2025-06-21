@@ -120,8 +120,6 @@ const FileInput = ({ className, files, setFiles, fileError, maxFiles = 10, clear
             processedFiles.push(file)
           }
         }
-        console.warn("Добавляю файлы : ", processedFiles);
-
         setFiles([...files, ...processedFiles])
       } catch (error) {
         console.error("Error processing files:", error)
@@ -134,7 +132,6 @@ const FileInput = ({ className, files, setFiles, fileError, maxFiles = 10, clear
     },
     [files, setFiles, maxFiles, resizeImage],
   )
-
 
   // Remove file
   const removeFile = useCallback(
@@ -179,8 +176,6 @@ const FileInput = ({ className, files, setFiles, fileError, maxFiles = 10, clear
     }
     return {}
   }, [files])
-
-  console.warn(files);
 
   return (
     <>

@@ -11,6 +11,7 @@ import MainButton from "../../constants/MainButton";
 import useNavigateBack from "../../hooks/useNavigateBack";
 import { enableColorAndActiveButton } from "../../functions/enableColorAndActiveButton";
 import NoCards from "./components/NoCards";
+import useAddHistory from "../../hooks/useAddHistory";
 
 const NewCardsPage = () => {
 
@@ -48,9 +49,6 @@ const NewCardsPage = () => {
   },[navigate, isSliderOpened, setSlideOpened] )
 
   console.log(filter);
-
-
-
 
   const BackFunction = useCallback( () => {
     if (!isSliderOpened){
@@ -112,6 +110,8 @@ const NewCardsPage = () => {
   }, [filter, cards] )
 
   console.log(postState, putState, userInfo)
+  
+  useAddHistory();
 
   if (postState === "pending" || putState === "pending" || !userInfo) {
     return <MyLoader />;
@@ -119,8 +119,11 @@ const NewCardsPage = () => {
 
   return (
     <>
+    <div onClick={createCard} className="fixed left-1/2 z-50 top-1/2 rounded p-2 border-black border-solid border-2 cursor-pointer">
+      MAIN BUTTON
+    </div>
 
-    <div className="pt-[16px] z-20 fixed left-0 top-0 w-screen h-screen overflow-y-auto px-[16px] bg-[#18222d] flex flex-col pb-[20px]">
+    <div className="pt-[16px] z-20 left-0 top-0 w-full  px-[16px] bg-[#18222d] flex flex-col pb-[20px]">
       {!cards.length ? (
         <NoCards />
       ) : (

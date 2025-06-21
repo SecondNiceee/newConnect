@@ -8,7 +8,6 @@ const usePut = ({details}) => {
     const putTask = useCallback( async () => {
 
         let myFormData = new FormData();
-        console.log(details);
         myFormData.append('title' , String(details?.taskName))
         myFormData.append('description' , String(details?.taskDescription))
         myFormData.append("deadline" , String(1))

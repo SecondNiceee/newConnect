@@ -97,7 +97,7 @@ const telegramUserInfo = createSlice({
         state.ratingByProfession = action.payload;
     })
     builder.addCase(fetchUserInfo.fulfilled, (state, action) => {
-      
+      console.warn({...state.profile , about : action.payload.about, stage : action.payload.stage === null ? '0' : action.payload.stage});
       state.lastTransaction = action.payload.lastTransaction
       state.id = action.payload.id;
       state.firstName = action.payload.firstName;
@@ -105,14 +105,13 @@ const telegramUserInfo = createSlice({
       state.lastName = action.payload.lastName;
       state.photo = action.payload.photo ? action.payload.photo : "";
       state.profile = {...state.profile , about : action.payload.about, stage : action.payload.stage === null ? '0' : action.payload.stage};
-      state.profile.cards = action.payload.cards;
+      state.profile.cards = action.payload.profile.cards;
       state.profile.userId = action.payload.id
       state.completedTasks = action.payload.completedTasks
       state.deals = action.payload.deals
       state.mnemonic = action.payload.mnemonic
       state.address = action.payload.address
       state.createdAt = action.payload.createdAt
-      state.profile.cards.sort((a, b) => a.id - b.id)
       state.congradulations = action.payload.address
       state.congratulate = action.payload.congratulate
       state.state = "yes";

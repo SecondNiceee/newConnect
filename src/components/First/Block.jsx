@@ -29,8 +29,6 @@ const Block = ({
   isFirst,
   setDetailsActive
 }) => {
-
-  console.warn("Рендер блока" + counter);
   counter += 1
 
   const dispatch = useDispatch();

@@ -4,12 +4,14 @@ import { USERID } from "../../../constants/tgStatic.config";
 export const postCard = createAsyncThunk(
     "telegramUserInfo/postUserInfo",
     async function (data){
-        console.warn(data[2]);
+        console.warn(data);
+
+        alert("Привет")
         try{
             let im = await axios.post(`${process.env.REACT_APP_HOST}/card` , data[0] , 
                 {
                     params : {
-                        userId : USERID,
+                        userId : Number(USERID),
                     },
                     headers: {
                         "Content-Type" :'multipart/form-data',

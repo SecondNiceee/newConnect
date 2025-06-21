@@ -23,12 +23,16 @@ import { SecondatyButton } from '../../constants/SecondaryButton';
 import { enableColorAndActiveButton } from '../../functions/enableColorAndActiveButton';
 import axios from 'axios';
 import formatViews from './utils/formatViews';
+import useAddHistory from '../../hooks/useAddHistory';
 
 const NewInnerCase = () => {
     const clickFunc = () => {
         console.log('Делюсь кейсом')
         
     }
+
+    useAddHistory();
+
     const {userId, cardId} = useParams();
     
     const [userInfo, setUserInfo] = useState(null);

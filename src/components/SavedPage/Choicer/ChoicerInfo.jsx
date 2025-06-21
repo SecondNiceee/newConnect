@@ -43,8 +43,6 @@ const ChoicerInfo = forwardRef(
     const cardStatus = useSelector((state) => state.saves.cardsStatus);
     const responsesStatus = useSelector((state) => state.saves.reponsesStatus);
 
-    console.log(arr);
-
     const allStatus = useMemo(() => {
       switch (navigate) {
         case "task":

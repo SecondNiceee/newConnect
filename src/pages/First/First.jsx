@@ -51,6 +51,9 @@ useEffect(() => {
 
   const secFilteredArray = useFilteredArray({ filteredArr, filters });
 
+  const me = useSelector( (state) => state.telegramUserInfo );
+  console.warn(me);
+
   const {
     isSliderOpened,
     photoIndex,
