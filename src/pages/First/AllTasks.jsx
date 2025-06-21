@@ -90,7 +90,6 @@ const AllTasks = forwardRef(({
       ) : (
         <FirstLoader  />
       )}
-
     </div>
   );
 } );

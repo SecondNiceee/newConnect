@@ -39,7 +39,7 @@ const NewProfileCup = ({
   }
   const [shownRating, setShownRating] = useState('common');
 
-  const me = useSelector( (state) => state.telegramUserInfo.me );
+  const me = useSelector( (state) => state.telegramUserInfo );
 
 
   useEffect( () => {
