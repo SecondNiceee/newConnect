@@ -10,7 +10,9 @@ const PhotosSlider = forwardRef(({ swiperId, renderMap, className, sliderIndex, 
     useEffect( () => {
         const el = document.querySelector('.connect-header');
         el.style.display = "none";
-
+        return () => {
+            el.style.display = "flex";
+        }
     }, [] )
     useEffect( () => {
         const closeSlider = () => {
@@ -128,7 +130,7 @@ const PhotosSlider = forwardRef(({ swiperId, renderMap, className, sliderIndex, 
             left : left,
             top : top ? top : scrollPosition + "px"
         }}>
-            <p className='font-sf-pro-display text-[16px] translate-y-[60px] text-white'>{activeIndex + 1}/{numberOfPhotos}</p>
+            <p className='font-sf-pro-display text-[18.56px] translate-y-[57px] text-white'>{activeIndex + 1}/{numberOfPhotos}</p>
             <Swiper className='w-[100%] h-[100%]' id={`main-${swiperId}`}
                     initialSlide={sliderIndex}
                     slidesPerView={1}
