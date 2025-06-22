@@ -130,7 +130,7 @@ const PhotosSlider = forwardRef(({ swiperId, renderMap, className, sliderIndex, 
             left : left,
             top : top ? top : scrollPosition + "px"
         }}>
-            <p className='font-sf-pro-display text-[18.56px] translate-y-[57px] text-white'>{activeIndex + 1}/{numberOfPhotos}</p>
+            <p className='font-sf-pro-display text-[18.56px] translate-y-[57px] text-white relative z-[999]'>{activeIndex + 1}/{numberOfPhotos}</p>
             <Swiper className='w-[100%] h-[100%]' id={`main-${swiperId}`}
                     initialSlide={sliderIndex}
                     slidesPerView={1}
