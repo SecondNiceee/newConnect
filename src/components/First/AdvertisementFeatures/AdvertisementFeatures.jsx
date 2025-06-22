@@ -3,6 +3,8 @@ import "./AdvertisementFeatures.css";
 const AdvertisementFeatures = ({isOutSide = true, isUrgently = true, isWarranty = true}) => {
     const features = getFeatureConfig({isOutSide, isUrgently, isWarranty});
     return (
+        <>
+        {features.length > 0 && (
         <div className="features-container">
             {features.map( (feature) => (
                 
@@ -11,6 +13,8 @@ const AdvertisementFeatures = ({isOutSide = true, isUrgently = true, isWarranty 
             </div>
             ) )}
         </div>  
+        )}
+        </>
     );
 };
 
