@@ -8,7 +8,6 @@ import FirstMainMiddle from "./FirstMain/FirstMainMiddle";
 import MainBottom from "./FirstMain/MainBottom";
 import AdvertisementFeatures from "./AdvertisementFeatures/AdvertisementFeatures";
 
-let counter = 0;
 const Block = ({
   className,
   end = false,
@@ -29,8 +28,6 @@ const Block = ({
   isFirst,
   setDetailsActive
 }) => {
-  counter += 1
-
   const dispatch = useDispatch();
 
 

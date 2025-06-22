@@ -114,7 +114,7 @@ const BaidgeCreating = ({isChanging = false}) => {
   const postBaidge = async () => {
         
         await dispatch(putUserInfo([{
-            links : links,
+            links : links.filter( (tag) => tag.length ),
             taggs : taggs.filter( (tag) => tag.length ),
             profession : categoryInformation.profession.id,
             about : description

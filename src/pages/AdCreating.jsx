@@ -23,9 +23,6 @@ import { USERID } from "../constants/tgStatic.config";
 import useBlockInputs from "../hooks/useBlockInputs";
 import menuController from "../functions/menuController";
 import { setFirstPage } from "../store/taskCreating";
-import CssTransitionSlider from "../components/UI/PhotosSlider/CssTransitionSlider";
-import useSlider from "../hooks/useSlider";
-
 let spet = 0;
 const endText = translation("СОЗДАТЬ ЗАДАНИЕ");
 const continueText = translation("ДАЛЕЕ");
