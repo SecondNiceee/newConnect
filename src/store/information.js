@@ -161,7 +161,7 @@ export const fetchMyOrders = createAsyncThunk(
           tasks.push({
             isOutSide : order.isOutSide,
             isUrgently : order.isUrgently,
-            isWarrantly : order.isWarrantly,
+            isWarranty : order.isWarranty,
             id: order.id,
             taskName: order.title,
             executionPlace: "Можно выполнить удаленно",
@@ -279,7 +279,7 @@ export const fetchTasksInformation = createAsyncThunk(
           tasks.push({
             isOutSide : order.isOutSide,
             isUrgently : order.isUrgently,
-            isWarrantly : order.isWarrantly,
+            isWarranty : order.isWarranty,
             id: order.id,
             taskName: order.title,
             executionPlace: "Можно выполнить удаленно",
