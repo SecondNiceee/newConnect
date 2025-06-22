@@ -8,7 +8,9 @@ const AddLinksComponent = ({links, setLinks}) => {
             showAllert("Максимум 5 ссылок")
         }
         else{
-            setLinks((value) => ([...value, ""]))
+            if (!(links[links.length-1] === "")){
+                setLinks((value) => ([...value, ""]))
+            }
         }
     } 
 
