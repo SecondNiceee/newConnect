@@ -10,9 +10,9 @@ const CommonIcon = ({commonRating}) => {
         }
         if (commonRating < 51 && commonRating > 3){
             
-            return (<div className="relative">
+            return (<div className="rating-icon">
                 <p className={"rating-icon__text"}>{commonRating}</p>
-            <img alt="rating-icon" className={'rating-icon'} src={"/images/common-top1-50.svg"} />
+            <img alt="rating-icon" className={''} src={"/images/common-top1-50.svg"} />
             </div>) 
         }
         return null;

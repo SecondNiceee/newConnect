@@ -3,5 +3,5 @@
 }
 
 .rating-icon__text{
-    @apply z-30 absolute bottom-[-25px] left-1/2 -translate-x-1/2 leading-[55px] font-sf-pro-display-700 text-[17px] text-[#21303F];
+    @apply z-30 absolute bottom-[-12.5px] left-1/2 -translate-x-1/2 leading-[55px] font-sf-pro-display-700 text-[17px] text-[#21303F];
 }
