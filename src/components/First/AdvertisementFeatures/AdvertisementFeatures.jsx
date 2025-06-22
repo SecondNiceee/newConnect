@@ -1,7 +1,5 @@
-import { getFeatureConfig } from "./AdvertisementFeatures.config";
 import "./AdvertisementFeatures.css";
-const AdvertisementFeatures = ({isOutSide = true, isUrgently = true, isWarranty = true}) => {
-    const features = getFeatureConfig({isOutSide, isUrgently, isWarranty});
+const AdvertisementFeatures = (features) => {
     return (
         <>
         {features.length > 0 && (

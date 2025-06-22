@@ -7,6 +7,7 @@ import FirstMainTop from "./FirstMain/FirstMainTop";
 import FirstMainMiddle from "./FirstMain/FirstMainMiddle";
 import MainBottom from "./FirstMain/MainBottom";
 import AdvertisementFeatures from "./AdvertisementFeatures/AdvertisementFeatures";
+import { getFeatureConfig } from "./AdvertisementFeatures/AdvertisementFeatures.config";
 
 const Block = ({
   className,
@@ -47,6 +48,9 @@ const Block = ({
 
   const isFirstDetailsPhotos = (!isMyAds && !isResponce && !isButton) || isFirst // Фотки принадлежат подробнее в первом  первой страничке
 
+  const features = getFeatureConfig({isOutSide : task.isOutSide, isUrgently : task.isUrgently, isWarranty : task.isWarranty});
+
+
   return (
     <>
     
@@ -65,9 +69,10 @@ const Block = ({
             photos={task.photos}
           />
 
-          <AdvertisementFeatures isOutSide = {task.isOutSide} isUrgently = {task.isOutSide} isWarranty = {task.isWarranty} />
+          <AdvertisementFeatures features={features} />
 
           <MyAdsTop
+            className={`${features.length > 0 ? "!mt-[13.33px]" : "!mt-[15.33px]"}`}
             showStatus={showStatus}
             status={task.status}
             isMyAds={isMyAds}
@@ -77,7 +82,7 @@ const Block = ({
           />
 
           <FirstMainTop
-            className={"FirstMain__top"}
+            className={`FirstMain__top ${features.length > 0 ? "!mt-[13.33px]" : "!mt-[15.33px] "}`}
             isMyAds={isMyAds}
             category={task.category}
             isWatched={isWatched}
