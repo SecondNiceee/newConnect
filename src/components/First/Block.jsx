@@ -46,11 +46,13 @@ const Block = ({
     }
   }, [end, task.endTime, task.singleTime, task.time, whichOne]);
 
+  console.log(task);
+
   const isFirstDetailsPhotos = (!isMyAds && !isResponce && !isButton) || isFirst // Фотки принадлежат подробнее в первом  первой страничке
 
   return (
     <>
-      {task.photos && (
+    
         <div
           className={
             className ? ["First__block", className].join(" ") : "First__block"
@@ -107,7 +109,7 @@ const Block = ({
             }}
           />
         </div>
-      )}
+      
     </>
   );
 };

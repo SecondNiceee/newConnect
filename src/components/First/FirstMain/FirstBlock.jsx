@@ -48,6 +48,9 @@ const FirstBlock = ({
     dispatch(setDetailsAdvertisement(task));
     dispatch(addWatch(task.id));
   };
+
+
+
   return (
     <Block
       setDetailsActive={setDetailsActive}

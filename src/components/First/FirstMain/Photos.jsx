@@ -4,7 +4,7 @@ const Photos = ({ photos, onClick = () => {}, isResponse, end = false,  isFirstD
 setPhotos,
 setSliderOpened, }) => {
     const style = useMemo( () => {
-        if (photos.length === 1){
+        if (photos?.length === 1){
             return {
                 width: "calc(100% - 3.67px)",
                 marginLeft: "auto",
@@ -25,9 +25,9 @@ setSliderOpened, }) => {
     }
   return (
     <>
-      {photos.length ? (
+      {photos && photos?.length ? (
         <div onClick={onClick} className="first__photos">
-          {photos.map((e, i) => {
+          {photos?.map((e, i) => {
             return (
               <img
                 onClick={clickHandler(i)}

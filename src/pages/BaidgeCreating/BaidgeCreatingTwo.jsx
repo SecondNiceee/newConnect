@@ -32,7 +32,7 @@ const BaidgeCreatingTwo = ({setLinks, links, taggsText, setTaggsText, setTaggs, 
     return (
         <div className="pt-[16px] min-h-fit min-w-[100vw] px-[16px] bg-[#18222d] flex flex-col h-[100vh] overflow-y-scroll pb-[100px]">
             <Cap steps={2} className={"mt-[4px] flex items-center"} step={2} > 
-                <Text className = {"font-sf-pro-display-600 text-[20px] font-semibold text-white"}> Создайте объявление </Text>{" "}
+                <Text className = {"font-sf-pro-display-600 text-[20px] font-semibold text-white"}> Бейдж исполнителя </Text>{" "}
             </Cap>
 
             <DescriptionAndPhoto   className={"mt-[18px]"} titleStyles={{

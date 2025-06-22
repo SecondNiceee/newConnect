@@ -62,7 +62,9 @@ class BaidgeButtonController{
             if (isChanging){
                 this.mainButton.setText("Изменить бэйдж")
             }
-            this.mainButton.setText("Создать бэйдж")
+            else{
+                this.mainButton.setText("Создать бэйдж")
+            }
         }
     }
 }

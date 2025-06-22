@@ -143,12 +143,9 @@ export const fetchMyOrders = createAsyncThunk(
             "Content-Type": "multipart/form-data",
             "Access-Control-Allow-Origin": "*",
             "X-API-KEY-AUTH" : process.env.REACT_APP_API_KEY
-
           },
         }
       );
-
-
       if (task.data.length === 0) {
         return [];
       } else {
@@ -182,7 +179,6 @@ export const fetchMyOrders = createAsyncThunk(
             removedFiles: [],
             addedFiles: [],
             status: order.status,
-            user : order.user,
             responseCounter : responseCounter.data,
             category : order.category.id
           });

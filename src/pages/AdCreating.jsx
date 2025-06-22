@@ -23,6 +23,8 @@ import { USERID } from "../constants/tgStatic.config";
 import useBlockInputs from "../hooks/useBlockInputs";
 import menuController from "../functions/menuController";
 import { setFirstPage } from "../store/taskCreating";
+import CssTransitionSlider from "../components/UI/PhotosSlider/CssTransitionSlider";
+import useSlider from "../hooks/useSlider";
 
 let spet = 0;
 const endText = translation("СОЗДАТЬ ЗАДАНИЕ");
@@ -354,26 +356,6 @@ const AdCreating = () => {
       if (spet === 3){
          finish();
       }
-      // if (spet === 3) {
-      //   window.Telegram.WebApp.showPopup(
-      //     {
-      //       title: create,
-      //       message: textButton,
-      //       buttons: [
-      //         { id: "save", type: "default", text: Yes },
-      //         { id: "delete", type: "destructive", text: No },
-      //       ],
-      //     },
-      //     (buttonId) => {
-      //       if (buttonId === "delete" || buttonId === null) {
-      //         
-      //       }
-      //       if (buttonId === "save") {
-      //         finish();
-      //       }
-      //     }
-      //   );
-      // }
     } else {
       window.Telegram.WebApp.HapticFeedback.notificationOccurred("error");
     }
@@ -459,6 +441,7 @@ const AdCreating = () => {
     };
   }, []);
 
+
   return (
     <motion.div ref={mainRef} className="AdCreating__container">
       <div
@@ -521,6 +504,7 @@ const AdCreating = () => {
                   transform: "translateX(0%)",
                 }}
                 end={true}
+                
                 orderInformationParam={{
                   ...firstPage,
                   ...secondPage,
@@ -531,8 +515,8 @@ const AdCreating = () => {
                 }}
               />
             </CSSTransition>
-            {/* <AdCreatingThree taskInformation={secondPage} /> */}
           </div>
+
         </>
       )}
     </motion.div>

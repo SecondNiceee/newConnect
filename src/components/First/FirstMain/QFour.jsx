@@ -9,7 +9,7 @@ const QFour = ({isResponce, deleteFunction, id, isButton, setDetailsActive}) => 
           <svg
             id="myTrash"
             onClick={() => deleteFunction(id)}
-            className="my-trash"
+            className="my-trash cursor-pointer"
             width="16"
             height="19"
             viewBox="0 0 16 19"
