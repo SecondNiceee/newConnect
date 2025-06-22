@@ -66,6 +66,7 @@ body::-webkit-scrollbar {
 
 
 .first-container {
+  overflow-y: hidden;
   -webkit-transition: 0.4s;
   transition: 0.4s;
   display: -webkit-box;
@@ -88,6 +89,7 @@ body::-webkit-scrollbar {
 }
 
 .first-wrapper {
+  overflow-y: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3557,6 +3559,7 @@ body {
 }
 
 .UperContainer {
+  overflow-y: hidden;
   position: relative;
   height: auto;
   width: 100%;
@@ -3568,6 +3571,7 @@ body {
 }
 
 .MainContainer {
+  overflow-y: hidden;
   background: rgb(24, 34, 45);
   -webkit-transition: 0.5s;
   transition: 0.5s;

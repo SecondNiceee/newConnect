@@ -10,7 +10,7 @@ const PhotosSlider = forwardRef(({ swiperId, renderMap, className, sliderIndex, 
     useEffect( () => {
         const el = document.querySelector('.connect-header');
         el.style.display = "none";
-        
+
     }, [] )
     useEffect( () => {
         const closeSlider = () => {
@@ -25,13 +25,11 @@ const PhotosSlider = forwardRef(({ swiperId, renderMap, className, sliderIndex, 
     }, [setSliderOpened] )
     const render = (src, index) => {
         return (
-            
                 <SwiperSlide className='!h-[100%] max-h-[90vh] w-[100%] object-cover my-auto' key={index}>
                     <div className='h-[100%] flex items-center'>
                         <img className='w-[100%] h-[auto] object-cover' src={src} alt={`Slide ${index}`} />
                     </div>
                 </SwiperSlide>
-           
         );
     };
     const [scrollPosition , setScrollPosition] = useState(0)
@@ -68,6 +66,8 @@ const PhotosSlider = forwardRef(({ swiperId, renderMap, className, sliderIndex, 
         if (blockerAll){
             overflowYValue = window.getComputedStyle(document.documentElement).overflowY;
             document.documentElement.style.overflowY = "hidden";
+            document.body.style.overflowY = "hidden";
+
             setScrollPosition(0)
         }
         else{
@@ -105,7 +105,7 @@ const PhotosSlider = forwardRef(({ swiperId, renderMap, className, sliderIndex, 
             left : left,
             top : top ? top : scrollPosition + "px"
         }}>
-            <p className='font-sf-pro-display text-[16px] mt-[20px] text-white'>{activeIndex + 1}/{numberOfPhotos}</p>
+            <p className='font-sf-pro-display text-[16px] mt-[20px] translate-y-[95px] text-white'>{activeIndex + 1}/{numberOfPhotos}</p>
             <Swiper className='w-[100%] h-[100%]' id={`main-${swiperId}`}
                     initialSlide={sliderIndex}
                     slidesPerView={1}
