@@ -494,7 +494,8 @@ const information = createSlice({
       } )]
       state.orderInformations = [...state.orderInformations.map((order) => {
         if (order.id === action.payload.id){
-          return action.payload
+          console.warn(action.payload);
+          return {order, ...action.payload}
         }
         return order;
       } )]

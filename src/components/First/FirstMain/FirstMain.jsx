@@ -34,7 +34,9 @@ const FirstMain = (
 
     const page = useSelector(state => state.information.tasksPage);
 
-    const elementRef = useRef(null)
+    const elementRef = useRef(null);
+    
+    console.warn(ordersInformation);
 
     const getMore = useCallback(async () => {
       dispatch(fetchTasksInformation(page));

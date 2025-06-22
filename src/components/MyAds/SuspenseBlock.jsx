@@ -8,6 +8,7 @@ import { setAdvertisement } from "../../store/information";
 const SuspenseBlock = ({i , e}) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    
     const setDetailsActive = useCallback( () => {
         dispatch(setAdvertisement(e));
         navigate(`/advertisementResponses/${e.id}`);

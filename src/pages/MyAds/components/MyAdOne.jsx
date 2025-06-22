@@ -38,7 +38,6 @@ const MyAdOne = ({
   return (
   
     <div ref={containerRef} className="my-ad-one">
-
       <MyAdsBlock valueOne = {valueOne} valueTwo = {valueTwo} setOneValue = {setOneValue}  setTwoValue = {setTwoValue} setNowKey={setNowKey} nowValue = {nowValue} greyIntWidth={GreyIntWidth} greyWidth={GreyWidth} deals={1} finishedDeals={"0%"} />
           <PickerContent
           responsesArr = {responsesArr}
