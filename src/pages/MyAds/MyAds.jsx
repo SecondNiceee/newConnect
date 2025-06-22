@@ -70,7 +70,7 @@ const MyAds = () => {
     
     const more = async () => {
       const imTwo = await axios.get(
-        "https://www.connectbirga.ru/advertisement/findCount",
+        `${process.env.REACT_APP_HOST}/advertisement/findCount`,
         {
           params: {
             userId: USERID,
@@ -81,7 +81,7 @@ const MyAds = () => {
         }
       );
       const imOne = await axios.get(
-        "https://www.connectbirga.ru/response/findCount",
+        `${process.env.REACT_APP_HOST}/response/findCount`,
         {
           params: {
             userId: USERID,

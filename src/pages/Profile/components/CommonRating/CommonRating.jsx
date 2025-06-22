@@ -22,7 +22,6 @@ const CommonRating = ({commonRating, onClick = () => {}}) => {
         }
     } , [commonRating])
 
-    console.warn(commonRating);
     return (
         <div onClick={onClick} className="flex cursor-pointer ml-[23px] mt-[23px] flex-col gap-[5px] my-auto">
         <h2 className={`font-sf-pro-display-600 text-[17px] ${color.title}  leading-[18px]`}>
