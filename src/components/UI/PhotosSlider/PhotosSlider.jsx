@@ -8,6 +8,11 @@ import { enableColorAndActiveButton } from '../../../functions/enableColorAndAct
 let overflowYValue;
 const PhotosSlider = forwardRef(({ swiperId, renderMap, className, sliderIndex,  blockerId, blockerAll, setSliderOpened, left = 0, top = 0 }, ref) => {
     useEffect( () => {
+        const el = document.querySelector('.connect-header');
+        el.style.display = "none";
+        
+    }, [] )
+    useEffect( () => {
         const closeSlider = () => {
             setSliderOpened(false)
         }

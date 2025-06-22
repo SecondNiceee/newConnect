@@ -65,7 +65,7 @@ const Block = ({
             photos={task.photos}
           />
 
-          <AdvertisementFeatures />
+          <AdvertisementFeatures isOutSide = {task.isOutSide} isUrgently = {task.isOutSide} isWarrantly = {task.isWarrantly} />
 
           <MyAdsTop
             showStatus={showStatus}

@@ -127,7 +127,6 @@ export const setStartTask = createAsyncThunk(
 
 export const fetchMyOrders = createAsyncThunk(
   "information/fetchMyOrders",
-
   async function (page) {
     try {
       let tasks = [];
@@ -160,6 +159,9 @@ export const fetchMyOrders = createAsyncThunk(
             }
           })
           tasks.push({
+            isOutSide : order.isOutSide,
+            isUrgently : order.isUrgently,
+            isWarrantly : order.isWarrantly,
             id: order.id,
             taskName: order.title,
             executionPlace: "Можно выполнить удаленно",
@@ -275,6 +277,9 @@ export const fetchTasksInformation = createAsyncThunk(
           console.log(order);
 
           tasks.push({
+            isOutSide : order.isOutSide,
+            isUrgently : order.isUrgently,
+            isWarrantly : order.isWarrantly,
             id: order.id,
             taskName: order.title,
             executionPlace: "Можно выполнить удаленно",

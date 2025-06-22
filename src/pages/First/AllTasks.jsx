@@ -62,7 +62,6 @@ const AllTasks = forwardRef(({
     return translation(e).slice(0, 7).trim() + ".."
   }
 
-  console.warn(ordersInformation);
   return (
     <div className="AllTasks">
       <FirstTop
