@@ -125,6 +125,7 @@ body::-webkit-scrollbar {
 
 
 .FirstMain { 
+  overflow-y: hidden;
   width: 100%;
   margin-top: calc(17px);
   display: flex;

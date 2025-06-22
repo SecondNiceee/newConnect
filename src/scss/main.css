@@ -13,6 +13,7 @@
 }
 
 .First {
+  overflow-y: hidden;
   display: flex;
   transition: transform 0.4s;
   will-change: transform;
@@ -132,6 +133,7 @@ body::-webkit-scrollbar {
 }
 
 .FirstMain {
+  overflow-y: hidden;
   width: 100%;
   margin-top: 17px;
   display: flex;
@@ -139,7 +141,6 @@ body::-webkit-scrollbar {
   flex-direction: column;
   gap: 8px;
   border-radius: 10px;
-  overflow-x: hidden;
   min-height: unset;
 }
 
@@ -2733,10 +2734,10 @@ body {
 }
 
 .UperContainer {
+  overflow-y: hidden;
   position: relative;
   height: auto;
   width: 100%;
-  overflow: auto;
 }
 
 .MuiSelect-select {

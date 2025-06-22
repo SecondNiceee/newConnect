@@ -143,7 +143,7 @@ const AnimatedSwitch = () => {
     <>
       <FirstMenu ref={menuRef} />
       <div
-        className="container overflow-x-hidden"
+        className="container overflow-y-hidden"
       >
         <div
           style={isMenuActive ? { opacity: "0.6" } : { maxWidth: "0px" }}

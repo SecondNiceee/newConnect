@@ -8,6 +8,7 @@
           flex-direction: column;
   position: relative;
   overflow-x: hidden;
+  overflow-y: hidden;
   padding-left: 17.4915254237px;
   padding-right: 17.4915254237px;
 }
@@ -46,6 +47,7 @@
 }
 
 .FirstMain {
+  overflow-y: hidden;
   margin-top: 20.185px;
   display: -webkit-box;
   display: -ms-flexbox;
