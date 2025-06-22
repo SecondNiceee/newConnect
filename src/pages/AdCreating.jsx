@@ -491,6 +491,7 @@ const AdCreating = () => {
               mountOnEnter
             >
               <FirstDetails
+                sliderClassName={'left-[200%]'}
                 showButton={false}
                 navigateBack={false}
                 style={{

@@ -148,7 +148,6 @@ const NewInnerCase = () => {
         }
         else{
             if (userInfo?.id && me?.id){
-
                 if (userInfo?.id === me?.id){
                     MainButton.setText("Изменить")
                     SecondatyButton.show()

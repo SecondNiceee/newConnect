@@ -18,7 +18,7 @@ import { disableColorButton } from "../../../functions/disableColorButton";
 import { useAddPageHistory } from "../../../hooks/useAddPageHistory";
 
 const advertisementId =  window.Telegram.WebApp.initDataUnsafe.start_param?.split('m')[0] || null
-const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton=true, orderInformationParam = null, ...props }) => {
+const FirstDetails = ({ end, sliderClassName, className,navigateBack = true, hideMenu, showButton=true, orderInformationParam = null, ...props }) => {
 
   const disatch = useDispatch();
 
@@ -190,6 +190,7 @@ const FirstDetails = ({ end, className,navigateBack = true, hideMenu, showButton
         )}
       </div>
       <CssTransitionSlider
+        className={sliderClassName}
         blockerAll={true}
         blockerId={""}
         isSliderOpened={isSliderOpened}

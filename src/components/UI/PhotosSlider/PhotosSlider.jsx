@@ -29,8 +29,6 @@ const PhotosSlider = forwardRef(({ swiperId, renderMap, className, sliderIndex, 
            
         );
     };
-
-
     const [scrollPosition , setScrollPosition] = useState(0)
 
     const closeSliderFunction = useCallback( () => {
