@@ -75,8 +75,6 @@ const NewProfileCup = ({
               <ProfileUserIcon photoUrl={photoUrl}  />
               {shownRating === "nitche" ? <NitcheIcon nitchRating={positionOfNitcheRating} /> : <CommonIcon commonRating={commonRating} />}
             </div>
-
-
             {shownRating === "common" ? <CommonRating onClick={switchShownRating} commonRating={commonRating} /> : <NitcheRating onClick={switchShownRating}  nitcheRating={positionOfNitcheRating} />}
             <ProfilesCounterOfWatches onClick={switchShownRating} watchesCounter={profileWatches} />
           <div className="h-[100%] ml-auto flex flex-col gap-[8px]">  
