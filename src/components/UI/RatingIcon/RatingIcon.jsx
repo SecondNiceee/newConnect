@@ -1,7 +1,7 @@
 import CommonIcon from "../../../pages/Profile/components/CommonIcon/CommonIcon";
 import NitcheIcon from "../../../pages/Profile/components/NitcheIcon/NitcheIcon";
 
-const IconLeaves = ({user, className, small = false}) => {
+const RatingIcon = ({user, className, small = false}) => {
     console.log(user);
     if (user.commonRating > 50 && user.ratingByProfession > 50){
         return null
@@ -14,4 +14,4 @@ const IconLeaves = ({user, className, small = false}) => {
     }
 };
 
-export default IconLeaves;
+export default RatingIcon;

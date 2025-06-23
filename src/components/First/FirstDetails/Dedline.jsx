@@ -1,7 +1,3 @@
-import React from "react";
-import formatDate from "../../../functions/makeDate";
-import Text from "../../Text/Text";
-import NewOption from "../../../pages/Profile/components/NewOption/NewOption";
 import StatistikOption from "../../../pages/Baidge/components/StatistikOption";
 import useGetDateConfig from "./hooks/useGetDateConfig";
 
