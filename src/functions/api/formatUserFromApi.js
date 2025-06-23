@@ -13,13 +13,12 @@ export const formatUserFromApi = (userFromApi, userCards) => {
         profile : {
           about : userFromApi.about,
           stage : userFromApi.stage,
-          cards : []
+          cards : userCards
         },
         about : userFromApi.about,
         stage : userFromApi.stage,
         deals : userFromApi.deals,
         completedTasks : userFromApi.completedAdvertisements,
-        cards : userCards,
         congradulations : userFromApi.congradulations,
         lastTransaction : userFromApi.lastTransaction,
         congratulate : userFromApi.congratulate,

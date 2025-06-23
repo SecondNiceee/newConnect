@@ -3,7 +3,6 @@ import { createUserByBot } from "./createUserByBot";
 import { getCardByUserId } from "./getCardsByUserId";
 import { getUserWithoutCards } from "./getUserWithoutCards";
 export const findUserById = async (id) => {
-    
     try {
         let user;
         try{

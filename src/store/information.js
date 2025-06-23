@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { USERID } from "../constants/tgStatic.config";
+import { checkUserPhoto } from "../functions/checkUserPhoto";
+import { formatUserFromApi } from "../functions/api/formatUserFromApi";
 
 export const addWatch = createAsyncThunk(
   "information/addWatch",
@@ -252,29 +254,10 @@ export const fetchTasksInformation = createAsyncThunk(
           );
 
           const newUser = {...order.user}
-          try{
-            if (newUser.photo.includes('http')){
-              await axios.get(newUser.photo)
-            }
-          }
-          catch{
-            try{
-            const responce = await axios.put(`${process.env.REACT_APP_HOST}/user/photo`, {}, {
-              params : {
-                userId : newUser.id
-              },
-              headers : {
-                "X-API-KEY-AUTH" : process.env.REACT_APP_API_KEY
-              }
-            })
-            newUser.photo = responce.data
-          }
-          catch(e){ 
-            newUser.photo = ""
-          }
-          }
 
-          console.log(order);
+          checkUserPhoto(newUser);
+
+          const rezultUser = formatUserFromApi(newUser);
 
           tasks.push({
             isOutSide : order.isOutSide,
@@ -297,13 +280,12 @@ export const fetchTasksInformation = createAsyncThunk(
             viewsNumber: order.views,
             responces: order.responses,
             status: order.status,
-            user: newUser,
+            user: rezultUser,
             createNumber : imTwo.data,
             category : order.category.id,
             subCategory : order.subCategory.id
           });
         }
-
       } catch (e) {
         console.warn(e);
       }

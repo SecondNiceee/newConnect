@@ -1,10 +1,8 @@
 import { useMemo } from "react";
 import FullDescription from "./FullDescription";
 import Dedline from "./Dedline";
-import Status from "./Status";
 import Customer from "./Customer";
 import Block from "../Block";
-import translation from "../../../functions/translate";
 
 const TaskDetailsContainer = ({
   orderInformation,
@@ -13,22 +11,22 @@ const TaskDetailsContainer = ({
   setPhotos,
   setSliderOpened,
 }) => {
-  const text = useMemo(() => {
-    if (end) {
-      return translation("Вы еще не создали задание, поэтому оно неактивно.");
-    }
-    switch (orderInformation.status) {
-      case "active":
-        return translation(
-          "Заказчик еще не выбрал исполнителя, вы можете им стать. \n   "
-        );
-      case "inProcess":
-        return translation("Заказчик уже выбрал исполнителя.");
-      case "completed":
-        return translation("Задание уже выполнено.");
-      default:
-    }
-  }, [end, orderInformation.status]);
+  // const text = useMemo(() => {
+  //   if (end) {
+  //     return translation("Вы еще не создали задание, поэтому оно неактивно.");
+  //   }
+  //   switch (orderInformation.status) {
+  //     case "active":
+  //       return translation(
+  //         "Заказчик еще не выбрал исполнителя, вы можете им стать. \n   "
+  //       );
+  //     case "inProcess":
+  //       return translation("Заказчик уже выбрал исполнителя.");
+  //     case "completed":
+  //       return translation("Задание уже выполнено.");
+  //     default:
+  //   }
+  // }, [end, orderInformation.status]);
   const dedline = useMemo(() => {
     if (!end) {
       return orderInformation.time;
@@ -57,25 +55,10 @@ const TaskDetailsContainer = ({
         isButton={false}
       />
       <FullDescription fullDescription={orderInformation.taskDescription} />
-      <Dedline dedline={dedline} />
+      <Dedline deadline={dedline} />
       <div className="TaskDetails-row">
         <Customer
-          userId={orderInformation?.user?.id}
-          id={orderInformation.user ? orderInformation.user.id : ""}
-          userPhoto={
-            orderInformation.user
-              ? orderInformation.user.photo
-              : orderInformation.userPhoto
-          }
-          rate={orderInformation.rate}
-          customerName={
-            orderInformation?.customerName
-              ?? orderInformation?.user?.fl
-          }
-        />
-        <Status
-          text={text}
-          isActive={!end && orderInformation.status === "active"}
+          user={orderInformation.user}
         />
       </div>
     </div>

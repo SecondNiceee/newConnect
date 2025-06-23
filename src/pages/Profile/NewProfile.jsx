@@ -100,7 +100,7 @@ const NewProfile = () => {
             key={i}
             isNeededBorder={i !== Number(optionsConfig.length - 1)}
             isAloneElement={false}
-          onClick={option.clickFunc}
+           onClick={option.clickFunc}
           />
         ))}
       </div>

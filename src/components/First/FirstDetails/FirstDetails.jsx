@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useState } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 import TaskDetailsContainer from "./TaskDetailsContainer";
 import TimeAndWatches from "./TimeAndWatches";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,8 +16,11 @@ import { showAllert } from "../../../functions/showAlert";
 import { enableColorAndActiveButton } from "../../../functions/enableColorAndActiveButton";
 import { disableColorButton } from "../../../functions/disableColorButton";
 import { useAddPageHistory } from "../../../hooks/useAddPageHistory";
+import { getRatingByProfession } from "../../../functions/api/getRatingByProfession";
+import { getCommonRating } from "../../../functions/api/getCommonRating";
 
-const advertisementId =  window.Telegram.WebApp.initDataUnsafe.start_param?.split('m')[0] || null
+const advertisementId =  window.Telegram.WebApp.initDataUnsafe.start_param?.split('m')[0] || null;
+
 const FirstDetails = ({ end, sliderClassName, className,navigateBack = true, hideMenu, showButton=true, orderInformationParam = null, ...props }) => {
 
   const disatch = useDispatch();
@@ -39,6 +42,32 @@ const FirstDetails = ({ end, sliderClassName, className,navigateBack = true, hid
     }
   }, [orderInformationParam, setOrderInformation, externalOrderInformation] )
 
+  const isFetchAdditionalInformation = useRef(false);
+
+
+  useEffect( () => {
+    async function fetchAdditionalInformation(params) {
+      let commonRating = null;
+      let ratingByProfession = null;
+      await getCommonRating(orderInformation.user.id).then( (rating) => {
+        commonRating = rating;
+      } )
+      await getRatingByProfession(orderInformation.user).then( (rating) => {
+        ratingByProfession = rating
+      } )
+      return {commonRating, ratingByProfession}
+    }
+
+    if (!isFetchAdditionalInformation.current){
+      if (orderInformation){
+        fetchAdditionalInformation().then( (userAdditionalInformation) => {
+          setOrderInformation((prev) => ({...prev, user : {...prev.user , ...userAdditionalInformation}}))
+        }  )
+        isFetchAdditionalInformation.current = true;
+      }
+    }
+  }, [orderInformation] );
+
 
     const {
     isSliderOpened,
@@ -51,7 +80,7 @@ const FirstDetails = ({ end, sliderClassName, className,navigateBack = true, hid
 
 
   useEffect( () => {
-    if (!orderInformation && showButton && !orderInformationParam){
+    if (!orderInformation && showButton && !orderInformationParam && !externalOrderInformation){
       if (advertisementId && !id){
         getAdvertisementById(Number(advertisementId))
           .then((advertisement) => {
@@ -71,7 +100,7 @@ const FirstDetails = ({ end, sliderClassName, className,navigateBack = true, hid
           });
       }
     }
-  }, [ id, orderInformation, disatch, showButton, orderInformationParam ] )
+  }, [ id, orderInformation, disatch, showButton, orderInformationParam, externalOrderInformation ] )
 
   const navigate = useNavigate();
 

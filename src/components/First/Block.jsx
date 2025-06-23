@@ -31,7 +31,6 @@ const Block = ({
 }) => {
   const dispatch = useDispatch();
 
-
   const timing = useMemo(() => {
     if (!end) {
       return task.time;
@@ -44,16 +43,12 @@ const Block = ({
     }
   }, [end, task.endTime, task.singleTime, task.time, whichOne]);
 
-  console.log(task);
-
   const isFirstDetailsPhotos = (!isMyAds && !isResponce && !isButton) || isFirst // Фотки принадлежат подробнее в первом  первой страничке
 
   const features = getFeatureConfig({isOutSide : task.isOutSide, isUrgently : task.isUrgently, isWarranty : task.isWarranty});
 
-
   return (
     <>
-    
         <div
           className={
             className ? ["First__block", className].join(" ") : "First__block"

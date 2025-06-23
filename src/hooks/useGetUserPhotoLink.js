@@ -5,11 +5,10 @@ import { useMemo } from 'react';
 const useGetUserPhotoLink = ({anotherUserInfo = null}) => {
     const me = useSelector((state) => state.telegramUserInfo);
     const link = useMemo( () => {
-    
-        if (!me.id && !anotherUserInfo){
-            return ""
+        if (!me.id || !anotherUserInfo){
+            return ""   
         }
-        const userInfo = anotherUserInfo ?? me
+        const userInfo = anotherUserInfo ?? me;
         return userInfo.photo.length > 0 ? userInfo.photo.split('https://').length === 2 ? userInfo.photo : `${process.env.REACT_APP_HOST}/${userInfo.id}/${userInfo.photo}` : userPhoto
     }, [me, anotherUserInfo] )
     return link;
