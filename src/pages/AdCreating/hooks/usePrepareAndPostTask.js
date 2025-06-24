@@ -2,7 +2,8 @@ import { useCallback } from 'react';
 import { USERID } from '../../../constants/tgStatic.config';
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { postMyTask } from '../../../store/information';
+import { clearTasks, postMyTask } from '../../../store/information';
+import { clearCreating } from '../../../store/taskCreating';
 
 const usePrepareAndPostTask = () => {
     const navigate = useNavigate();
@@ -32,6 +33,8 @@ const usePrepareAndPostTask = () => {
         }
         }
         window.Telegram.WebApp.HapticFeedback.notificationOccurred("success");
+        dispatch(clearTasks());
+        dispatch(clearCreating());
         await dispatch(postMyTask([myFormData, task.photos]));
         navigate("/MyAds");
     }, [dispatch, navigate]);

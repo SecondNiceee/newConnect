@@ -38,7 +38,7 @@ const useFetchRating = ({ isItMe, userInfo = {}, setUserInfo = () => {} }) => {
             ratingLoaded.current = true;
           }
     
-      } , [userInfo, setUserInfo, me.id, dispatch])
+      } , [userInfo, setUserInfo, me.id, me.commonRating, me.ratingByProfession,  isItMe,dispatch])
 };
 
 export default useFetchRating;

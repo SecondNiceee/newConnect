@@ -368,6 +368,7 @@ const information = createSlice({
     },
     clearTasks(state){
       state.orderInformations = [];
+      state.tasksPage = 1
     },
     addResponce(state, action) {
       state.orderInformations = state.orderInformations.map((e) => {

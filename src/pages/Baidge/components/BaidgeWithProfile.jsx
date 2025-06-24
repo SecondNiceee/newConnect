@@ -9,7 +9,6 @@ import Links from "./Links";
 import TextAboutMe from "../../../components/UI/AboutMeText/TextAboutMe";
 import useNavigateBack from "../../../hooks/useNavigateBack";
 import useGetBaidgeOprionsConfig from "../hooks/useGetBaidgeOprionsConfig";
-import { apiRating } from "../../../functions/api/ApiRating";
 import { getCounterOfResponses } from "../../../functions/api/getCounterOfResponses";
 import { getRatingByProfession } from "../../../functions/api/getRatingByProfession";
 import { getCommonRating } from "../../../functions/api/getCommonRating";
