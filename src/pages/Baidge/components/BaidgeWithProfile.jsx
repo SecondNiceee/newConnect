@@ -58,19 +58,14 @@ const BaidgeWithProfile = ({ userInfo, className, setUserInfo, urlParametr}) => 
       setGotenUserInfo : setUserInfo
     });
   };
+
   const ratingLoaded = useRef(false);
-
-
-
   useEffect( () => {
       async function fetchAdditionalUserInfo(params) {
         let commonRating = null;
         let responsesCounter = null;
         let ratingByProfession = null;
         let feedbacks = null;
-        await apiRating.getByUserId(userInfo.id).then((rate) => {
-          commonRating = rate
-        } ).catch(err => console.warn(err))
         await getCounterOfResponses(userInfo.id).then( (counter) =>  {
           responsesCounter = counter;
         })

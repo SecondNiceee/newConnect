@@ -1,8 +1,8 @@
 import { useMemo } from "react";
-import FullDescription from "./FullDescription";
 import Dedline from "./Dedline";
 import Customer from "./Customer";
 import Block from "../Block";
+import TextAboutMe from "../../UI/AboutMeText/TextAboutMe";
 
 const TaskDetailsContainer = ({
   orderInformation,
@@ -54,7 +54,7 @@ const TaskDetailsContainer = ({
         {...orderInformation}
         isButton={false}
       />
-      <FullDescription fullDescription={orderInformation.taskDescription} />
+      <TextAboutMe  emptyText="Подробности задания не указаны" aboutU={orderInformation.taskDescription} />
       <Dedline deadline={dedline} />
       <div className="TaskDetails-row">
         <Customer

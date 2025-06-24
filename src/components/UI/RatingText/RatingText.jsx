@@ -9,11 +9,11 @@ const RatingText = ({user}) => {
         if (user.commonRating <= 3 || user.commonRating <= user.ratingByProfession){
             switch (user.commonRating){
                 case 1:
-                    return {text : "ТОП 1", style : styles.topOneCommon}
+                    return {text : "ТОП-1", style : styles.topOneCommon}
                 case 2:
-                    return {text : "ТОП 2", style : styles.topTwoCommon }
+                    return {text : "ТОП-2", style : styles.topTwoCommon }
                 case 3:
-                    return {text : "ТОП 3", style : styles.topThreeCommon}
+                    return {text : "ТОП-3", style : styles.topThreeCommon}
                 default : {
                     return {text: `#${user.commonRating}`, style : styles.commonAll}
                 }
@@ -22,11 +22,11 @@ const RatingText = ({user}) => {
         else{
             switch (user.ratingByProfession){
                 case 1:
-                    return {text : "ТОП 1", style : styles.topOneNitche}
+                    return {text : "ТОП-1", style : styles.topOneNitche}
                 case 2:
-                    return {text : "ТОП 2", style : styles.topTwoNitche }
+                    return {text : "ТОП-2", style : styles.topTwoNitche }
                 case 3:
-                    return {text : "ТОП 3", style : styles.topThreeNitche}
+                    return {text : "ТОП-3", style : styles.topThreeNitche}
                 default : {
                     return {text:`#${user.ratingByProfession}`, style : styles.nitcheAll}
                 }

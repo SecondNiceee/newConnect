@@ -11,6 +11,7 @@ const taskCreating = createSlice({
       photos: [],
       customerName: "",
       creationTime: new Date(),
+      user : {},
       userPhoto: "",
       time: { start: new Date(), end: new Date() },
     },

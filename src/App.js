@@ -45,7 +45,7 @@ import ChoiceSubCategory from "./pages/AdCreatingOne/ui/components/ChoiceCategor
 const NewChangeCard = lazy( () => import('./pages/NewChangeCard/NewChangeCard') )
 const HappyPage = lazy(() => import("./pages/HappyHold/HappyPage"));
 const   First = lazy(() => import("./pages/First/First"));
-const AdCreating = lazy(() => import("./pages/AdCreating"));
+const AdCreating = lazy(() => import("./pages/AdCreating/AdCreating"));
 const NewProfile = lazy(() => import("./pages/Profile/NewProfile"));
 const Balance = lazy(() => import("./pages/Balance"));
 const MyAds = lazy(() => import("./pages/MyAds/MyAds"));

@@ -50,7 +50,6 @@ export const putMyTask = createAsyncThunk(
   "inforation/putMyTask",
   async function (data) {
     try {
-      console.log(data);
       let answ = await axios.put(
         `${process.env.REACT_APP_HOST}/advertisement`,
         data[0],
@@ -68,9 +67,6 @@ export const putMyTask = createAsyncThunk(
       let localTask = data[2];
       localTask.photos = answ.data.photos;
 
-      console.log(localTask);
-      
-
       return {...localTask , myAds : true};
     } catch (e) {
       console.warn(e);
@@ -85,14 +81,12 @@ export const postMyTask = createAsyncThunk(
 
       for (let i = 0 ; i < 1; i++){
         try{
-          console.warn(arr)
-          const resp = await axios.post(`${process.env.REACT_APP_HOST}/advertisement`, arr[0], {
+          await axios.post(`${process.env.REACT_APP_HOST}/advertisement`, arr[0], {
             headers: {
               "Content-Type" :'multipart/form-data',
               "X-API-KEY-AUTH" : process.env.REACT_APP_API_KEY
             },
           });
-          console.warn(resp);
         }
         catch(e){
           window.Telegram.WebApp.showAlert("Задание не было создано. Попробуйте позже")
@@ -221,7 +215,6 @@ export const fetchTasksInformation = createAsyncThunk(
           }
         }
       );
-      console.warn(task.data);
     } catch (e) {
       alert("Сейчас идет обновление, пожалуйста перезайдите через минуту")
       console.log(e);
@@ -477,7 +470,6 @@ const information = createSlice({
       } )]
       state.orderInformations = [...state.orderInformations.map((order) => {
         if (order.id === action.payload.id){
-          console.warn(action.payload);
           return {order, ...action.payload}
         }
         return order;

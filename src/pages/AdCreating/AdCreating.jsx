@@ -5,24 +5,26 @@ import React, {
   useRef,
   useState,
 } from "react";
-import AdCreatingOne from "./AdCreatingOne/ui/AdCreatingOne/AdCreatingOne";
-import AdCreatingTwo from "./ADCreatingTwo/AdCreatingTwo/AddCreatingTwo";
+import AdCreatingOne from "../AdCreatingOne/ui/AdCreatingOne/AdCreatingOne";
+import AdCreatingTwo from "../ADCreatingTwo/AdCreatingTwo/AddCreatingTwo";
 
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import { postMyTask } from "../store/information";
-import BackButton from "../constants/BackButton";
-import MainButton from "../constants/MainButton";
+import BackButton from "../../constants/BackButton";
+import MainButton from "../../constants/MainButton";
 import { useNavigate } from "react-router-dom";
-import PostLoader from "../loaders/PostLoader";
-import pagesHistory from "../constants/pagesHistory";
-import FirstDetails from "../components/First/FirstDetails/FirstDetails";
-import translation from "../functions/translate";
+import PostLoader from "../../loaders/PostLoader";
+import translation from "../../functions/translate";
 import { CSSTransition } from "react-transition-group";
-import { USERID } from "../constants/tgStatic.config";
-import useBlockInputs from "../hooks/useBlockInputs";
-import menuController from "../functions/menuController";
-import { setFirstPage } from "../store/taskCreating";
+import useBlockInputs from "../../hooks/useBlockInputs";
+import menuController from "../../functions/menuController";
+import { setFirstPage } from "../../store/taskCreating";
+import TaskCreatingDetails from "../../components/First/FirstDetails/TaskCreatingDetails";
+import useFetchRating from "../../hooks/useFetchRating";
+import { useAddPageHistory } from "../../hooks/useAddPageHistory";
+import useScrollToZero from "../../hooks/useScrollToZero";
+import useUploadCategorys from "./hooks/useUploadCategorys";
+import usePrepareAndPostTask from "./hooks/usePrepareAndPostTask";
 let spet = 0;
 const endText = translation("СОЗДАТЬ ЗАДАНИЕ");
 const continueText = translation("ДАЛЕЕ");
@@ -36,14 +38,16 @@ const AdCreating = () => {
   const secondPage = useSelector((state) => state.taskCreating.secondPage);
   const dispatch = useDispatch();
 
+  const setFirstPageWithDispatch = useCallback((value) => {
+    dispatch(setFirstPage(value))
+  }, [dispatch])
+
   useEffect(() => {
-    dispatch(
-      setFirstPage({
+    setFirstPageWithDispatch({
         userPhoto: me.photo ? me.photo : "",
         customerName: me.firstName,
-      })
-    );
-  }, [me, dispatch]);
+      });
+  }, [me, dispatch, setFirstPageWithDispatch]);
 
   const tonConstant = useSelector((state) => state.ton.value);
 
@@ -61,42 +65,17 @@ const AdCreating = () => {
     (state) => state.categorys.categoryStatus
   );
 
-  const categorys = useSelector((state) => state.categorys.category);
-
-  const subCategorys = useSelector((state) => state.categorys.subCategory);
-
   useEffect(() => {
     menuController.lowerMenu();
   }, []);
 
-  useEffect(() => {
-    pagesHistory.push("/AdCreating");
-    return () => {
-      window.scrollTo(0, 0);
-    };
-  }, []);
+  useAddPageHistory();
 
-  const isCategorysUpdated = useRef(false);
+  useScrollToZero();
 
-  console.warn("Рендер AdCreating");
+  useUploadCategorys();
 
-  console.log(subCategorys);
-
-  useEffect(() => {
-    if (!isCategorysUpdated.current) {
-      if (categorys && subCategorys) {
-        if (!firstPage.category || !firstPage.subCategory) {
-          dispatch(
-            setFirstPage({
-              category: categorys.find((e) => e.category === "Другое"),
-              subCategory: subCategorys.find((e) => e.subCategory === "Другое" && e.category.category === "Другое"),
-            })
-          );
-          isCategorysUpdated.current = true;
-        }
-      }
-    }
-  }, [categorys, subCategorys, dispatch, firstPage]);
+  const post = usePrepareAndPostTask();
 
   const [error, setError] = useState({
     name: false,
@@ -178,52 +157,10 @@ const AdCreating = () => {
     }
     let localTaskInformation = { ...secondPageCopy, ...firstPage };
     window.Telegram.WebApp.HapticFeedback.notificationOccurred("success");
-    console.warn("Дошел до сюда!!!")
     post(localTaskInformation);
     spet = 0;
   }
-  async function post(el) {
-    console.warn(el);
-    console.log({
-      userId : String(USERID),
-      title : String(el.taskName.trim()),
-      description : String(el.taskDescription.trim()),
-      views : "0",
-      category : String(el.category.id),
-      subCategory : String(el.subCategory.id),
-      price : String(el.budget.replace(/\s+/g, "")),
-      tonPrice : String(el.tonValue),
-      startTime : el.startTime,
-      endTime : el.endTime,
 
-    })
-    let myFormData = new FormData();
-    myFormData.append("userId", String(USERID));
-    myFormData.append("title", String(el.taskName.trim()));
-    myFormData.append("description", String(el.taskDescription.trim()));
-    myFormData.append("views", "0");
-    myFormData.append("category", String(el.category.id));
-    myFormData.append("subCategory", String(el.subCategory.id));
-    myFormData.append("price", String(el.budget.replace(/\s+/g, "")));
-    myFormData.append("tonPrice", String(el.tonValue));
-    if (document.getElementById("dateSwapper").style.transform) {
-      myFormData.append("startTime", el.startTime);
-      myFormData.append("endTime", el.endTime);
-    } else {
-      myFormData.append("endTime", el.singleTime);
-      myFormData.append("startTime", "");
-    }
-    // myFormData.append("photos", el.photos);
-
-    if (el.photos.length !== 0) {
-      for (let file of el.photos) {
-        myFormData.append("photos", file);
-      }
-    }
-    window.Telegram.WebApp.HapticFeedback.notificationOccurred("success");
-    await dispatch(postMyTask([myFormData, el.photos]));
-    navigate("/MyAds");
-  }
 
   useEffect(() => {
     if (spet === 2) {
@@ -394,6 +331,7 @@ const AdCreating = () => {
     }
     return (document.documentElement.clientWidth - 36) / 2;
   }, []);
+  
   const GreyWidth = useMemo(() => {
     return GreyIntWidth.toString() + "px";
   }, [GreyIntWidth]);
@@ -438,6 +376,9 @@ const AdCreating = () => {
     };
   }, []);
 
+
+
+  useFetchRating({isItMe : true})
 
   return (
     <motion.div ref={mainRef} className="AdCreating__container">
@@ -490,28 +431,15 @@ const AdCreating = () => {
               unmountOnExit
               mountOnEnter
             >
-              <FirstDetails
-                sliderClassName={'left-[200%]'}
-                showButton={false}
-                navigateBack={false}
-                style={{
-                  position: "static",
-                  minHeight: "unset",
-                  height: "unset",
-                  overflowY: "unset",
-                  transform: "translateX(0%)",
-                }}
-                end={true}
-                
-                orderInformationParam={{
+              <TaskCreatingDetails orderInformation={{
                   ...firstPage,
                   ...secondPage,
                   rubleValue: Number(secondPage.budget.replace(/\s+/g, "")),
                   user: me,
                   category: firstPage?.category?.id,
                   whichOne: whichOne,
-                }}
-              />
+                }}  />
+
             </CSSTransition>
           </div>
 
