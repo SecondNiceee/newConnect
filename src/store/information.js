@@ -255,6 +255,7 @@ export const fetchTasksInformation = createAsyncThunk(
           const rezultUser = formatUserFromApi(newUser);
 
           tasks.push({
+            outSideButtonUrl : order.outSideButtonUrl,
             isOutSide : order.isOutSide,
             isUrgently : order.isUrgently,
             isWarranty : order.isWarranty,

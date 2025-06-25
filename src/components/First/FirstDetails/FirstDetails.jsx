@@ -151,6 +151,7 @@ const FirstDetails = ({
 
   console.log(orderInformation);
 
+  console.log(orderInformation?.outSideButtonUrl);
   const goForward = useCallback(() => {
     if (isSliderOpened) {
       setSlideOpened(false);
