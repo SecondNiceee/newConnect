@@ -1,12 +1,13 @@
 import React, { memo, useCallback, useEffect, useRef, useState } from "react";
 import ModalChoicer from "../../../components/UI/ModalChoicer/ModalChoicer";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import MyLoader from "../../../components/UI/MyLoader/MyLoader";
 import ReactionSuspense from "./ReactionSuspense";
 import MyAnimation from "./MyAnimation";
 import Text from "../../../components/Text/Text";
 import { useNavigate } from "react-router";
 import Reaction from "./Reaction";
+import { setResponse } from "../../../store/information";
 
 const height = { height: "calc(calc(100vh) - 330px)" };
 const Responses = ({
@@ -49,7 +50,8 @@ const Responses = ({
   const navigate = useNavigate();
 
   const advertisement = useSelector(state=>state.information.advertisement)
-  
+
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -70,6 +72,8 @@ const Responses = ({
         <>
           {responces.map((e, i) => {
             const setOpen = () => {
+              dispatch(setResponse(e));
+              console.warn(e);
               navigate(`/response/${advertisement.id}/${e.id}`)
             }
             return (

@@ -32,7 +32,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    plugin(function({addUtilities}){
+    plugin(function({addUtilities, addComponents}){
       addUtilities({
         ".centered" : {
           transform : "translateX(-50%) translateY(-50%)",
@@ -45,6 +45,15 @@ module.exports = {
           display : "flex",
           flexDirection : "column",
           backgroundColor : "#18222d"
+        }
+      }),
+      addComponents({
+        ".greyTitle" : {
+          marginLeft : "17px",
+          color : "#84898F",
+          fontFamily : "'SF Pro Display 400'",
+          fontSize : "13.33px",
+          lineHeight : "15.643px"
         }
       })
     })

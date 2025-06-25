@@ -15,11 +15,16 @@ import translation from "../../../functions/translate";
 import { deleteAd, setAdvertisement } from "../../../store/information";
 import useNavigateBack from "../../../hooks/useNavigateBack";
 import { getAdvertisementById } from "../../../functions/api/getAdvertisemetById";
+import MainButton from "../../../constants/MainButton";
 
 const AboutOne = () => {
   const responces = useSelector((state) => state.responses.responsesByA);
   const startStatus = useSelector((state) => state.responses.startStatus);
   const dispatch = useDispatch();
+
+  useEffect( () => {
+    MainButton.hide();
+  }, [] )
 
   const [task, setOrderInformation] = useState(null);
   const {advId} = useParams()

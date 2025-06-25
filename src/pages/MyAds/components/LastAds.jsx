@@ -14,6 +14,10 @@ import useSlider from "../../../hooks/useSlider";
 import MyLoader from "../../../components/UI/MyLoader/MyLoader";
 import menuController from "../../../functions/menuController";
 import useNavigateBack from "../../../hooks/useNavigateBack";
+import Description from "../../../components/UI/Desription/Description";
+import Links from "../../Baidge/components/Links";
+import { SecondatyButton } from "../../../constants/SecondaryButton";
+import { openLink } from "../../../functions/openLink";
 const LastAds = ({isMyResponse = false}) => {
 
   const {responseId, advertisementId} = useParams();
@@ -26,7 +30,11 @@ const LastAds = ({isMyResponse = false}) => {
 
   const goForward = useCallback( () => {
     navigate(`/hold/${advertisementId}/${responseId}`)
-  }, [advertisementId, responseId, navigate] )
+  }, [advertisementId, responseId, navigate] );
+
+  const openProfile = useCallback( () => {
+    openLink(`https://t.me/${response.user.link}`)
+  }, [] )
 
   useEffect( () => {
     if (!isMyResponse){
@@ -34,10 +42,18 @@ const LastAds = ({isMyResponse = false}) => {
         if (response.isWatched !== "inProcess" && response.isWatched !== "completed"){
           menuController.lowerMenu();
           MainButton.show();
-          MainButton.setText("Выбрать исполнителя")
+          MainButton.setText("Выбрать")
           MainButton.onClick(goForward)
+          SecondatyButton.show();
+          SecondatyButton.setText("Связаться");
+          SecondatyButton.onClick(openProfile);
         }
       }
+    }
+    return () => {
+      SecondatyButton.offClick(openProfile);
+      SecondatyButton.hide();
+      MainButton.offClick(goForward);
     }
   }, [response, isMyResponse, goForward] )
 
@@ -72,12 +88,10 @@ const LastAds = ({isMyResponse = false}) => {
   if(responseStatus === "pending" || response === null){
     return <MyLoader />
   }
-
-
   return (
     <>
     
-      <div style={MainButton.isVisible ? {paddingBottom : "74px"} : {paddingBottom : "97px"} }  className={"last-ads"}>
+      <div  className={"connect-container flex flex-col gap-4"}>
         {/* <LastTop name = {name} photo = {photo} stage = {stage} openAboutReactionFunc={openAboutReactionFunc} /> */}
           <div className='fixed left-1/2 top-1/2' onClick={goForward}>MAIN</div>
         <Reaction
@@ -91,13 +105,12 @@ const LastAds = ({isMyResponse = false}) => {
           responce={response}
         />
 
-        <TextAboutMe
-          textareaClassName={"new-textarea"}
-          style={{
-            marginTop: "8px",
-          }}
-          aboutU={response.information}
-        />
+        <Description nonText={"Отклик без текста"} text={response.information} />
+
+        {response.user.links?.filter( (link) => link.length ).length ?  <div className="flex flex-col gap-[7px] w-[100%] text-[#84898f]">
+            <p className="greyTitle">ССЫЛКИ</p>
+            <Links user={response.user} isFirstMyLink={true} links={response.user.links}/>
+        </div> : <></>}
 
         <div className="creationTimeBlock">
           <Text>Создано</Text>

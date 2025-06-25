@@ -24,7 +24,7 @@ export const formatUserFromApi = (userFromApi, userCards) => {
         congratulate : userFromApi.congratulate,
         userLikes : userFromApi.userLikes,
         profession : userFromApi.profession,
-        links :  userFromApi.links ? [`https://t.me/${userFromApi.link}` , ...userFromApi.links] : [],
+        links :  userFromApi.links,
         taggs : userFromApi.taggs ?? [],
         rating : userFromApi.rating,
         createdAt : userFromApi.createdAt

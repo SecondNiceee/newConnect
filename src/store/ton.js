@@ -22,8 +22,8 @@ export const fetchTon = createAsyncThunk(
             const data = await response.json();
             return data.market_data.current_price.usd;
           }
-          let one = await getCurrencies();
-          let two = await getTonPrice();
+          let one = await getCurrencies().then().catch( (error) => console.warn(error) );
+          let two = await getTonPrice().then().catch( (error) => console.warn(error));
           return {tonValue : en ? two : one * two, dollarValue : one};
       }
       catch(e){
