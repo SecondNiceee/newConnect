@@ -26,7 +26,8 @@ const Yes = translation("Да")
 const No = translation("Нет")
 const ShowMyResponse = () => {
 
-  const address = useSelector( state => state.telegramUserInfo.address )
+  const address = useSelector( state => state.telegramUserInfo.address );
+
   const navigate = useNavigate()
 
   const {resId, advId} = useParams();
@@ -50,7 +51,6 @@ const ShowMyResponse = () => {
   }, [response, advertisement,resId, advId, dispatch] )
 
   useEffect(() => {
-    
     function click() {
       window.Telegram.WebApp.showPopup(
         {
@@ -124,6 +124,12 @@ const ShowMyResponse = () => {
   }
 
   useNavigateBack({isSliderOpened,setSlideOpened})
+
+  useEffect( () => {
+    if (!isSliderOpened){
+      MainButton.hide();
+    }
+  }, [isSliderOpened] )
   return (
     <>
       {(!response || !advertisement) ? (
@@ -143,7 +149,6 @@ const ShowMyResponse = () => {
             setPhotoIndex={setPhotoIndex}
             setPhotos={setPhotos}
             setSlideActive={setSlideOpened}
-
           />
           <MyReaction
             setPhotoIndex={setPhotoIndex}
