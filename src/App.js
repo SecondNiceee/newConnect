@@ -472,8 +472,8 @@ function App() {
     dispatch(fetchUserInfo());
     dispatch(getCategorys());
     dispatch(getSubCategorys());
-    dispatch(fetchCommonRating());
-    dispatch(fetchRatingByProfession())
+    // dispatch(fetchCommonRating());
+    // dispatch(fetchRatingByProfession())
     // dispatch(fetchAllShablons());
     // dispatch(fetchAllIds());
     // dispatch(fetchAllValues());

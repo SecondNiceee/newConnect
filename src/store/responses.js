@@ -48,16 +48,16 @@ export const fetchResponseByAdvertisement = createAsyncThunk(
             responces[i].advertisement = task
             responces[i].user.cardsNumber = b.data;
             
-            if (responces[i].user.profession){
-                try{
-                    const {commonRating, ratingByProfession} = await fetchUserRating(responces[i].user);
-                    responces[i].user.commonRating = commonRating;
-                    responces[i].user.ratingByProfession = ratingByProfession;
-                }
-                catch(e){
-                    console.warn("Не удалось найти рейтинг ")
-                }
-            }
+            // if (responces[i].user.profession){
+            //     try{
+            //         const {commonRating, ratingByProfession} = await fetchUserRating(responces[i].user);
+            //         responces[i].user.commonRating = commonRating;
+            //         responces[i].user.ratingByProfession = ratingByProfession;
+            //     }
+            //     catch(e){
+            //         console.warn("Не удалось найти рейтинг ")
+            //     }
+            // }
             
             try {
               let imTwo = await axios.get(
