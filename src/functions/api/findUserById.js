@@ -25,7 +25,8 @@ export const findUserById = async (id) => {
         try{
              user = await getUserWithoutCards(id);
         }
-        catch(e){
+        catch(e){      
+            console.warn(e);
             try{
                 await createUserByBot(id);
             }

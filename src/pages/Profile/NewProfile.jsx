@@ -71,6 +71,7 @@ const NewProfile = () => {
       isLoadedInf.current = true;
     }
   }, [userInfo.profession, dispatch, userInfo.ratingByProfession, userInfo.commonRating] ) ;
+  console.log(userInfo);
   if (userInfo.profession && (!userInfo.ratingByProfession || !userInfo.commonRating)){
     return <MyLoader />
   }
