@@ -17,6 +17,7 @@ import Description from "../../../components/UI/Desription/Description";
 import Links from "../../Baidge/components/Links";
 import { SecondatyButton } from "../../../constants/SecondaryButton";
 import { openLink } from "../../../functions/openLink";
+import { useAddPageHistory } from "../../../hooks/useAddPageHistory";
 const LastAds = ({isMyResponse = false}) => {
 
   const {responseId, advertisementId} = useParams();
@@ -27,6 +28,17 @@ const LastAds = ({isMyResponse = false}) => {
 
   const navigate = useNavigate();
 
+  const {
+    isSliderOpened,
+    photoIndex,
+    photos,
+    setPhotoIndex,
+    setPhotos,
+    setSlideOpened,
+  } = useSlider();
+
+  useAddPageHistory();
+
   const goForward = useCallback( () => {
     if (!isSliderOpened){
       navigate(`/hold/${advertisementId}/${responseId}`)
@@ -34,7 +46,7 @@ const LastAds = ({isMyResponse = false}) => {
     else{
       setSlideOpened(false);
     }
-  }, [advertisementId, responseId, navigate, setSlideOpened] );
+  }, [advertisementId, responseId, navigate, setSlideOpened, isSliderOpened] );
 
   const openProfile = useCallback( () => {
     openLink(`https://t.me/${response.user.link}`)
@@ -87,14 +99,6 @@ const LastAds = ({isMyResponse = false}) => {
     alert("Nothing")
   }
 
-    const {
-    isSliderOpened,
-    photoIndex,
-    photos,
-    setPhotoIndex,
-    setPhotos,
-    setSlideOpened,
-  } = useSlider();
 
   useNavigateBack({isSliderOpened, setSlideOpened})
 

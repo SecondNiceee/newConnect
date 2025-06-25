@@ -137,6 +137,7 @@ const AdCreating = () => {
   }, [
     error,
     firstPage.taskName,
+    secondPage.budget,
     firstPage.tonValue,
     secondPage.startTime,
     secondPage.endTime,

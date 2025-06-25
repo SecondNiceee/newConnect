@@ -16,6 +16,7 @@ import { deleteAd, setAdvertisement } from "../../../store/information";
 import useNavigateBack from "../../../hooks/useNavigateBack";
 import { getAdvertisementById } from "../../../functions/api/getAdvertisemetById";
 import MainButton from "../../../constants/MainButton";
+import useAddHistory from "../../../hooks/useAddHistory";
 
 const AboutOne = () => {
   const responces = useSelector((state) => state.responses.responsesByA);
@@ -112,6 +113,8 @@ const AboutOne = () => {
   const {isSliderOpened, photoIndex, photos, setPhotoIndex, setPhotos,setSlideOpened} = useSlider()
 
   useNavigateBack({isSliderOpened, setSlideOpened})
+
+  useAddHistory();
 
 
   const openDetails = useCallback(() => {

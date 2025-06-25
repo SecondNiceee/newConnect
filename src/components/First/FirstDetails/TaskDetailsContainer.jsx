@@ -2,7 +2,6 @@ import { useMemo } from "react";
 import Dedline from "./Dedline";
 import Customer from "./Customer";
 import Block from "../Block";
-import TextAboutMe from "../../UI/AboutMeText/TextAboutMe";
 import Description from "../../UI/Desription/Description";
 
 const TaskDetailsContainer = ({
