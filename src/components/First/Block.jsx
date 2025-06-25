@@ -45,8 +45,6 @@ const Block = ({
 
   const isFirstDetailsPhotos = (!isMyAds && !isResponce && !isButton) || isFirst // Фотки принадлежат подробнее в первом  первой страничке
 
-  console.log(task);
-
   const features = getFeatureConfig({isOutSide : task.isOutSide, isUrgently : task.isUrgently, isWarranty : task.isWarranty});
 
   return (

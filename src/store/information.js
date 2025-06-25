@@ -216,7 +216,6 @@ export const fetchTasksInformation = createAsyncThunk(
           }
         }
       );
-      console.log(task);
     } catch (e) {
       alert("Сейчас идет обновление, пожалуйста перезайдите через минуту")
       console.log(e);
@@ -342,7 +341,6 @@ const information = createSlice({
       state.detailsAdvertisement = action.payload;
     },
     setAdvertisement(state,action){
-      console.log(action.payload);
       state.advertisement = action.payload
     },
     setResponse(state, action){
@@ -376,7 +374,6 @@ const information = createSlice({
         if (e.id === action.payload[0]) {
           e.responces.push(action.payload[1]);
         }
-        console.log(e);
         return e;
       });
     },
