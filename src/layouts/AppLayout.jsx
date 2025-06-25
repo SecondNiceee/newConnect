@@ -6,11 +6,11 @@ const AppLayout = () => {
     //     return <Outlet />    
     // }
     return (
-    <div className="flex flex-col overflow-y-hidden h-screen">             
+    <div className="flex flex-col h-screen overflow-y-scroll">             
       <div className="fixed connect-header left-0 z-[999999999] pb-[9.5px] top-0 h-[95px] w-full bg-[#18222D] gap-[6px] justify-center flex items-end">
         <img  src={"/images/Header/Logo_Header.svg"} alt="headerIcon"/>
       </div>
-      <div className="pt-[95px] flex flex-col flex-1 overflow-y-hidden">
+      <div className="pt-[95px] flex flex-col flex-1">
         <Outlet  /> {/* Здесь будут UserProfile или UserPosts */}
       </div>
     </div>
