@@ -215,6 +215,7 @@ export const fetchTasksInformation = createAsyncThunk(
           }
         }
       );
+      console.log(task);
     } catch (e) {
       alert("Сейчас идет обновление, пожалуйста перезайдите через минуту")
       console.log(e);
@@ -318,9 +319,7 @@ const information = createSlice({
       time: { start: null, end: null },
 
     },
-
     orderInformations: [],
-
     myAdsArray: [],
     myPaginationArray: [],
   },
@@ -511,6 +510,6 @@ export const {
   setUser,
   setCard,
   setPage,
-  addMyLocalResponses
+  addMyLocalResponses,
 } = information.actions;
 export default information.reducer;

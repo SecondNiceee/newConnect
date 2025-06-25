@@ -88,7 +88,7 @@ const ResponseBlock = ({
             className ? ["First__block", className].join(" ") : "First__block"
           }
         >
-          {photos.length ? (
+          {photos?.length ? (
             <div className="first__photos">
               {photos.map((e, i) => {
                 return (

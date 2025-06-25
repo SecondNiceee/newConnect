@@ -2,11 +2,13 @@ import { useCallback } from 'react';
 import RatingText from '../../UI/RatingText/RatingText';
 import UserIcon from '../../UI/UserIcon/UserIcon';
 import { useNavigate } from 'react-router';
-const Customer = ({user}) => {
+const Customer = ({user, isActive}) => {
     const navigate = useNavigate();
     const onClick = useCallback( () => {
-        navigate(`/Baidge/${user.id}`)
-    }, [navigate, user.id] )
+        if (isActive){
+            navigate(`/Baidge/${user.id}`)
+        }
+    }, [navigate, isActive, user.id] )
     return (
         <div onClick={onClick} className='flex flex-col gap-[7.67px] w-full mt-2'>
             <p className="ml-[17px] text-[#84898F] font-sf-pro-display-400 text-[13.33px] leading-[15.643px]">ЗАКАЗЧИК</p>

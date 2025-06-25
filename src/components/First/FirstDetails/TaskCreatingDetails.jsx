@@ -26,6 +26,7 @@ const TaskCreatingDetails = ({ orderInformation, className, ...props }) => {
         className={className ? ["TaskDetails ", className].join(" ") : "TaskDetails"}
       >
         <TaskDetailsContainer
+          isActive={false}
           setPhotoIndex={setPhotoIndex}
           setPhotos={setPhotos}
           setSliderOpened={setSlideOpened}

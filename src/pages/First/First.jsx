@@ -22,6 +22,7 @@ const First = () => {
   const ordersInformation = useSelector(
     (state) => state.information.orderInformations
   );
+  console.log(ordersInformation);
   const filters = useSelector(state => state.filters.advertisementsFilters);
   const [filterBy, setFilterBy] = useState("");
   const filteredArr = useFilteredArr(ordersInformation, filterBy);

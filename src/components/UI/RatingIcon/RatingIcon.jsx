@@ -6,10 +6,10 @@ const RatingIcon = ({user, className, small = false}) => {
         return null
     }
     if (user.commonRating <= 3 || user.commonRating <= user.ratingByProfession){
-        return <CommonIcon small = {small} commonRating={user.commonRating} className={`w-[53.4px] ${className}`}  />
+        return <CommonIcon small = {small} commonRating={user.commonRating} className={`!w-[53.4px]  ${className}`}  />
     }
     else{
-        return <NitcheIcon small = {small} nitchRating={user.ratingByProfession} className={`w-[53.4px] ${className}`} />
+        return <NitcheIcon small = {small} nitchRating={user.ratingByProfession} className={`!w-[53.4px] ${className}`} />
     }
 };
 

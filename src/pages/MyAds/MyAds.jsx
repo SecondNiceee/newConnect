@@ -13,6 +13,7 @@ import MainButton from "../../constants/MainButton";
 
 
 const MyAds = () => {
+
   const [valueOne , setValueOne] = useState("all")
 
   const [valueTwo , setValueTwo] = useState("all")
@@ -46,6 +47,8 @@ const MyAds = () => {
 
 
   const myAdsArray = useSelector((state) => state.information.myAdsArray);
+
+  console.log(myAdsArray);
 
   const filteredArray = useMemo( () => {
     switch (valueTwo){

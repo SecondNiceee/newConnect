@@ -10,23 +10,8 @@ const TaskDetailsContainer = ({
   setPhotoIndex,
   setPhotos,
   setSliderOpened,
+  isActive
 }) => {
-  // const text = useMemo(() => {
-  //   if (end) {
-  //     return translation("Вы еще не создали задание, поэтому оно неактивно.");
-  //   }
-  //   switch (orderInformation.status) {
-  //     case "active":
-  //       return translation(
-  //         "Заказчик еще не выбрал исполнителя, вы можете им стать. \n   "
-  //       );
-  //     case "inProcess":
-  //       return translation("Заказчик уже выбрал исполнителя.");
-  //     case "completed":
-  //       return translation("Задание уже выполнено.");
-  //     default:
-  //   }
-  // }, [end, orderInformation.status]);
   const dedline = useMemo(() => {
     if (!end) {
       return orderInformation.time;
@@ -58,6 +43,7 @@ const TaskDetailsContainer = ({
       <Dedline deadline={dedline} />
       <div className="TaskDetails-row">
         <Customer
+          isActive={isActive}
           user={orderInformation.user}
         />
       </div>

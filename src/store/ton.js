@@ -5,6 +5,7 @@ import en from "../constants/language";
 export const fetchTon = createAsyncThunk(
     'ton/fetchTon',
     async function () {
+      try{
         async function getCurrencies() { // Полуение долларов
             const response = await fetch(
               "https://www.cbr-xml-daily.ru/daily_json.js"
@@ -24,6 +25,10 @@ export const fetchTon = createAsyncThunk(
           let one = await getCurrencies();
           let two = await getTonPrice();
           return {tonValue : en ? two : one * two, dollarValue : one};
+      }
+      catch(e){
+        return {tonValue : 230, dollarValue : 80}
+      }
     }
 )
 const ton = createSlice ({

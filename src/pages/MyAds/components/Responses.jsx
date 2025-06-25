@@ -6,6 +6,7 @@ import ReactionSuspense from "./ReactionSuspense";
 import MyAnimation from "./MyAnimation";
 import Text from "../../../components/Text/Text";
 import { useNavigate } from "react-router";
+import Reaction from "./Reaction";
 
 const height = { height: "calc(calc(100vh) - 330px)" };
 const Responses = ({
@@ -23,12 +24,6 @@ const Responses = ({
     (state) => state.responses.responsesByAStatus
   );
   const elementRef = useRef(null);
-
-  // const getMore = useCallback(async () => {
-  //   dispatch(fetchResponses([me,page]));
-  //   setPage(page + 1);
-  // }, [page, setPage, dispatch, me]);
-
   const onIntersaction = useCallback(
     (entries) => {
       const firtEntry = entries[0];
@@ -78,15 +73,13 @@ const Responses = ({
               navigate(`/response/${advertisement.id}/${e.id}`)
             }
             return (
-              <>
-                <ReactionSuspense
+                <Reaction
                   setPhotos = {setPhotos}
                   setPhotoIndex = {setPhotoIndex}
                   setSlideOpened = {setSlideOpened}
                   responce={e}
                   setOpen={setOpen}
                 />
-              </>
             );
           })}
         </>
