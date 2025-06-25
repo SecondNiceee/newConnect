@@ -221,6 +221,7 @@ const FirstDetails = ({
           setPhotos={setPhotos}
           setSliderOpened={setSlideOpened}
           end={end}
+          isActive={true}
           orderInformation={orderInformation}
         />
         {end ? (

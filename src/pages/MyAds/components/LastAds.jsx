@@ -24,7 +24,7 @@ const LastAds = ({isMyResponse = false}) => {
 
   const dispatch = useDispatch();
 
-  const {response, responseStatus} = useGetResponseById({id : responseId});
+  const {response, responseStatus} = useGetResponseById({id : responseId, isMyResponse});
 
   const navigate = useNavigate();
 
@@ -98,8 +98,6 @@ const LastAds = ({isMyResponse = false}) => {
   const openAboutReactionFunc = () => {
     alert("Nothing")
   }
-
-
   useNavigateBack({isSliderOpened, setSlideOpened})
 
   if(responseStatus === "pending" || response === null){
@@ -107,7 +105,6 @@ const LastAds = ({isMyResponse = false}) => {
   }
   return (
     <>
-    
       <div  className={"connect-container flex flex-col gap-4"}>
         {/* <LastTop name = {name} photo = {photo} stage = {stage} openAboutReactionFunc={openAboutReactionFunc} /> */}
           <div className='fixed left-1/2 top-1/2' onClick={goForward}>MAIN</div>
@@ -121,21 +118,16 @@ const LastAds = ({isMyResponse = false}) => {
           put={true}
           responce={response}
         />
-
         <Description nonText={"Отклик без текста"} text={response.information} />
-
         {response.user.links?.filter( (link) => link.length ).length ?  <div className="flex flex-col gap-[7px] w-[100%] text-[#84898f]">
             <p className="greyTitle">ССЫЛКИ</p>
             <Links user={response.user} isFirstMyLink={true} links={response.user.links}/>
         </div> : <></>}
-
         <div className="creationTimeBlock">
           <Text>Создано</Text>
           <p>{formatDate(new Date(response.createdAt))}</p>
         </div>
-
       </div>
-
       <CssTransitionSlider  
         blockerAll={true}
         blockerId={""}
@@ -147,7 +139,6 @@ const LastAds = ({isMyResponse = false}) => {
         swiperId={"1"}
         top={0}
       />
-
     </>
   );
 

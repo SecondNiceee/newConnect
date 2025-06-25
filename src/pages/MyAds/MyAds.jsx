@@ -18,7 +18,9 @@ const MyAds = () => {
 
   const [valueTwo , setValueTwo] = useState("all")
 
-  const responsesArr = useSelector((state) => state.responses.responses);
+  const responsesArr = useSelector((state) => state.responses.responses)
+
+  console.log(responsesArr);
 
   const sortedResponses = useMemo( () => {
     let copy = [...responsesArr]
@@ -47,8 +49,6 @@ const MyAds = () => {
 
 
   const myAdsArray = useSelector((state) => state.information.myAdsArray);
-
-  console.log(myAdsArray);
 
   const filteredArray = useMemo( () => {
     switch (valueTwo){

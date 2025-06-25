@@ -1,14 +1,16 @@
-import React, { forwardRef, useCallback } from "react";
+import React, { forwardRef, useCallback, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import userPhoto from '../../images/userPhoto/user.png'
 import Text from "../../components/Text/Text";
 import { setChanger } from "../../store/menuSlice";
 
-const FirstMenu = forwardRef(({...props} , ref) => {
+const FirstMenu = () => {
   const dispatch = useDispatch();
 
   const location = useLocation();
+  
+  const ref = useRef(null);
 
   const me = useSelector((state) => state.telegramUserInfo);
 
@@ -100,6 +102,6 @@ const FirstMenu = forwardRef(({...props} , ref) => {
       </div>
     </div>
   );
-});
+};
 
 export default FirstMenu;
