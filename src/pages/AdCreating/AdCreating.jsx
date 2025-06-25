@@ -158,6 +158,7 @@ const AdCreating = () => {
     let localTaskInformation = { ...secondPageCopy, ...firstPage };
     window.Telegram.WebApp.HapticFeedback.notificationOccurred("success");
     post(localTaskInformation);
+    
     spet = 0;
   }
 
@@ -376,9 +377,9 @@ const AdCreating = () => {
     };
   }, []);
 
-
-
   useFetchRating({isItMe : true})
+
+  console.log(firstPage, secondPage)
 
   return (
     <motion.div ref={mainRef} className="AdCreating__container">
@@ -434,7 +435,7 @@ const AdCreating = () => {
               <TaskCreatingDetails orderInformation={{
                   ...firstPage,
                   ...secondPage,
-                  rubleValue: Number(secondPage.budget.replace(/\s+/g, "")),
+                  rubleValue: Number(secondPage.budget?.replace(/\s+/g, "")),
                   user: me,
                   category: firstPage?.category?.id,
                   whichOne: whichOne,

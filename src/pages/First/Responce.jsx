@@ -71,7 +71,7 @@ const Responce = () => {
     if (responce.text.length < 3) {
       showAllert("Ваш отклик пуст")
     } else {
-      await postResponce(responce, orderInformation);
+      postResponce(responce, orderInformation);
       dispatch(addMyLocalResponses({ advertisement: { id: orderInformation.id } }))
       navigate(-2);
     }
