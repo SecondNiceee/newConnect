@@ -27,7 +27,6 @@ const TaskDetailsContainer = ({
     }
   }, [orderInformation, end]);
 
-
   return (
     <div className="Task__container-one">
       <Block
@@ -41,8 +40,8 @@ const TaskDetailsContainer = ({
       />
       <Description classNames={'mt-3'} nonText={"Подробности задания не указаны"} text={orderInformation.taskDescription}  />
       <Dedline deadline={dedline} />
-      {!orderInformation.isOutside ? 
-            <div className="TaskDetails-row">
+      {!orderInformation.isOutSide ? 
+      <div className="TaskDetails-row">
         <Customer
           isActive={isActive}
           user={orderInformation.user}
