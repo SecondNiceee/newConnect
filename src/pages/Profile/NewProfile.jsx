@@ -15,6 +15,7 @@ import BackButton from "../../constants/BackButton";
 import MainButton from "../../constants/MainButton";
 import useGetSupportConfig from "./hooks/useGetSupportConfig";
 import { openLink } from "../../functions/openLink";
+import menuController from "../../functions/menuController";
 
 const NewProfile = () => {
   const optionsConfig = useGetOptionsConfig();
@@ -55,6 +56,11 @@ const NewProfile = () => {
   }, [] );
 
   const dispatch = useDispatch();
+
+  useEffect( () => {
+    menuController.raiseMenu();
+    menuController.showMenu();
+  }, [] )
 
   const isLoadedInf = useRef(false);
   useEffect( () => {
@@ -115,7 +121,7 @@ const NewProfile = () => {
       <div className="flex flex-col rounded-[12px] bg-[#20303f]">
         {supportConfig.map((option, i) => (
           <NewOption
-            
+
             imgPath={option.imgPath}
             isNededToFill={option.isNeededFill}
             neededActiveButton={option.isNeededActiveTitle}
