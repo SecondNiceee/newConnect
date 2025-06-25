@@ -41,12 +41,18 @@ const TaskDetailsContainer = ({
       />
       <Description classNames={'mt-3'} nonText={"Подробности задания не указаны"} text={orderInformation.taskDescription}  />
       <Dedline deadline={dedline} />
-      <div className="TaskDetails-row">
+      {!orderInformation.isOutside ? 
+            <div className="TaskDetails-row">
         <Customer
           isActive={isActive}
           user={orderInformation.user}
         />
       </div>
+      :
+      <>
+      </>
+      }
+
     </div>
   );
 };

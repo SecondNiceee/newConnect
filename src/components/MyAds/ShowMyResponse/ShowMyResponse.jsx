@@ -104,7 +104,7 @@ const ShowMyResponse = () => {
   }
 
   const setLastAds = () => {
-    
+      navigate(`/response/${advertisement.id}/${response.id}`)
   }
 
   const deleteFunction = () => {

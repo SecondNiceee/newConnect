@@ -34,3 +34,9 @@
     background: linear-gradient(0deg, #FF6200 0%, #FF6200 100%), linear-gradient(90deg, #FFD60A 3.33%, #FFE870 73.33%, #FFD60A 96.67%), #FFDB27;
     background-blend-mode: color, normal, normal;
 }
+.nitcheAll{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.nitcheAllText{
+    color : rgba(255, 255, 255, 0.5);
+}

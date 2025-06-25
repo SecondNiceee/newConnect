@@ -28,7 +28,7 @@ const RatingText = ({user}) => {
                 case 3:
                     return {text : "ТОП-3", style : styles.topThreeNitche}
                 default : {
-                    return {text:`#${user.ratingByProfession}`, style : styles.nitcheAll}
+                    return {text:`#${user.ratingByProfession}`, style : styles.nitcheAll, textStyle : styles.nitcheAllText}
                 }
             }
         }
@@ -39,7 +39,7 @@ const RatingText = ({user}) => {
     }
     return (
         <div className={`${styles.topConatiner} ${ratingConfig.style}`}>
-            <p className={styles.topText}>{ratingConfig.text}</p>
+            <p className={`${styles.topText} ${ratingConfig.textStyle ?? ""}`}>{ratingConfig.text}</p>
         </div>
     );
 };

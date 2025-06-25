@@ -72,12 +72,8 @@ body::-webkit-scrollbar {
 }
 
 .First__block .FirstMain__top .watchedTask {
-  font-family: "SF Pro Display";
-  font-weight: 500;
-  font-size: 14.67px;
-  line-height: 120%;
   color: #95979e;
-  gap: 16.6845px;
+
 }
 
 .AllTasks {

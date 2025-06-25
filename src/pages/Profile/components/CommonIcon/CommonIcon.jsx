@@ -16,7 +16,7 @@ const CommonIcon = ({commonRating, className, small = false}) => {
         else{
             return (<div className={`${small ? "rating-icon-small" : "rating-icon"} ${className}`}>
                 <p className={`${small ? "rating-icon-small-text" : "rating-icon__text"}`}>{commonRating}</p>
-            <img alt="rating-icon" className={''} src={small ? "/images/nitche-top1-50-small.svg" : "/images/common-top1-50.svg"} />
+            <img alt="rating-icon" className={''} src={small ? "/images/common-top1-50-small.svg" : "/images/common-top1-50.svg"} />
             </div>) 
         }
         

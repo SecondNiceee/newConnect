@@ -1,5 +1,5 @@
 import "./AdvertisementFeatures.css";
-const AdvertisementFeatures = (features) => {
+const AdvertisementFeatures = ({features}) => {
     return (
         <>
         {features.length > 0 && (
