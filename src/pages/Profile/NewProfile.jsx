@@ -14,6 +14,7 @@ import { useNavigate } from "react-router";
 import BackButton from "../../constants/BackButton";
 import MainButton from "../../constants/MainButton";
 import useGetSupportConfig from "./hooks/useGetSupportConfig";
+import { openLink } from "../../functions/openLink";
 
 const NewProfile = () => {
   const optionsConfig = useGetOptionsConfig();
@@ -127,11 +128,11 @@ const NewProfile = () => {
 
       <NewOption imgPath={"/images/icons/news-icon.svg"}
        isAloneElement={true}
-       text={"Новости"}
+       text={"Новости Connect"}
        numberNearToArrow={false}
        neededActiveButton={false}
        onClick={() => {
-        navigate('https://t.me/connect_support_team')
+        openLink('https://t.me/connect_support_team')
        }}
        isNededToFill={false}
        isNeededBorder={false}
