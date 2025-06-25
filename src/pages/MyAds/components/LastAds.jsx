@@ -24,7 +24,7 @@ const LastAds = ({isMyResponse = false}) => {
 
   const dispatch = useDispatch();
 
-  const {response, responseStatus} = useGetResponseById({id : responseId, isMyResponse});
+  const {response} = useGetResponseById({id : responseId, isMyResponse});
 
   const navigate = useNavigate();
 
@@ -100,7 +100,7 @@ const LastAds = ({isMyResponse = false}) => {
   }
   useNavigateBack({isSliderOpened, setSlideOpened})
 
-  if(responseStatus === "pending" || response === null){
+  if(response === null){
     return <MyLoader />
   }
   return (

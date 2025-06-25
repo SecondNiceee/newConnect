@@ -35,8 +35,6 @@ import AppLayout from "./layouts/AppLayout";
 import { isIphone } from "./functions/isIphone";
 import ChoiceCategory from "./pages/AdCreatingOne/ui/components/ChoiceCategory/ChoiceCategory";
 import ChoiceSubCategory from "./pages/AdCreatingOne/ui/components/ChoiceCategory/ChoiceSubCategory";
-import { fetchCommonRating } from "./store/telegramUserInfo/thunks/fetchCommonRating";
-import { fetchRatingByProfession } from "./store/telegramUserInfo/thunks/fetchRatingByProfession";
 
 const NewChangeCard = lazy( () => import('./pages/NewChangeCard/NewChangeCard') )
 const HappyPage = lazy(() => import("./pages/HappyHold/HappyPage"));

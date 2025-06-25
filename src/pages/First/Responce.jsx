@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import DescriptionAndPhoto from "../../components/UI/DescriptionAndPhoto/DescriptionAndPhoto";
 import MakePrivate from "../../components/UI/MakePrivate/MakePrivate";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,7 +27,6 @@ const Responce = () => {
   const dispatch = useDispatch();
   const orderInformation = useSelector((state) => state.information.detailsAdvertisement);
   const { id } = useParams();
-  const myResponse = useRef({ text: "", photos: "" });
   useEffect(() => {
     function func() {
       setClearPhoto(clearPhoto + 1)
@@ -93,7 +92,7 @@ const Responce = () => {
         <DevelopmentMainButton goForward={goForward} />
         <Block setSliderOpened={setSlideOpened} task={orderInformation} setPhotoIndex={setPhotoIndex} setPhotos={setPhotos} />
         <MakePrivate
-        
+
           isPrivate={responce.isShablon}
           setPrivate={() => {}}
           text={useTemplate}

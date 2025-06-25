@@ -9,16 +9,10 @@ import Links from "./Links";
 import TextAboutMe from "../../../components/UI/AboutMeText/TextAboutMe";
 import useNavigateBack from "../../../hooks/useNavigateBack";
 import useGetBaidgeOprionsConfig from "../hooks/useGetBaidgeOprionsConfig";
-import { getCounterOfResponses } from "../../../functions/api/getCounterOfResponses";
-import { getRatingByProfession } from "../../../functions/api/getRatingByProfession";
-import { getCommonRating } from "../../../functions/api/getCommonRating";
-import { fetchCommonRating } from "../../../store/telegramUserInfo/thunks/fetchCommonRating";
-import { fetchCounterOfResponses } from "../../../store/telegramUserInfo/thunks/fetchCounterOfResponses";
-import { fetchRatingByProfession } from "../../../store/telegramUserInfo/thunks/fetchRatingByProfession";
-import { fetchFeedBacks } from "../../../store/telegramUserInfo/thunks/fetchFeedbacks";
-import { fetchFeedBacksByUserId } from "../../../functions/api/fetchFeedbacksByUserId";
 import useScrollTop from "../../../hooks/useScrollTop";
 import menuController from "../../../functions/menuController";
+import { fetchMyAdditionalUserInfo } from "../../../store/telegramUserInfo/thunks/fetchAdditionalUserInfo";
+import { fetchAdditionalUserInfo } from "../../../functions/api/fetchAdditionalUserInfo";
 
 const BaidgeWithProfile = ({ userInfo, className, setUserInfo, urlParametr}) => {
 
@@ -61,41 +55,16 @@ const BaidgeWithProfile = ({ userInfo, className, setUserInfo, urlParametr}) => 
 
   const ratingLoaded = useRef(false);
   useEffect( () => {
-      async function fetchAdditionalUserInfo(params) {
-        let commonRating = null;
-        let responsesCounter = null;
-        let ratingByProfession = null;
-        let feedbacks = null;
-        await getCounterOfResponses(userInfo.id).then( (counter) =>  {
-          responsesCounter = counter;
-        })
-        await getRatingByProfession(userInfo).then( (rating) => {
-          ratingByProfession = rating;
-        } )
-        await getCommonRating(userInfo.id).then( (rate) => {
-          commonRating = rate;
-        } )
-        await fetchFeedBacksByUserId(userInfo.id).then(feedbacksData => {
-          feedbacks = feedbacksData;
-        })
-        console.warn({commonRating, responsesCounter, ratingByProfession, feedbacks});
-        return {commonRating, responsesCounter, ratingByProfession, feedbacks}
-      } 
       if (userInfo){
         if (!ratingLoaded.current){
           if (userInfo.id === me.id){
-            if (!userInfo.commonRating){
-              dispatch(fetchCommonRating())
-            }
-            if (!userInfo.responsesCounter){
-              dispatch(fetchCounterOfResponses());
-            }
-            if (!userInfo.ratingByProfession){
-              dispatch(fetchRatingByProfession());
-            }
-            if (!userInfo.feedbacks){
-              dispatch(fetchFeedBacks());
-            }
+              dispatch(fetchMyAdditionalUserInfo(
+                {
+                  isCounterOfResponses : !userInfo.responsesCounter,
+                  isCommonRating : !userInfo.commonRating,
+                  isRatingByProfession : !userInfo.ratingByProfession
+                }
+              ))
           }
           else{
               fetchAdditionalUserInfo().then( (info) => setUserInfo((value) => ({...value, ...info})) )

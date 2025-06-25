@@ -1,56 +1,71 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import getResponseById from '../functions/api/getResponseById';
 import { findUserById } from '../functions/api/findUserById';
-import fetchUserRating from '../functions/api/fetchUserRating';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRatingByProfession } from '../store/telegramUserInfo/thunks/fetchRatingByProfession';
-import { fetchCommonRating } from '../store/telegramUserInfo/thunks/fetchCommonRating';
+import { fetchMyAdditionalUserInfo } from '../store/telegramUserInfo/thunks/fetchAdditionalUserInfo';
+import { setResponse } from '../store/information';
+import { fetchAdditionalUserInfo } from '../functions/api/fetchAdditionalUserInfo';
 
-const useGetResponseById = ({id, isMyResponse}) => {
-    const [responseStatus, setResponseStatus] = useState(null);
-    const [response, setResponse] = useState(null);
+const useGetResponseById = ({id}) => {
     const responseFromStore = useSelector( (state) => state.information.response )
     const me = useSelector(state => state.telegramUserInfo);
     const dispatch = useDispatch();
+    const isLoadResponse = useRef(false);
     useEffect( () => {
-        async function getResponseWithUser(params) {
+        async function getResponseWithUser() {
             const response = await getResponseById(id);
-            const userWithoutRating = await findUserById(response.user.id);
-            if (userWithoutRating.id === me.id){
+            if (response.user.id === me.id){
                 if (me.profession){
                     if (!me.commonRating || !me.ratingByProfession){
+                        await dispatch(fetchMyAdditionalUserInfo({
+                            isCommonRating : true,
+                            isRatingByProfession : true
+                        }))
                         dispatch(setResponse(response));
                     }
                     else{
-                        return {...response, user : me}
+                        dispatch(setResponse({...response, user : me}))
+                        isLoadResponse.current = true
+                    }
+                }
+                else{
+                    dispatch(setResponse({...response, user : me}))
+                    isLoadResponse.current = true;
+                }
+            }
+            else{
+                const userWithoutRating = await findUserById(response.user.id);
+                const {commonRating, ratingByProfession} = await fetchAdditionalUserInfo({isCommonRating : true, isRatingByProfession : true})
+                dispatch(setResponse({...response, user : {...userWithoutRating, commonRating, ratingByProfession}}))
+            }
+        }
+
+        if (!isLoadResponse.current){
+            if (responseFromStore){
+                if (responseFromStore.user.profession && !responseFromStore.user.commonRating && !responseFromStore.user.ratingByProfession){
+                    if (responseFromStore.user.id === me.id){
+                        if ((!me.commonRating || !me.ratingByProfession) && me.additionalInfoStatus !== "pending"){
+                            dispatch(fetchMyAdditionalUserInfo());
+                        }
+                        else{
+                            dispatch(setResponse( {...responseFromStore, user : me} ))
+                            isLoadResponse.current = true;
+                        }
+                    }
+                    else{
+                        const {commonRating, ratingByProfession} = fetchAdditionalUserInfo({isCommonRating : true, isRatingByProfession : true})
+                        dispatch(setResponse({...responseFromStore, user : {...responseFromStore.user, commonRating, ratingByProfession}}))
+                        isLoadResponse.current =true;
                     }
                 }
             }
-            const {commonRating, ratingByProfession} = await fetchUserRating(userWithoutRating)
-            return {...response, user : {...userWithoutRating, commonRating, ratingByProfession}}
-        }
-
-        if (responseFromStore){
-            if (responseFromStore.user.profession && !responseFromStore.user.commonRating && !responseFromStore.user.ratingByProfession){
-                fetchUserRating(responseFromStore.user).then( (val) => {
-                    const {commonRating, ratingByProfession} = val;
-                    setResponse({...responseFromStore, user : {...responseFromStore.user, commonRating, ratingByProfession}});
-                    setResponseStatus("fullfiled")
-                } )
+            else{
+                getResponseWithUser()
             }
         }
-        else{
-            getResponseWithUser().then( (resp) => {
-                setResponse(resp);
-                setResponseStatus("fullfiled")
-            }).catch( (e) => {
-                setResponseStatus("rejected")
-                console.log(e)
-            } )
-        }
-    }, [id, responseFromStore] )
+    }, [id, responseFromStore, me, dispatch] )
 
-    return {responseStatus, response};
+    return { responseFromStore};
 
 };
 

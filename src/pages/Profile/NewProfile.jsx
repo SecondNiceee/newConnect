@@ -8,16 +8,16 @@ import { useDispatch, useSelector } from "react-redux";
 import MyLoader from "../../components/UI/MyLoader/MyLoader";
 import ProfileCup from "./components/ProfileCup/ProfileCup";
 import pagesHistory from "../../constants/pagesHistory";
-import { fetchRatingByProfession } from "../../store/telegramUserInfo/thunks/fetchRatingByProfession";
-import { fetchCommonRating } from "../../store/telegramUserInfo/thunks/fetchCommonRating";
 import { useNavigate } from "react-router";
 import BackButton from "../../constants/BackButton";
 import MainButton from "../../constants/MainButton";
 import useGetSupportConfig from "./hooks/useGetSupportConfig";
 import { openLink } from "../../functions/openLink";
 import menuController from "../../functions/menuController";
+import { fetchMyAdditionalUserInfo } from "../../store/telegramUserInfo/thunks/fetchAdditionalUserInfo";
 
 const NewProfile = () => {
+
   const optionsConfig = useGetOptionsConfig();
 
   const supportConfig = useGetSupportConfig();
@@ -65,12 +65,9 @@ const NewProfile = () => {
   const isLoadedInf = useRef(false);
   useEffect( () => {
     if (userInfo.profession && !isLoadedInf.current){
-      if (!userInfo.ratingByProfession){
-        dispatch(fetchRatingByProfession());
-      }
-      if (!userInfo.commonRating){
-        dispatch(fetchCommonRating());
-      }
+      dispatch(fetchMyAdditionalUserInfo({isRatingByProfession : !userInfo.ratingByProfession,
+        commonRating : !userInfo.commonRating
+      }))
       isLoadedInf.current = true;
     }
   }, [userInfo.profession, dispatch, userInfo.ratingByProfession, userInfo.commonRating] ) ;

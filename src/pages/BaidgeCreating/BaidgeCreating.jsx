@@ -12,8 +12,7 @@ import menuController from "../../functions/menuController";
 import { fetchUserInfo } from "../../store/telegramUserInfo/thunks/fetchUserInfo";
 import { putUserInfo } from "../../store/telegramUserInfo/thunks/putUserInfo";
 import useAddHistory from "../../hooks/useAddHistory";
-import { fetchCommonRating } from "../../store/telegramUserInfo/thunks/fetchCommonRating";
-import { fetchRatingByProfession } from "../../store/telegramUserInfo/thunks/fetchRatingByProfession";
+import { fetchMyAdditionalUserInfo } from "../../store/telegramUserInfo/thunks/fetchAdditionalUserInfo";
 
 const BaidgeCreating = ({isChanging = false}) => {
   const dispatch = useDispatch();
@@ -120,8 +119,7 @@ const BaidgeCreating = ({isChanging = false}) => {
             about : description
         }])  )
         await dispatch(fetchUserInfo())
-        await dispatch(fetchCommonRating());
-        await dispatch(fetchRatingByProfession());
+        await dispatch(fetchMyAdditionalUserInfo({isCommonRating : true, isRatingByProfession : true}));
 
         navigate("/Baidge")
   }

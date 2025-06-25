@@ -35,6 +35,7 @@ const FirstDetails = ({
   orderInformationParam = null,
   ...props
 }) => {
+
   const disatch = useDispatch();
 
   const { id } = useParams();
@@ -149,10 +150,6 @@ const FirstDetails = ({
       enableColorAndActiveButton();
     };
   }, [isMyResponse, isSliderOpened, isMyTask, showButton]);
-
-  console.log(orderInformation);
-
-  console.log(orderInformation?.outSideButtonUrl);
   const goForward = useCallback(() => {
     if (isSliderOpened) {
       setSlideOpened(false);
@@ -222,9 +219,7 @@ const FirstDetails = ({
           className ? ["TaskDetails ", className].join(" ") : "TaskDetails"
         }
       >
-        
         <DevelopmentMainButton goForward={goForward}  />
-
         <TaskDetailsContainer
           setPhotoIndex={setPhotoIndex}
           setPhotos={setPhotos}
