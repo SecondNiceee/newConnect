@@ -162,7 +162,7 @@ const BaidgeWithProfile = ({ userInfo, className, setUserInfo, urlParametr}) => 
           <p className="ml-[17px] leading-4 text-[13px] uppercase font-sf-pro-display-400 tracking-wider">
             ССЫЛКИ
           </p>
-          <Links user={userInfo} isFirstMyLink={true} links={[userInfo.links]} />
+          <Links user={userInfo} isFirstMyLink={true} links={userInfo.links} />
         </div>
       </div>
       {/* <CssTransitionNewChangeCard
