@@ -2,7 +2,7 @@ import ChemodanAnimation from "../../../components/UI/ChemodanAnimation/Chemodan
 
 const NoCards = () => {
     return (
-        <div className="flex h-screen justify-center items-center">
+        <div className="flex my-auto justify-center items-center">
             <div className="flex items-center flex-col mx-auto">
                 <ChemodanAnimation  animationStyles={{
                     width : "100px",

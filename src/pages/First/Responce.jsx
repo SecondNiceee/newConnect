@@ -93,33 +93,13 @@ const Responce = () => {
         <DevelopmentMainButton goForward={goForward} />
         <Block setSliderOpened={setSlideOpened} task={orderInformation} setPhotoIndex={setPhotoIndex} setPhotos={setPhotos} />
         <MakePrivate
+        
           isPrivate={responce.isShablon}
-          setPrivate={(value) => {
-            setClearPhoto(clearPhoto + 1)
-            if (value) {
-              myResponse.current = {
-                text: responce.text,
-                photos: responce.photos
-              }
-              setResponce({
-                ...responce,
-                isShablon: value,
-                text: shablonsArr.length > 0 ? shablonsArr[responce.shablonIndex].text : "",
-                photos: shablonsArr.length > 0 ? shablonsArr[responce.shablonIndex].photos : [],
-                name: shablonsArr.length > 0 ? shablonsArr[responce.shablonIndex].name : ""
-              });
-            } else {
-              setResponce({
-                ...responce,
-                isShablon: value,
-                text: myResponse.current.text,
-                photos: myResponse.current.photos,
-              })
-            }
-          }}
+          setPrivate={() => {}}
           text={useTemplate}
-          className={"responce-make-private"}
+          className={"responce-make-private opacity-50 "}
         />
+
         {responce.isShablon && (
           <ShablinBlock
             clearPhoto={clearPhoto}
