@@ -184,7 +184,7 @@ const FirstDetails = ({
         }
       }
     }
-  }, [id, navigate, isMyResponse, orderInformation.isOutSide, orderInformation.outSideButtonUrl, isMyTask, isSliderOpened, setSlideOpened]);
+  }, [id, navigate, isMyResponse, orderInformation?.isOutSide, orderInformation?.outSideButtonUrl, isMyTask, isSliderOpened, setSlideOpened]);
 
   useEffect(() => {
     if (showButton) {
