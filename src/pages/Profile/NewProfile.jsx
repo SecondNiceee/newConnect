@@ -17,11 +17,13 @@ import MainButton from "../../constants/MainButton";
 const NewProfile = () => {
   const optionsConfig = useGetOptionsConfig();
 
-  const photoLink = useGetUserPhotoLink({});
-
+  
   const userInfo = useSelector((state) => state.telegramUserInfo);
-
+  
   const navigate = useNavigate();
+
+  const me = useSelector( (state) => state.telegramUserInfo )
+  const photoLink = useGetUserPhotoLink({anotherUserInfo : me});
 
   useEffect( () => {
     MainButton.hide();
