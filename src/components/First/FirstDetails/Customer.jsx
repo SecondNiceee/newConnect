@@ -21,7 +21,7 @@ const Customer = ({user, isActive}) => {
                         </h2>
                         <RatingText user={user} />
                     </header>
-                    <p className='text-[#B5CED9] font-sf-pro-display-400 text[14.667px] leading-[17.667px]'>
+                    <p className='text-[#B5CED9] font-sf-pro-display-400 text-[14.667px] leading-[17.667px]'>
                         {user.profession ? user.profession.profession : "Профиль"}
                         
                     </p>
