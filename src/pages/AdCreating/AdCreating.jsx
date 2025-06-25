@@ -95,7 +95,7 @@ const AdCreating = () => {
       }
     }
     if (spet === 1) {
-      if (error.ton && secondPage.tonValue >= 0.1) {
+      if (error.ton && Number(secondPage.budget.replace(/\s+/g, "")) >= 500) {
         setError({ ...error, ton: false });
       }
       if (document.getElementById("dateSwapper").style.transform) {
@@ -198,7 +198,7 @@ const AdCreating = () => {
         );
       }
       case 1: {
-        if (secondPage.tonValue < 0.1) {
+        if (Number(secondPage.budget.replace(/\s+/g, "")) < 500) {
           ton = true;
         }
         if (document.getElementById("dateSwapper").style.transform) {
@@ -378,9 +378,6 @@ const AdCreating = () => {
   }, []);
 
   useFetchRating({isItMe : true})
-
-  console.log(firstPage, secondPage)
-
   return (
     <motion.div ref={mainRef} className="AdCreating__container">
       <div

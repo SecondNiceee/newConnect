@@ -3,6 +3,7 @@ import Dedline from "./Dedline";
 import Customer from "./Customer";
 import Block from "../Block";
 import TextAboutMe from "../../UI/AboutMeText/TextAboutMe";
+import Description from "../../UI/Desription/Description";
 
 const TaskDetailsContainer = ({
   orderInformation,
@@ -39,7 +40,7 @@ const TaskDetailsContainer = ({
         {...orderInformation}
         isButton={false}
       />
-      <TextAboutMe  emptyText="Подробности задания не указаны" aboutU={orderInformation.taskDescription} />
+      <Description classNames={'mt-3'} nonText={"Подробности задания не указаны"} text={orderInformation.taskDescription}  />
       <Dedline deadline={dedline} />
       <div className="TaskDetails-row">
         <Customer

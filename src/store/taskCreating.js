@@ -40,7 +40,6 @@ const taskCreating = createSlice({
         time: { start: new Date(), end: new Date() },
       };
       state.secondPage = {
-        secondPage: {
           budget: "0",
           tonValue: 0,
           startTime: new Date(0),
@@ -48,7 +47,6 @@ const taskCreating = createSlice({
           singleTime: new Date(0),
           isPrivate: false,
           time: { start: new Date(), end: new Date() },
-        },
       };
     },
     setFirstPage(state, action) {

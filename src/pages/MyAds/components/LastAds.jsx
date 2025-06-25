@@ -28,12 +28,26 @@ const LastAds = ({isMyResponse = false}) => {
   const navigate = useNavigate();
 
   const goForward = useCallback( () => {
-    navigate(`/hold/${advertisementId}/${responseId}`)
-  }, [advertisementId, responseId, navigate] );
+    if (!isSliderOpened){
+      navigate(`/hold/${advertisementId}/${responseId}`)
+    }
+    else{
+      setSlideOpened(false);
+    }
+  }, [advertisementId, responseId, navigate, setSlideOpened] );
 
   const openProfile = useCallback( () => {
     openLink(`https://t.me/${response.user.link}`)
   }, [response] )
+
+  useEffect( () => {
+    if (isSliderOpened){
+      SecondatyButton.hide();
+    }
+    else{
+      SecondatyButton.show();
+    }
+  }, [isSliderOpened] )
 
   useEffect( () => {
     if (!isMyResponse){
