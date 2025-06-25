@@ -1,8 +1,7 @@
-import React, { memo, useCallback, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 import ModalChoicer from "../../../components/UI/ModalChoicer/ModalChoicer";
 import { useDispatch, useSelector } from "react-redux";
 import MyLoader from "../../../components/UI/MyLoader/MyLoader";
-import ReactionSuspense from "./ReactionSuspense";
 import MyAnimation from "./MyAnimation";
 import Text from "../../../components/Text/Text";
 import { useNavigate } from "react-router";

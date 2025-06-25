@@ -1,9 +1,7 @@
-import { memo, useCallback } from "react";
+import { memo } from "react";
 
 
 import "./../MyAds.css";
-import translation from "../../../functions/translate";
-
 import UserIcon from "../../../components/UI/UserIcon/UserIcon";
 import RatingText from "../../../components/UI/RatingText/RatingText";
 

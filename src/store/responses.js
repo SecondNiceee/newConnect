@@ -5,7 +5,6 @@ import translation from "../functions/translate";
 import en from "../constants/language";
 import makeNewUser from "../functions/makeNewUser";
 import { USERID } from "../constants/tgStatic.config";
-import { fetchUserInfo } from "./telegramUserInfo/thunks/fetchUserInfo";
 import fetchUserRating from "../functions/api/fetchUserRating";
 
 

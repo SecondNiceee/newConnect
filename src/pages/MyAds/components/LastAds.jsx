@@ -1,7 +1,6 @@
 import { memo, useCallback, useEffect } from "react";
 
 import Reaction from "./Reaction";
-import TextAboutMe from "../../../components/UI/AboutMeText/TextAboutMe";
 import { useDispatch } from "react-redux";
 import formatDate from "../../../functions/makeDate";
 import { postResponse } from "../../../store/responses";
@@ -34,7 +33,7 @@ const LastAds = ({isMyResponse = false}) => {
 
   const openProfile = useCallback( () => {
     openLink(`https://t.me/${response.user.link}`)
-  }, [] )
+  }, [response] )
 
   useEffect( () => {
     if (!isMyResponse){
@@ -55,7 +54,7 @@ const LastAds = ({isMyResponse = false}) => {
       SecondatyButton.hide();
       MainButton.offClick(goForward);
     }
-  }, [response, isMyResponse, goForward] )
+  }, [response, isMyResponse, goForward, openProfile] )
 
   useEffect(() => {
     if (response){
