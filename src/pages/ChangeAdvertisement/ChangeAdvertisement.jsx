@@ -10,6 +10,7 @@ import { getAdvertisementById } from "../../functions/api/getAdvertisemetById";
 import { useDispatch, useSelector } from "react-redux";
 import { setAdvertisement } from "../../store/information";
 import EditAdvertisement from "../AdCreatingOne/ui/AdCreatingOne/EditAdvertisement";
+import DevelopmentMainButton from "../../components/UI/DevelopmentMainButton/DevelopmentMainButton";
 
 const ChangeAdvertisement = () => {
 
@@ -82,12 +83,7 @@ const ChangeAdvertisement = () => {
   }
   return (
     <>
-      <div
-        onClick={goForward}
-        className="fixed left-1/2 top-1/2 rounded p-2 border-black border-solid border-2 cursor-pointer"
-      >
-        MAIN BUTTON
-      </div>
+    <DevelopmentMainButton />
       <EditAdvertisement 
       style={{
           paddingBottom: "74px",

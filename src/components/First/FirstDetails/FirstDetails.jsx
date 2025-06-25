@@ -20,6 +20,7 @@ import { getRatingByProfession } from "../../../functions/api/getRatingByProfess
 import { getCommonRating } from "../../../functions/api/getCommonRating";
 import { findUserById } from "../../../functions/api/findUserById";
 import { openLink } from "../../../functions/openLink";
+import DevelopmentMainButton from "../../UI/DevelopmentMainButton/DevelopmentMainButton";
 
 const advertisementId =
   window.Telegram.WebApp.initDataUnsafe.start_param?.split("m")[0] || null;
@@ -221,12 +222,9 @@ const FirstDetails = ({
           className ? ["TaskDetails ", className].join(" ") : "TaskDetails"
         }
       >
-        <div
-          onClick={goForward}
-          className="fixed left-1/2 z-50 top-1/2 rounded p-2 border-black border-solid border-2 cursor-pointer"
-        >
-          MAIN BUTTON
-        </div>
+        
+        <DevelopmentMainButton goForward={goForward}  />
+
         <TaskDetailsContainer
           setPhotoIndex={setPhotoIndex}
           setPhotos={setPhotos}

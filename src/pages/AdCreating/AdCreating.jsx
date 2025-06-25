@@ -25,6 +25,7 @@ import { useAddPageHistory } from "../../hooks/useAddPageHistory";
 import useScrollToZero from "../../hooks/useScrollToZero";
 import useUploadCategorys from "./hooks/useUploadCategorys";
 import usePrepareAndPostTask from "./hooks/usePrepareAndPostTask";
+import DevelopmentMainButton from "../../components/UI/DevelopmentMainButton/DevelopmentMainButton";
 let spet = 0;
 const endText = translation("СОЗДАТЬ ЗАДАНИЕ");
 const continueText = translation("ДАЛЕЕ");
@@ -381,25 +382,9 @@ const AdCreating = () => {
   useFetchRating({isItMe : true})
   return (
     <motion.div ref={mainRef} className="AdCreating__container">
-      <div
-        onClick={goForward}
-        className="fixed left-1/2 top-[20px] z-50 rounded p-2 border-black border-solid border-2 cursor-pointer"
-      >
-        MAIN BUTTON
-      </div>
-      <div
-        onClick={goForward}
-        className="fixed left-[120vw] top-[20px] z-50 rounded p-2 border-black border-solid border-2 cursor-pointer"
-      >
-        MAIN BUTTON
-      </div>
-      <div
-        onClick={goForward}
-        className="fixed left-[220vw] top-[20px] z-50 rounded p-2 border-black border-solid border-2 cursor-pointer"
-      >
-        MAIN BUTTON
-      </div>
-
+      <DevelopmentMainButton goForward={goForward} className={'!left-1/2'} />
+      <DevelopmentMainButton goForward={goForward} className={'!left-[120vw]'} />
+      <DevelopmentMainButton goForward={goForward} className={'!left-[220vw]'} />
       {status === "pending" ||
       categorysStatus !== "OK" ||
       subCategorysStatus !== "OK" ? (

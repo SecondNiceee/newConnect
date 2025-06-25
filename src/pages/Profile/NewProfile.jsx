@@ -13,16 +13,19 @@ import { fetchCommonRating } from "../../store/telegramUserInfo/thunks/fetchComm
 import { useNavigate } from "react-router";
 import BackButton from "../../constants/BackButton";
 import MainButton from "../../constants/MainButton";
+import useGetSupportConfig from "./hooks/useGetSupportConfig";
 
 const NewProfile = () => {
   const optionsConfig = useGetOptionsConfig();
 
-  
+  const supportConfig = useGetSupportConfig();
+
   const userInfo = useSelector((state) => state.telegramUserInfo);
   
   const navigate = useNavigate();
 
-  const me = useSelector( (state) => state.telegramUserInfo )
+  const me = useSelector( (state) => state.telegramUserInfo );
+
   const photoLink = useGetUserPhotoLink({anotherUserInfo : me});
 
   useEffect( () => {
@@ -107,7 +110,34 @@ const NewProfile = () => {
         ))}
       </div>
 
-      <NewOption
+      <div className="flex flex-col rounded-[12px] bg-[#20303f]">
+        {supportConfig.map((option, i) => (
+          <NewOption
+            imgPath={option.imgPath}
+            isNededToFill={option.isNeededFill}
+            neededActiveButton={option.isNeededActiveTitle}
+            text={option.text}
+            key={i}
+            isNeededBorder={i !== Number(supportConfig.length - 1)}
+            isAloneElement={false}
+           onClick={option.clickFunc}
+          />
+        ))}
+      </div>
+
+      <NewOption imgPath={"/images/icons/news-icon.svg"}
+       isAloneElement={true}
+       text={"Новости"}
+       numberNearToArrow={false}
+       neededActiveButton={false}
+       onClick={() => {
+        navigate('https://t.me/connect_support_team')
+       }}
+       isNededToFill={false}
+       isNeededBorder={false}
+       />
+
+      {/* <NewOption
         isAloneElement={true}
         imgPath={"/images/newProfile/subscription.svg"}
         isNededToFill={false}
@@ -121,7 +151,7 @@ const NewProfile = () => {
         isNededToFill={false}
         neededActiveButton={false}
         text={"Реферальная система"}
-      />
+      /> */}
 
     </div>
   );

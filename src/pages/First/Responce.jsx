@@ -16,6 +16,7 @@ import usePostResponse from "./hooks/usePostResponse";
 import { getAdvertisementById } from "../../functions/api/getAdvertisemetById";
 import { addMyLocalResponses, setDetailsAdvertisement } from "../../store/information";
 import useAddHistory from "../../hooks/useAddHistory";
+import DevelopmentMainButton from "../../components/UI/DevelopmentMainButton/DevelopmentMainButton";
 
 const textPlace = translation("Почему задание должны дать именно вам")
 const useTemplate = translation("Использовать шаблон")
@@ -89,9 +90,7 @@ const Responce = () => {
   return (
     <>
       <div className="responce-wrapper">
-        <div onClick={goForward} className="fixed left-1/2 top-1/2 rounded p-2 border-black border-solid border-2 cursor-pointer">
-          MAIN BUTTON
-        </div>
+        <DevelopmentMainButton goForward={goForward} />
         <Block setSliderOpened={setSlideOpened} task={orderInformation} setPhotoIndex={setPhotoIndex} setPhotos={setPhotos} />
         <MakePrivate
           isPrivate={responce.isShablon}
