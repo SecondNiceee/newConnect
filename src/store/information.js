@@ -165,6 +165,7 @@ export const fetchMyOrders = createAsyncThunk(
               start: new Date(order.startTime),
               end: new Date(order.endTime),
             },
+            outSideButtonUrl : order.outSideButtonUrl,
             tonValue: order.tonPrice,
             rubleValue : order.price,
             taskDescription: order.description,
