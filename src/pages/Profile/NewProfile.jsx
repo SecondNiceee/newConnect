@@ -99,6 +99,7 @@ const NewProfile = () => {
       <div className="flex flex-col rounded-[12px] bg-[#20303f]">
         {optionsConfig.map((option, i) => (
           <NewOption
+            isActive = {option.isActive}
             imgPath={option.imgPath}
             isNededToFill={option.isNeededFill}
             neededActiveButton={option.isNeededActiveTitle}
@@ -114,6 +115,7 @@ const NewProfile = () => {
       <div className="flex flex-col rounded-[12px] bg-[#20303f]">
         {supportConfig.map((option, i) => (
           <NewOption
+            
             imgPath={option.imgPath}
             isNededToFill={option.isNeededFill}
             neededActiveButton={option.isNeededActiveTitle}

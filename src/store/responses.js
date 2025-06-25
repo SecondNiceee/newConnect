@@ -49,7 +49,6 @@ export const fetchResponseByAdvertisement = createAsyncThunk(
             responces[i].user.cardsNumber = b.data;
             
             if (responces[i].user.profession){
-                
                 try{
                     const {commonRating, ratingByProfession} = await fetchUserRating(responces[i].user);
                     responces[i].user.commonRating = commonRating;

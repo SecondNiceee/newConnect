@@ -21,7 +21,7 @@ const NewOption = ({text, isNededToFill, isActive = true, imgPath, neededActiveB
                 </div>
             </div>
 
-            <div className={`${isNeededBorder ? 'opacity-1' : 'opacity-0'} w-[calc(100%-49px)] mt-[8px] h-[0.5px] ml-auto bg-[#384656]`}></div>
+            <div className={`${isNeededBorder ? 'opacity-1' : 'opacity-0'} w-[calc(100%-49px)] mt-[8px] h-[0.67px] ml-auto bg-[#2A343F]`}></div>
 
         </div>
     );

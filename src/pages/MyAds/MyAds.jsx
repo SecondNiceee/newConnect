@@ -20,8 +20,6 @@ const MyAds = () => {
 
   const responsesArr = useSelector((state) => state.responses.responses)
 
-  console.log(responsesArr);
-
   const sortedResponses = useMemo( () => {
     let copy = [...responsesArr]
       return copy.sort((a,b) => {

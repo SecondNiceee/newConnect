@@ -18,6 +18,7 @@ import { fetchRatingByProfession } from "../../../store/telegramUserInfo/thunks/
 import { fetchFeedBacks } from "../../../store/telegramUserInfo/thunks/fetchFeedbacks";
 import { fetchFeedBacksByUserId } from "../../../functions/api/fetchFeedbacksByUserId";
 import useScrollTop from "../../../hooks/useScrollTop";
+import menuController from "../../../functions/menuController";
 
 const BaidgeWithProfile = ({ userInfo, className, setUserInfo, urlParametr}) => {
 
@@ -104,6 +105,11 @@ const BaidgeWithProfile = ({ userInfo, className, setUserInfo, urlParametr}) => 
       }
 
   } , [userInfo, setUserInfo, me.id, dispatch])
+
+  useEffect( () => {
+    menuController.showMenu();
+    menuController.raiseMenu();
+  }, [] )
 
   return (
     <>
