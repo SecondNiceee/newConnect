@@ -21,7 +21,6 @@ import { fetchUserInfo } from "./store/telegramUserInfo/thunks/fetchUserInfo";
 import { Triangle } from "react-loader-spinner";
 import { getCategorys, getSubCategorys } from "./store/categorys";
 
-import { getBalance } from "./store/balance";
 import FirstDetails from "./components/First/FirstDetails/FirstDetails";
 import ShowMyResponse from "./components/MyAds/ShowMyResponse/ShowMyResponse";
 import ChangeAdvertisement from "./pages/ChangeAdvertisement/ChangeAdvertisement";

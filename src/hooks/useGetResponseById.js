@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 const useGetResponseById = ({id, isMyResponse}) => {
     const [responseStatus, setResponseStatus] = useState(null);
     const [response, setResponse] = useState(null);
-    const me = useSelector( (state ) => state.telegramUserInfo );
     const responseFromStore = useSelector( (state) => state.information.response )
     useEffect( () => {
         async function getResponseWithUser(params) {

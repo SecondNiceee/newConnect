@@ -19,6 +19,7 @@ import { useAddPageHistory } from "../../../hooks/useAddPageHistory";
 import { getRatingByProfession } from "../../../functions/api/getRatingByProfession";
 import { getCommonRating } from "../../../functions/api/getCommonRating";
 import { findUserById } from "../../../functions/api/findUserById";
+import { openLink } from "../../../functions/openLink";
 
 const advertisementId =
   window.Telegram.WebApp.initDataUnsafe.start_param?.split("m")[0] || null;
@@ -155,6 +156,15 @@ const FirstDetails = ({
       setSlideOpened(false);
       return;
     }
+    if (orderInformation.isOutSide ){
+      if (orderInformation.outSideButtonUrl){
+        openLink(orderInformation.outSideButtonUrl)
+      }
+      else{
+        showAllert("На это задание нельзя откликнуться.")
+      }
+      return;
+    }
     if (isMyResponse) {
       showAllert("Вы уже откликнулись на это задание.");
     } else {
@@ -174,7 +184,7 @@ const FirstDetails = ({
         }
       }
     }
-  }, [id, navigate, isMyResponse, isMyTask, isSliderOpened, setSlideOpened]);
+  }, [id, navigate, isMyResponse, orderInformation.isOutSide, orderInformation.outSideButtonUrl, isMyTask, isSliderOpened, setSlideOpened]);
 
   useEffect(() => {
     if (showButton) {

@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import cl from './Pallete.module.css'
 const Pallete = ({className , category}) => {
     return (

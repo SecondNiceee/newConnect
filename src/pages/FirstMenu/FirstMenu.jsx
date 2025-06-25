@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useRef } from "react";
+import {useCallback, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import userPhoto from '../../images/userPhoto/user.png'
@@ -6,6 +6,7 @@ import Text from "../../components/Text/Text";
 import { setChanger } from "../../store/menuSlice";
 
 const FirstMenu = () => {
+
   const dispatch = useDispatch();
 
   const location = useLocation();
@@ -14,7 +15,8 @@ const FirstMenu = () => {
 
   const me = useSelector((state) => state.telegramUserInfo);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   const onClick = useCallback( (par) => {
     dispatch(setChanger())
     navigate(par)
