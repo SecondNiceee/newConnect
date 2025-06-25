@@ -1,18 +1,16 @@
-import React, { memo } from 'react';
-import useIsNeededToFill from './hooks/useIsNeededToFill';
-import useIsNeededToActive from './hooks/useIsNeededToActive';
+import  { memo } from 'react';
+import IsNeededToFill from './ui/IsNeededToFill';
+import IsNeededToActive from './ui/IsNeededToActive';
 
-const NewOption = ({text, isNededToFill, imgPath, neededActiveButton, rightArrow = true,  node, isNeededBorder, isAloneElement, numberNearToArrow, onClick = () => {}}) => {
-    const IsNeededToFillJsxComponent = useIsNeededToFill({isNededToFill})
-    const isNeededActiveJsxComponent = useIsNeededToActive({isNeededToActive : neededActiveButton})
+const NewOption = ({text, isNededToFill, isActive = true, imgPath, neededActiveButton, rightArrow = true,  node, isNeededBorder, isAloneElement, numberNearToArrow, onClick = () => {}}) => {
     return (
-        <div onClick={onClick} className={`flex cursor-pointer flex-col ${isAloneElement ? "pl-[19px] rounded-[12px] bg-[#20303f] " : "ml-[19px]"}  pt-[8px] `}>
+        <div onClick={onClick} className={`flex cursor-pointer flex-col ${isActive ? 'opacity-100' : 'opacity-50'} ${isAloneElement ? "pl-[19px] rounded-[12px] bg-[#20303f] " : "ml-[19px]"}  pt-[8px] `}>
             <div className='flex'>
                 {imgPath && <img src={imgPath} alt="" /> }
                   <div className={`flex gap-[7px] items-center ${imgPath ? "ml-[19px]" : ""}`}>
                     <p className="font-sf-pro-display-400 tracking-[.015em]  text-[17px] text-white">{text}</p>
-                    {IsNeededToFillJsxComponent}
-                    {isNeededActiveJsxComponent}
+                    <IsNeededToFill isNededToFill={isNededToFill} />
+                    <IsNeededToActive isNeededToActive={neededActiveButton} />
                 </div>
                 <div className='flex gap-[11px] items-center ml-auto'>
                     {node}

@@ -1,4 +1,4 @@
-const useIsNeededToFill = ({isNededToFill}) => {
+const IsNeededToFill = ({isNededToFill}) => {
     if (isNededToFill){
         return (
         <div className="bg-[#2EA5FF] px-[4px] rounded-[4.333px] items-center">
@@ -9,4 +9,4 @@ const useIsNeededToFill = ({isNededToFill}) => {
     return null;
 };
 
-export default useIsNeededToFill;
+export default IsNeededToFill;

@@ -1,6 +1,4 @@
-import React from 'react';
-
-const useIsNeededToActive = ({isNeededToActive}) => {
+const IsNeededToActive = ({isNeededToActive}) => {
     if (isNeededToActive){
         return (
             <div className='py-[3px] px-[4px] bg-[#2ea5ff] rounded-[5px]'>
@@ -11,4 +9,4 @@ const useIsNeededToActive = ({isNeededToActive}) => {
     return null
 };
 
-export default useIsNeededToActive;
+export default IsNeededToActive;
