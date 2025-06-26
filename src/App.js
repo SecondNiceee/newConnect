@@ -1,4 +1,4 @@
-import { lazy, useEffect, Suspense} from "react";
+import { lazy, useEffect, Suspense, useState} from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
@@ -122,6 +122,12 @@ const AnimatedSwitch = () => {
   //     makeUserVisit();
   //   }
   // }, [userId]);
+
+  useEffect( ()  => {
+    setInterval( () => {
+      console.warn("Привет Арсен")
+    }, 500 )
+  }, [] )
 
   return (
     <>

@@ -1,10 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-
 import translation from "../functions/translate";
 import en from "../constants/language";
 import { USERID } from "../constants/tgStatic.config";
-
 
 
 export const fetchResponseByAdvertisement = createAsyncThunk(
