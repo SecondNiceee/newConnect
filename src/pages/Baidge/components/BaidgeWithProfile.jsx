@@ -68,7 +68,6 @@ const BaidgeWithProfile = ({ userInfo, className, setUserInfo, urlParametr}) => 
           }
           else{
               fetchAdditionalUserInfo({isCommonRating : true, isRatingByProfession : true}, userInfo).then( (info) => {
-                console.log(info);
                 setUserInfo((value) => ({...value, ...info}))
               }  )
           }
@@ -78,7 +77,6 @@ const BaidgeWithProfile = ({ userInfo, className, setUserInfo, urlParametr}) => 
 
   } , [userInfo, setUserInfo, me.id, dispatch])
 
-  console.log(userInfo);
 
   useEffect( () => {
     menuController.showMenu();

@@ -20,7 +20,6 @@ export const makeCardFormData = ({isCardNew, card, categoryId}) => {
         myFormData.append(`deleteFiles[${i}]` , e)
         })
 
-        console.log(files);
     }
     card.links.filter(link => link.length).forEach( (link, i) => {
         myFormData.append(`links[${i}]`, link.trim())

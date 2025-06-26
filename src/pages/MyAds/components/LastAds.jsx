@@ -26,8 +26,6 @@ const LastAds = ({isMyResponse = false}) => {
 
   const {responseFromStore : response} = useGetResponseById({id : responseId, isMyResponse});
 
-  console.log(response);
-
   const navigate = useNavigate();
 
   const {

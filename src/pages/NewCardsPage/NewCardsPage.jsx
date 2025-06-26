@@ -49,8 +49,6 @@ const NewCardsPage = () => {
     }
   },[navigate, isSliderOpened, setSlideOpened] )
 
-  console.log(filter);
-
   const BackFunction = useCallback( () => {
     if (!isSliderOpened){
       navigate(-1)
@@ -110,8 +108,6 @@ const NewCardsPage = () => {
     return []
   }, [filter, cards] )
 
-  console.log(postState, putState, userInfo)
-  
   useAddHistory();
 
   if (postState === "pending" || putState === "pending" || !userInfo) {

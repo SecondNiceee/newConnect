@@ -12,11 +12,9 @@ const useGetResponseById = ({id}) => {
     const me = useSelector(state => state.telegramUserInfo);
     const dispatch = useDispatch();
     const isLoadResponse = useRef(false);
-    console.log(me);
     useEffect( () => {
         async function getResponseWithUser() {
             const response = await getResponseById(id);
-            console.log(response);
             if (String(response.user.id) === String(me.id)){
                 if (me.profession){
                     if (!me.commonRating || !me.ratingByProfession){
@@ -34,7 +32,6 @@ const useGetResponseById = ({id}) => {
                 }
                 else{
                     // alert("")
-                    console.log({...response, user : me})
                     dispatch(setResponse({...response, user : me}))
                     isLoadResponse.current = true;
                 }

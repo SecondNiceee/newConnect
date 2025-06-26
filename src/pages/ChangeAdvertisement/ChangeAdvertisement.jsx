@@ -24,8 +24,6 @@ const ChangeAdvertisement = () => {
 
   const putTask = usePut({ details: orderInformation });
 
-  console.log(orderInformation);
-
   const navigate = useNavigate();
 
   const goForward = useCallback(async () => {

@@ -64,10 +64,8 @@ const NewInnerCase = () => {
     } , [])
 
     const addWatches = useCallback(async () => {
-        console.log(casePar);
         if (casePar?.views !== null && casePar?.views !== undefined){
-            console.log(casePar.views);
-            console.log(String(casePar.views + 1))
+
             await axios.put(`${process.env.REACT_APP_HOST}/card`, {
                 views : String(casePar.views + 1)
             }, {

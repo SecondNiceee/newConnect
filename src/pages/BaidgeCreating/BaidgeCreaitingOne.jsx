@@ -28,7 +28,6 @@ const BaidgeCreaitingOne = ({setDescription, setStage, stage, description, setCa
     useEffect( () => {
       if (!isStageFormated.current){
         if (stage !== null){
-          console.log(formateAgeString(String(stage)));
           setStage(formateAgeString(String(stage)))
           isStageFormated.current = true
         }

@@ -69,9 +69,6 @@ const FirstChoiceSubCategory = ({ ...props}) => {
 
     const subCategorysPar = useSelector((state) => state.categorys.subCategory);
 
-    console.log(subCategorysPar);
-    console.log(subCategorysFilters)
-
     const subCategorys = useMemo(() => {
       if (subCategorysPar){
         let copy = subCategorysPar.filter(e => e.category.id === subCategorysFilters.category.id && e.subCategory !== "Другое")
