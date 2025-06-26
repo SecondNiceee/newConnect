@@ -70,7 +70,7 @@ const Reaction = ({
             </p>
             <RatingText user={responce.user} />
           </header>
-          <p className="text-[#B5CED9] font-sf-pro-display-400 text-[14.667px] leading-[17.667px]">{responce.user.profession.profession}</p>
+          <p className="text-[#B5CED9] font-sf-pro-display-400 text-[14.667px] leading-[17.667px]">{responce?.user?.profession?.profession}</p>
         </div>
         <img className="ml-auto"  src={"/images/newProfile/leftArrow.svg"} alt="" />
       </div>

@@ -14,8 +14,9 @@ export const fetchAdditionalUserInfo = async (whatIsNeededToFetch, user) => {
 
     const {isCounterOfResponses, isCommonRating, isRatingByProfession } = whatIsNeededToFetch;
 
-    let addittionalInfo = {};
 
+
+    let addittionalInfo = {};
     if (isCounterOfResponses){
         const counterOfResponses = await getCounterOfResponses(user.id);
         addittionalInfo = {...addittionalInfo, counterOfResponses}
@@ -28,6 +29,8 @@ export const fetchAdditionalUserInfo = async (whatIsNeededToFetch, user) => {
         const ratingByProfession = await getRatingByProfession(user);
         addittionalInfo = {...addittionalInfo, ratingByProfession}
     }
+
+    console.warn(addittionalInfo);
 
     return addittionalInfo;
 

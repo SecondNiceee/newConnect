@@ -10,6 +10,7 @@ import { USERID } from "../../constants/tgStatic.config";
 import useBlockInputs from "../../hooks/useBlockInputs";
 import useNavigateBack from "../../hooks/useNavigateBack";
 import MainButton from "../../constants/MainButton";
+import menuController from "../../functions/menuController";
 
 
 const MyAds = () => {
@@ -47,6 +48,12 @@ const MyAds = () => {
 
 
   const myAdsArray = useSelector((state) => state.information.myAdsArray);
+
+  useEffect( () => {
+    menuController.showMenu();
+    menuController.raiseMenu();
+  }, [] )
+
 
   const filteredArray = useMemo( () => {
     switch (valueTwo){

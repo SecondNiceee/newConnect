@@ -24,7 +24,7 @@ const LastAds = ({isMyResponse = false}) => {
 
   const dispatch = useDispatch();
 
-  const {response} = useGetResponseById({id : responseId, isMyResponse});
+  const {responseFromStore : response} = useGetResponseById({id : responseId, isMyResponse});
 
   console.log(response);
 

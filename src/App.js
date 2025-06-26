@@ -123,11 +123,6 @@ const AnimatedSwitch = () => {
   //   }
   // }, [userId]);
 
-  useEffect( ()  => {
-    setInterval( () => {
-      console.warn("Привет Арсен")
-    }, 500 )
-  }, [] )
 
   return (
     <>

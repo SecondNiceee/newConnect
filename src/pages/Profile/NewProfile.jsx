@@ -66,12 +66,11 @@ const NewProfile = () => {
   useEffect( () => {
     if (userInfo.profession && !isLoadedInf.current){
       dispatch(fetchMyAdditionalUserInfo({isRatingByProfession : !userInfo.ratingByProfession,
-        commonRating : !userInfo.commonRating
+        isCommonRating : !userInfo.commonRating
       }))
       isLoadedInf.current = true;
     }
   }, [userInfo.profession, dispatch, userInfo.ratingByProfession, userInfo.commonRating] ) ;
-  console.log(userInfo);
   if (userInfo.profession && (!userInfo.ratingByProfession || !userInfo.commonRating)){
     return <MyLoader />
   }

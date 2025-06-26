@@ -17,6 +17,7 @@ import useNavigateBack from "../../../hooks/useNavigateBack";
 import { getAdvertisementById } from "../../../functions/api/getAdvertisemetById";
 import MainButton from "../../../constants/MainButton";
 import useAddHistory from "../../../hooks/useAddHistory";
+import menuController from "../../../functions/menuController";
 
 const AboutOne = () => {
   const responces = useSelector((state) => state.responses.responsesByA);
@@ -51,6 +52,11 @@ const AboutOne = () => {
   }, [task, startStatus]);
 
   const navigate = useNavigate();
+
+  useEffect( () => {
+    menuController.showMenu();
+    menuController.raiseMenu();
+  }, [] )
 
 
   const deleteFunction = useCallback(
