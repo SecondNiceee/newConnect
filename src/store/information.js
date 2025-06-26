@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { USERID } from "../constants/tgStatic.config";
-import { checkUserPhoto } from "../functions/checkUserPhoto";
 import { formatUserFromApi } from "../functions/api/formatUserFromApi";
 
 export const addWatch = createAsyncThunk(
@@ -249,7 +248,7 @@ export const fetchTasksInformation = createAsyncThunk(
 
           const newUser = {...order.user}
 
-          checkUserPhoto(newUser);
+          // checkUserPhoto(newUser);
 
           const rezultUser = formatUserFromApi(newUser);
 

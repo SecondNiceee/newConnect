@@ -26,6 +26,8 @@ const LastAds = ({isMyResponse = false}) => {
 
   const {response} = useGetResponseById({id : responseId, isMyResponse});
 
+  console.log(response);
+
   const navigate = useNavigate();
 
   const {
@@ -100,7 +102,7 @@ const LastAds = ({isMyResponse = false}) => {
   }
   useNavigateBack({isSliderOpened, setSlideOpened})
 
-  if(response === null){
+  if(!response){
     return <MyLoader />
   }
   return (

@@ -29,6 +29,8 @@ const useGetResponseById = ({id}) => {
                     }
                 }
                 else{
+                    alert("")
+                    console.log({...response, user : me})
                     dispatch(setResponse({...response, user : me}))
                     isLoadResponse.current = true;
                 }

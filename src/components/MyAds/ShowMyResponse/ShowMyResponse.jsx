@@ -104,6 +104,7 @@ const ShowMyResponse = () => {
   }
 
   const setLastAds = () => {
+      dispatch(setResponse(response));
       navigate(`/response/${advertisement.id}/${response.id}`)
   }
 
@@ -118,6 +119,7 @@ const ShowMyResponse = () => {
     setPhotos,
     setSlideOpened,
   } = useSlider();
+
 
   const openCusotomerProfile = () => {
       navigate(`/Baidge/${advertisement.user.id}`)

@@ -2,7 +2,8 @@ import CommonIcon from "../../../pages/Profile/components/CommonIcon/CommonIcon"
 import NitcheIcon from "../../../pages/Profile/components/NitcheIcon/NitcheIcon";
 
 const RatingIcon = ({user, className, small = false}) => {
-    if (!user.proffesion || !user.ratingByProfession || !user.commonRating){
+    console.log(user);
+    if (!user.profession || !user.ratingByProfession || !user.commonRating){
         return null
     }
     if (user.commonRating > 50 && user.ratingByProfession > 50){

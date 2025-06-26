@@ -118,15 +118,14 @@ const NewCardsPage = () => {
     return <MyLoader />;
   }
 
-  if (!cards.length){
-    return <NoCards />
-  }
-
   return (
     <>
     <DevelopmentMainButton />
 
-    <div className="pt-[16px] z-20 left-0 top-0  w-full  px-[16px] bg-[#18222d] flex flex-col pb-[20px]">
+    <div className="pt-[16px] z-20 left-0 top-0 w-full  px-[16px] bg-[#18222d] flex flex-col pb-[20px]">
+      {!cards.length ? (
+        <NoCards />
+      ) : (
         <CardsPageBody
           userInfo = {userInfo}
           cards={filteredArray}
@@ -135,6 +134,7 @@ const NewCardsPage = () => {
           setPhotos={setPhotos}
           setSlideOpened={setSlideOpened}
         />
+      )}
     </div>
       <CssTransitionSlider
         blockerAll={true}

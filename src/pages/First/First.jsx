@@ -39,6 +39,9 @@ const First = () => {
   useAddHistory();
   useAddPageHistory();
   useBlockInputs();
+
+
+
   useEffect(() => {
     const timer = setTimeout(hideMainButtonGarant, 200);
     return () => clearTimeout(timer);

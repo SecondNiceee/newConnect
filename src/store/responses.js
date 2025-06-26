@@ -3,7 +3,6 @@ import axios from "axios";
 
 import translation from "../functions/translate";
 import en from "../constants/language";
-import makeNewUser from "../functions/makeNewUser";
 import { USERID } from "../constants/tgStatic.config";
 
 
@@ -303,9 +302,9 @@ export const fetchResponses = createAsyncThunk(
                 createNumber : advertisementCrateNumber.data,
                 responces : advertisement.responses
             }
-            const newUser = await makeNewUser(advertisementError)
+            // const newUser = await makeNewUser(advertisementError)
             
-            localResponses[i].advertisement = {...advertisementError, user : newUser}
+            localResponses[i].advertisement = {...advertisementError}
 
             console.warn(localResponses[i].advertisement)
 
