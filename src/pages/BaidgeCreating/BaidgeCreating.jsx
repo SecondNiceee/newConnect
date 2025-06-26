@@ -28,6 +28,8 @@ const BaidgeCreating = ({isChanging = false}) => {
 
   const me = useSelector( (state) => state.telegramUserInfo )
 
+  console.log(me);
+
   const [description, setDescription] = useState(me.profile.about ?? "");
 
   const taskInformation = {
@@ -42,6 +44,7 @@ const BaidgeCreating = ({isChanging = false}) => {
 
   const [links, setLinks] = useState(me.links ? (me.links.length === 0 ? [""] : me.links) : [""]);
 
+  const [stage, setStage] = useState(0);
 
   const [step, setStep] = useState(0);
 
@@ -116,8 +119,9 @@ const BaidgeCreating = ({isChanging = false}) => {
             links : links.filter( (tag) => tag.length ),
             taggs : taggs.filter( (tag) => tag.length ),
             profession : categoryInformation.profession.id,
+            stage : typeof stage === "string" ? Number(stage.split(' ')[0]) : stage, 
             about : description
-        }])  )
+        }])  );
         await dispatch(fetchUserInfo())
         await dispatch(fetchMyAdditionalUserInfo({isCommonRating : true, isRatingByProfession : true}));
 
@@ -177,7 +181,8 @@ const BaidgeCreating = ({isChanging = false}) => {
       <button className="fixed left-[100vw]" onClick={goFoward}>ГО</button>
       <button className="fixed left-[0vw]" onClick={goFoward}>ГО</button>
       <BaidgeCreaitingOne
-    
+        setStage={setStage}
+        stage={stage}
         categoryInformation={categoryInformation}
         isCategoryOpen={isCategoryOpen}
         isProfessionOpened={isProfessionOpened}

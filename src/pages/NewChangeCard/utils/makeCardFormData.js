@@ -1,12 +1,10 @@
 import sortFiles from "../../../functions/sortFiles"
 
 export const makeCardFormData = ({isCardNew, card, categoryId}) => {
-    console.log(card);
     let myFormData = new FormData()
     myFormData.append("title" , String(card.title).trim())
     myFormData.append("description" , String(card.description.trim()))
     myFormData.append("categoryId" , String(1))  
-    console.log(card);
     if (isCardNew){
         card.photos.forEach(e => {
             myFormData.append('photos' , e)

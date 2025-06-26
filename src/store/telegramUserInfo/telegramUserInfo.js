@@ -40,7 +40,7 @@ const telegramUserInfo = createSlice({
     additionalInfoStatus : "idle",
     profile : {
         about : "",
-        stage : 0,
+        stage : null,
         cards : [
         ]
     },

@@ -150,17 +150,36 @@ const FirstDetails = ({
       enableColorAndActiveButton();
     };
   }, [isMyResponse, isSliderOpened, isMyTask, showButton]);
+
+  const me = useSelector( (state) => state.telegramUserInfo )
   const goForward = useCallback(() => {
     if (isSliderOpened) {
       setSlideOpened(false);
       return;
     }
     if (orderInformation.isOutSide ){
-      if (orderInformation.outSideButtonUrl){
-        openLink(orderInformation.outSideButtonUrl)
+      if (!me.profession){
+            window.Telegram.WebApp
+            .showPopup({
+              title: "🔓 Только с бейджем",
+              message: "Чтобы откликнуться, необходимо сначала оформить бейдж исполнителя (это займет 2 минуты)",
+              buttons: [
+                { id: "create", type: "default", text: "Создать" },
+                { id: "cancel", type: "destructive", text: "Отмена" },
+              ],
+            } , (buttonId) => {
+              if (buttonId === "save" || buttonId === null) {  
+                  navigate("/BaidgeCreating")
+              }
+            } )
       }
       else{
-        showAllert("На это задание нельзя откликнуться.")
+        if (orderInformation.outSideButtonUrl){
+          openLink(orderInformation.outSideButtonUrl)
+        }
+        else{
+          showAllert("На это задание нельзя откликнуться.")
+        }
       }
       return;
     }
@@ -183,7 +202,7 @@ const FirstDetails = ({
         }
       }
     }
-  }, [id, navigate, isMyResponse, orderInformation?.isOutSide, orderInformation?.outSideButtonUrl, isMyTask, isSliderOpened, setSlideOpened]);
+  }, [id, navigate, isMyResponse, orderInformation?.isOutSide, orderInformation?.outSideButtonUrl, isMyTask, isSliderOpened, me, setSlideOpened]);
 
   useEffect(() => {
     if (showButton) {

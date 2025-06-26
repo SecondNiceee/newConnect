@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import userPhoto from '../../images/userPhoto/user.png'
 import Text from "../../components/Text/Text";
 import { setChanger } from "../../store/menuSlice";
+import { showAllert } from "../../functions/showAlert";
 
 const FirstMenu = () => {
 
@@ -84,7 +85,9 @@ const FirstMenu = () => {
 
           <Text>Мои задания</Text>
         </div>
-        <div className= { location.pathname === "/savedPage" ? "menuLink active" : "menuLink"} onClick={() => {onClick("/savedPage")}}>
+        <div className= { location.pathname === "/savedPage" ? "menuLink active" : "menuLink"} onClick={() => {
+          showAllert("Избранное скоро появится")
+        }}>
           <svg
             width="24"
             height="24"
