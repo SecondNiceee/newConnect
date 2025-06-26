@@ -6,23 +6,6 @@ export const findUserById = async (id) => {
     try {
         let user;
         try{
-            const some = await axios.get(`${process.env.REACT_APP_HOST}/bot/sendProfessionMessage`, 
-                {
-                    headers : {
-                      "X-API-KEY-AUTH" : process.env.REACT_APP_API_KEY,
-
-                    },
-                    params : {
-                        "initData" : window.Telegram.WebApp.initDataUnsafe
-                    }
-                }
-            )
-            console.warn(some.data);
-        }
-        catch(e){
-            console.warn(e);
-        }
-        try{
              user = await getUserWithoutCards(id);
         }
         catch(e){      

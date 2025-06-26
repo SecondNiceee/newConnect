@@ -1,9 +1,9 @@
 // src/components/AdvertisementFeatures/config.ts
 
 export const getFeatureConfig = ({
-  isOutSide = true,
-  isUrgently = true,
-  isWarranty = true,
+  isOutSide = false,
+  isUrgently = false,
+  isWarranty = false,
 })  => [
     {
         key: 'warrant',

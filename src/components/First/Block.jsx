@@ -67,7 +67,7 @@ const Block = ({
           <AdvertisementFeatures features={features} />
 
           <MyAdsTop
-            className={`${features.length > 0 ? "!mt-[13.33px]" : "!mt-[15.33px]"}`}
+    
             showStatus={showStatus}
             status={task.status}
             isMyAds={isMyAds}

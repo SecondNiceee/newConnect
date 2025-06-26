@@ -67,13 +67,18 @@ const BaidgeWithProfile = ({ userInfo, className, setUserInfo, urlParametr}) => 
               ))
           }
           else{
-              fetchAdditionalUserInfo().then( (info) => setUserInfo((value) => ({...value, ...info})) )
+              fetchAdditionalUserInfo({isCommonRating : true, isRatingByProfession : true}, userInfo).then( (info) => {
+                console.log(info);
+                setUserInfo((value) => ({...value, ...info}))
+              }  )
           }
         }
         ratingLoaded.current = true;
       }
 
   } , [userInfo, setUserInfo, me.id, dispatch])
+
+  console.log(userInfo);
 
   useEffect( () => {
     menuController.showMenu();

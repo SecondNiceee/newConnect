@@ -35,7 +35,7 @@ const useGetResponseById = ({id}) => {
             }
             else{
                 const userWithoutRating = await findUserById(response.user.id);
-                const {commonRating, ratingByProfession} = await fetchAdditionalUserInfo({isCommonRating : true, isRatingByProfession : true})
+                const {commonRating, ratingByProfession} = await fetchAdditionalUserInfo({isCommonRating : true, isRatingByProfession : true}, userWithoutRating)
                 dispatch(setResponse({...response, user : {...userWithoutRating, commonRating, ratingByProfession}}))
             }
         }

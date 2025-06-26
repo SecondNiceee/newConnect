@@ -14,7 +14,7 @@ const useFetchRating = ({ isItMe, userInfo = {}, setUserInfo = () => {} }) => {
                 dispatch(fetchMyAdditionalUserInfo({isCommonRating : !me.commonRating, isRatingByProfession : !me.ratingByProfession}));
               }
               else{
-                  fetchAdditionalUserInfo().then( (info) => setUserInfo((value) => ({...value, ...info})) )
+                  fetchAdditionalUserInfo({isCommonRating : !userInfo.commonRating, isRatingByProfession : !userInfo.ratingByProfession}, userInfo ).then( (info) => setUserInfo((value) => ({...value, ...info})) )
               }
             }
             ratingLoaded.current = true;
