@@ -3,6 +3,9 @@ import { useMemo } from "react";
 import styles from "./RatingText.module.css";
 const RatingText = ({user}) => {
     const ratingConfig = useMemo( () => {
+        if (!user.commonRating || !user.ratingByProfession){
+            return null
+        }
         if (user.commonRating > 50 && user.ratingByProfession > 50){
             return null
         }
@@ -34,7 +37,7 @@ const RatingText = ({user}) => {
         }
     
     }, [user.commonRating, user.ratingByProfession] )
-    if (!ratingConfig){
+    if (!ratingConfig || !user.profession){
         return null
     }
     return (

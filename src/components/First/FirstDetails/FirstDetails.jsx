@@ -18,9 +18,9 @@ import { disableColorButton } from "../../../functions/disableColorButton";
 import { useAddPageHistory } from "../../../hooks/useAddPageHistory";
 import { getRatingByProfession } from "../../../functions/api/getRatingByProfession";
 import { getCommonRating } from "../../../functions/api/getCommonRating";
-import { findUserById } from "../../../functions/api/findUserById";
 import { openLink } from "../../../functions/openLink";
 import DevelopmentMainButton from "../../UI/DevelopmentMainButton/DevelopmentMainButton";
+import { getUserWithoutCards } from "../../../functions/api/getUserWithoutCards";
 
 const advertisementId =
   window.Telegram.WebApp.initDataUnsafe.start_param?.split("m")[0] || null;
@@ -101,7 +101,7 @@ const FirstDetails = ({
       } else {
         advertisement = await getAdvertisementById(Number(id));
       }
-      const userWithRating = await findUserById(advertisement.user.id);
+      const userWithRating = await getUserWithoutCards(advertisement.user.id);
       advertisement.user = userWithRating;
       disatch(setDetailsAdvertisement(advertisement));
     }

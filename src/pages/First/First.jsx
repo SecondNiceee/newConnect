@@ -27,6 +27,7 @@ const First = () => {
   const [filterBy, setFilterBy] = useState("");
   const filteredArr = useFilteredArr(ordersInformation, filterBy);
   const filteredOrders = useFilteredArray({ filteredArr, filters });
+  console.log(filteredOrders);
   const {
     isSliderOpened,
     photoIndex,
