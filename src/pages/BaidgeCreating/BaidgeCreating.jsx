@@ -111,10 +111,8 @@ const BaidgeCreating = ({isChanging = false}) => {
     baidgeButtonController.controlVisability({ errors, isCategoryOpen, isProfessionOpened, step });
   }, [errors, isCategoryOpen, isProfessionOpened, step]);
 
-  
 
   const postBaidge = async () => {
-        
         await dispatch(putUserInfo([{
             links : links.filter( (tag) => tag.length ),
             taggs : taggs.filter( (tag) => tag.length ),
@@ -174,7 +172,7 @@ const BaidgeCreating = ({isChanging = false}) => {
   }
   return (
     <div
-      className={`flex min-w-[200vw] transition-transform duration-300 ${
+      className={`flex min-w-[100vw] overflow-x-hidden transition-transform duration-300 ${
         step === 0 ? "translate-x-0" : "-translate-x-[100vw]"
       }`}
     >
