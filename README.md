@@ -1,70 +1,73 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Запуск
 
-## Available Scripts
+1. Установите зависимости:
+   npm install
 
-In the project directory, you can run:
+2. Создайте файл `.env` и укажите параметры подключения к БД и JWT:
+   ```env
+    PORT=7001
+    POSTGRES_HOST=localhost
+    POSTGRES_USER = postgres
+    POSTGRES_DB = promocodes
+    POSTGRES_PASSWORD = 11559966332211kkKK
+    POSTGRES_PORT = 5432
+    SECRET_KEY = somesecretkeykqweqwcA
+    FRONTEND_MAIN_URL=http://localhost:3000
+    FRONTEND_EXTRA_URL=http://localhost:3001
+    X_API_KEY=SOME_UR_KEY
 
-### `npm start`
+   ```
+3. Запустите сервер:
+   ```bash
+   npm run start:dev
+   ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Swagger (Документация API)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+После запуска перейдите по адресу:
+```
+/docs
+```
 
-### `npm test`
+## Авторизация и API-KEY
+- Для защищённых эндпоинтов требуется заголовок:
+  - `X-API-KEY:`
+- Для авторизации используйте эндпоинт `/auth/login` (POST):
+  - **Body:** `{ "login": "user", "password": "pass" }`
+  - В ответе устанавливается httpOnly cookie `jwt`.
+- Для выхода используйте `/auth/logout` (POST).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Промокоды
+- **Получить все промокоды пользователя:**
+  - `GET /promocodes/findByUserId`
+  - Требуется: `X-API-KEY: hi`, JWT (cookie)
+  - **Query:** не требуется
+- **Получить все промокоды:**
+  - `GET /promocodes/findAll`
+  - Требуется: `X-API-KEY: hi`
+  - **Query:** не требуется
+- **Создать промокод:**
+  - `POST /promocodes/create`
+  - Требуется: `X-API-KEY: hi`, JWT (cookie)
+  - **Body:** `{ "code": "PROMO2024", "description": "Описание", "ownerId": 1 }`
+- **Увеличить sales у промокода:**
+  - `POST /promocodes/implemetSales?promocodeId=1`
+  - Требуется: `X-API-KEY: hi`, JWT (cookie)
+  - **Query:** `promocodeId` (например, `?promocodeId=1`)
 
-### `npm run build`
+## Роли
+- При создании пользователя автоматически присваивается роль USER.
+- Пользователь может иметь несколько ролей.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Пример curl-запроса
+```bash
+curl -X POST http://localhost:3000/auth/login \
+  -H "Content-Type: application/json" \
+  -H "X-API-KEY: hi" \
+  -d '{"login":"user","password":"pass"}'
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Вся структура и примеры доступны в Swagger!**

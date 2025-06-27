@@ -25,6 +25,18 @@ const FirstMenu = () => {
     ref.current.classList.remove("disappearAnimation")
   } , [navigate, dispatch, ref] )
 
+  const sendPlug = () => {
+        window.Telegram.WebApp
+        .showPopup({
+        title: "⏳Скоро доступно",
+        message: "Эта функция появится в одном из ближайших обновлений. Мы уже работаем над её запуском — следите за новостями!",
+        buttons: [
+            { id: "save", type: "default", text: "Понятно" },
+        ],
+        } , (buttonId) => {    
+        } )
+  }
+
   return (
     <div ref={ref} className={"FirstMenu"}>
 
@@ -86,7 +98,7 @@ const FirstMenu = () => {
           <Text>Мои задания</Text>
         </div>
         <div className= { location.pathname === "/savedPage" ? "menuLink active" : "menuLink"} onClick={() => {
-          showAllert("Избранное скоро появится")
+          sendPlug();
         }}>
           <svg
             width="24"

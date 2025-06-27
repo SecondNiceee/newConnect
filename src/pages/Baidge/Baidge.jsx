@@ -23,9 +23,6 @@ const Baidge = ({isExternal = false}) => {
     menuController.showMenu();
     menuController.raiseMenu();
   }, [] );
-
-  console.log(me);
-
   useEffect(() => {
     if (isExternal){
       findUserById(baidgeId).then( (user) => {setUserInfo(user)} ).catch( () => {

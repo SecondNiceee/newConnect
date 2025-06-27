@@ -1,6 +1,7 @@
 import { useCallback } from 'react'
 import { formateAgeString } from '../../../functions/formateAgeString';
 export const useStageInputController = ({setStage, stage}) => {
+  
     const onBlurFunc = useCallback((e) => {
         e.target.value = formateAgeString(e.target.value)
       }, []);
