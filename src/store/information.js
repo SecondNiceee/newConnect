@@ -219,6 +219,7 @@ export const fetchTasksInformation = createAsyncThunk(
       alert("Сейчас идет обновление, пожалуйста перезайдите через минуту")
       console.log(e);
     }
+    console.log(task.data);
     if (task.data.length === 0) {
       return [];
     } else {   
