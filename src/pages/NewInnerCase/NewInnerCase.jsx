@@ -24,6 +24,7 @@ import axios from 'axios';
 import formatViews from './utils/formatViews';
 import useAddHistory from '../../hooks/useAddHistory';
 import { getUserWithoutCards } from '../../functions/api/getUserWithoutCards';
+import $api from '../../http';
 
 const NewInnerCase = () => {
     const clickFunc = () => {
