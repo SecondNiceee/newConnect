@@ -1,4 +1,4 @@
-import { lazy, useEffect, Suspense, useState} from "react";
+import { lazy, useEffect, Suspense} from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
@@ -35,8 +35,10 @@ import AppLayout from "./layouts/AppLayout";
 import { isIphone } from "./functions/isIphone";
 import ChoiceCategory from "./pages/AdCreatingOne/ui/components/ChoiceCategory/ChoiceCategory";
 import ChoiceSubCategory from "./pages/AdCreatingOne/ui/components/ChoiceCategory/ChoiceSubCategory";
+import NewChangeCard from "./pages/NewChangeCard/NewChangeCard";
 
-const NewChangeCard = lazy( () => import('./pages/NewChangeCard/NewChangeCard') )
+
+
 const HappyPage = lazy(() => import("./pages/HappyHold/HappyPage"));
 const   First = lazy(() => import("./pages/First/First"));
 const AdCreating = lazy(() => import("./pages/AdCreating/AdCreating"));
@@ -102,7 +104,7 @@ const AnimatedSwitch = () => {
   // useEffect(() => {
   //   async function makeUserVisit(params) {
   //     try {
-  //       await axios.put(
+  //       await $api.put(
   //         `${process.env.REACT_APP_HOST}/user/visit`,
   //         {},
   //         {
@@ -180,9 +182,7 @@ const AnimatedSwitch = () => {
               <Route
                 path="/cardCreation"
                 element={
-                  <Suspense fallback={<MyLoader />}>
                     <NewChangeCard isNewCard={true} />
-                  </Suspense>
                 }
               />
 

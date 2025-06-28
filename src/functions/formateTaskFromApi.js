@@ -32,6 +32,7 @@ export const formateTaskFromApi = (order, numberOfResponses, user) => {
         createNumber: numberOfResponses,
         category: order.category.id,
         subCategory: order.subCategory.id,
+        outSideButtonUrl : order.outSideButtonUrl
   };
   return formattedTask;
 }
